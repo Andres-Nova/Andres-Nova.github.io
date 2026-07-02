@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+*.swo
+.claude/
+docs/superpowers/
+node_modules/
+.superpowers/
+PROMPT~1.MD

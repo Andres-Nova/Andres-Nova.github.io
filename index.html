@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andres Nova — Data Architect & AI Engineer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Data Architect & AI Engineer with 7+ years building ETL pipelines, Power BI dashboards and ML models for urban mobility systems in Bogotá." />
+  <meta name="keywords" content="Data Architect, AI Engineer, Machine Learning, Power BI, Python, LLMs, ETL, Bogotá" />
+  <meta name="author" content="Andres Nova Bermudez" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Andres Nova — Data Architect & AI Engineer" />
+  <meta property="og:description" content="Data Architect with 7+ years building data pipelines, BI dashboards and ML models for high-criticality urban mobility systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://Underwork1.github.io" />
+  <!-- REEMPLAZAR: subir assets/og-preview.png (imagen 1200x630px para preview social) -->
+  <meta property="og:image" content="https://Underwork1.github.io/assets/og-preview.png" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://Underwork1.github.io" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Andres Nova — Data Architect & AI Engineer" />
+  <meta name="twitter:description" content="Data Architect with 7+ years in urban mobility data systems." />
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231B3A6B'/><text x='50' y='67' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' fill='white'>A</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* === CSS VARIABLES === */
+    :root {
+      --primary:    #1B3A6B;
+      --accent:     #1D5BA6;
+      --card-bg:    #EAF1FB;
+      --text:       #333333;
+      --muted:      #707070;
+      --white:      #FFFFFF;
+      --radius:     8px;
+      --shadow:     0 2px 16px rgba(27,58,107,0.10);
+      --transition: 0.3s ease;
+      --max-width:  1200px;
+    }
+
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* === TIPOGRAFÍA === */
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
+    h3 { font-size: 1.2rem; font-weight: 600; }
+    p  { color: var(--muted); }
+
+    /* === LAYOUT === */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    section { padding: 5rem 0; }
+
+    /* === GRID === */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* === SECTION TITLE === */
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { color: var(--primary); margin-bottom: 0.75rem; }
+    .section-header p  { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+    .section-divider {
+      width: 60px; height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 0.75rem auto 0;
+    }
+
+    /* === BOTONES === */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-outline-dark:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .btn-sm { padding: 0.45rem 1rem; font-size: 0.85rem; }
+    .btn:disabled, .btn[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* === BADGE === */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--white);
+    }
+
+    /* === TAG === */
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: var(--card-bg);
+      color: var(--primary);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* === SCROLL ANIMATIONS === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === SCROLLBAR === */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* === SELECTION === */
+    ::selection { background: var(--accent); color: var(--white); }
+
+    /* === NAVBAR === */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 12px rgba(27,58,107,0.08);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-logo {
+      width: 40px; height: 40px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: none;
+      flex: 1;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--accent); }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .nav-cv { display: none; }
+
+    /* Mobile menu abierto */
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--white);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border-top: 1px solid var(--card-bg);
+      z-index: 999;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .nav-cv { display: flex; }
+      .hamburger { display: none; }
+      .nav-links.open { position: static; flex-direction: row; box-shadow: none; border: none; padding: 0; }
+    }
+
+    /* === HERO === */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      top: -200px; right: -200px;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      text-align: center;
+    }
+    .hero-greeting {
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-text h1 { color: var(--white); }
+    .hero-typewriter {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin: 0.75rem 0;
+      min-height: 2rem;
+    }
+    .cursor {
+      animation: blink 0.8s step-end infinite;
+      color: rgba(255,255,255,0.7);
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-desc {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+    .hero-avatar { flex-shrink: 0; }
+    .avatar-circle {
+      width: 180px; height: 180px;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--white);
+      backdrop-filter: blur(4px);
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 3rem;
+      padding-bottom: 1rem;
+    }
+    .hero-badge {
+      padding: 0.4rem 1rem;
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    @media (min-width: 768px) {
+      .hero-content { flex-direction: row; text-align: left; justify-content: space-between; }
+      .hero-buttons { justify-content: flex-start; }
+      .hero-greeting { text-align: left; }
+      .hero-desc { margin-left: 0; }
+    }
+
+    /* === ABOUT === */
+    #about { background: var(--white); }
+    .about-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .about-avatar-col { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+    .about-avatar {
+      width: 160px; height: 160px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--white);
+      box-shadow: 0 8px 32px rgba(27,58,107,0.2);
+    }
+    .about-social { display: flex; gap: 1rem; }
+    .about-social a {
+      width: 40px; height: 40px;
+      background: var(--card-bg);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .about-social a:hover { background: var(--primary); color: var(--white); transform: translateY(-3px); }
+    .about-text-col { flex: 1; }
+    .about-p { margin-bottom: 1rem; color: var(--muted); line-height: 1.8; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+      border-left: 4px solid var(--accent);
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-block;
+    }
+    .stat-suffix { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+    .stat-label { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; font-weight: 500; }
+
+    @media (min-width: 768px) {
+      .about-grid { flex-direction: row; align-items: flex-start; }
+      .about-stats { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* === PROJECTS === */
+    #projects { background: #F8FAFF; }
+    .project-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 1px solid rgba(27,58,107,0.06);
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 8px 32px rgba(27,58,107,0.15); }
+    .project-card.in-progress { opacity: 0.85; }
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(27,58,107,0.08);
+      display: flex; align-items: flex-end; justify-content: flex-end;
+      padding: 1rem;
+      pointer-events: none;
+    }
+    .card-overlay span {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .card-header { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .featured-star { font-size: 0.8rem; font-weight: 600; color: var(--accent); }
+    .project-card h3 { color: var(--primary); line-height: 1.35; }
+    .card-desc { color: var(--muted); font-size: 0.92rem; line-height: 1.65; flex: 1; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .card-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.5rem; }
+
+    /* === SKILLS === */
+    #skills { background: var(--white); }
+    .skill-group {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+    .skill-group-title {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-group-title i { color: var(--accent); }
+    .skill-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      color: var(--text);
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+    .skill-pct { color: var(--accent); font-weight: 600; }
+    .skill-bar {
+      height: 6px;
+      background: rgba(27,58,107,0.12);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 3px;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* === EXPERIENCE TIMELINE === */
+    #experience { background: #F8FAFF; }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2.5rem 2rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -8px; top: 4px;
+      width: 18px; height: 18px;
+      background: var(--white);
+      border: 3px solid var(--accent);
+      border-radius: 50%;
+    }
+    .timeline-date {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+    }
+    .timeline-content {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent);
+    }
+    .timeline-content h3 { color: var(--primary); margin-bottom: 0.3rem; }
+    .timeline-company {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-content p { font-size: 0.9rem; }
+
+    /* === CONTACT === */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 768px) {
+      .contact-grid { grid-template-columns: 1.2fr 1fr; }
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .form-group input,
+    .form-group textarea {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid rgba(27,58,107,0.2);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color var(--transition);
+      background: var(--white);
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--card-bg);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+    }
+    .contact-card i { font-size: 1.4rem; color: var(--accent); width: 28px; text-align: center; }
+    .contact-card strong { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.15rem; }
+    .contact-card a { color: var(--primary); font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+    .contact-card a:hover { color: var(--accent); }
+    .contact-location {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .contact-location i { color: var(--accent); }
+
+    /* === FOOTER === */
+    #footer { background: var(--primary); color: rgba(255,255,255,0.85); padding: 3rem 0 0; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; }
+    }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-links strong,
+    .footer-social strong { display: block; color: var(--white); margin-bottom: 1rem; font-size: 0.9rem; }
+    .footer-links ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.65); font-size: 0.875rem; transition: var(--transition); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-icons { display: flex; gap: 0.75rem; }
+    .footer-icons a {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .footer-icons a:hover { background: var(--accent); transform: translateY(-3px); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+    /* === LANG TOGGLE === */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .lang-sep {
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      font-family: inherit;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn.lang-active {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .lang-btn:hover:not(.lang-active) {
+      color: var(--primary);
+      background: var(--card-bg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">AN</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-i18n="nav_about">Sobre Mí</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Proyectos</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Habilidades</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn lang-active" data-lang="es">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="assets/CV_Andres_Nova.pdf" class="btn btn-primary btn-sm nav-cv" download>
+        <i class="fas fa-download"></i> <span data-i18n="nav_cv">Descargar CV</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content container">
+      <div class="hero-text">
+        <p class="hero-greeting" data-i18n="hero_greeting">👋 Hola, soy</p>
+        <h1>Andres Nova</h1>
+        <div class="hero-typewriter">
+          <span id="typewriter-text"></span><span class="cursor">|</span>
+        </div>
+        <p class="hero-desc" data-i18n="hero_desc">
+          Arquitecto de Datos con +7 años construyendo pipelines ETL, dashboards BI y modelos ML para sistemas de movilidad urbana de alta criticidad en Bogotá, Colombia.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> <span data-i18n="hero_btn_projects">Ver Proyectos</span>
+          </a>
+          <a href="https://linkedin.com/in/andres-nova" class="btn btn-outline" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="hero-avatar">
+        <div class="avatar-circle">AN</div>
+      </div>
+    </div>
+    <div class="hero-badges container">
+      <span class="hero-badge">Power BI</span>
+      <span class="hero-badge">Python</span>
+      <span class="hero-badge">Azure</span>
+      <span class="hero-badge">scikit-learn</span>
+      <span class="hero-badge">SQL</span>
+      <span class="hero-badge">LLMs</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="about_title">Sobre Mí</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar-col">
+          <div class="about-avatar">AN</div>
+          <div class="about-social">
+            <a href="mailto:ing.andnova@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/andres-nova" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Underwork1" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="about-text-col">
+          <p class="about-p" data-i18n="about_p1">
+            Arquitecto de Datos con +7 años en la Secretaría Distrital de Movilidad de Bogotá, diseñando arquitecturas de datos, pipelines ETL/ELT y plataformas BI para sistemas de movilidad urbana de alta criticidad.
+          </p>
+          <p class="about-p" data-i18n="about_p2">
+            Integrante del equipo técnico del Centro Estratégico de Movilidad (CEM) — Plan Maestro SIT de Bogotá. Lideré proyectos como Body Cam para agentes de tránsito y el Sistema Inteligente Local (SIL).
+          </p>
+          <p class="about-p" data-i18n="about_p3">
+            Especializado en preparación de datos AI-ready, Machine Learning aplicado y construcción de sistemas RAG con modelos de lenguaje locales y en nube.
+          </p>
+          <p class="about-p" data-i18n="about_p4">
+            MBA en Ciencia de Datos e IA en curso. Visa B1/B2 USA vigente — abierto a oportunidades internacionales.
+          </p>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number" data-target="7">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label" data-i18n="stat_years">Años de Experiencia</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="3">0</span>
+              <span class="stat-label" data-i18n="stat_ml">Modelos ML en Producción</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="2000">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label" data-i18n="stat_devices">Dispositivos Integrados</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label" data-i18n="stat_kpis">KPIs Diseñados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="projects_title">Proyectos Destacados</h2>
+        <div class="section-divider"></div>
+        <p data-i18n="projects_desc">Una selección de proyectos de datos, IA e ingeniería que he construido o en los que he contribuido.</p>
+      </div>
+      <div class="grid-3" id="projects-grid">
+        <!-- Generado por renderProjects() -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="skills_title">Habilidades Técnicas</h2>
+        <div class="section-divider"></div>
+        <p data-i18n="skills_desc">Competencias principales en datos, IA e ingeniería de plataformas.</p>
+      </div>
+      <div class="grid-3">
+
+        <div class="skill-group">
+          <h3 class="skill-group-title"><i class="fas fa-database"></i> <span data-i18n="skills_group1">Datos & Analítica</span></h3>
+          <div class="skill-list">
+            <div class="skill-item"><span>Power BI + DAX</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+
+            <div class="skill-item"><span>Python (pandas, NumPy, scikit-learn)</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+
+            <div class="skill-item"><span>SQL / SQL Server</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+
+            <div class="skill-item"><span>ETL / Data Pipelines</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+
+            <div class="skill-item"><span>Azure Data Factory</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title"><i class="fas fa-brain"></i> <span data-i18n="skills_group2">IA & Machine Learning</span></h3>
+          <div class="skill-list">
+            <div class="skill-item"><span>Machine Learning (scikit-learn)</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+
+            <div class="skill-item"><span>RAG / LLMs</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+
+            <div class="skill-item"><span>Prompt Engineering</span><span class="skill-pct">70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+
+            <div class="skill-item"><span>AI-ready Data / Governance</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+
+            <div class="skill-item"><span>ESRI / GIS Analytics</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title"><i class="fas fa-tools"></i> <span data-i18n="skills_group3">Herramientas & Plataformas</span></h3>
+          <div class="skill-list">
+            <div class="skill-item"><span>Microsoft Azure</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+
+            <div class="skill-item"><span>Google Data Studio / Looker</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+
+            <div class="skill-item"><span>Streamlit</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+
+            <div class="skill-item"><span>Git / GitHub</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+
+            <div class="skill-item"><span>Tableau</span><span class="skill-pct">70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="exp_title">Experiencia Laboral</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2025 — Present</div>
+          <div class="timeline-content">
+            <h3 data-i18n="exp1_role">Arquitecto de Datos e Infraestructura</h3>
+            <span class="timeline-company" data-i18n="exp1_company">CEM / Plan Maestro SIT · SDM Bogotá</span>
+            <p data-i18n="exp1_desc">Liderando la arquitectura de datos e infraestructura del Centro Estratégico de Movilidad y el Plan Maestro del Sistema Inteligente de Transporte de Bogotá.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 — 2025</div>
+          <div class="timeline-content">
+            <h3 data-i18n="exp2_role">Analista de Datos</h3>
+            <span class="timeline-company" data-i18n="exp2_company">Proyectos SIL y Body Cam · SDM Bogotá</span>
+            <p data-i18n="exp2_desc">Diseñé pipelines ETL y dashboards BI para el Sistema Inteligente Local (SIL) y el proyecto Body Cam para agentes de tránsito.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022 — 2023</div>
+          <div class="timeline-content">
+            <h3 data-i18n="exp3_role">Líder Técnico — CGT</h3>
+            <span class="timeline-company" data-i18n="exp3_company">Centro de Gestión del Tráfico · SDM Bogotá</span>
+            <p data-i18n="exp3_desc">Lideré operaciones técnicas e integración de datos para el Centro de Gestión del Tráfico de Bogotá.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2021 — 2022</div>
+          <div class="timeline-content">
+            <h3 data-i18n="exp4_role">Ingeniero de Estrategia</h3>
+            <span class="timeline-company" data-i18n="exp4_company">SDM Bogotá</span>
+            <p data-i18n="exp4_desc">Desarrollé modelos de datos estratégicos y marcos de KPIs para la toma de decisiones de movilidad a nivel distrital.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2018 — 2021</div>
+          <div class="timeline-content">
+            <h3 data-i18n="exp5_role">Técnico Operativo</h3>
+            <span class="timeline-company" data-i18n="exp5_company">SDM Bogotá</span>
+            <p data-i18n="exp5_desc">Soporte de campo y a nivel de sistemas para la infraestructura de recolección de datos de movilidad urbana.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="contact_title">Contáctame</h2>
+        <div class="section-divider"></div>
+        <p data-i18n="contact_desc">Abierto a oportunidades en Arquitectura de Datos, Ingeniería IA y BI — sector privado y consultoría.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name" data-i18n="form_name">Nombre</label>
+            <input type="text" id="name" name="name" data-i18n-placeholder="form_name_ph" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="form_email">Correo electrónico</label>
+            <input type="email" id="email" name="email" data-i18n-placeholder="form_email_ph" placeholder="tu@correo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="form_message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" data-i18n-placeholder="form_message_ph" placeholder="Cuéntame sobre tu proyecto u oportunidad..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">
+            <i class="fas fa-paper-plane"></i> <span data-i18n="form_send">Enviar Mensaje</span>
+          </button>
+        </form>
+        <div class="contact-info">
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:ing.andnova@gmail.com">ing.andnova@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://linkedin.com/in/andres-nova" target="_blank" rel="noopener">linkedin.com/in/andres-nova</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-github"></i>
+            <div>
+              <strong>GitHub</strong>
+              <a href="https://github.com/Underwork1" target="_blank" rel="noopener">github.com/Underwork1</a>
+            </div>
+          </div>
+          <div class="contact-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Bogotá, Colombia · B1/B2 USA Visa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:0.75rem">AN</div>
+        <p data-i18n="footer_desc" style="white-space: pre-line">Arquitecto de Datos e Ingeniero IA
+Bogotá, Colombia</p>
+      </div>
+      <div class="footer-links">
+        <strong data-i18n="footer_links_title">Navegación</strong>
+        <ul>
+          <li><a href="#about" data-i18n="nav_about">Sobre Mí</a></li>
+          <li><a href="#projects" data-i18n="nav_projects">Proyectos</a></li>
+          <li><a href="#skills" data-i18n="nav_skills">Habilidades</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <strong data-i18n="footer_connect_title">Contacto</strong>
+        <div class="footer-icons">
+          <a href="mailto:ing.andnova@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://linkedin.com/in/andres-nova" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Underwork1" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_copyright">© 2026 Andres Nova Bermudez — Construido con HTML, CSS y JavaScript</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       PROJECTS CONFIG — Agrega / quita proyectos aquí
+       visible: false → el proyecto no aparece en el sitio
+       ============================================================ */
+    /* === IDIOMA === */
+    let currentLang = localStorage.getItem('lang') || 'es';
+    let typewriterTimer = null;
+
+    const TRANSLATIONS = {
+      es: {
+        nav_about: 'Sobre Mí', nav_projects: 'Proyectos', nav_skills: 'Habilidades',
+        nav_contact: 'Contacto', nav_cv: 'Descargar CV',
+        hero_greeting: '👋 Hola, soy',
+        hero_desc: 'Arquitecto de Datos con +7 años construyendo pipelines ETL, dashboards BI y modelos ML para sistemas de movilidad urbana de alta criticidad en Bogotá, Colombia.',
+        hero_btn_projects: 'Ver Proyectos',
+        hero_typewriter: ['Arquitecto de Datos', 'Ingeniero IA & ML', 'Especialista BI', 'Power BI + Python + LLMs'],
+        about_title: 'Sobre Mí',
+        about_p1: 'Arquitecto de Datos con +7 años en la Secretaría Distrital de Movilidad de Bogotá, diseñando arquitecturas de datos, pipelines ETL/ELT y plataformas BI para sistemas de movilidad urbana de alta criticidad.',
+        about_p2: 'Integrante del equipo técnico del Centro Estratégico de Movilidad (CEM) — Plan Maestro SIT de Bogotá. Lideré proyectos como Body Cam para agentes de tránsito y el Sistema Inteligente Local (SIL).',
+        about_p3: 'Especializado en preparación de datos AI-ready, Machine Learning aplicado y construcción de sistemas RAG con modelos de lenguaje locales y en nube.',
+        about_p4: 'MBA en Ciencia de Datos e IA en curso. Visa B1/B2 USA vigente — abierto a oportunidades internacionales.',
+        stat_years: 'Años de Experiencia', stat_ml: 'Modelos ML en Producción',
+        stat_devices: 'Dispositivos Integrados', stat_kpis: 'KPIs Diseñados',
+        projects_title: 'Proyectos Destacados',
+        projects_desc: 'Una selección de proyectos de datos, IA e ingeniería que he construido o en los que he contribuido.',
+        btn_github: 'GitHub', btn_demo: 'Demo en Vivo', btn_coming_soon: 'Próximamente',
+        btn_in_progress: '🚧 En Construcción', badge_featured: '⭐ Destacado',
+        proj_urban_title: 'Urban Mobility Insights — Siniestralidad Vial Bogotá',
+        proj_urban_desc: 'Dashboard interactivo + modelo Random Forest para predecir zonas y horarios de alto riesgo vial en Bogotá. Pipeline ETL sobre datos abiertos de la SDM con AUC-ROC de 0.74.',
+        proj_rag_title: 'Sistema RAG con Modelo de Lenguaje Local',
+        proj_rag_desc: 'Sistema de Retrieval-Augmented Generation con LLM local. Permite consultas semánticas sobre documentos propios sin depender de APIs externas.',
+        proj_whatsapp_title: 'Bot WhatsApp con LLM — NOVALU',
+        proj_whatsapp_desc: 'Bot de atención al cliente WhatsApp con LLM local (Nova). Incluye dashboard de ventas en tiempo real para agentes con arquitectura multi-agente.',
+        proj_banking_title: 'Dashboard de Riesgo Crediticio — Colombia',
+        proj_banking_desc: 'Modelo ML para predicción de mora crediticia usando datos abiertos de la Superintendencia Financiera de Colombia. Dashboard interactivo con alertas por entidad y región.',
+        proj_nlp_title: 'NLP Sentimientos — Movilidad Urbana Bogotá',
+        proj_nlp_desc: 'Pipeline NLP de análisis de sentimientos en español colombiano aplicado a datos de movilidad urbana. Modelos transformer ajustados en corpus del dominio.',
+        proj_ollama_title: 'Infraestructura Ollama Manager',
+        proj_ollama_desc: 'Infraestructura Ollama self-hosted con proxy nginx, Open WebUI, panel admin y túnel ngrok. Soporta múltiples modelos LLM con acceso por URL pública.',
+        skills_title: 'Habilidades Técnicas',
+        skills_desc: 'Competencias principales en datos, IA e ingeniería de plataformas.',
+        skills_group1: 'Datos & Analítica', skills_group2: 'IA & Machine Learning', skills_group3: 'Herramientas & Plataformas',
+        exp_title: 'Experiencia Laboral',
+        exp1_role: 'Arquitecto de Datos e Infraestructura', exp1_company: 'CEM / Plan Maestro SIT · SDM Bogotá',
+        exp1_desc: 'Liderando la arquitectura de datos e infraestructura del Centro Estratégico de Movilidad y el Plan Maestro del Sistema Inteligente de Transporte de Bogotá.',
+        exp2_role: 'Analista de Datos', exp2_company: 'Proyectos SIL y Body Cam · SDM Bogotá',
+        exp2_desc: 'Diseñé pipelines ETL y dashboards BI para el Sistema Inteligente Local (SIL) y el proyecto Body Cam para agentes de tránsito.',
+        exp3_role: 'Líder Técnico — CGT', exp3_company: 'Centro de Gestión del Tráfico · SDM Bogotá',
+        exp3_desc: 'Lideré operaciones técnicas e integración de datos para el Centro de Gestión del Tráfico de Bogotá.',
+        exp4_role: 'Ingeniero de Estrategia', exp4_company: 'SDM Bogotá',
+        exp4_desc: 'Desarrollé modelos de datos estratégicos y marcos de KPIs para la toma de decisiones de movilidad a nivel distrital.',
+        exp5_role: 'Técnico Operativo', exp5_company: 'SDM Bogotá',
+        exp5_desc: 'Soporte de campo y a nivel de sistemas para la infraestructura de recolección de datos de movilidad urbana.',
+        contact_title: 'Contáctame',
+        contact_desc: 'Abierto a oportunidades en Arquitectura de Datos, Ingeniería IA y BI — sector privado y consultoría.',
+        form_name: 'Nombre', form_name_ph: 'Tu nombre',
+        form_email: 'Correo electrónico', form_email_ph: 'tu@correo.com',
+        form_message: 'Mensaje', form_message_ph: 'Cuéntame sobre tu proyecto u oportunidad...',
+        form_send: 'Enviar Mensaje',
+
+        footer_desc: 'Arquitecto de Datos e Ingeniero IA\nBogotá, Colombia',
+        footer_links_title: 'Navegación', footer_connect_title: 'Contacto',
+        footer_copyright: '© 2026 Andres Nova Bermudez — Construido con HTML, CSS y JavaScript',
+      },
+      en: {
+        nav_about: 'About', nav_projects: 'Projects', nav_skills: 'Skills',
+        nav_contact: 'Contact', nav_cv: 'Download CV',
+        hero_greeting: '👋 Hello, I\'m',
+        hero_desc: 'Data Architect with 7+ years building ETL pipelines, BI dashboards and ML models for high-criticality urban mobility systems in Bogotá, Colombia.',
+        hero_btn_projects: 'View Projects',
+        hero_typewriter: ['Data Architect', 'AI & ML Engineer', 'BI Specialist', 'Power BI + Python + LLMs'],
+        about_title: 'About Me',
+        about_p1: 'Data Architect with 7+ years at the Secretaría Distrital de Movilidad de Bogotá, designing data architectures, ETL/ELT pipelines and BI platforms for high-criticality urban mobility systems.',
+        about_p2: 'Core member of the Centro Estratégico de Movilidad (CEM) technical team — Bogotá\'s Master Plan SIT. Led landmark projects including Body Cam for traffic agents and the Local Intelligent System (SIL).',
+        about_p3: 'Specialized in AI-ready data preparation, applied Machine Learning and building RAG systems with both local and cloud language models.',
+        about_p4: 'MBA in Data Science & AI (in progress). B1/B2 USA visa — open to international opportunities.',
+        stat_years: 'Years Experience', stat_ml: 'ML Models in Production',
+        stat_devices: 'Devices Integrated', stat_kpis: 'KPIs Designed',
+        projects_title: 'Featured Projects',
+        projects_desc: 'A selection of data, AI and engineering projects I\'ve built or contributed to.',
+        btn_github: 'GitHub', btn_demo: 'Live Demo', btn_coming_soon: 'Coming Soon',
+        btn_in_progress: '🚧 In Progress', badge_featured: '⭐ Featured',
+        proj_urban_title: 'Urban Mobility Insights — Siniestralidad Vial Bogotá',
+        proj_urban_desc: 'Interactive dashboard + Random Forest model to predict high-risk accident zones and time slots in Bogotá. ETL pipeline over open SDM data with AUC-ROC of 0.74.',
+        proj_rag_title: 'RAG System with Local Language Model',
+        proj_rag_desc: 'Retrieval-Augmented Generation system with a local LLM. Enables semantic queries over private documents without relying on external APIs.',
+        proj_whatsapp_title: 'WhatsApp LLM Bot — NOVALU',
+        proj_whatsapp_desc: 'Customer service WhatsApp bot powered by a local LLM (Nova). Includes real-time sales dashboard for agents with multi-agent conversation architecture.',
+        proj_banking_title: 'Credit Portfolio Risk Dashboard — Colombia',
+        proj_banking_desc: 'ML model for credit default prediction using open data from Colombia\'s Superintendencia Financiera. Interactive dashboard with alerts by entity and region.',
+        proj_nlp_title: 'Sentiment NLP — Urban Mobility Bogotá',
+        proj_nlp_desc: 'NLP sentiment analysis pipeline in Colombian Spanish applied to urban mobility data. Fine-tuned transformer models on a domain-specific corpus.',
+        proj_ollama_title: 'Ollama Manager Infrastructure',
+        proj_ollama_desc: 'Self-hosted Ollama infrastructure with nginx proxy, Open WebUI, admin panel and ngrok tunnel. Supports multiple LLM models with public URL access.',
+        skills_title: 'Technical Skills',
+        skills_desc: 'Core competencies across data, AI and platform engineering.',
+        skills_group1: 'Data & Analytics', skills_group2: 'AI & Machine Learning', skills_group3: 'Tools & Platforms',
+        exp_title: 'Work Experience',
+        exp1_role: 'Data & Infrastructure Architect', exp1_company: 'CEM / Master Plan SIT · SDM Bogotá',
+        exp1_desc: 'Leading the data and infrastructure architecture for Bogotá\'s Strategic Mobility Center and the city\'s Intelligent Transport System master plan.',
+        exp2_role: 'Data Analyst', exp2_company: 'SIL & Body Cam Projects · SDM Bogotá',
+        exp2_desc: 'Designed ETL pipelines and BI dashboards for the Local Intelligent System (SIL) and the Body Cam project for traffic agents.',
+        exp3_role: 'Technical Lead — CGT', exp3_company: 'Traffic Management Center · SDM Bogotá',
+        exp3_desc: 'Led technical operations and data integration for Bogotá\'s Traffic Management Center.',
+        exp4_role: 'Strategy Engineer', exp4_company: 'SDM Bogotá',
+        exp4_desc: 'Developed strategic data models and KPI frameworks for mobility decision-making at the district level.',
+        exp5_role: 'Technical Operative', exp5_company: 'SDM Bogotá',
+        exp5_desc: 'Field and system-level support for urban mobility data collection infrastructure.',
+        contact_title: 'Get In Touch',
+        contact_desc: 'Open to opportunities in Data Architecture, AI Engineering & BI — private sector and consulting.',
+        form_name: 'Name', form_name_ph: 'Your name',
+        form_email: 'Email', form_email_ph: 'your@email.com',
+        form_message: 'Message', form_message_ph: 'Tell me about your project or opportunity...',
+        form_send: 'Send Message',
+
+        footer_desc: 'Data Architect & AI Engineer\nBogotá, Colombia',
+        footer_links_title: 'Quick Links', footer_connect_title: 'Connect',
+        footer_copyright: '© 2026 Andres Nova Bermudez — Built with HTML, CSS & JavaScript',
+      }
+    };
+
+    const PROJECTS_CONFIG = [
+      {
+        id: 'urban-mobility',
+        visible: true,
+        featured: true,
+        inProgress: false,
+        category: 'Data Science · ML',
+        categoryColor: '#1B3A6B',
+        titleKey: 'proj_urban_title',
+        descKey: 'proj_urban_desc',
+        tags: ['Python', 'scikit-learn', 'Streamlit', 'Plotly', 'ETL', 'Random Forest'],
+        github: 'https://github.com/Underwork1/urban-mobility-insights',
+        demo: '<!-- REEMPLAZAR: URL de tu app en Streamlit, ej. https://tu-app.streamlit.app -->',
+        demoDisabled: true,
+        demoLabelKey: 'btn_demo'
+      },
+      {
+        id: 'rag-system',
+        visible: true,
+        featured: false,
+        inProgress: false,
+        category: 'LLMs · AI',
+        categoryColor: '#6B21A8',
+        titleKey: 'proj_rag_title',
+        descKey: 'proj_rag_desc',
+        tags: ['Python', 'LangChain', 'RAG', 'LLM', 'Embeddings', 'Vector DB'],
+        github: '<!-- REEMPLAZAR: https://github.com/Underwork1/[nombre-repo-rag] -->',
+        demo: null,
+        demoDisabled: true,
+        demoLabelKey: 'btn_coming_soon'
+      },
+      {
+        id: 'whatsapp-bot',
+        visible: true,
+        featured: false,
+        inProgress: false,
+        category: 'Web Dev · AI',
+        categoryColor: '#15803D',
+        titleKey: 'proj_whatsapp_title',
+        descKey: 'proj_whatsapp_desc',
+        tags: ['Python', 'FastAPI', 'WhatsApp', 'LLM', 'Ollama', 'HTMX'],
+        github: 'https://github.com/Underwork1/whatsapp-llm-bot',
+        demo: null,
+        demoDisabled: true,
+        demoLabelKey: null
+      },
+      {
+        id: 'banking-risk',
+        visible: true,
+        featured: false,
+        inProgress: true,
+        category: 'FinTech · ML',
+        categoryColor: '#B91C1C',
+        titleKey: 'proj_banking_title',
+        descKey: 'proj_banking_desc',
+        tags: ['Python', 'scikit-learn', 'Streamlit', 'Plotly', 'SFC Open Data'],
+        github: null,
+        demo: null,
+        demoDisabled: true,
+        demoLabelKey: null
+      },
+      {
+        id: 'sentiment-nlp',
+        visible: false,  /* ← cambiar a true para mostrar */
+        featured: false,
+        inProgress: false,
+        category: 'NLP · Data Science',
+        categoryColor: '#C2410C',
+        titleKey: 'proj_nlp_title',
+        descKey: 'proj_nlp_desc',
+        tags: ['Python', 'Transformers', 'NLP', 'spaCy', 'HuggingFace'],
+        github: '<!-- REEMPLAZAR: https://github.com/Underwork1/[nombre-repo-nlp] -->',
+        demo: null,
+        demoDisabled: true,
+        demoLabelKey: null
+      },
+      {
+        id: 'ollama-manager',
+        visible: false,  /* ← cambiar a true para mostrar */
+        featured: false,
+        inProgress: false,
+        category: 'Infrastructure · AI',
+        categoryColor: '#1E40AF',
+        titleKey: 'proj_ollama_title',
+        descKey: 'proj_ollama_desc',
+        tags: ['Docker', 'nginx', 'Ollama', 'ngrok', 'Shell', 'Open WebUI'],
+        github: 'https://github.com/Underwork1/ollama-manager',
+        demo: null,
+        demoDisabled: true,
+        demoLabelKey: null
+      }
+    ];
+
+    /* === RENDER PROJECTS === */
+    function renderProjects() {
+      const t = TRANSLATIONS[currentLang];
+      const grid = document.getElementById('projects-grid');
+      const visible = PROJECTS_CONFIG.filter(p => p.visible);
+
+      grid.innerHTML = visible.map(p => {
+        const githubBtn = p.github && !p.github.includes('REEMPLAZAR')
+          ? `<a href="${p.github}" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">
+               <i class="fab fa-github"></i> ${t.btn_github}
+             </a>`
+          : `<button class="btn btn-outline-dark btn-sm" disabled>
+               <i class="fab fa-github"></i> ${t.btn_github}
+             </button>`;
+
+        const demoLabel = p.demoLabelKey ? t[p.demoLabelKey] : null;
+        const demoBtn = demoLabel
+          ? (p.demoDisabled || !p.demo || p.demo.includes('REEMPLAZAR')
+              ? `<button class="btn btn-primary btn-sm" disabled>${demoLabel}</button>`
+              : `<a href="${p.demo}" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+                   <i class="fas fa-external-link-alt"></i> ${demoLabel}
+                 </a>`)
+          : '';
+
+        const inProgressOverlay = p.inProgress
+          ? `<div class="card-overlay"><span>${t.btn_in_progress}</span></div>`
+          : '';
+
+        const featuredBadge = p.featured
+          ? `<span class="featured-star">${t.badge_featured}</span>`
+          : '';
+
+        const tags = p.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+        return `
+          <article class="project-card ${p.inProgress ? 'in-progress' : ''} fade-in">
+            ${inProgressOverlay}
+            <div class="card-header">
+              <span class="badge" style="background:${p.categoryColor}">${p.category}</span>
+              ${featuredBadge}
+            </div>
+            <h3>${t[p.titleKey]}</h3>
+            <p class="card-desc">${t[p.descKey]}</p>
+            <div class="card-tags">${tags}</div>
+            <div class="card-buttons">${githubBtn}${demoBtn}</div>
+          </article>`;
+      }).join('');
+    }
+
+    /* === CONTADORES ANIMADOS === */
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const duration = 1500;
+          const step = target / (duration / 16);
+          let current = 0;
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = Math.floor(current).toLocaleString();
+            if (current >= target) clearInterval(timer);
+          }, 16);
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.3 });
+      counters.forEach(c => observer.observe(c));
+    }
+
+    /* === SKILL BARS === */
+    function animateSkillBars() {
+      const section = document.getElementById('skills');
+      const observer = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        document.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        observer.unobserve(section);
+      }, { threshold: 0.2 });
+      observer.observe(section);
+    }
+
+    /* === TYPEWRITER === */
+    function startTypewriter() {
+      const t = TRANSLATIONS[currentLang];
+      const words = t.hero_typewriter;
+      const el = document.getElementById('typewriter-text');
+      let wordIdx = 0, charIdx = 0, deleting = false;
+
+      function tick() {
+        const current = words[wordIdx];
+        if (deleting) {
+          el.textContent = current.slice(0, --charIdx);
+        } else {
+          el.textContent = current.slice(0, ++charIdx);
+        }
+        let delay = deleting ? 60 : 110;
+        if (!deleting && charIdx === current.length) {
+          delay = 1800;
+          deleting = true;
+        } else if (deleting && charIdx === 0) {
+          deleting = false;
+          wordIdx = (wordIdx + 1) % words.length;
+          delay = 300;
+        }
+        typewriterTimer = setTimeout(tick, delay);
+      }
+      tick();
+    }
+
+    function initTypewriter() { startTypewriter(); }
+
+    function restartTypewriter() {
+      if (typewriterTimer) clearTimeout(typewriterTimer);
+      const el = document.getElementById('typewriter-text');
+      if (el) el.textContent = '';
+      startTypewriter();
+    }
+
+    /* === HAMBURGER === */
+    function initHamburger() {
+      const btn = document.getElementById('hamburger');
+      const links = document.getElementById('navLinks');
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('open');
+        links.classList.toggle('open');
+      });
+      // Cerrar menu al hacer click en un link
+      links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          btn.classList.remove('open');
+          links.classList.remove('open');
+        });
+      });
+    }
+
+    /* === SMOOTH SCROLL === */
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const target = document.querySelector(a.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            const offset = 70;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        });
+      });
+    }
+
+    /* === CONTACT FORM — mailto fallback === */
+    function initContactForm() {
+      document.getElementById('contactForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name    = document.getElementById('name').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+        const body    = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
+        window.location.href = `mailto:ing.andnova@gmail.com?subject=${subject}&body=${body}`;
+      });
+    }
+
+    /* === SCROLL ANIMATIONS GLOBAL === */
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    /* === I18N === */
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (TRANSLATIONS[lang][key] !== undefined) el.textContent = TRANSLATIONS[lang][key];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (TRANSLATIONS[lang][key]) el.placeholder = TRANSLATIONS[lang][key];
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('lang-active', btn.dataset.lang === lang);
+      });
+
+      renderProjects();
+      restartTypewriter();
+    }
+
+    function initLangToggle() {
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+      });
+    }
+
+    /* === INIT === */
+    function init() {
+      initLangToggle();
+      setLanguage(currentLang);
+      animateCounters();
+      animateSkillBars();
+      initHamburger();
+      initSmoothScroll();
+      initContactForm();
+      initScrollAnimations();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
