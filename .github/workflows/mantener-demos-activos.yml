@@ -1,34 +1,33 @@
 name: Mantener demos activos
 
-# Hace ping a los 4 demos cada 30 minutos para evitar que Streamlit Cloud
-# los ponga en modo reposo por inactividad.
+# Abre cada demo con un navegador Chromium headless real (Playwright) para
+# establecer la conexión WebSocket que Streamlit Cloud cuenta como actividad.
+# Si el demo está dormido, clica el botón de despertar y espera a que cargue.
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # cada 30 minutos, las 24h
-  workflow_dispatch:           # permite ejecución manual desde GitHub
+    - cron: '0 */6 * * *'   # cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
+  workflow_dispatch:          # permite ejecución manual desde la pestaña Actions
 
 jobs:
-  ping:
-    name: Ping demos Streamlit
+  despertar:
+    name: Despertar demos Streamlit
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
-      - name: Ping credit-risk-colombia
-        run: |
-          curl -s -o /dev/null -w "credit-risk: %{http_code}\n" \
-            https://credit-risk-colombia.streamlit.app/ || true
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Ping bogota-traffic-safety
-        run: |
-          curl -s -o /dev/null -w "bogota-traffic: %{http_code}\n" \
-            https://bogota-traffic-safety.streamlit.app/ || true
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Ping academic-rag
+      - name: Instalar Playwright + Chromium
         run: |
-          curl -s -o /dev/null -w "academic-rag: %{http_code}\n" \
-            https://academic-rag.streamlit.app/ || true
+          pip install playwright
+          playwright install chromium --with-deps
 
-      - name: Ping sentiment-nlp
-        run: |
-          curl -s -o /dev/null -w "sentiment-nlp: %{http_code}\n" \
-            https://sentiment-nlp-co.streamlit.app/ || true
+      - name: Despertar demos
+        run: python .github/scripts/despertar_demos.py
