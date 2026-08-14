@@ -1,0 +1,34 @@
+name: Mantener demos activos
+
+# Hace ping a los 4 demos cada 30 minutos para evitar que Streamlit Cloud
+# los ponga en modo reposo por inactividad.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # cada 30 minutos, las 24h
+  workflow_dispatch:           # permite ejecución manual desde GitHub
+
+jobs:
+  ping:
+    name: Ping demos Streamlit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping credit-risk-colombia
+        run: |
+          curl -s -o /dev/null -w "credit-risk: %{http_code}\n" \
+            https://credit-risk-colombia.streamlit.app/ || true
+
+      - name: Ping bogota-traffic-safety
+        run: |
+          curl -s -o /dev/null -w "bogota-traffic: %{http_code}\n" \
+            https://bogota-traffic-safety.streamlit.app/ || true
+
+      - name: Ping academic-rag
+        run: |
+          curl -s -o /dev/null -w "academic-rag: %{http_code}\n" \
+            https://academic-rag.streamlit.app/ || true
+
+      - name: Ping sentiment-nlp
+        run: |
+          curl -s -o /dev/null -w "sentiment-nlp: %{http_code}\n" \
+            https://sentiment-nlp-co.streamlit.app/ || true
