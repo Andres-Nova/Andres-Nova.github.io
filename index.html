@@ -1417,7 +1417,7 @@ Bogotá, Colombia</p>
           ? (p.demoDisabled || !p.demo || p.demo.includes('REEMPLAZAR')
               ? `<button class="btn btn-primary btn-sm" disabled>${demoLabel}</button>`
               : `<a href="${p.demo}" class="btn btn-primary btn-sm" target="_blank" rel="noopener"
-                   title="${lang === 'en' ? 'May take ~30s to wake up if inactive' : 'Puede tardar ~30s en cargar si estaba en reposo'}">
+                   title="${currentLang === 'en' ? 'May take ~30s to wake up if inactive' : 'Puede tardar ~30s en cargar si estaba en reposo'}">
                    <i class="fas fa-external-link-alt"></i> ${demoLabel}
                  </a>`)
           : '';
