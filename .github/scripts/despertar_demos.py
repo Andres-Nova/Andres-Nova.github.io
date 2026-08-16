@@ -3,9 +3,13 @@ Despierta los demos de Streamlit Cloud que hayan entrado en modo reposo.
 Usa Playwright (navegador Chromium headless) para establecer una conexión
 WebSocket real — la única forma que Streamlit Cloud reconoce como actividad.
 
-Ejecutado automáticamente por GitHub Actions cada 6 horas.
+Después de despertar, mantiene el navegador en la página durante 60 segundos
+para que Streamlit registre la sesión como activa y reinicie su contador.
+
+Ejecutado automáticamente por GitHub Actions cada 3 horas.
 """
 
+import time
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
 
 APPS = [
@@ -22,9 +26,14 @@ TEXTOS_DESPERTAR = [
     "Wake it up",
 ]
 
-TIMEOUT_NAVEGACION = 60_000   # 60 s para que cargue la página inicial
-TIMEOUT_BOTON      =  8_000   # 8 s para detectar si aparece el botón de reposo
-TIMEOUT_DESPERTAR  = 90_000   # 90 s para que el app arranque después de clicar
+# Selector que confirma que la app Streamlit cargó completamente
+SELECTOR_APP_CARGADA = "[data-testid='stAppViewContainer'], [data-testid='stApp'], .main"
+
+TIMEOUT_NAVEGACION  = 60_000   # 60 s para que cargue la página inicial
+TIMEOUT_BOTON       =  8_000   # 8 s para detectar si aparece el botón de reposo
+TIMEOUT_DESPERTAR   = 120_000  # 120 s para que el app arranque después de clicar
+TIMEOUT_CARGA_APP   = 60_000   # 60 s para confirmar que la app cargó de verdad
+TIEMPO_SESION_ACTIVA = 60_000  # 60 s manteniendo conexión activa (reinicia contador)
 
 
 def despertar_app(page, nombre: str, url: str) -> None:
@@ -53,18 +62,31 @@ def despertar_app(page, nombre: str, url: str) -> None:
         print(f"  💤 {nombre} en reposo — clicando para despertar ...")
         try:
             boton.click()
-            # Esperar a que desaparezca la pantalla de reposo y cargue la app
+            # Esperar a que desaparezca la pantalla de reposo
             page.wait_for_function(
                 "() => !document.body.innerText.includes('gone to sleep')",
                 timeout=TIMEOUT_DESPERTAR,
             )
-            print(f"  ✅ {nombre} despertada y activa")
+            # Esperar a que el componente principal de Streamlit aparezca
+            try:
+                page.wait_for_selector(SELECTOR_APP_CARGADA, timeout=TIMEOUT_CARGA_APP)
+                print(f"  🚀 {nombre} cargada — manteniendo sesión {TIEMPO_SESION_ACTIVA // 1000}s ...")
+            except PlaywrightTimeout:
+                print(f"  ⚠️  {nombre}: app iniciada pero selector no encontrado — esperando igualmente ...")
+
+            # Mantener la conexión WebSocket activa para que Streamlit
+            # registre la sesión y reinicie el contador de inactividad.
+            page.wait_for_timeout(TIEMPO_SESION_ACTIVA)
+            print(f"  ✅ {nombre} activa y sesión registrada")
         except PlaywrightTimeout:
             print(f"  ⚠️  {nombre}: clicado pero tardó demasiado en responder")
         except Exception as e:
             print(f"  ❌ {nombre}: error al despertar — {e}")
     else:
-        print(f"  ✅ {nombre} ya estaba activa")
+        print(f"  ✅ {nombre} ya estaba activa — manteniendo sesión {TIEMPO_SESION_ACTIVA // 1000}s ...")
+        # También mantenemos la sesión cuando el app ya estaba activa
+        page.wait_for_timeout(TIEMPO_SESION_ACTIVA)
+        print(f"  ✅ {nombre} sesión renovada")
 
 
 def main():

@@ -6,14 +6,14 @@ name: Mantener demos activos
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: '0 */3 * * *'   # cada 3 horas (00, 03, 06, 09, 12, 15, 18, 21 UTC)
   workflow_dispatch:          # permite ejecución manual desde la pestaña Actions
 
 jobs:
   despertar:
     name: Despertar demos Streamlit
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
