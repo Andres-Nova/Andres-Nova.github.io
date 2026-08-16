@@ -547,6 +547,59 @@
       transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* === TECH STACK BADGES === */
+    .tech-stack { margin-top: 3.5rem; }
+    .tech-stack-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .tech-categories { display: flex; flex-direction: column; gap: 1rem; }
+    .tech-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .tech-row-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      min-width: 82px;
+      flex-shrink: 0;
+    }
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2rem;
+      font-size: 0.775rem;
+      font-weight: 500;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: default;
+    }
+    .tech-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+    .tech-badge i { font-size: 0.7rem; }
+    .badge-ai   { background: #EEF2FF; color: #3730A3; }
+    .badge-data { background: #F0FDF4; color: #166534; }
+    .badge-back { background: #FFF7ED; color: #C2410C; }
+    .badge-infra{ background: #F0F9FF; color: #0369A1; }
+    .badge-net  { background: #FDF4FF; color: #7E22CE; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .badge-ai   { background: rgba(99,102,241,0.18); color: #A5B4FC; }
+      :root:not([data-theme="light"]) .badge-data { background: rgba(34,197,94,0.15);  color: #86EFAC; }
+      :root:not([data-theme="light"]) .badge-back { background: rgba(249,115,22,0.15); color: #FED7AA; }
+      :root:not([data-theme="light"]) .badge-infra{ background: rgba(14,165,233,0.15); color: #BAE6FD; }
+      :root:not([data-theme="light"]) .badge-net  { background: rgba(168,85,247,0.15); color: #E9D5FF; }
+    }
+    :root[data-theme="dark"] .badge-ai   { background: rgba(99,102,241,0.18); color: #A5B4FC; }
+    :root[data-theme="dark"] .badge-data { background: rgba(34,197,94,0.15);  color: #86EFAC; }
+    :root[data-theme="dark"] .badge-back { background: rgba(249,115,22,0.15); color: #FED7AA; }
+    :root[data-theme="dark"] .badge-infra{ background: rgba(14,165,233,0.15); color: #BAE6FD; }
+    :root[data-theme="dark"] .badge-net  { background: rgba(168,85,247,0.15); color: #E9D5FF; }
+
     /* === EXPERIENCE TIMELINE === */
     #experience { background: #F8FAFF; }
     .timeline { position: relative; padding-left: 2rem; }
@@ -987,6 +1040,66 @@
         </div>
 
       </div>
+
+      <!-- TECH STACK BADGES -->
+      <div class="tech-stack">
+        <p class="tech-stack-label" data-i18n="tech_stack_label">Stack Completo</p>
+        <div class="tech-categories">
+
+          <div class="tech-row">
+            <span class="tech-row-label" data-i18n="tech_row_ai">IA & LLMs</span>
+            <span class="tech-badge badge-ai"><i class="fab fa-python"></i> Python</span>
+            <span class="tech-badge badge-ai"><i class="fas fa-brain"></i> PyTorch</span>
+            <span class="tech-badge badge-ai"><i class="fas fa-comments"></i> Ollama / LLMs</span>
+            <span class="tech-badge badge-ai"><i class="fas fa-search"></i> RAG / ChromaDB</span>
+            <span class="tech-badge badge-ai"><i class="fas fa-link"></i> LangChain</span>
+            <span class="tech-badge badge-ai"><i class="fas fa-robot"></i> Transformers</span>
+            <span class="tech-badge badge-ai"><i class="fas fa-chart-line"></i> Streamlit</span>
+            <span class="tech-badge badge-ai"><i class="fas fa-magic"></i> Gemini Flash</span>
+          </div>
+
+          <div class="tech-row">
+            <span class="tech-row-label" data-i18n="tech_row_data">Datos & BI</span>
+            <span class="tech-badge badge-data"><i class="fas fa-database"></i> SQL / PostgreSQL</span>
+            <span class="tech-badge badge-data"><i class="fas fa-chart-bar"></i> Power BI</span>
+            <span class="tech-badge badge-data"><i class="fas fa-table"></i> Pandas / NumPy</span>
+            <span class="tech-badge badge-data"><i class="fas fa-sitemap"></i> Apache Airflow</span>
+            <span class="tech-badge badge-data"><i class="fas fa-bolt"></i> Kafka</span>
+            <span class="tech-badge badge-data"><i class="fas fa-chart-pie"></i> Looker Studio</span>
+            <span class="tech-badge badge-data"><i class="fas fa-map-marked-alt"></i> GIS / ArcGIS</span>
+          </div>
+
+          <div class="tech-row">
+            <span class="tech-row-label" data-i18n="tech_row_back">Backend</span>
+            <span class="tech-badge badge-back"><i class="fas fa-bolt"></i> FastAPI</span>
+            <span class="tech-badge badge-back"><i class="fas fa-plug"></i> WebSocket</span>
+            <span class="tech-badge badge-back"><i class="fas fa-lock"></i> JWT / OAuth</span>
+            <span class="tech-badge badge-back"><i class="fas fa-database"></i> SQLite / aiosqlite</span>
+            <span class="tech-badge badge-back"><i class="fas fa-paper-plane"></i> HTMX</span>
+          </div>
+
+          <div class="tech-row">
+            <span class="tech-row-label" data-i18n="tech_row_infra">Infra & Cloud</span>
+            <span class="tech-badge badge-infra"><i class="fab fa-docker"></i> Docker</span>
+            <span class="tech-badge badge-infra"><i class="fab fa-github"></i> GitHub Actions</span>
+            <span class="tech-badge badge-infra"><i class="fab fa-microsoft"></i> Azure</span>
+            <span class="tech-badge badge-infra"><i class="fas fa-server"></i> Nginx</span>
+            <span class="tech-badge badge-infra"><i class="fab fa-linux"></i> Linux</span>
+            <span class="tech-badge badge-infra"><i class="fas fa-code-branch"></i> Git</span>
+          </div>
+
+          <div class="tech-row">
+            <span class="tech-row-label" data-i18n="tech_row_net">Redes & Telco</span>
+            <span class="tech-badge badge-net"><i class="fas fa-network-wired"></i> TCP/IP</span>
+            <span class="tech-badge badge-net"><i class="fas fa-shield-alt"></i> OpenVPN</span>
+            <span class="tech-badge badge-net"><i class="fas fa-exchange-alt"></i> REST APIs</span>
+            <span class="tech-badge badge-net"><i class="fas fa-satellite-dish"></i> Radio APX</span>
+            <span class="tech-badge badge-net"><i class="fas fa-wifi"></i> Motorola IMW</span>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1230,6 +1343,9 @@ Bogotá, Colombia</p>
         skills_title: 'Habilidades Técnicas',
         skills_desc: 'Competencias principales en datos, IA e ingeniería de plataformas.',
         skills_group1: 'Datos & Analítica', skills_group2: 'IA & Machine Learning', skills_group3: 'Herramientas & Plataformas',
+        tech_stack_label: 'Stack Completo',
+        tech_row_ai: 'IA & LLMs', tech_row_data: 'Datos & BI', tech_row_back: 'Backend',
+        tech_row_infra: 'Infra & Cloud', tech_row_net: 'Redes & Telco',
         exp_title: 'Experiencia Laboral',
         exp1_role: 'Arquitecto de Datos e Infraestructura', exp1_company: 'CEM / Plan Maestro SIT · SDM Bogotá',
         exp1_desc: 'Diseñé la arquitectura de integración de datos del Centro Estratégico de Movilidad (CEM): +2.000 dispositivos urbanos, modelos predictivos ML y dashboards ejecutivos en Power BI/DAX para decisiones de alta dirección.',
@@ -1286,6 +1402,9 @@ Bogotá, Colombia</p>
         skills_title: 'Technical Skills',
         skills_desc: 'Core competencies across data, AI and platform engineering.',
         skills_group1: 'Data & Analytics', skills_group2: 'AI & Machine Learning', skills_group3: 'Tools & Platforms',
+        tech_stack_label: 'Full Stack',
+        tech_row_ai: 'AI & LLMs', tech_row_data: 'Data & BI', tech_row_back: 'Backend',
+        tech_row_infra: 'Infra & Cloud', tech_row_net: 'Networks & Telco',
         exp_title: 'Work Experience',
         exp1_role: 'Data & Infrastructure Architect', exp1_company: 'CEM / Master Plan SIT · SDM Bogotá',
         exp1_desc: 'Designed the data integration architecture for the Strategic Mobility Center (CEM): 2,000+ urban devices, ML predictive models, and Power BI/DAX executive dashboards for C-level decision-making.',
