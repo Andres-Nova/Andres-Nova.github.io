@@ -26,13 +26,15 @@
   <meta property="og:url" content="https://andres-nova.github.io" />
   <meta property="og:image" content="https://andres-nova.github.io/assets/og-preview.png" />
 
-  <!-- Canonical URL -->
+  <!-- Canonical URL + Robots -->
   <link rel="canonical" href="https://andres-nova.github.io" />
+  <meta name="robots" content="index, follow" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Andres Nova — AI Solutions Architect" />
   <meta name="twitter:description" content="AI Solutions Architect — datos, redes de telecomunicaciones y deep learning. 7 años en la SDM de Bogotá." />
+  <meta name="twitter:image" content="https://andres-nova.github.io/assets/og-preview.png" />
 
   <!-- Favicon SVG inline -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231B3A6B'/><text x='50' y='67' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' fill='white'>A</text></svg>" />
@@ -516,36 +518,39 @@
     }
     .skill-group-title {
       color: var(--primary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       font-size: 1rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
     .skill-group-title i { color: var(--accent); }
-    .skill-list { display: flex; flex-direction: column; gap: 0.5rem; }
-    .skill-item {
+    .skill-list { display: flex; flex-direction: column; }
+    .skill-row {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-size: 0.875rem;
       color: var(--text);
       font-weight: 500;
-      margin-top: 0.5rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(27,58,107,0.07);
     }
-    .skill-pct { color: var(--accent); font-weight: 600; }
-    .skill-bar {
-      height: 6px;
-      background: rgba(27,58,107,0.12);
-      border-radius: 3px;
-      overflow: hidden;
+    .skill-row:last-child { border-bottom: none; }
+    .skill-name { flex: 1; min-width: 0; padding-right: 0.5rem; }
+    .skill-level {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .skill-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border-radius: 3px;
-      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    .level-expert      { background: #DBEAFE; color: #1E40AF; }
+    .level-advanced    { background: #D1FAE5; color: #065F46; }
+    .level-intermediate{ background: #FEF3C7; color: #92400E; }
 
     /* === TECH STACK BADGES === */
     .tech-stack { margin-top: 3.5rem; }
@@ -840,6 +845,35 @@
       color: var(--white);
     }
   </style>
+
+  <!-- Datos estructurados Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Andres Nova Bermudez",
+    "jobTitle": "AI Solutions Architect",
+    "description": "AI Solutions Architect con expertise en análisis de datos, redes de telecomunicaciones y modelos de deep learning — 7 años en la SDM de Bogotá.",
+    "url": "https://andres-nova.github.io",
+    "sameAs": [
+      "https://www.linkedin.com/in/andres-nova-144009199",
+      "https://github.com/Andres-Nova"
+    ],
+    "knowsAbout": [
+      "Machine Learning", "Data Architecture", "LLMs", "Python", "Power BI",
+      "Apache Airflow", "RAG", "GIS Analytics", "ETL Pipelines", "SQL"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Secretaría Distrital de Movilidad de Bogotá"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bogotá",
+      "addressCountry": "CO"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -982,60 +1016,78 @@
         <div class="skill-group">
           <h3 class="skill-group-title"><i class="fas fa-database"></i> <span data-i18n="skills_group1">Datos & Analítica</span></h3>
           <div class="skill-list">
-            <div class="skill-item"><span>Power BI + DAX</span><span class="skill-pct">95%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-
-            <div class="skill-item"><span>Python (pandas, NumPy, scikit-learn)</span><span class="skill-pct">90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-
-            <div class="skill-item"><span>SQL / SQL Server</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-
-            <div class="skill-item"><span>ETL / Data Pipelines</span><span class="skill-pct">90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-
-            <div class="skill-item"><span>Azure Data Factory</span><span class="skill-pct">80%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            <div class="skill-row">
+              <span class="skill-name">Power BI + DAX</span>
+              <span class="skill-level level-expert" data-i18n="level_expert">Experto</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Python (pandas, NumPy, scikit-learn)</span>
+              <span class="skill-level level-expert" data-i18n="level_expert">Experto</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">SQL / SQL Server</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">ETL / Data Pipelines</span>
+              <span class="skill-level level-expert" data-i18n="level_expert">Experto</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Azure Data Factory</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
           </div>
         </div>
 
         <div class="skill-group">
           <h3 class="skill-group-title"><i class="fas fa-brain"></i> <span data-i18n="skills_group2">IA & Machine Learning</span></h3>
           <div class="skill-list">
-            <div class="skill-item"><span>Machine Learning (scikit-learn)</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-
-            <div class="skill-item"><span>RAG / LLMs</span><span class="skill-pct">75%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-
-            <div class="skill-item"><span>Prompt Engineering</span><span class="skill-pct">70%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
-
-            <div class="skill-item"><span>AI-ready Data / Governance</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-
-            <div class="skill-item"><span>ESRI / GIS Analytics</span><span class="skill-pct">75%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            <div class="skill-row">
+              <span class="skill-name">Machine Learning (scikit-learn)</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">RAG / LLMs</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Prompt Engineering</span>
+              <span class="skill-level level-intermediate" data-i18n="level_intermediate">Intermedio</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">AI-ready Data / Governance</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">ESRI / GIS Analytics</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
           </div>
         </div>
 
         <div class="skill-group">
           <h3 class="skill-group-title"><i class="fas fa-tools"></i> <span data-i18n="skills_group3">Herramientas & Plataformas</span></h3>
           <div class="skill-list">
-            <div class="skill-item"><span>Microsoft Azure</span><span class="skill-pct">75%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-
-            <div class="skill-item"><span>Google Data Studio / Looker</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-
-            <div class="skill-item"><span>Streamlit</span><span class="skill-pct">80%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-
-            <div class="skill-item"><span>Git / GitHub</span><span class="skill-pct">80%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-
-            <div class="skill-item"><span>Tableau</span><span class="skill-pct">70%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            <div class="skill-row">
+              <span class="skill-name">Microsoft Azure</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Google Data Studio / Looker</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Streamlit</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Git / GitHub</span>
+              <span class="skill-level level-advanced" data-i18n="level_advanced">Avanzado</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Tableau</span>
+              <span class="skill-level level-intermediate" data-i18n="level_intermediate">Intermedio</span>
+            </div>
           </div>
         </div>
 
@@ -1343,6 +1395,7 @@ Bogotá, Colombia</p>
         skills_title: 'Habilidades Técnicas',
         skills_desc: 'Competencias principales en datos, IA e ingeniería de plataformas.',
         skills_group1: 'Datos & Analítica', skills_group2: 'IA & Machine Learning', skills_group3: 'Herramientas & Plataformas',
+        level_expert: 'Experto', level_advanced: 'Avanzado', level_intermediate: 'Intermedio',
         tech_stack_label: 'Stack Completo',
         tech_row_ai: 'IA & LLMs', tech_row_data: 'Datos & BI', tech_row_back: 'Backend',
         tech_row_infra: 'Infra & Cloud', tech_row_net: 'Redes & Telco',
@@ -1402,6 +1455,7 @@ Bogotá, Colombia</p>
         skills_title: 'Technical Skills',
         skills_desc: 'Core competencies across data, AI and platform engineering.',
         skills_group1: 'Data & Analytics', skills_group2: 'AI & Machine Learning', skills_group3: 'Tools & Platforms',
+        level_expert: 'Expert', level_advanced: 'Advanced', level_intermediate: 'Intermediate',
         tech_stack_label: 'Full Stack',
         tech_row_ai: 'AI & LLMs', tech_row_data: 'Data & BI', tech_row_back: 'Backend',
         tech_row_infra: 'Infra & Cloud', tech_row_net: 'Networks & Telco',
@@ -1606,18 +1660,6 @@ Bogotá, Colombia</p>
       counters.forEach(c => observer.observe(c));
     }
 
-    /* === SKILL BARS === */
-    function animateSkillBars() {
-      const section = document.getElementById('skills');
-      const observer = new IntersectionObserver((entries) => {
-        if (!entries[0].isIntersecting) return;
-        document.querySelectorAll('.skill-fill').forEach(bar => {
-          bar.style.width = bar.dataset.width + '%';
-        });
-        observer.unobserve(section);
-      }, { threshold: 0.2 });
-      observer.observe(section);
-    }
 
     /* === TYPEWRITER === */
     function startTypewriter() {
@@ -1755,7 +1797,6 @@ Bogotá, Colombia</p>
       initLangToggle();
       setLanguage(currentLang);
       animateCounters();
-      animateSkillBars();
       initHamburger();
       initSmoothScroll();
       initContactForm();
