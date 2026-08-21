@@ -652,6 +652,21 @@
       margin-bottom: 0.5rem;
     }
     .timeline-content p { font-size: 0.9rem; }
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+    }
+    .timeline-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: var(--card-bg);
+      color: var(--accent);
+      border: 1px solid rgba(29,91,166,0.2);
+    }
 
     /* === CONTACT === */
     #contact { background: var(--white); }
@@ -1170,7 +1185,15 @@
           <div class="timeline-content">
             <h3 data-i18n="exp1_role">Arquitecto de Datos e Infraestructura</h3>
             <span class="timeline-company" data-i18n="exp1_company">CEM / Plan Maestro SIT · SDM Bogotá</span>
-            <p data-i18n="exp1_desc">Liderando la arquitectura de datos e infraestructura del Centro Estratégico de Movilidad y el Plan Maestro del Sistema Inteligente de Transporte de Bogotá.</p>
+            <p data-i18n="exp1_desc">Diseñé la arquitectura de integración de datos del Centro Estratégico de Movilidad (CEM): +2.000 dispositivos urbanos, modelos predictivos ML y dashboards ejecutivos en Power BI/DAX para decisiones de alta dirección.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Apache Airflow</span>
+              <span class="timeline-tag">Power BI / DAX</span>
+              <span class="timeline-tag">Azure Data Factory</span>
+              <span class="timeline-tag">Python</span>
+              <span class="timeline-tag">LightGBM</span>
+              <span class="timeline-tag">SQL Server</span>
+            </div>
           </div>
         </div>
 
@@ -1180,17 +1203,30 @@
           <div class="timeline-content">
             <h3 data-i18n="exp2_role">Analista de Datos</h3>
             <span class="timeline-company" data-i18n="exp2_company">Proyectos SIL y Body Cam · SDM Bogotá</span>
-            <p data-i18n="exp2_desc">Diseñé pipelines ETL y dashboards BI para el Sistema Inteligente Local (SIL) y el proyecto Body Cam para agentes de tránsito.</p>
+            <p data-i18n="exp2_desc">Implementé el Sistema Inteligente Local (SIL) integrando 6 fuentes heterogéneas y centralicé +15 KPIs en Power BI, reduciendo tiempos de reporte en ~60%. Lideré el proyecto Body Cam con disponibilidad de 99,9% del material probatorio.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Power BI</span>
+              <span class="timeline-tag">ETL / SQL</span>
+              <span class="timeline-tag">GIS / ArcGIS</span>
+              <span class="timeline-tag">Python</span>
+              <span class="timeline-tag">Kafka</span>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-date">2022 — 2023</div>
+          <div class="timeline-date">2019 — 2022</div>
           <div class="timeline-content">
             <h3 data-i18n="exp3_role">Líder Técnico — CGT</h3>
             <span class="timeline-company" data-i18n="exp3_company">Centro de Gestión del Tráfico · SDM Bogotá</span>
-            <p data-i18n="exp3_desc">Lideré operaciones técnicas e integración de datos para el Centro de Gestión del Tráfico de Bogotá.</p>
+            <p data-i18n="exp3_desc">Operé y mantuve la infraestructura técnica del CGT de Bogotá: sistemas CCTV, redes de fibra, comunicaciones de radio y bases de datos de incidentes viales en tiempo real.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Redes TCP/IP</span>
+              <span class="timeline-tag">CCTV / Video</span>
+              <span class="timeline-tag">SQL</span>
+              <span class="timeline-tag">Motorola</span>
+            </div>
           </div>
         </div>
 
@@ -1281,7 +1317,10 @@
         <p data-i18n="contact_desc">Abierto a oportunidades en Arquitectura de Datos, Ingeniería IA y BI — sector privado y consultoría.</p>
       </div>
       <div class="contact-grid">
+        <!-- FORMSPREE: reemplazar TU_FORM_ID en initContactForm() con el ID de https://formspree.io -->
         <form class="contact-form" id="contactForm">
+          <input type="hidden" name="_subject" value="Contacto desde portafolio — Andres Nova" />
+          <input type="hidden" name="_language" value="es" />
           <div class="form-group">
             <label for="name" data-i18n="form_name">Nombre</label>
             <input type="text" id="name" name="name" data-i18n-placeholder="form_name_ph" placeholder="Tu nombre" required />
@@ -1405,7 +1444,7 @@ Bogotá, Colombia</p>
         exp2_role: 'Especialista en Implementación de Datos', exp2_company: 'Proyectos SIL y Body Cam · SDM Bogotá',
         exp2_desc: 'Implementé el Sistema Inteligente Local (SIL) integrando 6 fuentes heterogéneas y centralicé +15 KPIs en Power BI, reduciendo tiempos de reporte en ~60%. Lideré el proyecto Body Cam con disponibilidad de 99,9% del material probatorio.',
         exp3_role: 'Líder Técnico — CGT', exp3_company: 'Centro de Gestión del Tráfico · SDM Bogotá',
-        exp3_desc: 'Lideré operaciones técnicas e integración de datos para el Centro de Gestión del Tráfico de Bogotá.',
+        exp3_desc: 'Operé y mantuve la infraestructura técnica del CGT de Bogotá: sistemas CCTV, redes de fibra, comunicaciones de radio y bases de datos de incidentes viales en tiempo real.',
         contact_title: 'Contáctame',
         contact_desc: 'Abierto a oportunidades en Arquitectura de Soluciones IA, Análisis de Datos, Redes y BI — sector privado y consultoría.',
         form_name: 'Nombre', form_name_ph: 'Tu nombre',
@@ -1465,7 +1504,7 @@ Bogotá, Colombia</p>
         exp2_role: 'Data Implementation Specialist', exp2_company: 'SIL & Body Cam Projects · SDM Bogotá',
         exp2_desc: 'Implemented the Local Intelligent System (SIL) integrating 6 heterogeneous sources and centralized 15+ KPIs in Power BI, cutting reporting time by ~60%. Led the Body Cam project with 99.9% video evidence availability.',
         exp3_role: 'Technical Lead — CGT', exp3_company: 'Traffic Management Center · SDM Bogotá',
-        exp3_desc: 'Led technical operations and data integration for Bogotá\'s Traffic Management Center.',
+        exp3_desc: 'Operated and maintained the technical infrastructure of Bogotá\'s Traffic Management Center: CCTV systems, fiber networks, radio communications and real-time traffic incident databases.',
         contact_title: 'Get In Touch',
         contact_desc: 'Open to opportunities in AI Solutions Architecture, Data Analytics, Networks & BI — private sector and consulting.',
         form_name: 'Name', form_name_ph: 'Your name',
@@ -1730,21 +1769,53 @@ Bogotá, Colombia</p>
       });
     }
 
-    /* === CONTACT FORM — LinkedIn redirect === */
+    /* === CONTACT FORM — Formspree (con fallback LinkedIn) === */
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TU_FORM_ID';
+
     function initContactForm() {
       const form = document.getElementById('contactForm');
-      form.addEventListener('submit', e => {
+      const btn  = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async e => {
         e.preventDefault();
-        // Redirige al perfil de LinkedIn para iniciar contacto directo
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-check"></i> <span>Redirigiendo a LinkedIn…</span>';
-        setTimeout(() => {
+
+        // Si el endpoint no está configurado, redirigir a LinkedIn como fallback
+        if (FORMSPREE_ENDPOINT.includes('TU_FORM_ID')) {
           window.open('https://www.linkedin.com/in/andres-nova-144009199', '_blank', 'noopener');
+          return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Enviando…</span>';
+
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+
+          if (res.ok) {
+            btn.innerHTML = '<i class="fas fa-check"></i> <span>¡Mensaje enviado!</span>';
+            btn.style.background = '#15803D';
+            form.reset();
+            setTimeout(() => {
+              btn.disabled = false;
+              btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span data-i18n="form_send">Enviar Mensaje</span>';
+              btn.style.background = '';
+            }, 4000);
+          } else {
+            throw new Error('Error del servidor');
+          }
+        } catch {
           btn.disabled = false;
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span data-i18n="form_send">Enviar Mensaje</span>';
-          form.reset();
-        }, 800);
+          btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Error — intenta por LinkedIn</span>';
+          btn.style.background = '#B91C1C';
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span data-i18n="form_send">Enviar Mensaje</span>';
+            btn.style.background = '';
+          }, 4000);
+        }
       });
     }
 
