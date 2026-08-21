@@ -210,6 +210,103 @@
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
+    /* === DARK MODE === */
+    :root[data-theme="dark"] {
+      --primary:  #60A5FA;
+      --accent:   #93C5FD;
+      --card-bg:  #1E293B;
+      --text:     #E2E8F0;
+      --muted:    #94A3B8;
+      --shadow:   0 2px 16px rgba(0,0,0,0.5);
+    }
+    [data-theme="dark"] body                { background: #0F172A; }
+    [data-theme="dark"] #navbar             { background: rgba(15,23,42,0.97) !important; box-shadow: 0 1px 12px rgba(0,0,0,0.3); }
+    [data-theme="dark"] .nav-links.open     { background: #0F172A; border-top-color: #1E293B; }
+    [data-theme="dark"] #about,
+    [data-theme="dark"] #skills,
+    [data-theme="dark"] #contact           { background: #0F172A; }
+    [data-theme="dark"] #projects,
+    [data-theme="dark"] #experience,
+    [data-theme="dark"] #certifications    { background: #111827; }
+    [data-theme="dark"] .project-card      { background: var(--card-bg); }
+    [data-theme="dark"] .timeline-content  { background: var(--card-bg); border-left-color: var(--accent); }
+    [data-theme="dark"] .timeline-dot      { background: #0F172A; border-color: var(--accent); }
+    [data-theme="dark"] .cert-item         { background: var(--card-bg); border-left-color: var(--accent); }
+    [data-theme="dark"] .skill-group       { background: var(--card-bg); }
+    [data-theme="dark"] .level-expert      { background: #1E3A5F; color: #93C5FD; }
+    [data-theme="dark"] .level-advanced    { background: #14401F; color: #86EFAC; }
+    [data-theme="dark"] .level-intermediate{ background: #422006; color: #FCD34D; }
+    [data-theme="dark"] .timeline-tag      { background: #1E293B; color: var(--accent); border-color: rgba(147,197,253,0.2); }
+    [data-theme="dark"] .form-group input,
+    [data-theme="dark"] .form-group textarea { background: var(--card-bg); border-color: rgba(147,197,253,0.2); color: var(--text); }
+    [data-theme="dark"] #footer            { background: #020817; }
+    [data-theme="dark"] ::-webkit-scrollbar-track { background: #1E293B; }
+    [data-theme="dark"] .section-header h2 { color: var(--primary); }
+    [data-theme="dark"] .section-divider   { background: var(--accent); }
+    [data-theme="dark"] .about-avatar      { background: var(--card-bg); color: var(--primary); }
+    [data-theme="dark"] .stat-card         { background: var(--card-bg); }
+    [data-theme="dark"] .contact-card      { background: var(--card-bg); }
+
+    /* === THEME TOGGLE BUTTON === */
+    .theme-toggle {
+      background: none;
+      border: 1.5px solid rgba(27,58,107,0.18);
+      color: var(--primary);
+      border-radius: 50%;
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: var(--card-bg); }
+    [data-theme="dark"] .theme-toggle { border-color: rgba(147,197,253,0.2); }
+
+    /* === LIGHTBOX === */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem; right: 1.5rem;
+      color: #fff;
+      font-size: 1.75rem;
+      cursor: pointer;
+      opacity: 0.8;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .card-preview img { cursor: zoom-in; }
+
+    /* === STAGGER ANIMATIONS (tarjetas de proyecto) === */
+    @keyframes projectFadeIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .project-card {
+      animation: projectFadeIn 0.5s ease both;
+    }
+
     /* === SELECTION === */
     ::selection { background: var(--accent); color: var(--white); }
 
@@ -908,6 +1005,9 @@
         <span class="lang-sep">/</span>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
       <a href="assets/CV_Andres_Nova.pdf" class="btn btn-primary btn-sm nav-cv" download>
         <i class="fas fa-download"></i> <span data-i18n="nav_cv">Descargar CV</span>
       </a>
@@ -1626,7 +1726,7 @@ Bogotá, Colombia</p>
       const grid = document.getElementById('projects-grid');
       const visible = PROJECTS_CONFIG.filter(p => p.visible);
 
-      grid.innerHTML = visible.map(p => {
+      grid.innerHTML = visible.map((p, idx) => {
         const githubBtn = p.github && !p.github.includes('REEMPLAZAR')
           ? `<a href="${p.github}" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">
                <i class="fab fa-github"></i> ${t.btn_github}
@@ -1662,7 +1762,7 @@ Bogotá, Colombia</p>
           : '';
 
         return `
-          <article class="project-card ${p.inProgress ? 'in-progress' : ''} fade-in">
+          <article class="project-card ${p.inProgress ? 'in-progress' : ''} fade-in" style="animation-delay:${idx * 0.09}s">
             ${inProgressOverlay}
             ${previewImg}
             <div class="card-header">
@@ -1857,6 +1957,59 @@ Bogotá, Colombia</p>
       restartTypewriter();
     }
 
+    /* === DARK MODE TOGGLE === */
+    function initThemeToggle() {
+      const btn  = document.getElementById('themeToggle');
+      const icon = document.getElementById('themeIcon');
+      const html = document.documentElement;
+
+      // Restaurar preferencia guardada o detectar OS
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const dark = saved ? saved === 'dark' : prefersDark;
+      applyTheme(dark);
+
+      btn.addEventListener('click', () => {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        applyTheme(!isDark);
+        localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+      });
+
+      function applyTheme(isDark) {
+        html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+      }
+    }
+
+    /* === LIGHTBOX === */
+    function initLightbox() {
+      const lb    = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbClose = document.getElementById('lightboxClose');
+
+      // Abrir al clicar una imagen de proyecto
+      document.getElementById('projects-grid').addEventListener('click', e => {
+        const img = e.target.closest('.card-preview img');
+        if (!img) return;
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // Cerrar con botón X
+      lbClose.addEventListener('click', closeLightbox);
+      // Cerrar al clicar el fondo
+      lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+      // Cerrar con Escape
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+      function closeLightbox() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
     function initLangToggle() {
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
@@ -1865,16 +2018,24 @@ Bogotá, Colombia</p>
 
     /* === INIT === */
     function init() {
+      initThemeToggle();
       initLangToggle();
       setLanguage(currentLang);
       animateCounters();
       initHamburger();
       initSmoothScroll();
       initContactForm();
+      initLightbox();
       initScrollAnimations();
     }
 
     document.addEventListener('DOMContentLoaded', init);
   </script>
+
+  <!-- Lightbox de imágenes -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">&times;</button>
+    <img id="lightboxImg" src="" alt="Vista ampliada del proyecto">
+  </div>
 </body>
 </html>
