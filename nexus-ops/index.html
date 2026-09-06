@@ -229,6 +229,34 @@
     footer a { color: var(--accent); }
     footer .footer-inner { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center; }
 
+    /* ── TIMELINE PROCESO ── */
+    #proceso { background: var(--bg); }
+    .timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
+    .tl-step {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      padding-bottom: 2.5rem; position: relative;
+    }
+    .tl-step:not(:last-child)::before {
+      content: ''; position: absolute;
+      left: 23px; top: 48px; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+    }
+    .tl-dot {
+      width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(88,166,255,.15); border: 2px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; position: relative; z-index: 1;
+    }
+    .tl-content h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .35rem; }
+    .tl-content p  { font-size: .9rem; color: var(--text-muted); }
+    .tl-badge {
+      display: inline-block; font-size: .7rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .15rem .55rem; border-radius: 4px;
+      background: rgba(63,185,80,.12); color: var(--accent2);
+      margin-top: .5rem;
+    }
+
     /* ── CALCULADORA ROI ── */
     #calculadora { background: var(--bg2); }
     .calc-wrapper {
@@ -277,6 +305,7 @@
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#segmento">Para quién</a></li>
+    <li><a href="#proceso">Cómo funciona</a></li>
     <li><a href="#calculadora">Calculadora</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
@@ -408,6 +437,51 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESO ── -->
+<section id="proceso">
+  <div class="container">
+    <div class="tag">Cómo funciona</div>
+    <h2 class="section-title">De cero a operando en 5 días</h2>
+    <p class="section-sub">
+      Sin reuniones interminables. Sin conocimientos técnicos. Tú llevas el negocio, nosotros montamos la infraestructura.
+    </p>
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-dot">📋</div>
+        <div class="tl-content">
+          <h3>Día 1 — Cuéntanos tu negocio</h3>
+          <p>Formulario breve (10 min): productos, precios, operadores de envío que ya usas y las preguntas frecuentes de tus clientes. Sin reuniones, async.</p>
+          <span class="tl-badge">Async · 10 min</span>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">⚙️</div>
+        <div class="tl-content">
+          <h3>Días 2–3 — Configuramos tu stack</h3>
+          <p>Nexus Ops monta tu landing, conecta la pasarela de pago, integra los operadores logísticos y entrena el bot de WhatsApp con la info de tu negocio.</p>
+          <span class="tl-badge">Nosotros operamos</span>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">🔍</div>
+        <div class="tl-content">
+          <h3>Día 4 — Lo revisamos juntos</h3>
+          <p>Videollamada de 30 minutos para validar todo contigo. Ajustamos precios, textos y flujos según tu feedback. Tú apruebas antes de salir en vivo.</p>
+          <span class="tl-badge">Tu aprobación</span>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot">🚀</div>
+        <div class="tl-content">
+          <h3>Día 5 — Tú vendes, nosotros operamos</h3>
+          <p>Salida en vivo. El bot atiende 24/7, los pagos entran solos y las guías se generan automáticamente. Dashboard con tus métricas en tiempo real.</p>
+          <span class="tl-badge">Operativo</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
