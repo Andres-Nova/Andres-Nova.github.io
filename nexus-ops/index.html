@@ -636,11 +636,11 @@
       <div class="tag">Lista de espera</div>
       <h2>¿Listo para automatizar tu negocio?</h2>
       <p>Déjanos tu correo y te contactamos cuando abramos el acceso para los primeros clientes.</p>
-      <form class="cta-form" onsubmit="handleSubmit(event)">
-        <input type="email" placeholder="tu@correo.com" id="email-input" required />
-        <button type="submit" class="btn btn-primary">Quiero acceso anticipado</button>
+      <form class="cta-form" id="waitlist-form">
+        <input type="email" name="email" placeholder="tu@correo.com" id="email-input" required />
+        <button type="submit" class="btn btn-primary" id="waitlist-btn">Quiero acceso anticipado</button>
       </form>
-      <p class="cta-note">Sin spam. Solo te escribimos cuando esté listo.</p>
+      <p class="cta-note" id="cta-note">Sin spam. Solo te escribimos cuando esté listo.</p>
     </div>
   </div>
 </section>
@@ -678,13 +678,33 @@
   }, { threshold: 0.4 });
   sections.forEach(s => observer.observe(s));
 
-  // Form submit (placeholder — Tarea 2 lo reemplazará con Formspree)
-  function handleSubmit(e) {
+  // Waitlist — envío real a Formspree
+  document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('email-input').value;
-    gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'waitlist' });
-    e.target.innerHTML = '<p style="color:var(--accent2);font-weight:600;font-size:1.1rem">✓ ¡Registrado! Te avisamos pronto.</p>';
-  }
+    const btn   = document.getElementById('waitlist-btn');
+    const note  = document.getElementById('cta-note');
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    try {
+      const resp = await fetch('https://formspree.io/f/xeaqlaje', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (resp.ok) {
+        gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'waitlist', value: 1 });
+        this.innerHTML = '<p style="color:var(--accent2);font-weight:600;font-size:1.1rem">✓ ¡Registrado! Te avisamos pronto 🚀</p>';
+      } else {
+        throw new Error('Error del servidor');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Quiero acceso anticipado';
+      note.textContent = '⚠ No se pudo registrar. Intenta de nuevo o escríbenos directamente.';
+      note.style.color = 'var(--accent3)';
+    }
+  });
 
   // ── CALCULADORA ROI ──
   const fmtCOP = (n) => '$' + Math.round(n).toLocaleString('es-CO');
