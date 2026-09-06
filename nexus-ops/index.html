@@ -229,6 +229,22 @@
     footer a { color: var(--accent); }
     footer .footer-inner { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center; }
 
+    /* ── OPINIONES / GISCUS ── */
+    #opiniones { background: var(--bg2); }
+    .giscus-wrapper {
+      max-width: 800px; margin: 0 auto;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+    }
+    .opiniones-intro {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: rgba(88,166,255,.06); border: 1px solid rgba(88,166,255,.2);
+      border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+      font-size: .88rem; color: var(--text-muted);
+    }
+    .opiniones-intro .intro-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .opiniones-intro strong { color: var(--text); display: block; margin-bottom: .25rem; }
+
     /* ── TIMELINE PROCESO ── */
     #proceso { background: var(--bg); }
     .timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
@@ -306,6 +322,7 @@
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#segmento">Para quién</a></li>
     <li><a href="#proceso">Cómo funciona</a></li>
+    <li><a href="#opiniones">Opiniones</a></li>
     <li><a href="#calculadora">Calculadora</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
@@ -625,6 +642,41 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ── OPINIONES ── -->
+<section id="opiniones">
+  <div class="container">
+    <div class="tag">Comunidad</div>
+    <h2 class="section-title">¿Qué piensan los emprendedores?</h2>
+    <p class="section-sub">
+      Déjanos tu opinión, pregunta o experiencia. Construimos Nexus Ops con la voz de quienes lo van a usar.
+    </p>
+    <div class="giscus-wrapper">
+      <div class="opiniones-intro">
+        <span class="intro-icon">💬</span>
+        <div>
+          <strong>Comentarios públicos via GitHub Discussions</strong>
+          Necesitas una cuenta de GitHub gratuita para comentar. Tus mensajes quedan visibles para toda la comunidad.
+        </div>
+      </div>
+      <script src="https://giscus.app/client.js"
+              data-repo="Andres-Nova/Andres-Nova.github.io"
+              data-repo-id="R_kgDOTLKhzA"
+              data-category="General"
+              data-category-id="DIC_kwDOTLKhzM4DE-ZG"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="preferred_color_scheme"
+              data-lang="es"
+              crossorigin="anonymous"
+              async>
+      </script>
     </div>
   </div>
 </section>
