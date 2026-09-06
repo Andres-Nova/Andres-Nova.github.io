@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Ops — Automatización Comercial con IA para Emprendedores</title>
+
+  <!-- Google Analytics GA4 (mismo property del portfolio) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZLMDEMC1T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LZLMDEMC1T', { page_title: 'Nexus Ops Landing', page_path: '/nexus-ops/' });
+  </script>
+
+  <!-- SEO -->
+  <meta name="description" content="Nexus Ops automatiza tu operación comercial con IA: landing page, pagos PSE/Nequi, logística Servientrega y asistente WhatsApp. Para emprendedores y MiPYMEs colombianas." />
+  <meta name="keywords" content="automatización comercial, IA para negocios, WhatsApp bot, pasarela de pago Colombia, emprendedores colombianos, MiPYMEs, Nexus Ops" />
+  <meta name="author" content="Andres Nova Bermudez" />
+  <meta property="og:title" content="Nexus Ops — Automatización Comercial con IA" />
+  <meta property="og:description" content="Infraestructura comercial completa para emprendedores colombianos: landing, pagos, logística y asistente IA para WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://andres-nova.github.io/nexus-ops/" />
+  <link rel="canonical" href="https://andres-nova.github.io/nexus-ops/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #0d1117;
+      --bg2:       #161b22;
+      --bg3:       #21262d;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-muted:#8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --gold:      #d29922;
+      --radius:    12px;
+      --shadow:    0 8px 32px rgba(0,0,0,.4);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: .9rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-weight: 700; font-size: 1.1rem; color: var(--text); letter-spacing: -.3px; }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text-muted); font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-back { font-size: .85rem; color: var(--text-muted); border: 1px solid var(--border); border-radius: 6px; padding: .3rem .8rem; transition: all .2s; }
+    .nav-back:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .tag {
+      display: inline-block; font-size: .75rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .25rem .7rem; border-radius: 999px;
+      background: rgba(88,166,255,.12); color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    h2.section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; margin-bottom: 1rem; letter-spacing: -.5px;
+    }
+    .section-sub { color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; font-size: 1.05rem; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 90vh;
+      display: flex; align-items: center;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(88,166,255,.12) 0%, transparent 70%);
+      padding-top: 3rem;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(63,185,80,.1); border: 1px solid rgba(63,185,80,.3);
+      color: var(--accent2); border-radius: 999px;
+      padding: .35rem 1rem; font-size: .82rem; font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    .hero-badge::before { content: '●'; font-size: .6rem; }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 800; letter-spacing: -1.5px; line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted); max-width: 680px; margin: 0 auto 2.5rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: .8rem 2rem;
+      border-radius: 8px; font-weight: 600; font-size: 1rem;
+      cursor: pointer; transition: all .2s; border: none;
+    }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-primary:hover { background: #79b8ff; text-decoration: none; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .hero-stats {
+      display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border);
+    }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); display: block; }
+    .stat-label { font-size: .85rem; color: var(--text-muted); }
+
+    /* ── PROBLEMA ── */
+    #problema { background: var(--bg2); }
+    .problema-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
+    }
+    .problema-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .problema-icon { font-size: 1.8rem; margin-bottom: .75rem; }
+    .problema-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+    .problema-card p { font-size: .9rem; color: var(--text-muted); }
+
+    /* ── SERVICIOS ── */
+    #servicios { background: var(--bg); }
+    .servicios-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+    }
+    .servicio-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: border-color .25s, transform .25s;
+    }
+    .servicio-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .servicio-num {
+      font-size: .75rem; font-weight: 700; color: var(--accent);
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .servicio-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .servicio-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; }
+    .servicio-card p { font-size: .9rem; color: var(--text-muted); }
+    .servicio-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+    .stag {
+      font-size: .72rem; padding: .2rem .55rem; border-radius: 4px;
+      background: rgba(88,166,255,.1); color: var(--accent); font-weight: 500;
+    }
+
+    /* ── SEGMENTO ── */
+    #segmento { background: var(--bg2); }
+    .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 700px) { .segmento-grid { grid-template-columns: 1fr; } }
+    .segmento-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .segmento-list li {
+      display: flex; align-items: flex-start; gap: .75rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem 1.25rem;
+    }
+    .segmento-list li .icon { font-size: 1.3rem; flex-shrink: 0; }
+    .segmento-list li .text strong { display: block; font-weight: 600; font-size: .95rem; }
+    .segmento-list li .text span { font-size: .85rem; color: var(--text-muted); }
+    .segmento-visual {
+      background: linear-gradient(135deg, rgba(88,166,255,.06), rgba(63,185,80,.06));
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 2.5rem; text-align: center;
+    }
+    .segmento-visual .big-num { font-size: 4rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .segmento-visual .big-label { font-size: .9rem; color: var(--text-muted); margin-top: .5rem; }
+    .segmento-visual .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+    .mini-stat { margin-bottom: 1rem; }
+    .mini-stat .val { font-size: 1.6rem; font-weight: 700; color: var(--accent2); }
+    .mini-stat .desc { font-size: .82rem; color: var(--text-muted); }
+
+    /* ── POR QUÉ ── */
+    #porque { background: var(--bg); }
+    .porque-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .porque-item {
+      padding: 1.5rem; border-left: 3px solid var(--accent2);
+      background: var(--bg2); border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .porque-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+    .porque-item p { font-size: .88rem; color: var(--text-muted); }
+
+    /* ── CTA ── */
+    #contacto {
+      background: linear-gradient(135deg, rgba(88,166,255,.08), rgba(63,185,80,.05));
+      border-top: 1px solid var(--border);
+    }
+    .cta-box { text-align: center; max-width: 700px; margin: 0 auto; }
+    .cta-box h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -.5px; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
+    .cta-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .cta-form input {
+      padding: .8rem 1.2rem; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg2);
+      color: var(--text); font-size: .95rem; min-width: 280px;
+      font-family: 'Inter', sans-serif;
+    }
+    .cta-form input:focus { outline: none; border-color: var(--accent); }
+    .cta-note { font-size: .8rem; color: var(--text-muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center; font-size: .85rem; color: var(--text-muted);
+    }
+    footer a { color: var(--accent); }
+    footer .footer-inner { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center; }
+
+    /* ── RESPONSIVE NAV ── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      nav { padding: .8rem 1.2rem; }
+      section { padding: 3.5rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVEGACIÓN ── -->
+<nav>
+  <span class="nav-brand">Nexus<span>Ops</span></span>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#segmento">Para quién</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://andres-nova.github.io" class="nav-back">← Portafolio</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Automatización Comercial con IA · Colombia</div>
+    <h1>Tu operación comercial,<br><em>automatizada desde el día uno</em></h1>
+    <p class="hero-sub">
+      Nexus Ops integra landing page, pasarela de pago, logística y asistente IA para WhatsApp
+      en un solo servicio listo para usar — sin equipo técnico, sin complicaciones.
+    </p>
+    <div class="hero-cta">
+      <a href="#contacto" class="btn btn-primary" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'quiero_empezar'})">Quiero empezar</a>
+      <a href="#servicios" class="btn btn-outline">Ver qué incluye</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">2.5M+</span>
+        <span class="stat-label">microempresarios en Colombia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">80%</span>
+        <span class="stat-label">venden por WhatsApp</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">70%</span>
+        <span class="stat-label">de consultas atendidas por IA</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">60%</span>
+        <span class="stat-label">menos tiempo operativo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEMA ── -->
+<section id="problema">
+  <div class="container">
+    <div class="tag">El problema</div>
+    <h2 class="section-title">¿Te suena familiar?</h2>
+    <p class="section-sub">
+      Millones de emprendedores colombianos venden bien, pero operan de forma manual, fragmentada y sin escala.
+    </p>
+    <div class="problema-grid">
+      <div class="problema-card">
+        <div class="problema-icon">📱</div>
+        <h3>Ventas por DM</h3>
+        <p>Gestionas pedidos por mensaje directo en Instagram o WhatsApp, sin registro ni orden.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">💸</div>
+        <h3>Cobros informales</h3>
+        <p>Recibes pagos por transferencia sin comprobante formal ni conciliación automática.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">🔁</div>
+        <h3>Preguntas repetitivas</h3>
+        <p>Respondes las mismas preguntas decenas de veces al día: precio, disponibilidad, envío.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">📦</div>
+        <h3>Logística manual</h3>
+        <p>Generas guías a mano con cada operador y haces seguimiento uno por uno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICIOS ── -->
+<section id="servicios">
+  <div class="container">
+    <div class="tag">Qué ofrecemos</div>
+    <h2 class="section-title">Infraestructura comercial completa</h2>
+    <p class="section-sub">
+      Cuatro componentes integrados que Nexus Ops configura, mantiene y opera por ti.
+    </p>
+    <div class="servicios-grid">
+
+      <div class="servicio-card">
+        <div class="servicio-num">01</div>
+        <div class="servicio-icon">🚀</div>
+        <h3>Landing Page de Producto</h3>
+        <p>Página optimizada para conversión, hospedada y configurada por Nexus Ops. Diseño profesional, carga rápida, adaptada a tu marca.</p>
+        <div class="servicio-tags">
+          <span class="stag">Hosting incluido</span>
+          <span class="stag">SEO básico</span>
+          <span class="stag">Diseño responsive</span>
+        </div>
+      </div>
+
+      <div class="servicio-card">
+        <div class="servicio-num">02</div>
+        <div class="servicio-icon">💳</div>
+        <h3>Pasarela de Pago Local</h3>
+        <p>Integración con PSE, Nequi y tarjetas de crédito/débito. Conciliación automática y comprobantes digitales listos para el cliente.</p>
+        <div class="servicio-tags">
+          <span class="stag">PSE</span>
+          <span class="stag">Nequi</span>
+          <span class="stag">Tarjetas</span>
+        </div>
+      </div>
+
+      <div class="servicio-card">
+        <div class="servicio-num">03</div>
+        <div class="servicio-icon">📦</div>
+        <h3>Logística Automatizada</h3>
+        <p>Integración con Servientrega, Coordinadora y Envia. Generación de guías y trazabilidad en tiempo real sin intervención manual.</p>
+        <div class="servicio-tags">
+          <span class="stag">Servientrega</span>
+          <span class="stag">Coordinadora</span>
+          <span class="stag">Envia</span>
+        </div>
+      </div>
+
+      <div class="servicio-card">
+        <div class="servicio-num">04</div>
+        <div class="servicio-icon">🤖</div>
+        <h3>Asistente IA para WhatsApp</h3>
+        <p>Bot entrenado con la info de tu negocio. Atiende consultas frecuentes, califica clientes, procesa pedidos y hace seguimiento postventa 24/7.</p>
+        <div class="servicio-tags">
+          <span class="stag">24/7</span>
+          <span class="stag">Sin intervención</span>
+          <span class="stag">Personalizable</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SEGMENTO ── -->
+<section id="segmento">
+  <div class="container">
+    <div class="tag">Para quién es</div>
+    <h2 class="section-title">Diseñado para el emprendedor colombiano</h2>
+    <p class="section-sub">
+      Nexus Ops es para quienes tienen un negocio real y demanda validada, pero sin infraestructura comercial estructurada.
+    </p>
+    <div class="segmento-grid">
+      <ul class="segmento-list">
+        <li>
+          <span class="icon">👗</span>
+          <span class="text"><strong>Moda y accesorios</strong><span>Venta por Instagram, catálogos en WhatsApp</span></span>
+        </li>
+        <li>
+          <span class="icon">🍽️</span>
+          <span class="text"><strong>Alimentos y bebidas artesanales</strong><span>Pedidos domicilio, pagos informales</span></span>
+        </li>
+        <li>
+          <span class="icon">💄</span>
+          <span class="text"><strong>Cosméticos y cuidado personal</strong><span>Productos propios, clientes recurrentes</span></span>
+        </li>
+        <li>
+          <span class="icon">🏠</span>
+          <span class="text"><strong>Artículos para el hogar</strong><span>Alta rotación, múltiples referencias</span></span>
+        </li>
+        <li>
+          <span class="icon">💆</span>
+          <span class="text"><strong>Salud y bienestar</strong><span>Agendamiento, pagos anticipados</span></span>
+        </li>
+      </ul>
+      <div class="segmento-visual">
+        <div class="big-num">2.5M</div>
+        <div class="big-label">microempresarios activos en Colombia<br><small>(DANE, 2023)</small></div>
+        <hr class="divider" />
+        <div class="mini-stat">
+          <div class="val">34%</div>
+          <div class="desc">crecimiento del e-commerce 2021–2023<br><small>(CCCE, 2024)</small></div>
+        </div>
+        <div class="mini-stat">
+          <div class="val">80%</div>
+          <div class="desc">de PYMEs latinoamericanas usan<br>WhatsApp como canal principal<br><small>(Meta, 2023)</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── POR QUÉ NEXUS OPS ── -->
+<section id="porque">
+  <div class="container">
+    <div class="tag">Por qué Nexus Ops</div>
+    <h2 class="section-title">Una sola solución, no cuatro proveedores</h2>
+    <p class="section-sub">
+      Cada pieza de tu operación conectada desde el principio, sin necesidad de un equipo técnico.
+    </p>
+    <div class="porque-grid">
+      <div class="porque-item">
+        <h3>Sin conocimientos técnicos</h3>
+        <p>Nexus Ops configura todo. Tú te enfocas en vender y en la calidad de tu producto.</p>
+      </div>
+      <div class="porque-item">
+        <h3>Todo integrado</h3>
+        <p>Landing, pagos, logística y WhatsApp IA hablan entre sí desde el primer día.</p>
+      </div>
+      <div class="porque-item">
+        <h3>Escalable desde el inicio</h3>
+        <p>La misma infraestructura que usas hoy escala cuando tu volumen de ventas crezca.</p>
+      </div>
+      <div class="porque-item">
+        <h3>Contexto colombiano</h3>
+        <p>PSE, Nequi, Servientrega, español colombiano — construido para la realidad local.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA / CONTACTO ── -->
+<section id="contacto">
+  <div class="container">
+    <div class="cta-box">
+      <div class="tag">Lista de espera</div>
+      <h2>¿Listo para automatizar tu negocio?</h2>
+      <p>Déjanos tu correo y te contactamos cuando abramos el acceso para los primeros clientes.</p>
+      <form class="cta-form" onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="tu@correo.com" id="email-input" required />
+        <button type="submit" class="btn btn-primary">Quiero acceso anticipado</button>
+      </form>
+      <p class="cta-note">Sin spam. Solo te escribimos cuando esté listo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <span><strong>Nexus Ops</strong> — Automatización Comercial con IA · Bogotá, Colombia</span>
+    <span>Construido por <a href="https://andres-nova.github.io">Andres Nova</a> · AI Solutions Architect</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script>
+  // GA4 — scroll depth tracking
+  let milestones = { 25: false, 50: false, 75: false, 90: false };
+  window.addEventListener('scroll', () => {
+    const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    for (const m in milestones) {
+      if (pct >= m && !milestones[m]) {
+        milestones[m] = true;
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: m + '%' });
+      }
+    }
+  });
+
+  // GA4 — sección visible (IntersectionObserver)
+  const sections = document.querySelectorAll('section[id]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        gtag('event', 'section_view', { event_category: 'navigation', event_label: e.target.id });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+    gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'waitlist' });
+    e.target.innerHTML = '<p style="color:var(--accent2);font-weight:600;font-size:1.1rem">✓ ¡Registrado! Te avisamos pronto.</p>';
+  }
+</script>
+
+</body>
+</html>
