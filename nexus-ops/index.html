@@ -413,6 +413,122 @@
     .blog-compas-card:hover { border-color: var(--accent); color: var(--text); text-decoration: none; transform: translateY(-2px); }
     .blog-note { font-size: .78rem; color: var(--text-muted); font-style: italic; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 2rem; }
     .blog-disqus-wrap { margin-top: 2.5rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; min-height: 120px; }
+
+    /* ══════════════════════════════════════════
+       REDESIGN VISUAL — minimalista + comercial
+    ══════════════════════════════════════════ */
+
+    /* Más aire entre secciones */
+    section { padding: 6.5rem 2rem; }
+
+    /* ── HERO MASIVO ── */
+    #hero { min-height: 92vh; display: flex; align-items: center; justify-content: center; }
+    .hero-inner { text-align: center; max-width: 860px; margin: 0 auto; }
+    .hero-badge { display: none; }
+    .hero-inner h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900; letter-spacing: -.05em;
+      line-height: 1.02; margin-bottom: 1.8rem;
+      text-wrap: balance;
+    }
+    .hero-inner h1 em { font-style: normal; }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 520px; margin: 0 auto 2.8rem;
+      color: var(--text-muted); line-height: 1.65;
+    }
+    .hero-cta { gap: 1rem; }
+    .hero-cta .btn-outline { display: none; }
+    .hero-stats {
+      margin-top: 4.5rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem;
+    }
+    .stat-num {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 800; color: var(--accent);
+      display: block; letter-spacing: -.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-label { font-size: .78rem; color: var(--text-muted); display: block; margin-top: .25rem; line-height: 1.35; }
+
+    /* ── SVG ICON CARDS ── */
+    .svc-icon {
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border); border-radius: 14px;
+      margin-bottom: 1.4rem; background: var(--bg3);
+      transition: transform .28s cubic-bezier(.34,1.56,.64,1), border-color .2s, background .2s;
+    }
+    .svc-icon svg { width: 26px; height: 26px; stroke: var(--accent2); }
+    .servicio-card:hover .svc-icon { transform: translateY(-4px) scale(1.08); border-color: var(--accent); background: var(--bg); }
+    .servicio-icon { display: none; }
+    .servicio-num { display: none; }
+    .servicio-card { padding: 2rem; }
+    .servicio-card h3 { font-size: 1rem; margin-bottom: .6rem; }
+
+    /* ── PROCESO — números limpios ── */
+    .tl-dot {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: transparent; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .95rem; color: var(--accent);
+      flex-shrink: 0; font-variant-numeric: tabular-nums;
+      transition: background .2s, border-color .2s;
+    }
+    .tl-step:hover .tl-dot { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+    /* ── SECTION TITLE ── */
+    .section-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); letter-spacing: -.03em; }
+
+    /* ── FADE-UP ENTRANCE ── */
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: .1s; }
+    .fade-up:nth-child(3) { transition-delay: .2s; }
+    .fade-up:nth-child(4) { transition-delay: .3s; }
+
+    /* ── OCULTAR SECCIONES REDUNDANTES ── */
+    #problema, #porque { display: none; }
+
+    /* ── FOOTER MEJORADO ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 960px; margin: 0 auto 3rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+    }
+    .footer-logo {
+      font-size: 1.4rem; font-weight: 900; letter-spacing: -.04em;
+      color: var(--text); display: block; margin-bottom: .8rem;
+    }
+    .footer-logo em { font-style: normal; color: var(--accent); }
+    .footer-brand p { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
+    .footer-heading {
+      font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-muted); display: block; margin-bottom: .9rem; font-weight: 600;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: .5rem; }
+    .footer-links a { font-size: .85rem; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom {
+      max-width: 960px; margin: 0 auto;
+      padding-top: 1.5rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .78rem; color: var(--text-muted); flex-wrap: wrap; gap: .5rem;
+    }
+    .footer-bottom a { color: var(--text-muted); }
+    .footer-bottom a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-stats { grid-template-columns: repeat(2,1fr); gap: .8rem; }
+      #hero { min-height: auto; padding-top: 5rem; padding-bottom: 4rem; }
+      section { padding: 4rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -511,9 +627,13 @@
     </p>
     <div class="servicios-grid">
 
-      <div class="servicio-card">
-        <div class="servicio-num">01</div>
-        <div class="servicio-icon">🚀</div>
+      <div class="servicio-card fade-up">
+        <div class="svc-icon">
+          <!-- Monitor / landing page -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
         <h3>Landing Page de Producto</h3>
         <p>Página optimizada para conversión, hospedada y configurada por Nexus Ops. Diseño profesional, carga rápida, adaptada a tu marca.</p>
         <div class="servicio-tags">
@@ -523,9 +643,13 @@
         </div>
       </div>
 
-      <div class="servicio-card">
-        <div class="servicio-num">02</div>
-        <div class="servicio-icon">💳</div>
+      <div class="servicio-card fade-up">
+        <div class="svc-icon">
+          <!-- Tarjeta de crédito / pago -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>
+          </svg>
+        </div>
         <h3>Pasarela de Pago Local</h3>
         <p>Integración con PSE, Nequi y tarjetas de crédito/débito. Conciliación automática y comprobantes digitales listos para el cliente.</p>
         <div class="servicio-tags">
@@ -535,9 +659,14 @@
         </div>
       </div>
 
-      <div class="servicio-card">
-        <div class="servicio-num">03</div>
-        <div class="servicio-icon">📦</div>
+      <div class="servicio-card fade-up">
+        <div class="svc-icon">
+          <!-- Caja / logística -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-2"/>
+            <path d="M3.3 7l8.7 5 8.7-5M12 22V12"/>
+          </svg>
+        </div>
         <h3>Logística Automatizada</h3>
         <p>Integración con Servientrega, Coordinadora y Envia. Generación de guías y trazabilidad en tiempo real sin intervención manual.</p>
         <div class="servicio-tags">
@@ -547,9 +676,14 @@
         </div>
       </div>
 
-      <div class="servicio-card">
-        <div class="servicio-num">04</div>
-        <div class="servicio-icon">🤖</div>
+      <div class="servicio-card fade-up">
+        <div class="svc-icon">
+          <!-- Chat bot / IA -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <path d="M8 10h.01M12 10h.01M16 10h.01"/>
+          </svg>
+        </div>
         <h3>Asistente IA para WhatsApp</h3>
         <p>Bot entrenado con la info de tu negocio. Atiende consultas frecuentes, califica clientes, procesa pedidos y hace seguimiento postventa 24/7.</p>
         <div class="servicio-tags">
@@ -572,32 +706,32 @@
       Sin reuniones interminables. Sin conocimientos técnicos. Tú llevas el negocio, nosotros montamos la infraestructura.
     </p>
     <div class="timeline">
-      <div class="tl-step">
-        <div class="tl-dot">📋</div>
+      <div class="tl-step fade-up">
+        <div class="tl-dot">01</div>
         <div class="tl-content">
           <h3>Día 1 — Cuéntanos tu negocio</h3>
           <p>Formulario breve (10 min): productos, precios, operadores de envío que ya usas y las preguntas frecuentes de tus clientes. Sin reuniones, async.</p>
           <span class="tl-badge">Async · 10 min</span>
         </div>
       </div>
-      <div class="tl-step">
-        <div class="tl-dot">⚙️</div>
+      <div class="tl-step fade-up">
+        <div class="tl-dot">02</div>
         <div class="tl-content">
           <h3>Días 2–3 — Configuramos tu stack</h3>
           <p>Nexus Ops monta tu landing, conecta la pasarela de pago, integra los operadores logísticos y entrena el bot de WhatsApp con la info de tu negocio.</p>
           <span class="tl-badge">Nosotros operamos</span>
         </div>
       </div>
-      <div class="tl-step">
-        <div class="tl-dot">🔍</div>
+      <div class="tl-step fade-up">
+        <div class="tl-dot">03</div>
         <div class="tl-content">
           <h3>Día 4 — Lo revisamos juntos</h3>
           <p>Videollamada de 30 minutos para validar todo contigo. Ajustamos precios, textos y flujos según tu feedback. Tú apruebas antes de salir en vivo.</p>
           <span class="tl-badge">Tu aprobación</span>
         </div>
       </div>
-      <div class="tl-step">
-        <div class="tl-dot">🚀</div>
+      <div class="tl-step fade-up">
+        <div class="tl-dot">04</div>
         <div class="tl-content">
           <h3>Día 5 — Tú vendes, nosotros operamos</h3>
           <p>Salida en vivo. El bot atiende 24/7, los pagos entran solos y las guías se generan automáticamente. Dashboard con tus métricas en tiempo real.</p>
@@ -934,10 +1068,29 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-inner">
-    <span><strong>Nexus Ops</strong> — Automatización Comercial con IA · Bogotá, Colombia</span>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo">Nexus<em>Ops</em></span>
+      <p>Automatización comercial con IA<br>para emprendedores en Colombia.</p>
+    </div>
+    <div class="footer-links">
+      <span class="footer-heading">Navegación</span>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo funciona</a>
+      <a href="#calculadora">Calculadora ROI</a>
+      <a href="#blog">Blog</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-links">
+      <span class="footer-heading">Recursos</span>
+      <a href="/nexus-ops/blog/">Blog completo</a>
+      <a href="https://andres-nova.github.io">Portafolio del autor</a>
+      <a href="#contacto">Lista de espera</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Nexus Ops · Bogotá, Colombia</span>
     <span>Construido por <a href="https://andres-nova.github.io">Andres Nova</a> · AI Solutions Architect</span>
-    <span>© 2026</span>
   </div>
 </footer>
 
@@ -1111,6 +1264,57 @@
   }
   resize(); pts = Array.from({ length: N }, mkPt); draw();
   window.addEventListener('resize', () => { resize(); pts = Array.from({ length: N }, mkPt); });
+})();
+</script>
+
+<script>
+/* ── COUNT-UP STATS ── */
+(function () {
+  const stats = [
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(1) .stat-num'), end: 2.5, suffix: 'M+', decimals: 1 },
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(2) .stat-num'), end: 80,  suffix: '%',  decimals: 0 },
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(3) .stat-num'), end: 70,  suffix: '%',  decimals: 0 },
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(4) .stat-num'), end: 60,  suffix: '%',  decimals: 0 },
+  ];
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function countUp(s) {
+    const dur = 1400, start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = (ease * s.end).toFixed(s.decimals);
+      s.el.textContent = val + s.suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        stats.forEach(s => { if (s.el) countUp(s); });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) io.observe(statsEl);
+})();
+
+/* ── FADE-UP AL HACER SCROLL ── */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 })();
 </script>
 
