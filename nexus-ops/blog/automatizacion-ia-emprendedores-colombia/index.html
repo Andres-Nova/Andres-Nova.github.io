@@ -170,6 +170,34 @@
     }
     :root[data-theme="dark"] nav { background: rgba(13,17,23,.95); }
 
+    /* ── PEERS GRID ── */
+    .peers-intro { font-size: .88rem; color: var(--text-muted); margin-bottom: 1.2rem; display: flex; align-items: center; gap: .5rem; }
+    .peers-intro svg { flex-shrink: 0; opacity: .65; }
+    .peers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: .5rem 0 1.5rem; }
+    .peer-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.1rem 1.25rem 1rem;
+      text-decoration: none; display: flex; flex-direction: column; gap: .5rem;
+      transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+    }
+    .peer-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.22); text-decoration: none; }
+    .peer-card-top { display: flex; align-items: center; gap: .75rem; }
+    .peer-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; flex-shrink: 0;
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+    }
+    .peer-card:hover .peer-icon { transform: scale(1.12) rotate(-4deg); }
+    .peer-name { font-size: .88rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .peer-topic { font-size: .78rem; color: var(--text-muted); line-height: 1.45; flex: 1; }
+    .peer-cta {
+      margin-top: .35rem; font-size: .78rem; font-weight: 600;
+      color: var(--accent); display: flex; align-items: center; gap: .35rem;
+    }
+    .peer-cta svg { width: 13px; height: 13px; stroke: var(--accent); }
+
     /* ── TRANSICIONES ── */
     body { transition: background-color .3s ease, color .3s ease; }
     nav, .diagram-wrap, .cta-box, .related-card, .giscus-info, blockquote {
@@ -300,7 +328,50 @@
   <!-- H2 — COMPAÑEROS -->
   <h2>Otros emprendedores que también lo están haciendo</h2>
 
-  <p>Si quieres profundizar en cómo la IA está transformando negocios como el tuyo, te recomendamos leer sobre <a href="https://clc-lavanderia.blogspot.com/2026/08/personalizacion-del-marketing-con-ia.html" target="_blank" rel="noopener">personalización del marketing con IA en CLC Lavandería</a> y cómo mejorar la <a href="https://puntaditasnadjamusa.blogspot.com/2026/08/ia-en-la-experiencia-del-cliente-una.html" target="_blank" rel="noopener">experiencia del cliente con inteligencia artificial en Puntaditas Nadja Musa</a> — dos casos concretos que complementan lo que hacemos en Nexus Ops.</p>
+  <p class="peers-intro">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Si quieres ver cómo la IA está transformando otros negocios, estos artículos complementan lo que hacemos en Nexus Ops:
+  </p>
+
+  <div class="peers-grid">
+
+    <a href="https://clc-lavanderia.blogspot.com/2026/08/personalizacion-del-marketing-con-ia.html"
+       target="_blank" rel="noopener" class="peer-card"
+       onclick="gtag('event','peer_click',{event_category:'blog_post',event_label:'clc_lavanderia'})">
+      <div class="peer-card-top">
+        <div class="peer-icon">🧺</div>
+        <span class="peer-name">CLC Lavandería</span>
+      </div>
+      <span class="peer-topic">Personalización del marketing con IA — cómo un negocio de lavandería usa datos para llegar mejor a sus clientes.</span>
+      <span class="peer-cta">
+        Ver artículo
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </span>
+    </a>
+
+    <a href="https://puntaditasnadjamusa.blogspot.com/2026/08/ia-en-la-experiencia-del-cliente-una.html"
+       target="_blank" rel="noopener" class="peer-card"
+       onclick="gtag('event','peer_click',{event_category:'blog_post',event_label:'puntaditas_nadja'})">
+      <div class="peer-card-top">
+        <div class="peer-icon">🧵</div>
+        <span class="peer-name">Puntaditas Nadja Musa</span>
+      </div>
+      <span class="peer-topic">IA en la experiencia del cliente — cómo mejorar la atención y fidelización usando inteligencia artificial.</span>
+      <span class="peer-cta">
+        Ver artículo
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </span>
+    </a>
+
+  </div>
 
   <!-- H2 — CTA -->
   <h2>¿Por dónde empiezas?</h2>
