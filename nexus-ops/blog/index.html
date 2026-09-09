@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog — Nexus Ops</title>
+  <title>Blog Nexus Ops</title>
   <meta name="description" content="Artículos sobre automatización con IA para emprendedores colombianos: WhatsApp bots, pagos automáticos, logística y más." />
   <link rel="canonical" href="https://andres-nova.github.io/nexus-ops/blog/" />
-  <meta property="og:title" content="Blog — Nexus Ops" />
+  <meta property="og:title" content="Blog Nexus Ops" />
   <meta property="og:description" content="Artículos prácticos de automatización e IA comercial para MiPYMEs en Colombia." />
   <meta property="og:url" content="https://andres-nova.github.io/nexus-ops/blog/" />
   <meta property="og:type" content="website" />
@@ -27,8 +27,8 @@
     :root {
       --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
       --border: rgba(255,255,255,.08); --text: #e6edf3;
-      --text-muted: rgba(230,237,243,.65); --accent: #ffffff;
-      --accent2: rgba(255,255,255,0.82);
+      --text-muted: rgba(230,237,243,.65);
+      --accent: #58a6ff; --accent-green: #3fb950; --accent2: rgba(230,237,243,.82);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -46,13 +46,13 @@
     .blog-header p { color: var(--text-muted); }
 
     .post-grid { display: grid; gap: 1.5rem; }
-    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-decoration: none; display: block; transition: border-color .2s, transform .2s; }
-    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-decoration: none; display: block; transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.28); text-decoration: none; }
     .post-card-meta { display: flex; gap: .8rem; flex-wrap: wrap; font-size: .78rem; color: var(--text-muted); margin-bottom: .8rem; align-items: center; }
-    .post-card-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: .15rem .5rem; font-weight: 600; color: var(--accent2); font-size: .75rem; }
+    .post-card-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: .15rem .5rem; font-weight: 600; color: var(--accent); font-size: .75rem; }
     .post-card h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.3; }
     .post-card p { font-size: .88rem; color: var(--text-muted); margin: 0; }
-    .post-card-footer { margin-top: 1rem; font-size: .82rem; color: var(--accent); font-weight: 600; }
+    .post-card-footer { margin-top: 1rem; font-size: .82rem; color: var(--accent-green); font-weight: 600; }
 
     footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; font-size: .82rem; color: var(--text-muted); }
     footer a { color: var(--text-muted); }
@@ -60,45 +60,38 @@
 
     @media (max-width: 640px) { .blog-container { padding: 2rem 1rem 4rem; } }
 
-    /* ── CANVAS FONDO ANIMADO ── */
+    /* ── CANVAS ── */
     #bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
     nav, main, footer { position: relative; z-index: 1; }
 
-    /* ── TEMA CLARO — preferencia del sistema ── */
+    /* ── TEMA CLARO — sistema ── */
     @media (prefers-color-scheme: light) {
       :root:not([data-theme="dark"]) {
         --bg: #f6f8fa; --surface: #ffffff; --surface2: #eaecef;
         --border: rgba(0,0,0,.1); --text: #0d1117;
-        --text-muted: rgba(13,17,23,.6); --accent: #0d1117; --accent2: rgba(13,17,23,.82);
+        --text-muted: rgba(13,17,23,.6); --accent: #0969da; --accent-green: #1a7f37; --accent2: rgba(13,17,23,.82);
       }
       :root:not([data-theme="dark"]) nav { background: rgba(246,248,250,.95); }
+      :root:not([data-theme="dark"]) .post-card:hover { box-shadow: 0 16px 48px rgba(13,17,23,.1); }
     }
-    /* ── TEMA CLARO — toggle explícito ── */
+    /* ── TEMA CLARO — toggle ── */
     :root[data-theme="light"] {
       --bg: #f6f8fa; --surface: #ffffff; --surface2: #eaecef;
       --border: rgba(0,0,0,.1); --text: #0d1117;
-      --text-muted: rgba(13,17,23,.6); --accent: #0d1117; --accent2: rgba(13,17,23,.82);
+      --text-muted: rgba(13,17,23,.6); --accent: #0969da; --accent-green: #1a7f37; --accent2: rgba(13,17,23,.82);
     }
     :root[data-theme="light"] nav { background: rgba(246,248,250,.95); }
-    /* ── TEMA OSCURO — override toggle ── */
+    :root[data-theme="light"] .post-card:hover { box-shadow: 0 16px 48px rgba(13,17,23,.1); }
+    /* ── TEMA OSCURO — override ── */
     :root[data-theme="dark"] {
       --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
       --border: rgba(255,255,255,.08); --text: #e6edf3;
-      --text-muted: rgba(230,237,243,.65); --accent: #ffffff; --accent2: rgba(255,255,255,0.82);
+      --text-muted: rgba(230,237,243,.65); --accent: #58a6ff; --accent-green: #3fb950; --accent2: rgba(230,237,243,.82);
     }
     :root[data-theme="dark"] nav { background: rgba(13,17,23,.95); }
 
-    /* ── TRANSICIONES SUAVES DE TEMA ── */
     body { transition: background-color .3s ease, color .3s ease; }
-    nav, .post-card, .blog-container { transition: background-color .3s ease, border-color .3s ease; }
-
-    /* ── CARDS CON HOVER ANIMADO ── */
-    .post-card {
-      transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1),
-                  box-shadow .25s, background-color .3s;
-    }
-    .post-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.28); }
-    :root[data-theme="light"] .post-card:hover { box-shadow: 0 16px 48px rgba(13,17,23,.1); }
+    nav, .post-card { transition: background-color .3s ease, border-color .3s ease; }
     .nav-back { transition: all .2s, transform .2s; }
     .nav-back:hover { transform: translateX(-3px); }
 
@@ -110,8 +103,7 @@
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; line-height: 1; padding: 0;
       box-shadow: 0 4px 20px rgba(0,0,0,.3);
-      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s,
-                  box-shadow .2s, background-color .3s;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s, box-shadow .2s, background-color .3s;
     }
     .theme-toggle:hover {
       transform: scale(1.15) rotate(22deg);
@@ -130,22 +122,22 @@
 
 <main class="blog-container">
   <div class="blog-header">
-    <h1>Blog</h1>
+    <h1>Blog Nexus Ops</h1>
     <p>Artículos sobre automatización con IA para emprendedores en Colombia.</p>
   </div>
 
   <div class="post-grid">
 
-    <a href="/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/"
+    <a href="./automatizacion-ia-emprendedores-colombia/"
        class="post-card"
        onclick="gtag('event','post_click',{event_category:'blog_index',event_label:'automatizacion-ia-emprendedores-colombia'})">
       <div class="post-card-meta">
-        <span class="post-card-badge">MBA BIU · BAI6041 · Tarea #6</span>
-        <span>8 sept 2026</span>
-        <span>· 5 min de lectura</span>
+        <span class="post-card-badge">Automatización · IA Comercial</span>
+        <span>Septiembre 2026</span>
+        <span>· 4 min de lectura</span>
       </div>
-      <h2>Automatiza tu negocio con IA si eres emprendedor en Colombia</h2>
-      <p>Guía práctica: automatiza WhatsApp, pagos y logística con IA para MiPYMEs colombianas sin código. Recupera horas y vende más desde el primer mes.</p>
+      <h2>Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</h2>
+      <p>Aprende cómo la automatización con IA puede transformar tu negocio colombiano: responder WhatsApp, cobrar y despachar sin hacerlo tú mismo.</p>
       <div class="post-card-footer">Leer artículo →</div>
     </a>
 
@@ -161,10 +153,9 @@
 <script>
 (function () {
   const root = document.documentElement;
-  const btn = document.getElementById('theme-toggle');
-
+  const btn  = document.getElementById('theme-toggle');
   function isDark(t) {
-    if (t === 'dark') return true;
+    if (t === 'dark')  return true;
     if (t === 'light') return false;
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
@@ -179,14 +170,13 @@
     applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 
+  /* PARTÍCULAS */
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
-
   const ctx = canvas.getContext('2d');
   const N = 50, MAX_D = 130;
   let pts = [];
-
   function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   function mkPt() {
     return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
@@ -195,8 +185,8 @@
   }
   function getColors() {
     return isDark(root.getAttribute('data-theme'))
-      ? { dot: 'rgba(255,255,255,.15)', base: 'rgba(255,255,255,' }
-      : { dot: 'rgba(13,17,23,.1)',     base: 'rgba(13,17,23,' };
+      ? { dot: 'rgba(88,166,255,.15)', base: 'rgba(88,166,255,' }
+      : { dot: 'rgba(9,105,218,.09)',  base: 'rgba(9,105,218,' };
   }
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -211,7 +201,7 @@
     for (let i = 0; i < pts.length; i++) {
       for (let j = i + 1; j < pts.length; j++) {
         const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
+        const d  = Math.sqrt(dx * dx + dy * dy);
         if (d < MAX_D) {
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);

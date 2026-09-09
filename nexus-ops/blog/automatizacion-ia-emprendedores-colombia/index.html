@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</title>
-  <meta name="description" content="Guía práctica: automatiza WhatsApp, pagos y logística con IA para MiPYMEs colombianas sin código. Recupera horas y vende más desde el primer mes." />
+  <meta name="description" content="Aprende cómo la automatización con IA puede transformar tu negocio colombiano: responder WhatsApp, cobrar y despachar sin hacerlo tú mismo." />
   <meta name="keywords" content="automatización IA Colombia, emprendedor MiPYME, bot WhatsApp Colombia, automatizar negocio, inteligencia artificial emprendimiento" />
   <meta name="author" content="Andres Nova" />
   <link rel="canonical" href="https://andres-nova.github.io/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Cómo automatizar tu negocio con IA si eres emprendedor en Colombia" />
-  <meta property="og:description" content="Guía práctica para emprendedores colombianos: IA, WhatsApp y pagos automáticos desde el día 1." />
+  <meta property="og:description" content="Aprende cómo la automatización con IA puede transformar tu negocio colombiano: responder WhatsApp, cobrar y despachar sin hacerlo tú mismo." />
   <meta property="og:url" content="https://andres-nova.github.io/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/" />
   <meta property="og:type" content="article" />
   <meta property="article:published_time" content="2026-09-08" />
@@ -33,7 +33,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Cómo automatizar tu negocio con IA si eres emprendedor en Colombia",
-    "description": "Guía práctica para emprendedores colombianos: automatiza WhatsApp, pagos y logística con IA sin código.",
+    "description": "Aprende cómo la automatización con IA puede transformar tu negocio colombiano: responder WhatsApp, cobrar y despachar sin hacerlo tú mismo.",
     "author": { "@type": "Person", "name": "Andres Nova" },
     "datePublished": "2026-09-08",
     "publisher": { "@type": "Organization", "name": "Nexus Ops" },
@@ -46,15 +46,16 @@
 
   <style>
     :root {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --surface2: #21262d;
-      --border: rgba(255,255,255,.08);
-      --text: #e6edf3;
-      --text-muted: rgba(230,237,243,.65);
-      --accent: #ffffff;
-      --accent2: rgba(255,255,255,0.82);
-      --accent3: #f78166;
+      --bg:           #0d1117;
+      --surface:      #161b22;
+      --surface2:     #21262d;
+      --border:       rgba(255,255,255,.08);
+      --text:         #e6edf3;
+      --text-muted:   rgba(230,237,243,.65);
+      --accent:       #58a6ff;
+      --accent-green: #3fb950;
+      --accent2:      rgba(230,237,243,.82);
+      --accent3:      #f87171;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -68,11 +69,11 @@
     .nav-back:hover { color: var(--text); border-color: var(--accent); }
 
     /* ARTICLE LAYOUT */
-    .post-container { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .post-container { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
 
     /* META */
     .post-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; font-size: .82rem; color: var(--text-muted); margin-bottom: 2rem; align-items: center; }
-    .post-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: .2rem .6rem; font-size: .78rem; color: var(--accent2); font-weight: 600; letter-spacing: .04em; }
+    .post-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: .2rem .6rem; font-size: .78rem; color: var(--accent); font-weight: 600; letter-spacing: .04em; }
 
     /* HEADINGS */
     h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; color: var(--text); margin-bottom: 1rem; letter-spacing: -.03em; }
@@ -87,7 +88,9 @@
     li strong { color: var(--text); }
     a { color: var(--accent); }
     a:hover { text-decoration: underline; }
-    blockquote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1.5rem 0; background: var(--surface); border-radius: 0 8px 8px 0; }
+
+    /* QUOTE */
+    blockquote { border-left: 3px solid var(--accent-green); padding: .8rem 1.2rem; margin: 1.5rem 0; background: var(--surface); border-radius: 0 8px 8px 0; text-align: center; }
     blockquote p { color: var(--text); font-style: italic; margin: 0; }
 
     /* DIAGRAM */
@@ -95,16 +98,17 @@
     .diagram-wrap figcaption { font-size: .8rem; color: var(--text-muted); text-align: center; margin-top: .8rem; }
 
     /* CTA BOX */
-    .cta-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin: 3rem 0; text-align: center; }
+    .cta-box { background: var(--surface); border: 1px solid rgba(63,185,80,.3); border-radius: 12px; padding: 2rem; margin: 3rem 0; text-align: center; }
     .cta-box p { color: var(--text-muted); margin-bottom: 1.2rem; }
-    .btn-primary { display: inline-block; background: #ffffff; color: #0d1117; font-weight: 700; padding: .75rem 2rem; border-radius: 8px; text-decoration: none; font-size: .95rem; transition: background .2s; }
-    .btn-primary:hover { background: #e0e6ed; text-decoration: none; }
+    .btn-primary { display: inline-block; background: var(--accent-green); color: #0d1117; font-weight: 700; padding: .75rem 2rem; border-radius: 8px; text-decoration: none; font-size: .95rem; transition: background .2s, transform .2s; }
+    .btn-primary:hover { background: #2ea043; text-decoration: none; transform: translateY(-2px); }
 
-    /* AUTHOR */
-    .author-card { display: flex; align-items: center; gap: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 3rem 0 2rem; }
-    .author-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-    .author-info h4 { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
-    .author-info p { font-size: .82rem; color: var(--text-muted); margin: 0; }
+    /* REFERENCES */
+    .references { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .references h2 { font-size: 1rem; margin-bottom: .8rem; }
+    .references ol { font-size: .82rem; color: var(--text-muted); }
+    .references li { margin-bottom: .35rem; }
+    .references em { font-style: italic; }
 
     /* RELATED POSTS */
     .related-section { margin: 3rem 0; }
@@ -125,56 +129,55 @@
     footer a { color: var(--text-muted); }
     footer a:hover { color: var(--text); }
 
-    @media (max-width: 640px) {
-      .post-container { padding: 2rem 1rem 4rem; }
-      .author-card { flex-direction: column; text-align: center; }
-    }
+    @media (max-width: 640px) { .post-container { padding: 2rem 1rem 4rem; } }
 
-    /* ── CANVAS FONDO ANIMADO ── */
+    /* ── CANVAS ── */
     #bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
     nav, main, footer { position: relative; z-index: 1; }
 
-    /* ── TEMA CLARO — preferencia del sistema ── */
+    /* ── TEMA CLARO — sistema ── */
     @media (prefers-color-scheme: light) {
       :root:not([data-theme="dark"]) {
         --bg: #f6f8fa; --surface: #ffffff; --surface2: #eaecef;
         --border: rgba(0,0,0,.1); --text: #0d1117;
-        --text-muted: rgba(13,17,23,.6); --accent: #0d1117; --accent2: rgba(13,17,23,.82);
+        --text-muted: rgba(13,17,23,.6);
+        --accent: #0969da; --accent-green: #1a7f37; --accent2: rgba(13,17,23,.82);
       }
       :root:not([data-theme="dark"]) nav { background: rgba(246,248,250,.95); }
-      :root:not([data-theme="dark"]) .btn-primary { background: #0d1117; color: #f6f8fa; }
-      :root:not([data-theme="dark"]) .btn-primary:hover { background: #161b22; }
+      :root:not([data-theme="dark"]) .btn-primary { background: #1a7f37; color: #fff; }
+      :root:not([data-theme="dark"]) .btn-primary:hover { background: #116329; }
+      :root:not([data-theme="dark"]) blockquote { background: #f0fff4; border-left-color: #1a7f37; }
+      :root:not([data-theme="dark"]) .cta-box { border-color: rgba(26,127,55,.3); }
     }
-    /* ── TEMA CLARO — toggle explícito ── */
+    /* ── TEMA CLARO — toggle ── */
     :root[data-theme="light"] {
       --bg: #f6f8fa; --surface: #ffffff; --surface2: #eaecef;
       --border: rgba(0,0,0,.1); --text: #0d1117;
-      --text-muted: rgba(13,17,23,.6); --accent: #0d1117; --accent2: rgba(13,17,23,.82);
+      --text-muted: rgba(13,17,23,.6);
+      --accent: #0969da; --accent-green: #1a7f37; --accent2: rgba(13,17,23,.82);
     }
     :root[data-theme="light"] nav { background: rgba(246,248,250,.95); }
-    :root[data-theme="light"] .btn-primary { background: #0d1117; color: #f6f8fa; }
-    :root[data-theme="light"] .btn-primary:hover { background: #161b22; box-shadow: 0 10px 32px rgba(13,17,23,.15); }
-    /* ── TEMA OSCURO — override toggle ── */
+    :root[data-theme="light"] .btn-primary { background: #1a7f37; color: #fff; }
+    :root[data-theme="light"] .btn-primary:hover { background: #116329; }
+    :root[data-theme="light"] blockquote { background: #f0fff4; border-left-color: #1a7f37; }
+    :root[data-theme="light"] .cta-box { border-color: rgba(26,127,55,.3); }
+    /* ── TEMA OSCURO — override ── */
     :root[data-theme="dark"] {
       --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
       --border: rgba(255,255,255,.08); --text: #e6edf3;
-      --text-muted: rgba(230,237,243,.65); --accent: #ffffff; --accent2: rgba(255,255,255,0.82);
+      --text-muted: rgba(230,237,243,.65);
+      --accent: #58a6ff; --accent-green: #3fb950; --accent2: rgba(230,237,243,.82);
     }
     :root[data-theme="dark"] nav { background: rgba(13,17,23,.95); }
-    :root[data-theme="dark"] .btn-primary { background: #ffffff; color: #0d1117; }
 
-    /* ── TRANSICIONES SUAVES DE TEMA ── */
+    /* ── TRANSICIONES ── */
     body { transition: background-color .3s ease, color .3s ease; }
-    nav, .diagram-wrap, .cta-box, .author-card, .related-card,
-    .giscus-info, blockquote, .post-badge, .post-card, .post-container {
+    nav, .diagram-wrap, .cta-box, .related-card, .giscus-info, blockquote {
       transition: background-color .3s ease, border-color .3s ease, color .3s ease;
     }
 
-    /* ── BOTÓN PRIMARIO ANIMADO ── */
-    .btn-primary {
-      position: relative; overflow: hidden;
-      transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background .2s, color .2s;
-    }
+    /* ── BTN SHIMMER ── */
+    .btn-primary { position: relative; overflow: hidden; }
     .btn-primary::after {
       content: ''; position: absolute; top: 0; left: -100%;
       width: 60%; height: 100%;
@@ -182,11 +185,8 @@
       transform: skewX(-20deg); transition: left .55s ease; pointer-events: none;
     }
     .btn-primary:hover::after { left: 150%; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,.22); }
+    .btn-primary:hover { box-shadow: 0 8px 24px rgba(63,185,80,.25); }
 
-    /* ── CARDS CON HOVER ANIMADO ── */
-    .related-card { transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background-color .3s; }
-    .related-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.25); }
     .nav-back { transition: all .2s, transform .2s; }
     .nav-back:hover { transform: translateX(-3px); }
 
@@ -198,8 +198,7 @@
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; line-height: 1; padding: 0;
       box-shadow: 0 4px 20px rgba(0,0,0,.3);
-      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s,
-                  box-shadow .2s, background-color .3s;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s, box-shadow .2s, background-color .3s;
     }
     .theme-toggle:hover {
       transform: scale(1.15) rotate(22deg);
@@ -218,154 +217,112 @@
 
 <main class="post-container">
 
-  <!-- META / BADGE -->
+  <!-- META -->
   <div class="post-meta">
-    <span class="post-badge">MBA BIU · BAI6041 · Tarea #6</span>
-    <span>8 sept 2026</span>
-    <span>· 5 min de lectura</span>
-    <span>· Andres Nova</span>
+    <span class="post-badge">Automatización · IA Comercial</span>
+    <span>Andres Nova</span>
+    <span>·</span>
+    <span>Septiembre 2026</span>
+    <span>·</span>
+    <span>4 min de lectura</span>
   </div>
 
-  <!-- H1 — 63 caracteres, dentro del límite ≤ 70 -->
-  <h1>Automatiza tu negocio con IA si eres emprendedor en Colombia</h1>
+  <!-- H1 -->
+  <h1>Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</h1>
 
-  <!-- INTRO — keywords en primeras 100 palabras -->
-  <p>
-    <strong>La automatización con inteligencia artificial (IA) ya no es exclusiva de las grandes empresas.</strong>
-    Si eres un emprendedor en Colombia con una MiPYME o negocio propio, hoy puedes automatizar
-    WhatsApp, pagos y logística <em>sin escribir una sola línea de código</em> y sin un equipo técnico.
-    En este artículo te explico cómo hacerlo, cuánto puedes recuperar en tiempo y dinero,
-    y qué herramientas se adaptan a la realidad del mercado colombiano.
-  </p>
-
-  <!-- SECCIÓN 1 — ATENCIÓN / problema -->
-  <h2>¿Por qué los emprendedores pierden tiempo y ventas hoy?</h2>
-  <p>
-    El 68 % de los emprendedores colombianos encuestados por el DANE en 2024 reportó dedicar
-    <strong>más de 3 horas diarias a tareas repetitivas</strong>: responder mensajes de WhatsApp,
-    confirmar pagos manualmente, coordinar envíos y hacer seguimiento postventa.
-    Son horas que no generan valor directo y que podrían invertirse en crecer el negocio.
-  </p>
-  <blockquote>
-    <p>"Si valoras tu hora en $8.000 COP, 3 horas diarias son $528.000 mensuales en tareas que una IA puede hacer por ti."</p>
-  </blockquote>
-
-  <!-- DIAGRAMA SVG -->
-  <figure class="diagram-wrap">
-    <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto;" role="img" aria-label="Flujo automatizado: pedido, bot WhatsApp, pago automático, logística, postventa IA">
-      <!-- Nodos -->
-      <rect x="10" y="40" width="110" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
-      <text x="65" y="64" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">📦 Pedido</text>
-
-      <rect x="150" y="40" width="120" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
-      <text x="210" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">🤖 Bot</text>
-      <text x="210" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">WhatsApp</text>
-
-      <rect x="300" y="40" width="120" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
-      <text x="360" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">💳 Pago</text>
-      <text x="360" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">automático</text>
-
-      <rect x="450" y="40" width="100" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
-      <text x="500" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">🚚 Logística</text>
-      <text x="500" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">automática</text>
-
-      <rect x="575" y="40" width="95" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
-      <text x="622" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">⭐ Post-</text>
-      <text x="622" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">venta IA</text>
-
-      <!-- Flechas -->
-      <path d="M120 60 L148 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
-      <path d="M270 60 L298 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
-      <path d="M420 60 L448 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
-      <path d="M550 60 L573 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
-
+  <!-- DIAGRAMA SVG — entre H1 y primer H2 -->
+  <figure class="diagram-wrap" role="img" aria-label="Flujo de automatización comercial con IA para emprendedores colombianos">
+    <svg viewBox="0 0 680 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto;">
       <defs>
         <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
           <path d="M0,0 L0,6 L8,3 z" fill="#58a6ff"/>
         </marker>
       </defs>
+      <!-- nodos -->
+      <rect x="5"   y="35" width="110" height="40" rx="8" fill="#161b22" stroke="#58a6ff" stroke-opacity=".4"/>
+      <text x="60"  y="53" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif" font-weight="700">📦 Pedido</text>
+
+      <rect x="143" y="35" width="120" height="40" rx="8" fill="#161b22" stroke="#58a6ff" stroke-opacity=".4"/>
+      <text x="203" y="53" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif" font-weight="700">🤖 Bot</text>
+      <text x="203" y="67" text-anchor="middle" fill="#e6edf3" font-size="9"  font-family="Inter,sans-serif">WhatsApp</text>
+
+      <rect x="290" y="35" width="130" height="40" rx="8" fill="#161b22" stroke="#58a6ff" stroke-opacity=".4"/>
+      <text x="355" y="53" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif" font-weight="700">💳 Cobro</text>
+      <text x="355" y="67" text-anchor="middle" fill="#e6edf3" font-size="9"  font-family="Inter,sans-serif">automático</text>
+
+      <rect x="447" y="35" width="110" height="40" rx="8" fill="#161b22" stroke="#58a6ff" stroke-opacity=".4"/>
+      <text x="502" y="53" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif" font-weight="700">🚚 Logística</text>
+
+      <rect x="583" y="35" width="95" height="40" rx="8" fill="#161b22" stroke="#3fb950" stroke-opacity=".5"/>
+      <text x="630" y="53" text-anchor="middle" fill="#3fb950" font-size="10" font-family="Inter,sans-serif" font-weight="700">⭐ Post-</text>
+      <text x="630" y="67" text-anchor="middle" fill="#3fb950" font-size="9"  font-family="Inter,sans-serif">venta</text>
+
+      <!-- flechas -->
+      <path d="M115 55 L141 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M263 55 L288 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M420 55 L445 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M557 55 L581 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
     </svg>
-    <figcaption>Flujo completo automatizado: del pedido al cliente sin intervención manual.</figcaption>
+    <figcaption>Flujo completo de automatización con Nexus Ops</figcaption>
   </figure>
 
-  <!-- SECCIÓN 2 — INTERÉS / beneficios -->
-  <h2>Qué puedes automatizar hoy (sin código)</h2>
-  <ul>
-    <li><strong>WhatsApp 24/7:</strong> Un asistente IA responde preguntas frecuentes, toma pedidos y confirma disponibilidad sin que estés despierto.</li>
-    <li><strong>Cobros con PSE y Nequi:</strong> El cliente recibe un enlace de pago automático; tú recibes la confirmación sin intermediarios.</li>
-    <li><strong>Logística integrada:</strong> Al confirmar el pago, el sistema genera la guía con Servientrega, Coordinadora o Envia automáticamente.</li>
-    <li><strong>Seguimiento postventa:</strong> Mensajes automáticos de confirmación, estado del envío y recolección de reseñas.</li>
-  </ul>
+  <!-- H2 + CUERPO -->
+  <h2>¿Y si pudieras vender más sin estar pegado al celular?</h2>
 
-  <!-- SECCIÓN 3 — DESEO / ROI -->
-  <h2>¿Cuánto puedes recuperar?</h2>
-  <p>
-    Con un negocio típico que atiende WhatsApp 3 horas/día y procesa 50 pedidos al mes con ticket promedio de $80.000 COP:
-  </p>
-  <ul>
-    <li>Recuperas <strong>~46 horas/mes</strong> en atención y coordinación.</li>
-    <li>Equivale a <strong>$368.000 COP/mes</strong> en tiempo liberado (a $8.000/h).</li>
-    <li>Recuperas hasta el <strong>25 % de pedidos perdidos</strong> por respuesta lenta: <strong>$1.000.000 COP/mes</strong> adicionales.</li>
-    <li>Total estimado: <strong>$1.368.000 COP/mes</strong> desde el primer mes.</li>
-  </ul>
-  <p>
-    Estos son los cálculos que puedes hacer con tus propios números en la
-    <a href="/nexus-ops/#calculadora">calculadora interactiva de Nexus Ops</a>.
-  </p>
+  <p>¿Y si pudieras vender más hoy sin estar pegado al celular todo el día? Eso no es una fantasía: es lo que logran los <strong>emprendedores colombianos</strong> que han automatizado su negocio con inteligencia artificial. Menos tiempo operando, más tiempo creciendo.</p>
 
-  <!-- SECCIÓN 4 — ACCIÓN / implementación -->
-  <h2>Cómo empezar: el proceso en 5 días</h2>
-  <ol>
-    <li><strong>Día 1 — Diagnóstico:</strong> Revisamos tus flujos actuales (WhatsApp, pagos, logística) e identificamos los cuellos de botella.</li>
-    <li><strong>Días 2-3 — Configuración:</strong> Instalamos el asistente IA en tu número de WhatsApp Business y conectamos la pasarela de pago local.</li>
-    <li><strong>Día 4 — Prueba piloto:</strong> Simulamos 10 pedidos completos para ajustar mensajes, tiempos y flujos de excepción.</li>
-    <li><strong>Día 5 — Lanzamiento:</strong> Activas el sistema en vivo y recibes el dashboard de métricas en tiempo real.</li>
-  </ol>
+  <p>Según Meta (2023), el 80% de las compras en Colombia inicia con un mensaje de WhatsApp. Y según IBM, un bot bien entrenado resuelve el 70% de esas consultas sin que tú tengas que responder una sola. Eso se traduce en <strong>ventas que pasan mientras duermes.</strong></p>
 
-  <!-- SECCIÓN 5 — CIERRE académico -->
-  <h2>Reflexión: IA como habilitador, no reemplazo</h2>
-  <p>
-    La inteligencia artificial en el contexto del emprendimiento colombiano no busca reemplazar al emprendedor;
-    busca <strong>multiplicar su capacidad</strong>. Un asistente IA bien configurado te permite atender
-    a 200 clientes mientras tú te concentras en crear el próximo producto, negociar con proveedores
-    o simplemente descansar.
-  </p>
-  <p>
-    La barrera ya no es tecnológica ni financiera. Es de decisión. Las MiPYMEs colombianas que automaticen
-    en 2026 tendrán una ventaja estructural de 18 a 24 meses sobre las que esperen.
-  </p>
-  <p>
-    <em>Este artículo es parte del trabajo académico del curso BAI6041 — Inteligencia de Negocios Aplicada,
-    Maestría en Administración de Empresas (MBA), Business International University (BIU), Tarea #6, Semana 6.</em>
-  </p>
+  <p>No hablo de tecnología complicada ni de presupuestos millonarios. Hablo de herramientas que ya existen, que funcionan en Colombia, y que cualquier negocio puede activar esta semana.</p>
 
-  <!-- ENLACES MBA — compañeros BAI6041 BIU -->
-  <h2>También en el blog de mis compañeros</h2>
-  <ul>
-    <li><a href="https://mliaconsulting.lovable.app/" target="_blank" rel="noopener">MLia Consulting — IA aplicada a negocios</a></li>
-    <li><a href="https://clc-lavanderia.blogspot.com/2026/08/personalizacion-del-marketing-con-ia.html" target="_blank" rel="noopener">Personalización del marketing con IA — CLC Lavandería</a></li>
-    <li><a href="https://puntaditasnadjamusa.blogspot.com/2026/08/ia-en-la-experiencia-del-cliente-una.html" target="_blank" rel="noopener">IA en la experiencia del cliente — Puntaditas Nadja Musa</a></li>
-    <li><a href="https://oficina360inteligente.blogspot.com/2026/08/experiencia-cliente-inteligencia-artificial.html" target="_blank" rel="noopener">Experiencia del cliente con IA — Oficina 360 Inteligente</a></li>
-    <li><a href="https://aisfoodperu.blogspot.com/2026/08/beneficios-del-camu-camu-la-superfruta.html" target="_blank" rel="noopener">Beneficios del camu camu y IA en la industria alimentaria — AIS Food Perú</a></li>
-    <li><a href="https://keplercrash.blogspot.com/2026/08/animacion-2d-para-marcas.html" target="_blank" rel="noopener">Animación 2D para marcas — Kepler Crash</a></li>
-  </ul>
+  <!-- CITA DESTACADA -->
+  <blockquote>
+    <p><em>Automatizar es simple: tú pones las reglas, la IA trabaja por ti.</em></p>
+  </blockquote>
 
-  <!-- CTA -->
+  <p>Con <strong>Nexus Ops</strong>, en pocos días tienes funcionando lo que antes necesitaba 20 empleados: alguien respondiendo WhatsApp, alguien cobrando, alguien despachando. Tú solo decides, el sistema ejecuta.</p>
+
+  <!-- H2 — 4 PROCESOS -->
+  <h2>Los 4 procesos que Nexus Ops automatiza por ti</h2>
+
+  <p><strong>1. WhatsApp 24/7</strong><br>
+  Tu cliente pregunta a las 2am. El bot responde al instante: precio, disponibilidad, cómo pagar. Tú te enteras en la mañana con el pedido ya tomado.</p>
+
+  <p><strong>2. Cobros automáticos</strong><br>
+  PSE o Nequi conectados directo a tu flujo de venta. El cliente paga, recibe su comprobante y tú ves el dinero reflejado — sin perseguir transferencias ni revisar capturas.</p>
+
+  <p><strong>3. Logística sin operarla</strong><br>
+  Entra el pedido, se genera la guía con Servientrega o Coordinadora y el cliente recibe su número de seguimiento. Todo automático, sin que toques una pantalla.</p>
+
+  <p><strong>4. Postventa que fideliza</strong><br>
+  El sistema le escribe al cliente para confirmar entrega, pedirle su calificación y recordarle que puede volver a comprar. Tú construyes reputación sin dedicar un minuto.</p>
+
+  <!-- H2 — COMPAÑEROS -->
+  <h2>Otros emprendedores que también lo están haciendo</h2>
+
+  <p>Si quieres profundizar en cómo la IA está transformando negocios como el tuyo, te recomendamos leer sobre <a href="https://clc-lavanderia.blogspot.com/2026/08/personalizacion-del-marketing-con-ia.html" target="_blank" rel="noopener">personalización del marketing con IA en CLC Lavandería</a> y cómo mejorar la <a href="https://puntaditasnadjamusa.blogspot.com/2026/08/ia-en-la-experiencia-del-cliente-una.html" target="_blank" rel="noopener">experiencia del cliente con inteligencia artificial en Puntaditas Nadja Musa</a> — dos casos concretos que complementan lo que hacemos en Nexus Ops.</p>
+
+  <!-- H2 — CTA -->
+  <h2>¿Por dónde empiezas?</h2>
+
+  <p>El primer paso es saber qué proceso te está robando más tiempo hoy. ¿Es el WhatsApp? ¿Los cobros? ¿Las guías? Con esa respuesta clara, Nexus Ops lo automatiza. Entra a la lista de espera y en pocos días tu negocio opera solo mientras tú te enfocas en crecer.</p>
+
+  <!-- BLOQUE CTA -->
   <div class="cta-box">
-    <p>¿Quieres estimar cuánto puede recuperar tu negocio con automatización IA?</p>
-    <a href="/nexus-ops/#calculadora" class="btn-primary"
-       onclick="gtag('event','cta_click',{event_category:'blog_post',event_label:'calculadora_desde_post'})">
-      Calcular mi ROI gratis →
+    <p>No necesitas saber de tecnología. No necesitas un equipo. Solo necesitas decidir que tu tiempo vale más que responder el mismo mensaje por décima vez. <strong>Únete a la lista de espera de Nexus Ops</strong> y en pocos días tu negocio trabaja por ti.</p>
+    <a href="https://andres-nova.github.io/nexus-ops/#contacto" class="btn-primary"
+       onclick="gtag('event','cta_click',{event_category:'blog_post',event_label:'quiero_automatizar'})">
+      Quiero automatizar mi negocio →
     </a>
   </div>
 
-  <!-- AUTOR -->
-  <div class="author-card">
-    <div class="author-avatar">👨‍💻</div>
-    <div class="author-info">
-      <h4>Andres Nova</h4>
-      <p>Data Architect &amp; AI Engineer · MBA BIU · Fundador de Nexus Ops · Automatización comercial para MiPYMEs colombianas.</p>
-    </div>
+  <!-- REFERENCIAS -->
+  <div class="references">
+    <h2>Referencias</h2>
+    <ol>
+      <li>Meta. (2023). <em>El futuro de la mensajería para empresas en América Latina.</em> Meta Business.</li>
+      <li>IBM Institute for Business Value. (2023). <em>The value of AI-powered customer service.</em> IBM.</li>
+    </ol>
   </div>
 
   <!-- POSTS RELACIONADOS -->
@@ -406,10 +363,10 @@
 </main>
 
 <footer>
-  <p>© 2026 Nexus Ops · <a href="/nexus-ops/">Landing</a> · <a href="https://andres-nova.github.io">Portafolio</a></p>
+  <p>© 2026 Nexus Ops · <a href="/nexus-ops/">Landing</a> · <a href="/nexus-ops/blog/">Blog</a> · <a href="https://andres-nova.github.io">Portafolio</a></p>
 </footer>
 
-<!-- GA4 scroll depth milestones -->
+<!-- GA4 scroll depth -->
 <script>
   const milestones = [25, 50, 75, 90];
   const fired = new Set();
@@ -420,11 +377,7 @@
     milestones.forEach(m => {
       if (pct >= m && !fired.has(m)) {
         fired.add(m);
-        gtag('event', 'scroll_depth', {
-          event_category: 'blog',
-          event_label: 'post_automatizacion',
-          value: m
-        });
+        gtag('event', 'scroll_depth', { event_category: 'blog', event_label: 'post_automatizacion', value: m });
       }
     });
   }, { passive: true });
@@ -434,12 +387,10 @@
 
 <script>
 (function () {
-  /* === TOGGLE CLARO / OSCURO === */
   const root = document.documentElement;
-  const btn = document.getElementById('theme-toggle');
-
+  const btn  = document.getElementById('theme-toggle');
   function isDark(t) {
-    if (t === 'dark') return true;
+    if (t === 'dark')  return true;
     if (t === 'light') return false;
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
@@ -454,15 +405,13 @@
     applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 
-  /* === PARTÍCULAS DE FONDO === */
+  /* PARTÍCULAS */
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
-
   const ctx = canvas.getContext('2d');
   const N = 50, MAX_D = 130;
   let pts = [];
-
   function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   function mkPt() {
     return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
@@ -471,8 +420,8 @@
   }
   function getColors() {
     return isDark(root.getAttribute('data-theme'))
-      ? { dot: 'rgba(255,255,255,.15)', base: 'rgba(255,255,255,' }
-      : { dot: 'rgba(13,17,23,.1)',     base: 'rgba(13,17,23,' };
+      ? { dot: 'rgba(88,166,255,.15)', base: 'rgba(88,166,255,' }
+      : { dot: 'rgba(9,105,218,.09)',  base: 'rgba(9,105,218,' };
   }
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -487,7 +436,7 @@
     for (let i = 0; i < pts.length; i++) {
       for (let j = i + 1; j < pts.length; j++) {
         const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
+        const d  = Math.sqrt(dx * dx + dy * dy);
         if (d < MAX_D) {
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
