@@ -59,9 +59,69 @@
     footer a:hover { color: var(--text); }
 
     @media (max-width: 640px) { .blog-container { padding: 2rem 1rem 4rem; } }
+
+    /* ── CANVAS FONDO ANIMADO ── */
+    #bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    nav, main, footer { position: relative; z-index: 1; }
+
+    /* ── TEMA CLARO — preferencia del sistema ── */
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #f6f8fa; --surface: #ffffff; --surface2: #eaecef;
+        --border: rgba(0,0,0,.1); --text: #0d1117;
+        --text-muted: rgba(13,17,23,.6); --accent: #0d1117; --accent2: rgba(13,17,23,.82);
+      }
+      :root:not([data-theme="dark"]) nav { background: rgba(246,248,250,.95); }
+    }
+    /* ── TEMA CLARO — toggle explícito ── */
+    :root[data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface2: #eaecef;
+      --border: rgba(0,0,0,.1); --text: #0d1117;
+      --text-muted: rgba(13,17,23,.6); --accent: #0d1117; --accent2: rgba(13,17,23,.82);
+    }
+    :root[data-theme="light"] nav { background: rgba(246,248,250,.95); }
+    /* ── TEMA OSCURO — override toggle ── */
+    :root[data-theme="dark"] {
+      --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+      --border: rgba(255,255,255,.08); --text: #e6edf3;
+      --text-muted: rgba(230,237,243,.65); --accent: #ffffff; --accent2: rgba(255,255,255,0.82);
+    }
+    :root[data-theme="dark"] nav { background: rgba(13,17,23,.95); }
+
+    /* ── TRANSICIONES SUAVES DE TEMA ── */
+    body { transition: background-color .3s ease, color .3s ease; }
+    nav, .post-card, .blog-container { transition: background-color .3s ease, border-color .3s ease; }
+
+    /* ── CARDS CON HOVER ANIMADO ── */
+    .post-card {
+      transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1),
+                  box-shadow .25s, background-color .3s;
+    }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.28); }
+    :root[data-theme="light"] .post-card:hover { box-shadow: 0 16px 48px rgba(13,17,23,.1); }
+    .nav-back { transition: all .2s, transform .2s; }
+    .nav-back:hover { transform: translateX(-3px); }
+
+    /* ── TOGGLE TEMA ── */
+    .theme-toggle {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 500;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--surface); border: 1px solid var(--border);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; line-height: 1; padding: 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s,
+                  box-shadow .2s, background-color .3s;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.15) rotate(22deg);
+      border-color: var(--accent); box-shadow: 0 6px 28px rgba(0,0,0,.4);
+    }
   </style>
 </head>
 <body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
 <nav>
   <a href="/nexus-ops/" class="nav-brand">Nexus<span>Ops</span></a>
@@ -95,6 +155,77 @@
 <footer>
   <p>© 2026 Nexus Ops · <a href="/nexus-ops/">Landing</a> · <a href="https://andres-nova.github.io">Portafolio de Andres Nova</a></p>
 </footer>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+
+  function isDark(t) {
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    btn.textContent = isDark(t) ? '☀️' : '🌙';
+    localStorage.setItem('nops-theme', t);
+  }
+  const saved = localStorage.getItem('nops-theme');
+  applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  btn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
+
+  const ctx = canvas.getContext('2d');
+  const N = 50, MAX_D = 130;
+  let pts = [];
+
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function mkPt() {
+    return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+             vx: (Math.random() - .5) * .32, vy: (Math.random() - .5) * .32,
+             r: Math.random() * 1.4 + .5 };
+  }
+  function getColors() {
+    return isDark(root.getAttribute('data-theme'))
+      ? { dot: 'rgba(255,255,255,.15)', base: 'rgba(255,255,255,' }
+      : { dot: 'rgba(13,17,23,.1)',     base: 'rgba(13,17,23,' };
+  }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const c = getColors();
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = c.dot; ctx.fill();
+    });
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < MAX_D) {
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = c.base + ((1 - d / MAX_D) * .09).toFixed(3) + ')';
+          ctx.lineWidth = .8; ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  resize(); pts = Array.from({ length: N }, mkPt); draw();
+  window.addEventListener('resize', () => { resize(); pts = Array.from({ length: N }, mkPt); });
+})();
+</script>
 
 </body>
 </html>

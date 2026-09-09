@@ -311,9 +311,91 @@
       nav { padding: .8rem 1.2rem; }
       section { padding: 3.5rem 1.2rem; }
     }
+
+    /* ── CANVAS FONDO ANIMADO ── */
+    #bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    nav, section, footer { position: relative; z-index: 1; }
+
+    /* ── TEMA CLARO — preferencia del sistema ── */
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #f6f8fa; --bg2: #ffffff; --bg3: #eaecef;
+        --border: rgba(0,0,0,.12); --text: #0d1117; --text-muted: #5a6270;
+        --accent: #0d1117; --accent2: rgba(13,17,23,.85);
+        --shadow: 0 8px 32px rgba(0,0,0,.08);
+      }
+      :root:not([data-theme="dark"]) nav { background: rgba(246,248,250,.95); }
+      :root:not([data-theme="dark"]) .btn-primary { background: #0d1117; color: #f6f8fa; }
+      :root:not([data-theme="dark"]) .btn-primary:hover { background: #161b22; }
+      :root:not([data-theme="dark"]) .btn-outline { border-color: rgba(0,0,0,.3); color: #0d1117; }
+      :root:not([data-theme="dark"]) .btn-outline:hover { background: #0d1117; color: #f6f8fa; border-color: #0d1117; }
+    }
+    /* ── TEMA CLARO — toggle explícito ── */
+    :root[data-theme="light"] {
+      --bg: #f6f8fa; --bg2: #ffffff; --bg3: #eaecef;
+      --border: rgba(0,0,0,.12); --text: #0d1117; --text-muted: #5a6270;
+      --accent: #0d1117; --accent2: rgba(13,17,23,.85);
+      --shadow: 0 8px 32px rgba(0,0,0,.08);
+    }
+    :root[data-theme="light"] nav { background: rgba(246,248,250,.95); }
+    :root[data-theme="light"] .btn-primary { background: #0d1117; color: #f6f8fa; }
+    :root[data-theme="light"] .btn-primary:hover { background: #161b22; box-shadow: 0 10px 32px rgba(13,17,23,.15); }
+    :root[data-theme="light"] .btn-outline { border-color: rgba(0,0,0,.3); color: #0d1117; }
+    :root[data-theme="light"] .btn-outline:hover { background: #0d1117; color: #f6f8fa; border-color: #0d1117; }
+    :root[data-theme="light"] .result-card.total { border-color: rgba(0,0,0,.4); background: rgba(0,0,0,.04); }
+    /* ── TEMA OSCURO — override toggle ── */
+    :root[data-theme="dark"] {
+      --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
+      --border: #30363d; --text: #e6edf3; --text-muted: #8b949e;
+      --accent: #ffffff; --accent2: rgba(255,255,255,0.82);
+      --shadow: 0 8px 32px rgba(0,0,0,.4);
+    }
+    :root[data-theme="dark"] nav { background: rgba(13,17,23,.92); }
+    :root[data-theme="dark"] .btn-primary { background: #ffffff; color: #0d1117; }
+
+    /* ── TRANSICIONES SUAVES DE TEMA ── */
+    body { transition: background-color .3s ease, color .3s ease; }
+    nav, section, .card, .service-card, .calc-wrap, .result-card,
+    .segmento-item, .razon-card, .step-item, .contact-card {
+      transition: background-color .3s ease, border-color .3s ease;
+    }
+
+    /* ── BOTONES ANIMADOS ── */
+    .btn-primary {
+      position: relative; overflow: hidden;
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background .2s, color .2s;
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+      transform: skewX(-20deg); transition: left .55s ease; pointer-events: none;
+    }
+    .btn-primary:hover::after { left: 150%; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,.22); }
+    .btn-outline { transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background .2s, color .2s, border-color .2s; }
+    .btn-outline:hover { transform: translateY(-2px); }
+
+    /* ── TOGGLE TEMA ── */
+    .theme-toggle {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 500;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--bg2); border: 1px solid var(--border);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; line-height: 1; padding: 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s,
+                  box-shadow .2s, background-color .3s;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.15) rotate(22deg);
+      border-color: var(--accent); box-shadow: 0 6px 28px rgba(0,0,0,.4);
+    }
   </style>
 </head>
 <body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
 <!-- ── NAVEGACIÓN ── -->
 <nav>
@@ -807,6 +889,77 @@
     document.getElementById(id).addEventListener('input', calcularROI);
   });
   calcularROI(); // mostrar valores iniciales al cargar
+</script>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+
+  function isDark(t) {
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    btn.textContent = isDark(t) ? '☀️' : '🌙';
+    localStorage.setItem('nops-theme', t);
+  }
+  const saved = localStorage.getItem('nops-theme');
+  applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  btn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
+
+  const ctx = canvas.getContext('2d');
+  const N = 55, MAX_D = 140;
+  let pts = [];
+
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function mkPt() {
+    return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+             vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+             r: Math.random() * 1.4 + .5 };
+  }
+  function getColors() {
+    return isDark(root.getAttribute('data-theme'))
+      ? { dot: 'rgba(255,255,255,.14)', base: 'rgba(255,255,255,' }
+      : { dot: 'rgba(13,17,23,.09)',    base: 'rgba(13,17,23,' };
+  }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const c = getColors();
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = c.dot; ctx.fill();
+    });
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < MAX_D) {
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = c.base + ((1 - d / MAX_D) * .08).toFixed(3) + ')';
+          ctx.lineWidth = .8; ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  resize(); pts = Array.from({ length: N }, mkPt); draw();
+  window.addEventListener('resize', () => { resize(); pts = Array.from({ length: N }, mkPt); });
+})();
 </script>
 
 </body>
