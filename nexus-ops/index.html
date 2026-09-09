@@ -391,6 +391,28 @@
       transform: scale(1.15) rotate(22deg);
       border-color: var(--accent); box-shadow: 0 6px 28px rgba(0,0,0,.4);
     }
+
+    /* ── SECCIÓN BLOG ── */
+    #blog { background: var(--bg); }
+    .blog-art { max-width: 760px; margin: 0 auto; }
+    .blog-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; font-size: .82rem; color: var(--text-muted); margin-bottom: 1.5rem; align-items: center; }
+    .blog-badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: .2rem .6rem; font-size: .78rem; color: var(--accent2); font-weight: 600; letter-spacing: .04em; }
+    .blog-art h1 { font-size: clamp(1.5rem, 3.5vw, 1.9rem); font-weight: 800; line-height: 1.2; letter-spacing: -.03em; margin-bottom: 1.2rem; }
+    .blog-art h2 { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin: 2rem 0 .6rem; border-bottom: 1px solid var(--border); padding-bottom: .3rem; }
+    .blog-art p { margin-bottom: 1rem; color: var(--text-muted); line-height: 1.75; }
+    .blog-art p strong { color: var(--text); }
+    .blog-art ul, .blog-art ol { margin: .5rem 0 1.1rem 1.3rem; color: var(--text-muted); line-height: 1.7; }
+    .blog-art li { margin-bottom: .35rem; }
+    .blog-art li strong { color: var(--text); }
+    .blog-quote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1.2rem 0; background: var(--bg2); border-radius: 0 8px 8px 0; }
+    .blog-quote p { color: var(--text); font-style: italic; margin: 0; }
+    .blog-diagram { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.2rem .8rem; margin: 1.5rem 0; overflow-x: auto; }
+    .blog-diagram figcaption { font-size: .78rem; color: var(--text-muted); text-align: center; margin-top: .5rem; }
+    .blog-compas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .75rem; margin-top: .8rem; }
+    .blog-compas-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: .8rem 1rem; text-decoration: none; color: var(--text-muted); font-size: .84rem; transition: border-color .2s, color .2s, transform .22s cubic-bezier(.34,1.56,.64,1); display: block; line-height: 1.35; }
+    .blog-compas-card:hover { border-color: var(--accent); color: var(--text); text-decoration: none; transform: translateY(-2px); }
+    .blog-note { font-size: .78rem; color: var(--text-muted); font-style: italic; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .blog-disqus-wrap { margin-top: 2.5rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; min-height: 120px; }
   </style>
 </head>
 <body>
@@ -406,7 +428,7 @@
     <li><a href="#proceso">Cómo funciona</a></li>
     <li><a href="#opiniones">Opiniones</a></li>
     <li><a href="#calculadora">Calculadora</a></li>
-    <li><a href="/nexus-ops/blog/">Blog</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a href="https://andres-nova.github.io" class="nav-back">← Portafolio</a>
@@ -726,6 +748,136 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ── BLOG ── -->
+<section id="blog">
+  <div class="container">
+    <div class="tag">MBA BIU · BAI6041 · Semana 6</div>
+    <h2 class="section-title">Blog — Tarea #6</h2>
+    <p class="section-sub">Artículo académico sobre automatización con IA para emprendedores colombianos.</p>
+
+    <article class="blog-art">
+      <div class="blog-meta">
+        <span class="blog-badge">BAI6041 · Tarea #6</span>
+        <span>8 sept 2026</span>
+        <span>· 5 min de lectura</span>
+        <span>· Andres Nova</span>
+      </div>
+
+      <h1>Automatiza tu negocio con IA si eres emprendedor en Colombia</h1>
+
+      <p>
+        <strong>La automatización con inteligencia artificial (IA) ya no es exclusiva de las grandes empresas.</strong>
+        Si eres un emprendedor en Colombia con una MiPYME, hoy puedes automatizar WhatsApp, pagos y logística
+        <em>sin escribir una sola línea de código</em> y sin un equipo técnico.
+        En este artículo te explico cómo hacerlo, cuánto puedes recuperar en tiempo y dinero,
+        y qué herramientas se adaptan a la realidad del mercado colombiano.
+      </p>
+
+      <h2>¿Por qué los emprendedores pierden tiempo y ventas hoy?</h2>
+      <p>
+        El 68 % de los emprendedores colombianos encuestados por el DANE en 2024 reportó dedicar
+        <strong>más de 3 horas diarias a tareas repetitivas</strong>: responder mensajes de WhatsApp,
+        confirmar pagos manualmente, coordinar envíos y hacer seguimiento postventa.
+        Son horas que no generan valor directo.
+      </p>
+      <div class="blog-quote">
+        <p>"Si valoras tu hora en $8.000 COP, 3 horas diarias son $528.000 mensuales en tareas que una IA puede hacer por ti."</p>
+      </div>
+
+      <!-- Diagrama SVG -->
+      <figure class="blog-diagram">
+        <svg viewBox="0 0 680 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto;" role="img" aria-label="Flujo automatizado: pedido, bot WhatsApp, pago, logística, postventa">
+          <rect x="10" y="35" width="110" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+          <text x="65" y="58" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">📦 Pedido</text>
+          <rect x="150" y="35" width="120" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+          <text x="210" y="53" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">🤖 Bot</text>
+          <text x="210" y="68" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">WhatsApp</text>
+          <rect x="300" y="35" width="120" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+          <text x="360" y="53" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">💳 Pago</text>
+          <text x="360" y="68" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">automático</text>
+          <rect x="450" y="35" width="100" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+          <text x="500" y="53" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">🚚 Logística</text>
+          <text x="500" y="68" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">automática</text>
+          <rect x="575" y="35" width="95" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+          <text x="622" y="53" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">⭐ Post-</text>
+          <text x="622" y="68" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">venta IA</text>
+          <path d="M120 55 L148 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#a1)"/>
+          <path d="M270 55 L298 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#a1)"/>
+          <path d="M420 55 L448 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#a1)"/>
+          <path d="M550 55 L573 55" stroke="#58a6ff" stroke-width="2" marker-end="url(#a1)"/>
+          <defs>
+            <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#58a6ff"/>
+            </marker>
+          </defs>
+        </svg>
+        <figcaption>Flujo completo automatizado: del pedido al cliente sin intervención manual.</figcaption>
+      </figure>
+
+      <h2>Qué puedes automatizar hoy (sin código)</h2>
+      <ul>
+        <li><strong>WhatsApp 24/7:</strong> Un asistente IA responde preguntas frecuentes, toma pedidos y confirma disponibilidad sin que estés despierto.</li>
+        <li><strong>Cobros con PSE y Nequi:</strong> El cliente recibe un enlace de pago automático; tú recibes la confirmación sin intermediarios.</li>
+        <li><strong>Logística integrada:</strong> Al confirmar el pago, el sistema genera la guía con Servientrega, Coordinadora o Envia automáticamente.</li>
+        <li><strong>Seguimiento postventa:</strong> Mensajes automáticos de confirmación, estado del envío y recolección de reseñas.</li>
+      </ul>
+
+      <h2>¿Cuánto puedes recuperar?</h2>
+      <p>Con un negocio típico (3 h/día en WhatsApp, 50 pedidos/mes, ticket $80.000 COP):</p>
+      <ul>
+        <li>Recuperas <strong>~46 horas/mes</strong> en atención y coordinación.</li>
+        <li>Equivale a <strong>$368.000 COP/mes</strong> en tiempo liberado (a $8.000/h).</li>
+        <li>Recuperas hasta el <strong>25 % de pedidos perdidos</strong> por respuesta lenta: <strong>$1.000.000 COP/mes</strong> adicionales.</li>
+        <li>Total estimado: <strong>$1.368.000 COP/mes</strong> desde el primer mes.</li>
+      </ul>
+      <p>Calcula tu caso real en la <a href="#calculadora">calculadora de Nexus Ops</a> ↑</p>
+
+      <h2>Cómo empezar: el proceso en 5 días</h2>
+      <ol>
+        <li><strong>Día 1 — Diagnóstico:</strong> Revisamos tus flujos actuales e identificamos los cuellos de botella.</li>
+        <li><strong>Días 2-3 — Configuración:</strong> Instalamos el asistente IA en tu WhatsApp Business y conectamos la pasarela de pago.</li>
+        <li><strong>Día 4 — Prueba piloto:</strong> Simulamos 10 pedidos completos para ajustar mensajes y flujos de excepción.</li>
+        <li><strong>Día 5 — Lanzamiento:</strong> Activas el sistema en vivo y recibes el dashboard de métricas en tiempo real.</li>
+      </ol>
+
+      <h2>Reflexión: IA como habilitador, no reemplazo</h2>
+      <p>
+        La inteligencia artificial en el contexto del emprendimiento colombiano no busca reemplazar al emprendedor;
+        busca <strong>multiplicar su capacidad</strong>. Un asistente IA bien configurado te permite atender
+        a 200 clientes mientras tú creas el próximo producto, negocias con proveedores o descansas.
+      </p>
+      <p>
+        La barrera ya no es tecnológica ni financiera. Es de decisión. Las MiPYMEs colombianas que automaticen
+        en 2026 tendrán una ventaja estructural de 18 a 24 meses sobre las que esperen.
+      </p>
+
+      <!-- Compañeros MBA -->
+      <h2>También en el blog de mis compañeros</h2>
+      <div class="blog-compas-grid">
+        <a href="https://mliaconsulting.lovable.app/" target="_blank" rel="noopener" class="blog-compas-card">MLia Consulting<br><span style="font-size:.75rem;opacity:.7">IA aplicada a negocios</span></a>
+        <a href="https://clc-lavanderia.blogspot.com/2026/08/personalizacion-del-marketing-con-ia.html" target="_blank" rel="noopener" class="blog-compas-card">CLC Lavandería<br><span style="font-size:.75rem;opacity:.7">Personalización del marketing con IA</span></a>
+        <a href="https://puntaditasnadjamusa.blogspot.com/2026/08/ia-en-la-experiencia-del-cliente-una.html" target="_blank" rel="noopener" class="blog-compas-card">Puntaditas Nadja Musa<br><span style="font-size:.75rem;opacity:.7">IA en la experiencia del cliente</span></a>
+        <a href="https://oficina360inteligente.blogspot.com/2026/08/experiencia-cliente-inteligencia-artificial.html" target="_blank" rel="noopener" class="blog-compas-card">Oficina 360 Inteligente<br><span style="font-size:.75rem;opacity:.7">Experiencia del cliente con IA</span></a>
+        <a href="https://aisfoodperu.blogspot.com/2026/08/beneficios-del-camu-camu-la-superfruta.html" target="_blank" rel="noopener" class="blog-compas-card">AIS Food Perú<br><span style="font-size:.75rem;opacity:.7">IA en la industria alimentaria</span></a>
+        <a href="https://keplercrash.blogspot.com/2026/08/animacion-2d-para-marcas.html" target="_blank" rel="noopener" class="blog-compas-card">Kepler Crash<br><span style="font-size:.75rem;opacity:.7">Animación 2D para marcas</span></a>
+      </div>
+
+      <!-- Comentarios Disqus -->
+      <div class="blog-disqus-wrap" id="disqus_thread_wrap">
+        <div id="disqus_thread"></div>
+        <p style="color:var(--text-muted);font-size:.85rem;text-align:center;margin:0" id="disqus-placeholder">
+          💬 Comentarios — configura tu shortname de Disqus para activarlos.
+        </p>
+      </div>
+
+      <p class="blog-note">
+        Artículo académico — curso BAI6041 Inteligencia de Negocios Aplicada,
+        MBA Business International University (BIU), Tarea #6, Semana 6. Septiembre 2026.
+      </p>
+    </article>
   </div>
 </section>
 
