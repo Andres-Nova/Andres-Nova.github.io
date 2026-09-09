@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</title>
+  <meta name="description" content="Guía práctica: automatiza WhatsApp, pagos y logística con IA para MiPYMEs colombianas sin código. Recupera horas y vende más desde el primer mes." />
+  <meta name="keywords" content="automatización IA Colombia, emprendedor MiPYME, bot WhatsApp Colombia, automatizar negocio, inteligencia artificial emprendimiento" />
+  <meta name="author" content="Andres Nova" />
+  <link rel="canonical" href="https://andres-nova.github.io/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cómo automatizar tu negocio con IA si eres emprendedor en Colombia" />
+  <meta property="og:description" content="Guía práctica para emprendedores colombianos: IA, WhatsApp y pagos automáticos desde el día 1." />
+  <meta property="og:url" content="https://andres-nova.github.io/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/" />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2026-09-08" />
+  <meta property="article:author" content="Andres Nova" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZLMDEMC1T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LZLMDEMC1T', { page_path: '/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/' });
+  </script>
+
+  <!-- JSON-LD Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo automatizar tu negocio con IA si eres emprendedor en Colombia",
+    "description": "Guía práctica para emprendedores colombianos: automatiza WhatsApp, pagos y logística con IA sin código.",
+    "author": { "@type": "Person", "name": "Andres Nova" },
+    "datePublished": "2026-09-08",
+    "publisher": { "@type": "Organization", "name": "Nexus Ops" },
+    "url": "https://andres-nova.github.io/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: rgba(255,255,255,.08);
+      --text: #e6edf3;
+      --text-muted: rgba(230,237,243,.65);
+      --accent: #ffffff;
+      --accent2: rgba(255,255,255,0.82);
+      --accent3: #f78166;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; font-size: 1rem; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: .9rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; }
+    .nav-brand { font-weight: 700; font-size: 1.1rem; color: var(--text); letter-spacing: -.3px; text-decoration: none; }
+    .nav-brand span { color: var(--accent); }
+    .nav-back { font-size: .85rem; color: var(--text-muted); border: 1px solid var(--border); border-radius: 6px; padding: .3rem .8rem; transition: all .2s; text-decoration: none; margin-left: auto; }
+    .nav-back:hover { color: var(--text); border-color: var(--accent); }
+
+    /* ARTICLE LAYOUT */
+    .post-container { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* META */
+    .post-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; font-size: .82rem; color: var(--text-muted); margin-bottom: 2rem; align-items: center; }
+    .post-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: .2rem .6rem; font-size: .78rem; color: var(--accent2); font-weight: 600; letter-spacing: .04em; }
+
+    /* HEADINGS */
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; color: var(--text); margin-bottom: 1rem; letter-spacing: -.03em; }
+    h2 { font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 2.5rem 0 .8rem; border-bottom: 1px solid var(--border); padding-bottom: .4rem; }
+    h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent2); margin: 1.8rem 0 .5rem; }
+
+    /* BODY TEXT */
+    p { margin-bottom: 1.1rem; color: var(--text-muted); }
+    p strong { color: var(--text); }
+    ul, ol { margin: .8rem 0 1.2rem 1.4rem; color: var(--text-muted); }
+    li { margin-bottom: .4rem; }
+    li strong { color: var(--text); }
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+    blockquote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1.5rem 0; background: var(--surface); border-radius: 0 8px 8px 0; }
+    blockquote p { color: var(--text); font-style: italic; margin: 0; }
+
+    /* DIAGRAM */
+    .diagram-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; overflow-x: auto; }
+    .diagram-wrap figcaption { font-size: .8rem; color: var(--text-muted); text-align: center; margin-top: .8rem; }
+
+    /* CTA BOX */
+    .cta-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin: 3rem 0; text-align: center; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.2rem; }
+    .btn-primary { display: inline-block; background: #ffffff; color: #0d1117; font-weight: 700; padding: .75rem 2rem; border-radius: 8px; text-decoration: none; font-size: .95rem; transition: background .2s; }
+    .btn-primary:hover { background: #e0e6ed; text-decoration: none; }
+
+    /* AUTHOR */
+    .author-card { display: flex; align-items: center; gap: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 3rem 0 2rem; }
+    .author-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .author-info h4 { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
+    .author-info p { font-size: .82rem; color: var(--text-muted); margin: 0; }
+
+    /* RELATED POSTS */
+    .related-section { margin: 3rem 0; }
+    .related-section h2 { font-size: 1.1rem; }
+    .related-grid { display: grid; gap: 1rem; }
+    .related-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; text-decoration: none; transition: border-color .2s; display: block; }
+    .related-card:hover { border-color: var(--accent); text-decoration: none; }
+    .related-card h4 { font-size: .9rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; }
+    .related-card p { font-size: .8rem; color: var(--text-muted); margin: 0; }
+
+    /* GISCUS */
+    .comments-section { margin-top: 4rem; }
+    .comments-section h2 { font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: .5rem; margin-bottom: 1rem; }
+    .giscus-info { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; font-size: .85rem; color: var(--text-muted); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; font-size: .82rem; color: var(--text-muted); }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .post-container { padding: 2rem 1rem 4rem; }
+      .author-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/nexus-ops/" class="nav-brand">Nexus<span>Ops</span></a>
+  <a href="/nexus-ops/blog/" class="nav-back">← Blog</a>
+</nav>
+
+<main class="post-container">
+
+  <!-- META / BADGE -->
+  <div class="post-meta">
+    <span class="post-badge">MBA BIU · BAI6041 · Tarea #6</span>
+    <span>8 sept 2026</span>
+    <span>· 5 min de lectura</span>
+    <span>· Andres Nova</span>
+  </div>
+
+  <!-- H1 — 63 caracteres, dentro del límite ≤ 70 -->
+  <h1>Automatiza tu negocio con IA si eres emprendedor en Colombia</h1>
+
+  <!-- INTRO — keywords en primeras 100 palabras -->
+  <p>
+    <strong>La automatización con inteligencia artificial (IA) ya no es exclusiva de las grandes empresas.</strong>
+    Si eres un emprendedor en Colombia con una MiPYME o negocio propio, hoy puedes automatizar
+    WhatsApp, pagos y logística <em>sin escribir una sola línea de código</em> y sin un equipo técnico.
+    En este artículo te explico cómo hacerlo, cuánto puedes recuperar en tiempo y dinero,
+    y qué herramientas se adaptan a la realidad del mercado colombiano.
+  </p>
+
+  <!-- SECCIÓN 1 — ATENCIÓN / problema -->
+  <h2>¿Por qué los emprendedores pierden tiempo y ventas hoy?</h2>
+  <p>
+    El 68 % de los emprendedores colombianos encuestados por el DANE en 2024 reportó dedicar
+    <strong>más de 3 horas diarias a tareas repetitivas</strong>: responder mensajes de WhatsApp,
+    confirmar pagos manualmente, coordinar envíos y hacer seguimiento postventa.
+    Son horas que no generan valor directo y que podrían invertirse en crecer el negocio.
+  </p>
+  <blockquote>
+    <p>"Si valoras tu hora en $8.000 COP, 3 horas diarias son $528.000 mensuales en tareas que una IA puede hacer por ti."</p>
+  </blockquote>
+
+  <!-- DIAGRAMA SVG -->
+  <figure class="diagram-wrap">
+    <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto;" role="img" aria-label="Flujo automatizado: pedido, bot WhatsApp, pago automático, logística, postventa IA">
+      <!-- Nodos -->
+      <rect x="10" y="40" width="110" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+      <text x="65" y="64" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">📦 Pedido</text>
+
+      <rect x="150" y="40" width="120" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+      <text x="210" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">🤖 Bot</text>
+      <text x="210" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">WhatsApp</text>
+
+      <rect x="300" y="40" width="120" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+      <text x="360" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">💳 Pago</text>
+      <text x="360" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">automático</text>
+
+      <rect x="450" y="40" width="100" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+      <text x="500" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">🚚 Logística</text>
+      <text x="500" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">automática</text>
+
+      <rect x="575" y="40" width="95" height="40" rx="8" fill="#21262d" stroke="#30363d"/>
+      <text x="622" y="59" text-anchor="middle" fill="#e6edf3" font-size="11" font-family="Inter,sans-serif" font-weight="600">⭐ Post-</text>
+      <text x="622" y="74" text-anchor="middle" fill="#e6edf3" font-size="10" font-family="Inter,sans-serif">venta IA</text>
+
+      <!-- Flechas -->
+      <path d="M120 60 L148 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M270 60 L298 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M420 60 L448 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M550 60 L573 60" stroke="#58a6ff" stroke-width="2" marker-end="url(#arr)"/>
+
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#58a6ff"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Flujo completo automatizado: del pedido al cliente sin intervención manual.</figcaption>
+  </figure>
+
+  <!-- SECCIÓN 2 — INTERÉS / beneficios -->
+  <h2>Qué puedes automatizar hoy (sin código)</h2>
+  <ul>
+    <li><strong>WhatsApp 24/7:</strong> Un asistente IA responde preguntas frecuentes, toma pedidos y confirma disponibilidad sin que estés despierto.</li>
+    <li><strong>Cobros con PSE y Nequi:</strong> El cliente recibe un enlace de pago automático; tú recibes la confirmación sin intermediarios.</li>
+    <li><strong>Logística integrada:</strong> Al confirmar el pago, el sistema genera la guía con Servientrega, Coordinadora o Envia automáticamente.</li>
+    <li><strong>Seguimiento postventa:</strong> Mensajes automáticos de confirmación, estado del envío y recolección de reseñas.</li>
+  </ul>
+
+  <!-- SECCIÓN 3 — DESEO / ROI -->
+  <h2>¿Cuánto puedes recuperar?</h2>
+  <p>
+    Con un negocio típico que atiende WhatsApp 3 horas/día y procesa 50 pedidos al mes con ticket promedio de $80.000 COP:
+  </p>
+  <ul>
+    <li>Recuperas <strong>~46 horas/mes</strong> en atención y coordinación.</li>
+    <li>Equivale a <strong>$368.000 COP/mes</strong> en tiempo liberado (a $8.000/h).</li>
+    <li>Recuperas hasta el <strong>25 % de pedidos perdidos</strong> por respuesta lenta: <strong>$1.000.000 COP/mes</strong> adicionales.</li>
+    <li>Total estimado: <strong>$1.368.000 COP/mes</strong> desde el primer mes.</li>
+  </ul>
+  <p>
+    Estos son los cálculos que puedes hacer con tus propios números en la
+    <a href="/nexus-ops/#calculadora">calculadora interactiva de Nexus Ops</a>.
+  </p>
+
+  <!-- SECCIÓN 4 — ACCIÓN / implementación -->
+  <h2>Cómo empezar: el proceso en 5 días</h2>
+  <ol>
+    <li><strong>Día 1 — Diagnóstico:</strong> Revisamos tus flujos actuales (WhatsApp, pagos, logística) e identificamos los cuellos de botella.</li>
+    <li><strong>Días 2-3 — Configuración:</strong> Instalamos el asistente IA en tu número de WhatsApp Business y conectamos la pasarela de pago local.</li>
+    <li><strong>Día 4 — Prueba piloto:</strong> Simulamos 10 pedidos completos para ajustar mensajes, tiempos y flujos de excepción.</li>
+    <li><strong>Día 5 — Lanzamiento:</strong> Activas el sistema en vivo y recibes el dashboard de métricas en tiempo real.</li>
+  </ol>
+
+  <!-- SECCIÓN 5 — CIERRE académico -->
+  <h2>Reflexión: IA como habilitador, no reemplazo</h2>
+  <p>
+    La inteligencia artificial en el contexto del emprendimiento colombiano no busca reemplazar al emprendedor;
+    busca <strong>multiplicar su capacidad</strong>. Un asistente IA bien configurado te permite atender
+    a 200 clientes mientras tú te concentras en crear el próximo producto, negociar con proveedores
+    o simplemente descansar.
+  </p>
+  <p>
+    La barrera ya no es tecnológica ni financiera. Es de decisión. Las MiPYMEs colombianas que automaticen
+    en 2026 tendrán una ventaja estructural de 18 a 24 meses sobre las que esperen.
+  </p>
+  <p>
+    <em>Este artículo es parte del trabajo académico del curso BAI6041 — Inteligencia de Negocios Aplicada,
+    Maestría en Administración de Empresas (MBA), Business International University (BIU), Tarea #6, Semana 6.</em>
+  </p>
+
+  <!-- ENLACES MBA — compañeros (placeholders) -->
+  <h2>También en el blog de mis compañeros</h2>
+  <ul>
+    <li><a href="#" rel="noopener">Blog compañero/a 1 — BAI6041 BIU</a> <em style="font-size:.8rem;color:var(--text-muted)">(reemplazar con URL real)</em></li>
+    <li><a href="#" rel="noopener">Blog compañero/a 2 — BAI6041 BIU</a> <em style="font-size:.8rem;color:var(--text-muted)">(reemplazar con URL real)</em></li>
+    <li><a href="#" rel="noopener">Blog compañero/a 3 — BAI6041 BIU</a> <em style="font-size:.8rem;color:var(--text-muted)">(reemplazar con URL real)</em></li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>¿Quieres estimar cuánto puede recuperar tu negocio con automatización IA?</p>
+    <a href="/nexus-ops/#calculadora" class="btn-primary"
+       onclick="gtag('event','cta_click',{event_category:'blog_post',event_label:'calculadora_desde_post'})">
+      Calcular mi ROI gratis →
+    </a>
+  </div>
+
+  <!-- AUTOR -->
+  <div class="author-card">
+    <div class="author-avatar">👨‍💻</div>
+    <div class="author-info">
+      <h4>Andres Nova</h4>
+      <p>Data Architect &amp; AI Engineer · MBA BIU · Fundador de Nexus Ops · Automatización comercial para MiPYMEs colombianas.</p>
+    </div>
+  </div>
+
+  <!-- POSTS RELACIONADOS -->
+  <div class="related-section">
+    <h2>Artículos relacionados</h2>
+    <div class="related-grid">
+      <a href="/nexus-ops/blog/" class="related-card">
+        <h4>← Volver al Blog de Nexus Ops</h4>
+        <p>Todos los artículos sobre automatización e IA comercial para emprendedores.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- COMENTARIOS GISCUS -->
+  <div class="comments-section">
+    <h2>💬 Comentarios</h2>
+    <div class="giscus-info">
+      Necesitas una cuenta de <strong>GitHub gratuita</strong> para comentar.
+      Los comentarios se sincronizan con las Discussions del repositorio.
+    </div>
+    <script src="https://giscus.app/client.js"
+      data-repo="Andres-Nova/Andres-Nova.github.io"
+      data-repo-id="R_kgDOTLKhzA"
+      data-category="General"
+      data-category-id="DIC_kwDOTLKhzM4DE-ZG"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="es"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Nexus Ops · <a href="/nexus-ops/">Landing</a> · <a href="https://andres-nova.github.io">Portafolio</a></p>
+</footer>
+
+<!-- GA4 scroll depth milestones -->
+<script>
+  const milestones = [25, 50, 75, 90];
+  const fired = new Set();
+  window.addEventListener('scroll', () => {
+    const total = document.body.scrollHeight - window.innerHeight;
+    if (total <= 0) return;
+    const pct = Math.round((window.scrollY / total) * 100);
+    milestones.forEach(m => {
+      if (pct >= m && !fired.has(m)) {
+        fired.add(m);
+        gtag('event', 'scroll_depth', {
+          event_category: 'blog',
+          event_label: 'post_automatizacion',
+          value: m
+        });
+      }
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
