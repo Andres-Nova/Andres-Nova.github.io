@@ -394,7 +394,7 @@
     }
 
     /* ── SECCIÓN BLOG ── */
-    #blog, #workshop { background: var(--bg); }
+    #blog { background: var(--bg); }
 
     /* ── WORKSHOP ── */
     .ws-req-grid {
@@ -576,6 +576,39 @@
       #hero { min-height: auto; padding-top: 5rem; padding-bottom: 4rem; }
       section { padding: 4rem 1.2rem; }
     }
+
+    /* ── ARTÍCULO BLOG INLINE ── */
+    #blog { background: var(--bg); }
+    .art-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; font-size: .82rem; color: var(--text-muted); margin-bottom: 1.8rem; align-items: center; }
+    .art-badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: .2rem .6rem; font-size: .78rem; color: var(--accent); font-weight: 600; letter-spacing: .04em; }
+    .art-h1 { font-size: clamp(1.55rem, 3.5vw, 2.1rem); font-weight: 800; line-height: 1.18; letter-spacing: -.03em; margin-bottom: 1.5rem; color: var(--text); }
+    .art-diagram { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; overflow-x: auto; }
+    .art-diagram figcaption { font-size: .78rem; color: var(--text-muted); text-align: center; margin-top: .8rem; }
+    .art-h2 { font-size: 1.2rem; font-weight: 700; color: var(--accent); margin: 2.5rem 0 .8rem; border-bottom: 1px solid var(--border); padding-bottom: .35rem; }
+    .art-p { margin-bottom: 1.1rem; color: var(--text-muted); line-height: 1.75; }
+    .art-p strong { color: var(--text); }
+    .art-quote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1.5rem 0; background: var(--bg2); border-radius: 0 8px 8px 0; }
+    .art-quote p { color: var(--text); font-style: italic; margin: 0; }
+    .art-cta-box { background: var(--bg2); border: 1px solid rgba(0,229,180,.3); border-radius: 12px; padding: 2rem; margin: 3rem 0; text-align: center; }
+    .art-cta-box p { color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.65; }
+    .art-cta-box p strong { color: var(--text); }
+    .art-ref { margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .art-ref h3 { font-size: .78rem; font-weight: 700; color: var(--text-muted); margin-bottom: .6rem; letter-spacing: .08em; text-transform: uppercase; }
+    .art-ref ol { font-size: .8rem; color: var(--text-muted); padding-left: 1.3rem; }
+    .art-ref ol li { margin-bottom: .3rem; }
+    /* peers */
+    .art-peers-intro { font-size: .88rem; color: var(--text-muted); margin-bottom: 1.2rem; display: flex; align-items: center; gap: .5rem; }
+    .art-peers-intro svg { flex-shrink: 0; opacity: .65; }
+    .art-peers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: .5rem 0 1.5rem; }
+    .art-peer-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem 1rem; text-decoration: none; display: flex; flex-direction: column; gap: .5rem; transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .2s; }
+    .art-peer-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.22); text-decoration: none; }
+    .art-peer-top { display: flex; align-items: center; gap: .75rem; }
+    .art-peer-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--bg3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+    .art-peer-card:hover .art-peer-icon { transform: scale(1.12) rotate(-4deg); }
+    .art-peer-name { font-size: .88rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .art-peer-topic { font-size: .78rem; color: var(--text-muted); line-height: 1.45; flex: 1; }
+    .art-peer-cta { margin-top: .35rem; font-size: .78rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: .35rem; }
+    .art-peer-cta svg { width: 13px; height: 13px; stroke: var(--accent); fill: none; }
   </style>
 </head>
 <body>
@@ -591,8 +624,8 @@
     <li><a href="#proceso">Cómo funciona</a></li>
     <li><a href="#opiniones">Opiniones</a></li>
     <li><a href="#calculadora">Calculadora</a></li>
-    <li><a href="#workshop">Workshop</a></li>
-    <li><a href="./blog/">Blog</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="./blog/">Ver todos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a href="https://andres-nova.github.io" class="nav-back">← Portafolio</a>
@@ -933,224 +966,155 @@
   </div>
 </section>
 
-<!-- ── BLOG ── -->
-<section id="workshop">
+<!-- ── BLOG ARTÍCULO INLINE ── -->
+<section id="blog">
   <div class="container">
-    <div class="tag">MBA BIU · BAI6041 · Tarea #7</div>
-    <h2 class="section-title">WORKSHOP</h2>
-    <p class="section-sub">Redacción SEO y Estrategias Creativas — Especificación técnica de la actividad.</p>
-
     <article class="blog-art">
-      <div class="blog-meta">
-        <span class="blog-badge">BAI6041 · Workshop SEO</span>
-        <span>Sept 2026</span>
-        <span>· Andres Nova</span>
+
+      <!-- META -->
+      <div class="art-meta">
+        <span class="art-badge">Automatización · IA Comercial</span>
+        <span>Andres Nova</span>
+        <span>·</span>
+        <span>Septiembre 2026</span>
+        <span>·</span>
+        <span>4 min de lectura</span>
       </div>
 
-      <h1>WORKSHOP: Redacción SEO y Estrategias Creativas</h1>
+      <!-- TÍTULO -->
+      <h1 class="art-h1">Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</h1>
 
-      <p>
-        <strong>Este workshop cubre los fundamentos de la redacción optimizada para motores de búsqueda (SEO)</strong>
-        aplicados a contenido de negocio con inteligencia artificial.
-        El objetivo es producir un artículo que posicione orgánicamente, conecte con el lector y genere acción,
-        usando estrategias de mensaje probadas: <em>AIDA, PET y CACo</em>.
-      </p>
-
-      <!-- ── REQUERIMIENTOS ── -->
-      <h2>Requerimientos de la actividad</h2>
-
-      <div class="ws-req-grid">
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">01</div>
-          <div class="ws-req-body">
-            <strong>Título</strong>
-            <span>Máximo <strong>70 caracteres</strong>, incluyendo las palabras clave principales del tema.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">02</div>
-          <div class="ws-req-body">
-            <strong>Slug / URL</strong>
-            <span>Debe contener las <strong>palabras clave</strong> exactas del artículo para facilitar el rastreo.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">03</div>
-          <div class="ws-req-body">
-            <strong>Estructura H2</strong>
-            <span>Incluir la <strong>palabra clave principal</strong> en al menos un subtítulo H2 del artículo.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">04</div>
-          <div class="ws-req-body">
-            <strong>Posicionamiento Temprano</strong>
-            <span>La <strong>palabra clave</strong> debe aparecer dentro de las primeras <strong>100 palabras</strong> del cuerpo.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">05</div>
-          <div class="ws-req-body">
-            <strong>Densidad y Redacción</strong>
-            <span>Mantener densidad de keywords entre <strong>1 % y 2 %</strong>. Usar sinónimos para evitar <em>keyword stuffing</em>.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">06</div>
-          <div class="ws-req-body">
-            <strong>Extensión</strong>
-            <span>Entre <strong>300 y 1.000 palabras</strong>. Suficiente para desarrollar el tema sin relleno innecesario.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">07</div>
-          <div class="ws-req-body">
-            <strong>Formato</strong>
-            <span>Resaltar palabras clave mediante <strong>negritas</strong> o <em>cursivas</em> para guiar al lector.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">08</div>
-          <div class="ws-req-body">
-            <strong>Tono y Nivel</strong>
-            <span>Lenguaje claro para un <strong>público de instrucción media</strong>. Evitar tecnicismos innecesarios.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">09</div>
-          <div class="ws-req-body">
-            <strong>Interconexión</strong>
-            <span>Incluir <strong>enlaces obligatorios</strong> a las entradas de blog de otros compañeros del programa.</span>
-          </div>
-        </div>
-
-        <div class="ws-req-card">
-          <div class="ws-req-num">10</div>
-          <div class="ws-req-body">
-            <strong>Recursos Multimedia</strong>
-            <span>Incorporar <strong>al menos un contenido multimedia</strong> relevante: imagen, video, infografía o diagrama.</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ── DIAGRAMA FLUJO SEO ── -->
-      <figure class="ws-diagram-flow" role="img" aria-label="Flujo de redacción SEO: keyword, estructura, cuerpo, optimización, publicación">
-        <svg viewBox="0 0 720 90" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;display:block;margin:0 auto;">
+      <!-- DIAGRAMA SVG — paleta Emerald Dark -->
+      <figure class="art-diagram" role="img" aria-label="Flujo de automatización comercial con IA para emprendedores colombianos">
+        <svg viewBox="0 0 680 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto;">
           <defs>
-            <marker id="ws-arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <marker id="art-arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
               <path d="M0,0 L0,6 L8,3 z" fill="#00e5b4"/>
             </marker>
           </defs>
-          <!-- nodos -->
-          <rect x="5"   y="25" width="120" height="40" rx="8" fill="#071c17" stroke="rgba(0,229,180,.25)"/>
-          <text x="65"  y="43" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">🔍 Keyword</text>
-          <text x="65"  y="57" text-anchor="middle" fill="#7ab8af" font-size="9"  font-family="Inter,sans-serif">Research</text>
+          <rect x="5"   y="35" width="110" height="40" rx="8" fill="#041410" stroke="#00e5b4" stroke-opacity=".4"/>
+          <text x="60"  y="53" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">📦 Pedido</text>
 
-          <rect x="148" y="25" width="120" height="40" rx="8" fill="#071c17" stroke="rgba(0,229,180,.25)"/>
-          <text x="208" y="43" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">📐 Estructura</text>
-          <text x="208" y="57" text-anchor="middle" fill="#7ab8af" font-size="9"  font-family="Inter,sans-serif">H1 · H2 · Slug</text>
+          <rect x="143" y="35" width="120" height="40" rx="8" fill="#041410" stroke="#00e5b4" stroke-opacity=".4"/>
+          <text x="203" y="53" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">🤖 Bot</text>
+          <text x="203" y="67" text-anchor="middle" fill="#e0f7f4" font-size="9"  font-family="Inter,sans-serif">WhatsApp</text>
 
-          <rect x="291" y="25" width="120" height="40" rx="8" fill="#071c17" stroke="rgba(0,229,180,.25)"/>
-          <text x="351" y="43" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">✍️ Cuerpo</text>
-          <text x="351" y="57" text-anchor="middle" fill="#7ab8af" font-size="9"  font-family="Inter,sans-serif">300–1.000 palabras</text>
+          <rect x="290" y="35" width="130" height="40" rx="8" fill="#041410" stroke="#00e5b4" stroke-opacity=".4"/>
+          <text x="355" y="53" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">💳 Cobro</text>
+          <text x="355" y="67" text-anchor="middle" fill="#e0f7f4" font-size="9"  font-family="Inter,sans-serif">automático</text>
 
-          <rect x="434" y="25" width="130" height="40" rx="8" fill="#071c17" stroke="rgba(0,229,180,.25)"/>
-          <text x="499" y="43" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">⚙️ Optimización</text>
-          <text x="499" y="57" text-anchor="middle" fill="#7ab8af" font-size="9"  font-family="Inter,sans-serif">Densidad · Links</text>
+          <rect x="447" y="35" width="110" height="40" rx="8" fill="#041410" stroke="#00e5b4" stroke-opacity=".4"/>
+          <text x="502" y="53" text-anchor="middle" fill="#e0f7f4" font-size="10" font-family="Inter,sans-serif" font-weight="700">🚚 Logística</text>
 
-          <rect x="587" y="25" width="128" height="40" rx="8" fill="#041410" stroke="rgba(0,229,180,.5)"/>
-          <text x="651" y="43" text-anchor="middle" fill="#00e5b4" font-size="10" font-family="Inter,sans-serif" font-weight="700">🚀 Publicación</text>
-          <text x="651" y="57" text-anchor="middle" fill="#7ab8af" font-size="9"  font-family="Inter,sans-serif">SEO On-Page ✓</text>
+          <rect x="583" y="35" width="95" height="40" rx="8" fill="#041410" stroke="#3fb950" stroke-opacity=".5"/>
+          <text x="630" y="53" text-anchor="middle" fill="#3fb950" font-size="10" font-family="Inter,sans-serif" font-weight="700">⭐ Post-</text>
+          <text x="630" y="67" text-anchor="middle" fill="#3fb950" font-size="9"  font-family="Inter,sans-serif">venta</text>
 
-          <!-- flechas -->
-          <path d="M125 45 L146 45" stroke="#00e5b4" stroke-width="1.5" marker-end="url(#ws-arr)"/>
-          <path d="M268 45 L289 45" stroke="#00e5b4" stroke-width="1.5" marker-end="url(#ws-arr)"/>
-          <path d="M411 45 L432 45" stroke="#00e5b4" stroke-width="1.5" marker-end="url(#ws-arr)"/>
-          <path d="M564 45 L585 45" stroke="#00e5b4" stroke-width="1.5" marker-end="url(#ws-arr)"/>
+          <path d="M115 55 L141 55" stroke="#00e5b4" stroke-width="2" marker-end="url(#art-arr)"/>
+          <path d="M263 55 L288 55" stroke="#00e5b4" stroke-width="2" marker-end="url(#art-arr)"/>
+          <path d="M420 55 L445 55" stroke="#00e5b4" stroke-width="2" marker-end="url(#art-arr)"/>
+          <path d="M557 55 L581 55" stroke="#00e5b4" stroke-width="2" marker-end="url(#art-arr)"/>
         </svg>
-        <figcaption>Flujo de redacción SEO — del keyword a la publicación optimizada.</figcaption>
+        <figcaption>Flujo completo de automatización con Nexus Ops — del pedido a la postventa</figcaption>
       </figure>
 
-      <!-- ── ESTRATEGIAS DE IA ── -->
-      <h2>Instrucciones para la generación del borrador con IA</h2>
-      <p>
-        En el prompt utilizado para redactar el cuerpo del artículo, <strong>exige la aplicación simultánea</strong>
-        de las siguientes tres estrategias de mensaje. Cada una aporta una capa distinta de persuasión y estructura:
+      <h2 class="art-h2">¿Y si pudieras vender más sin estar pegado al celular?</h2>
+
+      <p class="art-p">¿Y si pudieras vender más hoy sin estar pegado al celular todo el día? Eso no es una fantasía: es lo que logran los <strong>emprendedores colombianos</strong> que han automatizado su negocio con inteligencia artificial. Menos tiempo operando, más tiempo creciendo.</p>
+
+      <p class="art-p">Según Meta (2023), el <strong>80 % de las compras en Colombia</strong> inicia con un mensaje de WhatsApp. Y según IBM, un bot bien entrenado resuelve el 70 % de esas consultas sin que tú tengas que responder una sola. Eso se traduce en <strong>ventas que pasan mientras duermes.</strong></p>
+
+      <p class="art-p">No hablo de tecnología complicada ni de presupuestos millonarios. Hablo de herramientas que ya existen, que funcionan en Colombia, y que cualquier negocio puede activar esta semana.</p>
+
+      <div class="art-quote">
+        <p><em>Automatizar es simple: tú pones las reglas, la IA trabaja por ti.</em></p>
+      </div>
+
+      <p class="art-p">Con <strong>Nexus Ops</strong>, en pocos días tienes funcionando lo que antes necesitaba 20 empleados: alguien respondiendo WhatsApp, alguien cobrando, alguien despachando. Tú solo decides, el sistema ejecuta.</p>
+
+      <h2 class="art-h2">Los 4 procesos que Nexus Ops automatiza por ti</h2>
+
+      <p class="art-p"><strong>1. WhatsApp 24/7</strong><br>
+      Tu cliente pregunta a las 2am. El bot responde al instante: precio, disponibilidad, cómo pagar. Tú te enteras en la mañana con el pedido ya tomado.</p>
+
+      <p class="art-p"><strong>2. Cobros automáticos</strong><br>
+      PSE o Nequi conectados directo a tu flujo de venta. El cliente paga, recibe su comprobante y tú ves el dinero reflejado — sin perseguir transferencias ni revisar capturas.</p>
+
+      <p class="art-p"><strong>3. Logística sin operarla</strong><br>
+      Entra el pedido, se genera la guía con Servientrega o Coordinadora y el cliente recibe su número de seguimiento. Todo automático, sin que toques una pantalla.</p>
+
+      <p class="art-p"><strong>4. Postventa que fideliza</strong><br>
+      El sistema le escribe al cliente para confirmar entrega, pedirle su calificación y recordarle que puede volver a comprar. Tú construyes reputación sin dedicar un minuto.</p>
+
+      <h2 class="art-h2">Otros emprendedores que también lo están haciendo</h2>
+
+      <p class="art-peers-intro">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Si quieres ver cómo la IA está transformando otros negocios, estos artículos complementan lo que hacemos en Nexus Ops:
       </p>
 
-      <div class="ws-strategy-grid">
+      <div class="art-peers-grid">
+        <a href="https://clc-lavanderia.blogspot.com/2026/08/personalizacion-del-marketing-con-ia.html"
+           target="_blank" rel="noopener" class="art-peer-card"
+           onclick="gtag('event','peer_click',{event_category:'landing_blog',event_label:'clc_lavanderia'})">
+          <div class="art-peer-top">
+            <div class="art-peer-icon">🧺</div>
+            <span class="art-peer-name">CLC Lavandería</span>
+          </div>
+          <span class="art-peer-topic">Personalización del marketing con IA — cómo un negocio de lavandería usa datos para llegar mejor a sus clientes.</span>
+          <span class="art-peer-cta">
+            Ver artículo
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </span>
+        </a>
 
-        <div class="ws-strategy-card">
-          <span class="ws-strategy-label">AIDA</span>
-          <h3>Atención · Interés · Deseo · Acción</h3>
-          <ul>
-            <li>Atención — abre con un dato impactante o pregunta directa</li>
-            <li>Interés — desarrolla el problema que le importa al lector</li>
-            <li>Deseo — muestra la solución y sus beneficios concretos</li>
-            <li>Acción — termina con un llamado claro y específico</li>
-          </ul>
-        </div>
-
-        <div class="ws-strategy-card">
-          <span class="ws-strategy-label">PET</span>
-          <h3>Promesa · Evidencia · Tono</h3>
-          <ul>
-            <li>Promesa — enuncia el beneficio principal desde el inicio</li>
-            <li>Evidencia — respalda con datos, casos o estadísticas reales</li>
-            <li>Tono — ajusta el registro al perfil del público objetivo</li>
-          </ul>
-        </div>
-
-        <div class="ws-strategy-card">
-          <span class="ws-strategy-label">CACo</span>
-          <h3>Conocimiento · Actitud · Comportamiento</h3>
-          <ul>
-            <li>Conocimiento — informa: qué es y por qué importa</li>
-            <li>Actitud — genera convicción: por qué debería importarte</li>
-            <li>Comportamiento — dirige: qué acción concreta tomar ahora</li>
-          </ul>
-        </div>
-
+        <a href="https://puntaditasnadjamusa.blogspot.com/2026/08/ia-en-la-experiencia-del-cliente-una.html"
+           target="_blank" rel="noopener" class="art-peer-card"
+           onclick="gtag('event','peer_click',{event_category:'landing_blog',event_label:'puntaditas_nadja'})">
+          <div class="art-peer-top">
+            <div class="art-peer-icon">🧵</div>
+            <span class="art-peer-name">Puntaditas Nadja Musa</span>
+          </div>
+          <span class="art-peer-topic">IA en la experiencia del cliente — cómo mejorar la atención y fidelización usando inteligencia artificial.</span>
+          <span class="art-peer-cta">
+            Ver artículo
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </span>
+        </a>
       </div>
 
-      <div class="blog-quote">
-        <p>"Un artículo SEO bien estructurado no solo posiciona en Google — <strong>convierte lectores en clientes</strong> al combinar relevancia técnica con persuasión narrativa."</p>
+      <h2 class="art-h2">¿Por dónde empiezas?</h2>
+
+      <p class="art-p">El primer paso es saber qué proceso te está robando más tiempo hoy. ¿Es el WhatsApp? ¿Los cobros? ¿Las guías? Con esa respuesta clara, Nexus Ops lo automatiza. Entra a la lista de espera y en pocos días tu negocio opera solo mientras tú te enfocas en crecer.</p>
+
+      <div class="art-cta-box">
+        <p>No necesitas saber de tecnología. No necesitas un equipo. Solo necesitas decidir que tu tiempo vale más que responder el mismo mensaje por décima vez. <strong>Únete a la lista de espera de Nexus Ops</strong> y en pocos días tu negocio trabaja por ti.</p>
+        <a href="#contacto" class="btn btn-primary"
+           onclick="gtag('event','cta_click',{event_category:'landing_blog',event_label:'quiero_automatizar'})">
+          Quiero automatizar mi negocio →
+        </a>
       </div>
 
-      <!-- ── INTERCONEXIÓN — blogs compañeros ── -->
-      <h2>Interconexión — blogs de compañeros del programa</h2>
-      <p>Requerimiento de interconexión: el artículo debe incluir al menos un enlace a cada una de estas entradas.</p>
-      <div class="blog-compas-grid">
-        <a href="https://mliaconsulting.lovable.app/" target="_blank" rel="noopener" class="blog-compas-card">MLia Consulting<br><span style="font-size:.75rem;opacity:.7">IA aplicada a negocios</span></a>
-        <a href="https://clc-lavanderia.blogspot.com/2026/08/personalizacion-del-marketing-con-ia.html" target="_blank" rel="noopener" class="blog-compas-card">CLC Lavandería<br><span style="font-size:.75rem;opacity:.7">Personalización del marketing con IA</span></a>
-        <a href="https://puntaditasnadjamusa.blogspot.com/2026/08/ia-en-la-experiencia-del-cliente-una.html" target="_blank" rel="noopener" class="blog-compas-card">Puntaditas Nadja Musa<br><span style="font-size:.75rem;opacity:.7">IA en la experiencia del cliente</span></a>
-        <a href="https://oficina360inteligente.blogspot.com/2026/08/experiencia-cliente-inteligencia-artificial.html" target="_blank" rel="noopener" class="blog-compas-card">Oficina 360 Inteligente<br><span style="font-size:.75rem;opacity:.7">Experiencia del cliente con IA</span></a>
-        <a href="https://aisfoodperu.blogspot.com/2026/08/beneficios-del-camu-camu-la-superfruta.html" target="_blank" rel="noopener" class="blog-compas-card">AIS Food Perú<br><span style="font-size:.75rem;opacity:.7">IA en la industria alimentaria</span></a>
-        <a href="https://keplercrash.blogspot.com/2026/08/animacion-2d-para-marcas.html" target="_blank" rel="noopener" class="blog-compas-card">Kepler Crash<br><span style="font-size:.75rem;opacity:.7">Animación 2D para marcas</span></a>
+      <div class="art-ref">
+        <h3>Referencias</h3>
+        <ol>
+          <li>Meta. (2023). <em>El futuro de la mensajería para empresas en América Latina.</em> Meta Business.</li>
+          <li>IBM Institute for Business Value. (2023). <em>The value of AI-powered customer service.</em> IBM.</li>
+        </ol>
       </div>
 
-      <!-- Comentarios Disqus -->
-      <div class="blog-disqus-wrap" id="disqus_thread_wrap">
-        <div id="disqus_thread"></div>
-        <p style="color:var(--text-muted);font-size:.85rem;text-align:center;margin:0" id="disqus-placeholder">
-          💬 Comentarios — configura tu shortname de Disqus para activarlos.
-        </p>
-      </div>
-
-      <p class="blog-note">
-        Workshop académico — curso BAI6041 Inteligencia de Negocios Aplicada,
-        MBA Business International University (BIU), Tarea #7. Septiembre 2026.
+      <p style="font-size:.75rem;color:var(--text-muted);margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);text-align:right">
+        <a href="./blog/automatizacion-ia-emprendedores-colombia/" style="color:var(--text-muted)">Leer artículo completo →</a>
       </p>
+
     </article>
   </div>
 </section>
@@ -1218,7 +1182,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Cómo funciona</a>
       <a href="#calculadora">Calculadora ROI</a>
-      <a href="#workshop">Workshop</a>
+      <a href="#blog">Blog</a>
       <a href="#contacto">Contacto</a>
     </div>
     <div class="footer-links">
