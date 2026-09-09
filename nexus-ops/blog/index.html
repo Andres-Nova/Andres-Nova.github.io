@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Nexus Ops</title>
+  <meta name="description" content="Artículos sobre automatización con IA para emprendedores colombianos: WhatsApp bots, pagos automáticos, logística y más." />
+  <link rel="canonical" href="https://andres-nova.github.io/nexus-ops/blog/" />
+  <meta property="og:title" content="Blog — Nexus Ops" />
+  <meta property="og:description" content="Artículos prácticos de automatización e IA comercial para MiPYMEs en Colombia." />
+  <meta property="og:url" content="https://andres-nova.github.io/nexus-ops/blog/" />
+  <meta property="og:type" content="website" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZLMDEMC1T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LZLMDEMC1T', { page_path: '/nexus-ops/blog/' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+      --border: rgba(255,255,255,.08); --text: #e6edf3;
+      --text-muted: rgba(230,237,243,.65); --accent: #ffffff;
+      --accent2: rgba(255,255,255,0.82);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: .9rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; }
+    .nav-brand { font-weight: 700; font-size: 1.1rem; color: var(--text); letter-spacing: -.3px; text-decoration: none; }
+    .nav-brand span { color: var(--accent); }
+    .nav-back { font-size: .85rem; color: var(--text-muted); border: 1px solid var(--border); border-radius: 6px; padding: .3rem .8rem; transition: all .2s; text-decoration: none; margin-left: auto; }
+    .nav-back:hover { color: var(--text); border-color: var(--accent); }
+
+    .blog-container { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .blog-header { margin-bottom: 2.5rem; }
+    .blog-header h1 { font-size: 1.8rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .5rem; }
+    .blog-header p { color: var(--text-muted); }
+
+    .post-grid { display: grid; gap: 1.5rem; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-decoration: none; display: block; transition: border-color .2s, transform .2s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+    .post-card-meta { display: flex; gap: .8rem; flex-wrap: wrap; font-size: .78rem; color: var(--text-muted); margin-bottom: .8rem; align-items: center; }
+    .post-card-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: .15rem .5rem; font-weight: 600; color: var(--accent2); font-size: .75rem; }
+    .post-card h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.3; }
+    .post-card p { font-size: .88rem; color: var(--text-muted); margin: 0; }
+    .post-card-footer { margin-top: 1rem; font-size: .82rem; color: var(--accent); font-weight: 600; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; font-size: .82rem; color: var(--text-muted); }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) { .blog-container { padding: 2rem 1rem 4rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/nexus-ops/" class="nav-brand">Nexus<span>Ops</span></a>
+  <a href="/nexus-ops/" class="nav-back">← Nexus Ops</a>
+</nav>
+
+<main class="blog-container">
+  <div class="blog-header">
+    <h1>Blog</h1>
+    <p>Artículos sobre automatización con IA para emprendedores en Colombia.</p>
+  </div>
+
+  <div class="post-grid">
+
+    <a href="/nexus-ops/blog/automatizacion-ia-emprendedores-colombia/"
+       class="post-card"
+       onclick="gtag('event','post_click',{event_category:'blog_index',event_label:'automatizacion-ia-emprendedores-colombia'})">
+      <div class="post-card-meta">
+        <span class="post-card-badge">MBA BIU · BAI6041 · Tarea #6</span>
+        <span>8 sept 2026</span>
+        <span>· 5 min de lectura</span>
+      </div>
+      <h2>Automatiza tu negocio con IA si eres emprendedor en Colombia</h2>
+      <p>Guía práctica: automatiza WhatsApp, pagos y logística con IA para MiPYMEs colombianas sin código. Recupera horas y vende más desde el primer mes.</p>
+      <div class="post-card-footer">Leer artículo →</div>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Nexus Ops · <a href="/nexus-ops/">Landing</a> · <a href="https://andres-nova.github.io">Portafolio de Andres Nova</a></p>
+</footer>
+
+</body>
+</html>
