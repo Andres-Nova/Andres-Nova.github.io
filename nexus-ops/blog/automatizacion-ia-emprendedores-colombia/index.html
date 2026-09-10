@@ -239,8 +239,8 @@
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
 <nav>
-  <a href="/nexus-ops/" class="nav-brand">Nexus<span>Ops</span></a>
-  <a href="/nexus-ops/blog/" class="nav-back">← Blog</a>
+  <a href="/nexus-ops/" class="nav-brand" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'brand_landing'})">Nexus<span>Ops</span></a>
+  <a href="/nexus-ops/blog/" class="nav-back" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'back_blog'})">← Blog</a>
 </nav>
 
 <main class="post-container">
@@ -472,7 +472,8 @@
   <div class="related-section">
     <h2>Artículos relacionados</h2>
     <div class="related-grid">
-      <a href="/nexus-ops/blog/" class="related-card">
+      <a href="/nexus-ops/blog/" class="related-card"
+         onclick="gtag('event','internal_link',{event_category:'blog_post',event_label:'back_blog_index'})">
         <h4>← Volver al Blog de Nexus Ops</h4>
         <p>Todos los artículos sobre automatización e IA comercial para emprendedores.</p>
       </a>
@@ -506,7 +507,11 @@
 </main>
 
 <footer>
-  <p>© 2026 Nexus Ops · <a href="/nexus-ops/">Landing</a> · <a href="/nexus-ops/blog/">Blog</a> · <a href="https://andres-nova.github.io">Portafolio</a></p>
+  <p>© 2026 Nexus Ops ·
+    <a href="/nexus-ops/" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'landing'})">Landing</a> ·
+    <a href="/nexus-ops/blog/" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog'})">Blog</a> ·
+    <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'portafolio'})">Portafolio</a>
+  </p>
 </footer>
 
 <!-- GA4 scroll depth -->

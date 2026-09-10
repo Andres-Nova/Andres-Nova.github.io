@@ -116,8 +116,8 @@
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
 <nav>
-  <a href="/nexus-ops/" class="nav-brand">Nexus<span>Ops</span></a>
-  <a href="/nexus-ops/" class="nav-back">← Nexus Ops</a>
+  <a href="/nexus-ops/" class="nav-brand" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'brand_landing'})">Nexus<span>Ops</span></a>
+  <a href="/nexus-ops/" class="nav-back" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'back_landing'})">← Nexus Ops</a>
 </nav>
 
 <main class="blog-container">
@@ -145,7 +145,10 @@
 </main>
 
 <footer>
-  <p>© 2026 Nexus Ops · <a href="/nexus-ops/">Landing</a> · <a href="https://andres-nova.github.io">Portafolio de Andres Nova</a></p>
+  <p>© 2026 Nexus Ops ·
+    <a href="/nexus-ops/" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'landing'})">Landing</a> ·
+    <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'portafolio'})">Portafolio de Andres Nova</a>
+  </p>
 </footer>
 
 <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>

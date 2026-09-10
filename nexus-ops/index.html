@@ -605,16 +605,16 @@
 <nav>
   <span class="nav-brand">Nexus<span>Ops</span></span>
   <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#segmento">Para quién</a></li>
-    <li><a href="#proceso">Cómo funciona</a></li>
-    <li><a href="#opiniones">Opiniones</a></li>
-    <li><a href="#calculadora">Calculadora</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="./blog/">Ver todos</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#servicios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'servicios'})">Servicios</a></li>
+    <li><a href="#segmento" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'segmento'})">Para quién</a></li>
+    <li><a href="#proceso" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'proceso'})">Cómo funciona</a></li>
+    <li><a href="#opiniones" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'opiniones'})">Opiniones</a></li>
+    <li><a href="#calculadora" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'calculadora'})">Calculadora</a></li>
+    <li><a href="#blog" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'blog'})">Blog</a></li>
+    <li><a href="./blog/" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'ver_todos_blog'})">Ver todos</a></li>
+    <li><a href="#contacto" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'contacto'})">Contacto</a></li>
   </ul>
-  <a href="https://andres-nova.github.io" class="nav-back">← Portafolio</a>
+  <a href="https://andres-nova.github.io" class="nav-back" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'portafolio'})">← Portafolio</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -628,7 +628,7 @@
     </p>
     <div class="hero-cta">
       <a href="#contacto" class="btn btn-primary" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'quiero_empezar'})">Quiero empezar</a>
-      <a href="#servicios" class="btn btn-outline">Ver qué incluye</a>
+      <a href="#servicios" class="btn btn-outline" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'ver_servicios'})">Ver qué incluye</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -1043,22 +1043,22 @@
     </div>
     <div class="footer-links">
       <span class="footer-heading">Navegación</span>
-      <a href="#servicios">Servicios</a>
-      <a href="#proceso">Cómo funciona</a>
-      <a href="#calculadora">Calculadora ROI</a>
-      <a href="#blog">Blog</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#servicios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'servicios'})">Servicios</a>
+      <a href="#proceso" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'proceso'})">Cómo funciona</a>
+      <a href="#calculadora" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'calculadora'})">Calculadora ROI</a>
+      <a href="#blog" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog'})">Blog</a>
+      <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'contacto'})">Contacto</a>
     </div>
     <div class="footer-links">
       <span class="footer-heading">Recursos</span>
-      <a href="/nexus-ops/blog/">Blog académico</a>
-      <a href="https://andres-nova.github.io">Portafolio del autor</a>
-      <a href="#contacto">Lista de espera</a>
+      <a href="/nexus-ops/blog/" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog_academico'})">Blog académico</a>
+      <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'portafolio'})">Portafolio del autor</a>
+      <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'lista_espera'})">Lista de espera</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Nexus Ops · Bogotá, Colombia</span>
-    <span>Construido por <a href="https://andres-nova.github.io">Andres Nova</a> · AI Solutions Architect</span>
+    <span>Construido por <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'andres_nova'})">Andres Nova</a> · AI Solutions Architect</span>
   </div>
 </footer>
 
