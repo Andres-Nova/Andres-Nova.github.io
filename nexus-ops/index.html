@@ -22,6 +22,11 @@
   <meta property="og:description" content="Infraestructura comercial completa para emprendedores colombianos: landing, pagos, logística y asistente IA para WhatsApp." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://andres-nova.github.io/nexus-ops/" />
+  <meta property="og:image" content="https://andres-nova.github.io/assets/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://andres-nova.github.io/assets/og-preview.png" />
   <link rel="canonical" href="https://andres-nova.github.io/nexus-ops/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -595,6 +600,162 @@
     .bpc-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
     .bpc-cta { font-size: .85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: .4rem; transition: gap .2s; }
     .blog-preview-card:hover .bpc-cta { gap: .65rem; }
+
+    /* ── HAMBURGER MENU (mobile) ── */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; justify-content: center;
+      cursor: pointer; background: none; border: none; padding: .35rem; flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 640px) { .hamburger { display: flex; } }
+
+    /* ── MOBILE NAV OVERLAY ── */
+    .mobile-nav {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: var(--bg); padding: 5rem 2rem 2rem;
+      flex-direction: column; gap: 0; overflow-y: auto;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--text); font-size: 1.15rem; font-weight: 600;
+      text-decoration: none; padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color .2s, padding-left .2s;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--accent); padding-left: .5rem; }
+    .mobile-nav-close {
+      position: absolute; top: 1rem; right: 1.2rem;
+      background: none; border: none; cursor: pointer;
+      font-size: 1.5rem; color: var(--text-muted);
+      transition: color .2s, transform .2s; line-height: 1;
+    }
+    .mobile-nav-close:hover { color: var(--accent); transform: rotate(90deg); }
+
+    /* ── TRUST BADGES ── */
+    #confianza { padding: 1.75rem 2rem !important; }
+    .trust-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-muted);
+      text-align: center; margin-bottom: 1.25rem;
+    }
+    .trust-grid { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+    .trust-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; padding: .4rem .9rem;
+      font-size: .8rem; font-weight: 600; color: var(--text-muted);
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .trust-badge:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
+
+    /* ── PRECIOS ── */
+    #precios { background: var(--bg); }
+    .precios-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem; align-items: start;
+    }
+    .precio-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.25rem; position: relative;
+      transition: border-color .25s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
+    }
+    .precio-card:hover { border-color: rgba(0,229,180,.4); transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,.3); }
+    .precio-card.featured { border-color: rgba(0,229,180,.5); background: rgba(0,229,180,.04); }
+    .precio-popular {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: var(--bg);
+      font-size: .68rem; font-weight: 800; letter-spacing: .06em;
+      text-transform: uppercase; padding: .22rem 1rem; border-radius: 999px; white-space: nowrap;
+    }
+    .precio-nombre {
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .precio-valor { font-size: 2.2rem; font-weight: 900; color: var(--text); letter-spacing: -.04em; line-height: 1; }
+    .precio-valor small { font-size: .85rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
+    .precio-desc { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
+    .precio-features { list-style: none; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+    .precio-features li {
+      display: flex; align-items: flex-start; gap: .6rem;
+      font-size: .83rem; color: var(--text-muted); line-height: 1.4;
+    }
+    .precio-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+    .precio-cta {
+      display: block; text-align: center; padding: .75rem 1rem;
+      border-radius: 8px; font-weight: 700; font-size: .9rem;
+      text-decoration: none; transition: all .2s; margin-top: .5rem;
+    }
+    .precio-cta-outline { border: 1px solid var(--border); color: var(--text); }
+    .precio-cta-outline:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .precio-cta-primary { background: var(--accent); color: var(--bg); }
+    .precio-cta-primary:hover { background: #00cfaa; text-decoration: none; transform: translateY(-1px); }
+    .precios-nota { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 1.5rem; }
+    .precios-nota a { color: var(--accent); }
+
+    /* ── FAQ ── */
+    #faq { background: var(--bg2); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+    .faq-item {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
+    }
+    .faq-item.open { border-color: rgba(0,229,180,.35); }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      padding: 1.15rem 1.5rem; cursor: pointer; background: none; border: none;
+      color: var(--text); font-size: .93rem; font-weight: 600; text-align: left;
+      font-family: 'Inter', sans-serif; transition: color .2s;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-chevron { flex-shrink: 0; transition: transform .3s ease; color: var(--text-muted); font-style: normal; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .35s ease;
+      padding: 0 1.5rem; font-size: .87rem; color: var(--text-muted); line-height: 1.75;
+    }
+    .faq-item.open .faq-a { max-height: 400px; padding: 0 1.5rem 1.25rem; }
+
+    /* ── WHATSAPP FLOTANTE ── */
+    .whatsapp-btn {
+      position: fixed; bottom: 5.5rem; left: 1.5rem; z-index: 500;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,.45);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+      text-decoration: none;
+    }
+    .whatsapp-btn:hover { transform: scale(1.15); box-shadow: 0 6px 32px rgba(37,211,102,.55); text-decoration: none; }
+    .whatsapp-btn svg { width: 28px; height: 28px; fill: #fff; flex-shrink: 0; }
+
+    /* ── STICKY CTA MOBILE ── */
+    .sticky-cta {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 480;
+      background: rgba(2,14,12,.97); border-top: 1px solid var(--border);
+      padding: .85rem 1.25rem; backdrop-filter: blur(8px);
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) .sticky-cta { background: rgba(240,250,248,.97); }
+    }
+    :root[data-theme="light"] .sticky-cta { background: rgba(240,250,248,.97); }
+    .sticky-cta a {
+      display: block; text-align: center; background: var(--accent); color: var(--bg);
+      font-weight: 700; font-size: .95rem; padding: .72rem;
+      border-radius: 8px; text-decoration: none; transition: background .2s;
+    }
+    .sticky-cta a:hover { background: #00cfaa; text-decoration: none; }
+    @media (max-width: 640px) { .sticky-cta { display: block; } }
+    .sticky-cta.oculta { display: none !important; }
   </style>
 </head>
 <body>
@@ -608,14 +769,29 @@
     <li><a href="#servicios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'servicios'})">Servicios</a></li>
     <li><a href="#segmento" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'segmento'})">Para quién</a></li>
     <li><a href="#proceso" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'proceso'})">Cómo funciona</a></li>
-    <li><a href="#opiniones" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'opiniones'})">Opiniones</a></li>
+    <li><a href="#precios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'precios'})">Precios</a></li>
     <li><a href="#calculadora" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'calculadora'})">Calculadora</a></li>
     <li><a href="#blog" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'blog'})">Blog</a></li>
     <li><a href="./blog/" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'ver_todos_blog'})">Ver todos</a></li>
     <li><a href="#contacto" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'contacto'})">Contacto</a></li>
   </ul>
   <a href="https://andres-nova.github.io" class="nav-back" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'portafolio'})">← Portafolio</a>
+  <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- ── MENÚ MÓVIL ── -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Cerrar menú">✕</button>
+  <a href="#servicios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'servicios'})">Servicios</a>
+  <a href="#segmento" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'segmento'})">Para quién</a>
+  <a href="#proceso" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'proceso'})">Cómo funciona</a>
+  <a href="#precios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'precios'})">Precios</a>
+  <a href="#calculadora" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'calculadora'})">Calculadora</a>
+  <a href="#blog" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'blog'})">Blog</a>
+  <a href="#contacto" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'contacto'})" style="color:var(--accent);border-color:rgba(0,229,180,.3)">Quiero empezar →</a>
+</div>
 
 <!-- ── HERO ── -->
 <section id="hero">
@@ -647,6 +823,22 @@
         <span class="stat-num">60%</span>
         <span class="stat-label">menos tiempo operativo</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BADGES ── -->
+<section id="confianza" style="padding: 1.5rem 2rem !important; background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <p class="trust-label">Tecnología en la que confías</p>
+    <div class="trust-grid">
+      <span class="trust-badge">🏦 PSE</span>
+      <span class="trust-badge">📱 Nequi</span>
+      <span class="trust-badge">📦 Servientrega</span>
+      <span class="trust-badge">🚚 Coordinadora</span>
+      <span class="trust-badge">✈️ Envia</span>
+      <span class="trust-badge">💬 WhatsApp Business API</span>
+      <span class="trust-badge">🛡️ SSL / HTTPS</span>
     </div>
   </div>
 </section>
@@ -805,6 +997,160 @@
           <span class="tl-badge">Operativo</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRECIOS ── -->
+<section id="precios">
+  <div class="container">
+    <div class="tag">Planes</div>
+    <h2 class="section-title">Precios simples, sin sorpresas</h2>
+    <p class="section-sub">Todo incluido desde el primer día. Sin costos ocultos, sin comisiones adicionales por venta.</p>
+    <div class="precios-grid">
+
+      <!-- PLAN BÁSICO -->
+      <div class="precio-card fade-up">
+        <div>
+          <div class="precio-nombre">Básico</div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$490.000 <small>/mes</small></div>
+          <div class="precio-desc">Ideal si estás comenzando y quieres tu primera infraestructura comercial funcionando.</div>
+        </div>
+        <ul class="precio-features">
+          <li>Landing page de producto</li>
+          <li>Pasarela de pago (PSE + Nequi)</li>
+          <li>Integración 1 operador logístico</li>
+          <li>Bot WhatsApp básico (FAQ)</li>
+          <li>Soporte vía chat</li>
+        </ul>
+        <a href="#contacto"
+           class="precio-cta precio-cta-outline"
+           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'basico'})">
+          Empezar con Básico
+        </a>
+      </div>
+
+      <!-- PLAN PRO (POPULAR) -->
+      <div class="precio-card featured fade-up">
+        <div class="precio-popular">Más elegido</div>
+        <div>
+          <div class="precio-nombre">Pro</div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$890.000 <small>/mes</small></div>
+          <div class="precio-desc">Para negocios con volumen creciente que necesitan automatización completa y soporte prioritario.</div>
+        </div>
+        <ul class="precio-features">
+          <li>Todo el plan Básico</li>
+          <li>Tarjetas crédito/débito incluidas</li>
+          <li>Hasta 3 operadores logísticos</li>
+          <li>Bot IA avanzado (pedidos + postventa)</li>
+          <li>Dashboard de métricas en tiempo real</li>
+          <li>Soporte prioritario + videollamada mensual</li>
+        </ul>
+        <a href="#contacto"
+           class="precio-cta precio-cta-primary"
+           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'pro'})">
+          Quiero el plan Pro
+        </a>
+      </div>
+
+      <!-- PLAN EMPRESA -->
+      <div class="precio-card fade-up">
+        <div>
+          <div class="precio-nombre">Empresa</div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">A medida</div>
+          <div class="precio-desc">Integraciones personalizadas, múltiples tiendas o líneas de producto, y SLA garantizado.</div>
+        </div>
+        <ul class="precio-features">
+          <li>Todo el plan Pro</li>
+          <li>Integraciones personalizadas</li>
+          <li>Múltiples tiendas / marcas</li>
+          <li>API propia + webhooks</li>
+          <li>SLA 99.9% + soporte 24/7</li>
+          <li>Gerente de cuenta dedicado</li>
+        </ul>
+        <a href="#contacto"
+           class="precio-cta precio-cta-outline"
+           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'empresa'})">
+          Hablemos de tu caso
+        </a>
+      </div>
+
+    </div>
+    <p class="precios-nota">
+      ¿Tienes dudas sobre qué plan te conviene?
+      <a href="#contacto" onclick="gtag('event','cta_click',{event_category:'precios',event_label:'comparar'})">Escríbenos y te asesoramos sin compromiso →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="container">
+    <div class="tag">Preguntas frecuentes</div>
+    <h2 class="section-title">Todo lo que necesitas saber</h2>
+    <p class="section-sub">Resuelve tus dudas antes de dar el paso. Si no encuentras tu pregunta, <a href="#contacto">escríbenos</a>.</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Necesito conocimientos técnicos para usar Nexus Ops?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          No. Nexus Ops se encarga de toda la configuración técnica: landing page, pasarela de pago, logística y bot de WhatsApp. Tú solo nos cuentas cómo funciona tu negocio (productos, precios, preguntas frecuentes) y nosotros montamos todo. Sin código, sin servidores, sin dolores de cabeza técnicos.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cuánto tiempo tarda la puesta en marcha?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          El proceso completo toma entre 3 y 5 días hábiles. El día 1 nos envías la información de tu negocio (async, 10 min). Los días 2 y 3 configuramos tu stack. El día 4 revisamos todo contigo en una videollamada de 30 min. El día 5 salimos en vivo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Puedo cancelar en cualquier momento?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          Sí. No exigimos contratos de largo plazo. Puedes cancelar tu suscripción con 15 días de aviso antes del siguiente ciclo de facturación. No hay penalizaciones. Creemos en ganarnos tu confianza mes a mes con resultados.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Las comisiones de PSE o Nequi están incluidas en el precio?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          El precio del plan cubre la integración y operación de la pasarela. Las comisiones de las redes de pago (PSE, Nequi, redes de tarjetas) son costos directos de esas plataformas — típicamente entre 1.5% y 3.5% por transacción — y corren por cuenta del negocio, igual que ocurriría si los contrataras directamente. Sin embargo, al tenerlos integrados en Nexus Ops ahorras el tiempo y costo de gestión manual.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿El bot de WhatsApp reemplaza a mi equipo de ventas?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          No reemplaza — libera. El bot atiende el 70% de las consultas repetitivas (precios, disponibilidad, estado de pedido, instrucciones de pago), para que tú y tu equipo se enfoquen en las conversaciones de alto valor: clientes especiales, quejas complejas, negociaciones. Puedes escalar a un agente humano desde el mismo hilo de WhatsApp.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Qué pasa si mi negocio crece y necesito más capacidad?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          La infraestructura de Nexus Ops escala contigo. Puedes subir de plan en cualquier momento sin perder configuraciones ni historial. Para negocios con necesidades muy específicas (múltiples tiendas, integraciones propietarias) ofrecemos el plan Empresa con condiciones a medida.
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1045,7 +1391,9 @@
       <span class="footer-heading">Navegación</span>
       <a href="#servicios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'servicios'})">Servicios</a>
       <a href="#proceso" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'proceso'})">Cómo funciona</a>
+      <a href="#precios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'precios'})">Precios</a>
       <a href="#calculadora" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'calculadora'})">Calculadora ROI</a>
+      <a href="#faq" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'faq'})">FAQ</a>
       <a href="#blog" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog'})">Blog</a>
       <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'contacto'})">Contacto</a>
     </div>
@@ -1061,6 +1409,27 @@
     <span>Construido por <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'andres_nova'})">Andres Nova</a> · AI Solutions Architect</span>
   </div>
 </footer>
+
+<!-- ── WHATSAPP FLOTANTE ── -->
+<!-- TODO: Reemplaza el número de WhatsApp: wa.me/57XXXXXXXXXX -->
+<a href="https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Nexus%20Ops"
+   class="whatsapp-btn"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chatea con Nexus Ops por WhatsApp"
+   onclick="gtag('event','whatsapp_click',{event_category:'engagement',event_label:'floating_btn'})">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 3C8.82 3 3 8.82 3 16c0 2.38.65 4.6 1.78 6.52L3 29l6.66-1.74A13 13 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm6.46 18.15c-.27.75-1.56 1.44-2.15 1.53-.55.08-1.24.12-2-.12-.47-.14-1.06-.33-1.82-.65-3.2-1.38-5.29-4.6-5.45-4.81-.16-.21-1.3-1.73-1.3-3.3s.82-2.35 1.12-2.67c.27-.3.59-.37.79-.37l.56.01c.18.01.43-.07.67.51.27.62.91 2.23.99 2.39.08.16.14.36.03.57-.12.21-.18.33-.35.51-.17.18-.36.41-.51.55-.17.16-.35.34-.15.66.21.32.9 1.48 1.93 2.4 1.33 1.18 2.45 1.55 2.8 1.72.34.17.54.14.74-.09.21-.23.88-1.02 1.11-1.38.23-.35.47-.29.79-.18.32.12 2.04.96 2.39 1.13.35.17.58.25.67.4.08.15.08.87-.19 1.63Z"/>
+  </svg>
+</a>
+
+<!-- ── STICKY CTA MÓVIL ── -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="#contacto"
+     onclick="gtag('event','cta_click',{event_category:'sticky_mobile',event_label:'contacto'})">
+    Quiero automatizar mi negocio →
+  </a>
+</div>
 
 <script>
   // GA4 — scroll depth tracking
@@ -1284,6 +1653,67 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 })();
+</script>
+
+<script>
+/* ── MENÚ HAMBURGUESA ── */
+const hamburgerBtn   = document.getElementById('hamburger-btn');
+const mobileNav      = document.getElementById('mobile-nav');
+const mobileNavClose = document.getElementById('mobile-nav-close');
+
+function openMobileNav() {
+  mobileNav.classList.add('open');
+  hamburgerBtn.classList.add('open');
+  hamburgerBtn.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  gtag('event', 'nav_click', { event_category: 'mobile_nav', event_label: 'open' });
+}
+
+function closeMobileNav() {
+  mobileNav.classList.remove('open');
+  hamburgerBtn.classList.remove('open');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+hamburgerBtn.addEventListener('click', () => {
+  mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+});
+mobileNavClose.addEventListener('click', closeMobileNav);
+mobileNav.addEventListener('click', (e) => { if (e.target === mobileNav) closeMobileNav(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileNav(); });
+
+/* ── STICKY CTA: ocultar cuando se ve #contacto ── */
+(function () {
+  const stickyEl  = document.getElementById('sticky-cta');
+  const contactEl = document.getElementById('contacto');
+  if (!stickyEl || !contactEl) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      stickyEl.classList.toggle('oculta', e.isIntersecting);
+    });
+  }, { threshold: 0.15 });
+  obs.observe(contactEl);
+})();
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item     = btn.closest('.faq-item');
+    const isOpen   = item.classList.contains('open');
+    // cerrar todos
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    // abrir el que se tocó (si estaba cerrado)
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      gtag('event', 'faq_open', { event_category: 'engagement', event_label: btn.textContent.trim().slice(0, 60) });
+    }
+  });
+});
 </script>
 
 </body>
