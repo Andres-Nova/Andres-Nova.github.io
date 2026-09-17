@@ -8,7 +8,8 @@ const posts = (await getCollection('blog')).sort(
 );
 
 function fechaLegible(d: Date) {
-  const s = d.toLocaleDateString('es-CO', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  // es-CO produce "septiembre de 2026"; el original mostraba "Septiembre 2026"
+  const s = d.toLocaleDateString('es-CO', { month: 'long', year: 'numeric', timeZone: 'UTC' }).replace(' de ', ' ');
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 ---

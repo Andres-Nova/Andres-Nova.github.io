@@ -12,7 +12,8 @@ interface Props {
 }
 const { title, description, pubDate, badge, readingTime, canonical, keywords } = Astro.props;
 const fechaLegible = capitalizar(
-  pubDate.toLocaleDateString('es-CO', { month: 'long', year: 'numeric', timeZone: 'UTC' })
+  // es-CO produce "septiembre de 2026"; el original mostraba "Septiembre 2026"
+  pubDate.toLocaleDateString('es-CO', { month: 'long', year: 'numeric', timeZone: 'UTC' }).replace(' de ', ' ')
 );
 function capitalizar(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
