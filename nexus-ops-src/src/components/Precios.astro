@@ -1,0 +1,129 @@
+---
+// nexus-ops-src/src/components/Precios.astro
+---
+
+<section id="precios">
+  <div class="container">
+    <div class="tag">Planes</div>
+    <h2 class="section-title">Precios simples, sin sorpresas</h2>
+    <p class="section-sub">Todo incluido desde el primer día. Sin costos ocultos, sin comisiones adicionales por venta.</p>
+    <div class="precios-grid">
+
+      <!-- PLAN BÁSICO -->
+      <div class="precio-card fade-up">
+        <div>
+          <div class="precio-nombre">Básico</div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$490.000 <small>/mes</small></div>
+          <div class="precio-desc">Ideal si estás comenzando y quieres tu primera infraestructura comercial funcionando.</div>
+        </div>
+        <ul class="precio-features">
+          <li>Landing page de producto</li>
+          <li>Pasarela de pago (PSE + Nequi)</li>
+          <li>Integración 1 operador logístico</li>
+          <li>Bot WhatsApp básico (FAQ)</li>
+          <li>Soporte vía chat</li>
+        </ul>
+        <a href="#contacto"
+           class="precio-cta precio-cta-outline"
+           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'basico'})">
+          Empezar con Básico
+        </a>
+      </div>
+
+      <!-- PLAN PRO (POPULAR) -->
+      <div class="precio-card featured fade-up">
+        <div class="precio-popular">Más elegido</div>
+        <div>
+          <div class="precio-nombre">Pro</div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$890.000 <small>/mes</small></div>
+          <div class="precio-desc">Para negocios con volumen creciente que necesitan automatización completa y soporte prioritario.</div>
+        </div>
+        <ul class="precio-features">
+          <li>Todo el plan Básico</li>
+          <li>Tarjetas crédito/débito incluidas</li>
+          <li>Hasta 3 operadores logísticos</li>
+          <li>Bot IA avanzado (pedidos + postventa)</li>
+          <li>Dashboard de métricas en tiempo real</li>
+          <li>Soporte prioritario + videollamada mensual</li>
+        </ul>
+        <a href="#contacto"
+           class="precio-cta precio-cta-primary"
+           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'pro'})">
+          Quiero el plan Pro
+        </a>
+      </div>
+
+      <!-- PLAN EMPRESA -->
+      <div class="precio-card fade-up">
+        <div>
+          <div class="precio-nombre">Empresa</div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">A medida</div>
+          <div class="precio-desc">Integraciones personalizadas, múltiples tiendas o líneas de producto, y SLA garantizado.</div>
+        </div>
+        <ul class="precio-features">
+          <li>Todo el plan Pro</li>
+          <li>Integraciones personalizadas</li>
+          <li>Múltiples tiendas / marcas</li>
+          <li>API propia + webhooks</li>
+          <li>SLA 99.9% + soporte 24/7</li>
+          <li>Gerente de cuenta dedicado</li>
+        </ul>
+        <a href="#contacto"
+           class="precio-cta precio-cta-outline"
+           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'empresa'})">
+          Hablemos de tu caso
+        </a>
+      </div>
+
+    </div>
+    <p class="precios-nota">
+      ¿Tienes dudas sobre qué plan te conviene?
+      <a href="#contacto" onclick="gtag('event','cta_click',{event_category:'precios',event_label:'comparar'})">Escríbenos y te asesoramos sin compromiso →</a>
+    </p>
+  </div>
+</section>
+
+<style>
+#precios { background: var(--bg); }
+.precios-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem; align-items: start;
+}
+.precio-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 2rem;
+  display: flex; flex-direction: column; gap: 1.25rem; position: relative;
+  transition: border-color .25s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
+}
+.precio-card:hover { border-color: rgba(109,131,247,.4); transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,.3); }
+.precio-card.featured { border-color: rgba(109,131,247,.5); background: rgba(109,131,247,.04); }
+.precio-popular {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: var(--bg);
+  font-size: .68rem; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; padding: .22rem 1rem; border-radius: 999px; white-space: nowrap;
+}
+.precio-nombre {
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--accent);
+}
+.precio-valor { font-size: 2.2rem; font-weight: 900; color: var(--text); letter-spacing: -.04em; line-height: 1; }
+.precio-valor small { font-size: .85rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
+.precio-desc { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
+.precio-features { list-style: none; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+.precio-features li {
+  display: flex; align-items: flex-start; gap: .6rem;
+  font-size: .83rem; color: var(--text-muted); line-height: 1.4;
+}
+.precio-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+.precio-cta {
+  display: block; text-align: center; padding: .75rem 1rem;
+  border-radius: 8px; font-weight: 700; font-size: .9rem;
+  text-decoration: none; transition: all .2s; margin-top: .5rem;
+}
+.precio-cta-outline { border: 1px solid var(--border); color: var(--text); }
+.precio-cta-outline:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.precio-cta-primary { background: var(--accent); color: var(--bg); }
+.precio-cta-primary:hover { background: #4f5fd6; text-decoration: none; transform: translateY(-1px); }
+.precios-nota { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 1.5rem; }
+</style>

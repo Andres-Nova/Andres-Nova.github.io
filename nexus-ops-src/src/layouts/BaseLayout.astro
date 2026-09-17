@@ -1,0 +1,268 @@
+---
+// nexus-ops-src/src/layouts/BaseLayout.astro
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  keywords?: string;
+  gaTitle?: string;
+}
+const {
+  title,
+  description,
+  canonical,
+  ogType = 'website',
+  ogImage = 'https://andres-nova.github.io/assets/og-preview.png',
+  ogTitle = title,
+  ogDescription = description,
+  keywords,
+  gaTitle = title,
+} = Astro.props;
+const pagePath = Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZLMDEMC1T"></script>
+  <script is:inline define:vars={{ pagePath, gaTitle }}>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', 'G-LZLMDEMC1T', { page_title: gaTitle, page_path: pagePath });
+  </script>
+
+  <meta name="description" content={description} />
+  {keywords && <meta name="keywords" content={keywords} />}
+  <meta name="author" content="Andres Nova" />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={ogImage} />
+  <link rel="canonical" href={canonical} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <slot name="head-extra" />
+
+  <style is:global>
+    :root {
+      --bg: #0a0e1a; --bg2: #131829; --bg3: #1b2140;
+      --border: rgba(255,255,255,.08);
+      --text: #e8ebf5; --text-muted: #8891b3;
+      --accent: #6d83f7;
+      --accent2: rgba(109,131,247,.82);
+      --accent-gradient: linear-gradient(90deg, #6d83f7, #4f5fd6);
+      --accent3: #f87171;
+      --radius: 12px;
+      --shadow: 0 8px 32px rgba(0,0,0,.5);
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #f4f6fc; --bg2: #ffffff; --bg3: #e9ecf7;
+        --border: rgba(10,14,26,.1);
+        --text: #0a0e1a; --text-muted: #545b78;
+        --accent: #4f5fd6;
+        --accent2: rgba(79,95,214,.85);
+        --accent-gradient: linear-gradient(90deg, #4f5fd6, #6d83f7);
+        --accent3: #dc2626;
+        --shadow: 0 8px 32px rgba(10,14,26,.08);
+      }
+    }
+    :root[data-theme="light"] {
+      --bg: #f4f6fc; --bg2: #ffffff; --bg3: #e9ecf7;
+      --border: rgba(10,14,26,.1);
+      --text: #0a0e1a; --text-muted: #545b78;
+      --accent: #4f5fd6;
+      --accent2: rgba(79,95,214,.85);
+      --accent-gradient: linear-gradient(90deg, #4f5fd6, #6d83f7);
+      --accent3: #dc2626;
+      --shadow: 0 8px 32px rgba(10,14,26,.08);
+    }
+    :root[data-theme="dark"] {
+      --bg: #0a0e1a; --bg2: #131829; --bg3: #1b2140;
+      --border: rgba(255,255,255,.08);
+      --text: #e8ebf5; --text-muted: #8891b3;
+      --accent: #6d83f7;
+      --accent2: rgba(109,131,247,.82);
+      --accent-gradient: linear-gradient(90deg, #6d83f7, #4f5fd6);
+      --accent3: #f87171;
+      --shadow: 0 8px 32px rgba(0,0,0,.5);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.65; font-size: 16px;
+      transition: background-color .3s ease, color .3s ease;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    section { padding: 6.5rem 2rem; }
+    @media (max-width: 640px) {
+      section { padding: 4rem 1.2rem; }
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .tag {
+      display: inline-block; font-size: .75rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .25rem .7rem; border-radius: 999px;
+      background: rgba(255,255,255,.08); color: var(--text);
+      margin-bottom: 1rem;
+    }
+    h2.section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: -.5px; }
+    .section-sub { color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; font-size: 1.05rem; }
+    #bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+
+    /* ── BOTONES (compartidos por Hero, Precios, Calculadora, Contacto) ── */
+    .btn {
+      display: inline-block; font-weight: 600; font-size: 1rem;
+      padding: .8rem 2rem; border-radius: 8px; cursor: pointer;
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background .2s, color .2s, border-color .2s;
+      position: relative; overflow: hidden;
+    }
+    .btn-primary { background: var(--accent-gradient); color: #fff; border: none; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn-primary::after {
+      content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+      transform: skewX(-20deg); transition: left .55s ease; pointer-events: none;
+    }
+    .btn-primary:hover::after { left: 150%; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(109,131,247,.08); }
+
+    /* ── FADE-UP AL HACER SCROLL (usado por Servicios, Proceso, Precios, BlogPreviewLanding) ── */
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: .1s; }
+    .fade-up:nth-child(3) { transition-delay: .2s; }
+    .fade-up:nth-child(4) { transition-delay: .3s; }
+
+    /* ── NAV BASE (usado por blog/index.astro y BlogLayout tal cual; Nav.astro de la
+       landing la extiende con .nav-links/.hamburger/.mobile-nav y su propio padding) ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: color-mix(in srgb, var(--bg) 95%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: .9rem 1.5rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .nav-brand { font-weight: 700; font-size: 1.1rem; color: var(--text); letter-spacing: -.3px; text-decoration: none; }
+    .nav-brand span { color: var(--accent); }
+    .nav-back {
+      font-size: .85rem; color: var(--text-muted); border: 1px solid var(--border);
+      border-radius: 6px; padding: .3rem .8rem; transition: all .2s;
+      text-decoration: none; margin-left: auto;
+    }
+    .nav-back:hover { color: var(--text); border-color: var(--accent); transform: translateX(-3px); }
+
+    /* Igual que en el original: esta regla va DESPUÉS del bloque `nav {…}` para que el
+       z-index 1 de aquí no le gane al z-index 100 del nav sticky ni tape el botón ✕
+       del menú móvil (.mobile-nav tiene z-index 99 en Nav.astro). */
+    nav, main, footer { position: relative; z-index: 1; }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 500;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--bg2); border: 1px solid var(--border);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; line-height: 1; padding: 0;
+      box-shadow: var(--shadow);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s, box-shadow .2s, background-color .3s;
+    }
+    .theme-toggle:hover { transform: scale(1.15) rotate(22deg); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <slot />
+
+  <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
+
+  <script is:inline>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    function isDark(t) {
+      if (t === 'dark') return true;
+      if (t === 'light') return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      btn.textContent = isDark(t) ? '☀️' : '🌙';
+      localStorage.setItem('nops-theme', t);
+    }
+    const saved = localStorage.getItem('nops-theme');
+    applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    btn.addEventListener('click', () => {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* PARTÍCULAS — corre en toda página con BaseLayout (landing y blog) */
+    const canvas = document.getElementById('bg-canvas');
+    if (!canvas) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
+    const ctx = canvas.getContext('2d');
+    const N = 55, MAX_D = 140;
+    let pts = [];
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    function mkPt() {
+      return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+               vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+               r: Math.random() * 1.4 + .5 };
+    }
+    function getColors() {
+      return isDark(root.getAttribute('data-theme'))
+        ? { dot: 'rgba(109,131,247,.18)', base: 'rgba(109,131,247,' }
+        : { dot: 'rgba(79,95,214,.12)',  base: 'rgba(79,95,214,' };
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const c = getColors();
+      pts.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = c.dot; ctx.fill();
+      });
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX_D) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = c.base + ((1 - d / MAX_D) * .08).toFixed(3) + ')';
+            ctx.lineWidth = .8; ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    resize(); pts = Array.from({ length: N }, mkPt); draw();
+    window.addEventListener('resize', () => { resize(); pts = Array.from({ length: N }, mkPt); });
+  })();
+  </script>
+</body>
+</html>

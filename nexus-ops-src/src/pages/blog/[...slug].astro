@@ -1,0 +1,28 @@
+---
+// nexus-ops-src/src/pages/blog/[...slug].astro
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const canonical = `https://andres-nova.github.io/nexus-ops/blog/${post.slug}/`;
+---
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  badge={post.data.badge}
+  readingTime={post.data.readingTime}
+  canonical={canonical}
+  keywords={post.data.keywords}
+>
+  <Content />
+</BlogLayout>

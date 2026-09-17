@@ -1,0 +1,68 @@
+---
+// nexus-ops-src/src/components/Footer.astro
+---
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo">Nexus<em>Ops</em></span>
+      <p>Automatización comercial con IA<br>para emprendedores en Colombia.</p>
+    </div>
+    <div class="footer-links">
+      <span class="footer-heading">Navegación</span>
+      <a href="#servicios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'servicios'})">Servicios</a>
+      <a href="#proceso" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'proceso'})">Cómo funciona</a>
+      <a href="#precios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'precios'})">Precios</a>
+      <a href="#calculadora" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'calculadora'})">Calculadora ROI</a>
+      <a href="#faq" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'faq'})">FAQ</a>
+      <a href="#blog" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog'})">Blog</a>
+      <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'contacto'})">Contacto</a>
+    </div>
+    <div class="footer-links">
+      <span class="footer-heading">Recursos</span>
+      <a href="/nexus-ops/blog/" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog_academico'})">Blog académico</a>
+      <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'portafolio'})">Portafolio del autor</a>
+      <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'lista_espera'})">Lista de espera</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Nexus Ops · Bogotá, Colombia</span>
+    <span>Construido por <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'andres_nova'})">Andres Nova</a> · AI Solutions Architect</span>
+  </div>
+</footer>
+
+<style>
+footer {
+  border-top: 1px solid var(--border);
+  padding: 4rem 2rem 2rem;
+}
+.footer-grid {
+  max-width: 960px; margin: 0 auto 3rem;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+}
+.footer-logo {
+  font-size: 1.4rem; font-weight: 900; letter-spacing: -.04em;
+  color: var(--text); display: block; margin-bottom: .8rem;
+}
+.footer-logo em { font-style: normal; color: var(--accent); }
+.footer-brand p { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
+.footer-heading {
+  font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-muted); display: block; margin-bottom: .9rem; font-weight: 600;
+}
+.footer-links { display: flex; flex-direction: column; gap: .5rem; }
+.footer-links a { font-size: .85rem; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: var(--text); }
+.footer-bottom {
+  max-width: 960px; margin: 0 auto;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .78rem; color: var(--text-muted); flex-wrap: wrap; gap: .5rem;
+}
+.footer-bottom a { color: var(--text-muted); }
+.footer-bottom a:hover { color: var(--text); }
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>

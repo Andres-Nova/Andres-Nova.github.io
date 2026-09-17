@@ -1,1610 +1,54 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexus Ops — Automatización Comercial con IA para Emprendedores</title>
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nexus Ops — Automatización Comercial con IA para Emprendedores</title><!-- Google Analytics GA4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LZLMDEMC1T"></script><script>(function(){const pagePath = "/nexus-ops/";
+const gaTitle = "Nexus Ops Landing";
 
-  <!-- Google Analytics GA4 (mismo property del portfolio) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZLMDEMC1T"></script>
-  <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    window.gtag = function(){dataLayer.push(arguments);};
     gtag('js', new Date());
-    gtag('config', 'G-LZLMDEMC1T', { page_title: 'Nexus Ops Landing', page_path: '/nexus-ops/' });
-  </script>
-
-  <!-- SEO -->
-  <meta name="description" content="Nexus Ops automatiza tu operación comercial con IA: landing page, pagos PSE/Nequi, logística Servientrega y asistente WhatsApp. Para emprendedores y MiPYMEs colombianas." />
-  <meta name="keywords" content="automatización comercial, IA para negocios, WhatsApp bot, pasarela de pago Colombia, emprendedores colombianos, MiPYMEs, Nexus Ops" />
-  <meta name="author" content="Andres Nova Bermudez" />
-  <meta property="og:title" content="Nexus Ops — Automatización Comercial con IA" />
-  <meta property="og:description" content="Infraestructura comercial completa para emprendedores colombianos: landing, pagos, logística y asistente IA para WhatsApp." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://andres-nova.github.io/nexus-ops/" />
-  <meta property="og:image" content="https://andres-nova.github.io/assets/og-preview.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://andres-nova.github.io/assets/og-preview.png" />
-  <link rel="canonical" href="https://andres-nova.github.io/nexus-ops/" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg:        #020e0c;
-      --bg2:       #041410;
-      --bg3:       #071c17;
-      --border:    rgba(0,229,180,.13);
-      --text:      #e0f7f4;
-      --text-muted:#7ab8af;
-      --accent:    #00e5b4;
-      --accent2:   rgba(0,229,180,0.82);
-      --accent3:   #f87171;
-      --gold:      #d29922;
-      --radius:    12px;
-      --shadow:    0 8px 32px rgba(0,0,0,.5);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      font-size: 16px;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(2,14,12,.93);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: .9rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-brand { font-weight: 700; font-size: 1.1rem; color: var(--text); letter-spacing: -.3px; }
-    .nav-brand span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--text-muted); font-size: .9rem; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-    .nav-back { font-size: .85rem; color: var(--text-muted); border: 1px solid var(--border); border-radius: 6px; padding: .3rem .8rem; transition: all .2s; }
-    .nav-back:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
-
-    /* ── SECTIONS ── */
-    section { padding: 5rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .tag {
-      display: inline-block; font-size: .75rem; font-weight: 600;
-      letter-spacing: .08em; text-transform: uppercase;
-      padding: .25rem .7rem; border-radius: 999px;
-      background: rgba(255,255,255,.08); color: var(--text);
-      margin-bottom: 1rem;
-    }
-    h2.section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700; margin-bottom: 1rem; letter-spacing: -.5px;
-    }
-    .section-sub { color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; font-size: 1.05rem; }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 90vh;
-      display: flex; align-items: center;
-      background: radial-gradient(ellipse 80% 55% at 50% -5%, rgba(0,229,180,.09) 0%, transparent 70%);
-      padding-top: 3rem;
-    }
-    .hero-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.22);
-      color: var(--text); border-radius: 999px;
-      padding: .35rem 1rem; font-size: .82rem; font-weight: 600;
-      margin-bottom: 2rem;
-    }
-    .hero-badge::before { content: '●'; font-size: .6rem; color: var(--accent); }
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 800; letter-spacing: -1.5px; line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-    h1 em { font-style: normal; color: var(--accent); }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: var(--text-muted); max-width: 680px; margin: 0 auto 2.5rem;
-    }
-    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: .8rem 2rem;
-      border-radius: 8px; font-weight: 600; font-size: 1rem;
-      cursor: pointer; transition: all .2s; border: none;
-    }
-    .btn-primary { background: #00e5b4; color: #020e0c; }
-    .btn-primary:hover { background: #00cfaa; text-decoration: none; }
-    .btn-outline { border: 1px solid rgba(0,229,180,.38); color: var(--text); background: transparent; }
-    .btn-outline:hover { background: #00e5b4; color: #020e0c; border-color: #00e5b4; text-decoration: none; }
-    .hero-stats {
-      display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border);
-    }
-    .stat-item { text-align: center; }
-    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); display: block; }
-    .stat-label { font-size: .85rem; color: var(--text-muted); }
-
-    /* ── PROBLEMA ── */
-    #problema { background: var(--bg2); }
-    .problema-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
-    }
-    .problema-card {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-    }
-    .problema-icon { font-size: 1.8rem; margin-bottom: .75rem; }
-    .problema-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
-    .problema-card p { font-size: .9rem; color: var(--text-muted); }
-
-    /* ── SERVICIOS ── */
-    #servicios { background: var(--bg); }
-    .servicios-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
-    }
-    .servicio-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
-      transition: border-color .25s, transform .25s;
-    }
-    .servicio-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-    .servicio-num {
-      font-size: .75rem; font-weight: 700; color: var(--accent);
-      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .servicio-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .servicio-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; }
-    .servicio-card p { font-size: .9rem; color: var(--text-muted); }
-    .servicio-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
-    .stag {
-      font-size: .72rem; padding: .2rem .55rem; border-radius: 4px;
-      background: rgba(255,255,255,.08); color: var(--text); font-weight: 500;
-    }
-
-    /* ── SEGMENTO ── */
-    #segmento { background: var(--bg2); }
-    .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    @media (max-width: 700px) { .segmento-grid { grid-template-columns: 1fr; } }
-    .segmento-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-    .segmento-list li {
-      display: flex; align-items: flex-start; gap: .75rem;
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1rem 1.25rem;
-    }
-    .segmento-list li .icon { font-size: 1.3rem; flex-shrink: 0; }
-    .segmento-list li .text strong { display: block; font-weight: 600; font-size: .95rem; }
-    .segmento-list li .text span { font-size: .85rem; color: var(--text-muted); }
-    .segmento-visual {
-      background: linear-gradient(135deg, rgba(0,229,180,.06), rgba(0,229,180,.02));
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 2.5rem; text-align: center;
-    }
-    .segmento-visual .big-num { font-size: 4rem; font-weight: 800; color: var(--accent); line-height: 1; }
-    .segmento-visual .big-label { font-size: .9rem; color: var(--text-muted); margin-top: .5rem; }
-    .segmento-visual .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
-    .mini-stat { margin-bottom: 1rem; }
-    .mini-stat .val { font-size: 1.6rem; font-weight: 700; color: var(--accent2); }
-    .mini-stat .desc { font-size: .82rem; color: var(--text-muted); }
-
-    /* ── POR QUÉ ── */
-    #porque { background: var(--bg); }
-    .porque-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-    .porque-item {
-      padding: 1.5rem; border-left: 3px solid rgba(255,255,255,.4);
-      background: var(--bg2); border-radius: 0 var(--radius) var(--radius) 0;
-    }
-    .porque-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
-    .porque-item p { font-size: .88rem; color: var(--text-muted); }
-
-    /* ── CTA ── */
-    #contacto {
-      background: linear-gradient(135deg, rgba(0,229,180,.05), rgba(0,229,180,.02));
-      border-top: 1px solid var(--border);
-    }
-    .cta-box { text-align: center; max-width: 700px; margin: 0 auto; }
-    .cta-box h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -.5px; }
-    .cta-box p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
-    .cta-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .cta-form input {
-      padding: .8rem 1.2rem; border-radius: 8px;
-      border: 1px solid var(--border); background: var(--bg2);
-      color: var(--text); font-size: .95rem; min-width: 280px;
-      font-family: 'Inter', sans-serif;
-    }
-    .cta-form input:focus { outline: none; border-color: var(--accent); }
-    .cta-note { font-size: .8rem; color: var(--text-muted); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--bg2); border-top: 1px solid var(--border);
-      padding: 2rem; text-align: center; font-size: .85rem; color: var(--text-muted);
-    }
-    footer a { color: var(--accent); }
-    footer .footer-inner { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center; }
-
-    /* ── OPINIONES / GISCUS ── */
-    #opiniones { background: var(--bg2); }
-    .giscus-wrapper {
-      max-width: 800px; margin: 0 auto;
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
-    }
-    .opiniones-intro {
-      display: flex; gap: 1rem; align-items: flex-start;
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.15);
-      border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
-      font-size: .88rem; color: var(--text-muted);
-    }
-    .opiniones-intro .intro-icon { font-size: 1.4rem; flex-shrink: 0; }
-    .opiniones-intro strong { color: var(--text); display: block; margin-bottom: .25rem; }
-
-    /* ── TIMELINE PROCESO ── */
-    #proceso { background: var(--bg); }
-    .timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
-    .tl-step {
-      display: flex; gap: 1.5rem; align-items: flex-start;
-      padding-bottom: 2.5rem; position: relative;
-    }
-    .tl-step:not(:last-child)::before {
-      content: ''; position: absolute;
-      left: 23px; top: 48px; bottom: 0; width: 2px;
-      background: linear-gradient(to bottom, var(--accent), var(--border));
-    }
-    .tl-dot {
-      width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(255,255,255,.10); border: 2px solid rgba(255,255,255,.6);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; position: relative; z-index: 1;
-    }
-    .tl-content h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .35rem; }
-    .tl-content p  { font-size: .9rem; color: var(--text-muted); }
-    .tl-badge {
-      display: inline-block; font-size: .7rem; font-weight: 700;
-      letter-spacing: .08em; text-transform: uppercase;
-      padding: .15rem .55rem; border-radius: 4px;
-      background: rgba(255,255,255,.08); color: var(--text);
-      margin-top: .5rem;
-    }
-
-    /* ── CALCULADORA ROI ── */
-    #calculadora { background: var(--bg2); }
-    .calc-wrapper {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start;
-    }
-    @media (max-width: 760px) { .calc-wrapper { grid-template-columns: 1fr; } }
-    .calc-inputs { display: flex; flex-direction: column; gap: 1.5rem; }
-    .calc-field label {
-      display: block; font-size: .85rem; font-weight: 600;
-      color: var(--text-muted); margin-bottom: .5rem; letter-spacing: .04em;
-    }
-    .calc-field .input-row { display: flex; align-items: center; gap: .75rem; }
-    .calc-field input[type="range"] {
-      flex: 1; accent-color: var(--accent); height: 4px; cursor: pointer;
-    }
-    .calc-field .val-badge {
-      min-width: 90px; text-align: right; font-weight: 700;
-      color: var(--accent); font-size: .95rem;
-    }
-    .calc-results { display: flex; flex-direction: column; gap: 1rem; }
-    .result-card {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.25rem 1.5rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .result-card .r-label { font-size: .88rem; color: var(--text-muted); }
-    .result-card .r-val { font-size: 1.3rem; font-weight: 800; color: var(--accent2); }
-    .result-card.total { border-color: rgba(0,229,180,.45); background: rgba(0,229,180,.06); }
-    .result-card.total .r-val { font-size: 1.6rem; color: var(--accent2); }
-    .calc-cta { margin-top: 1.5rem; text-align: center; }
-    .calc-disclaimer { font-size: .75rem; color: var(--text-muted); margin-top: .75rem; }
-
-    /* ── RESPONSIVE NAV ── */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      nav { padding: .8rem 1.2rem; }
-      section { padding: 3.5rem 1.2rem; }
-    }
-
-    /* ── CANVAS FONDO ANIMADO ── */
-    #bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-    nav, section, footer { position: relative; z-index: 1; }
-
-    /* ── TEMA CLARO — preferencia del sistema ── */
-    @media (prefers-color-scheme: light) {
-      :root:not([data-theme="dark"]) {
-        --bg: #f0faf8; --bg2: #ffffff; --bg3: #e0f5f0;
-        --border: rgba(0,100,80,.13); --text: #0a1f1a; --text-muted: #3d6b60;
-        --accent: #007a5e; --accent2: rgba(0,122,94,.85);
-        --shadow: 0 8px 32px rgba(0,0,0,.08);
-      }
-      :root:not([data-theme="dark"]) nav { background: rgba(240,250,248,.96); }
-      :root:not([data-theme="dark"]) .btn-primary { background: #007a5e; color: #fff; }
-      :root:not([data-theme="dark"]) .btn-primary:hover { background: #006650; }
-      :root:not([data-theme="dark"]) .btn-outline { border-color: rgba(0,100,80,.35); color: #0a1f1a; }
-      :root:not([data-theme="dark"]) .btn-outline:hover { background: #007a5e; color: #fff; border-color: #007a5e; }
-      :root:not([data-theme="dark"]) .result-card.total { border-color: rgba(0,122,94,.4); background: rgba(0,122,94,.05); }
-    }
-    /* ── TEMA CLARO — toggle explícito ── */
-    :root[data-theme="light"] {
-      --bg: #f0faf8; --bg2: #ffffff; --bg3: #e0f5f0;
-      --border: rgba(0,100,80,.13); --text: #0a1f1a; --text-muted: #3d6b60;
-      --accent: #007a5e; --accent2: rgba(0,122,94,.85);
-      --shadow: 0 8px 32px rgba(0,0,0,.08);
-    }
-    :root[data-theme="light"] nav { background: rgba(240,250,248,.96); }
-    :root[data-theme="light"] .btn-primary { background: #007a5e; color: #fff; }
-    :root[data-theme="light"] .btn-primary:hover { background: #006650; box-shadow: 0 10px 32px rgba(0,100,80,.2); }
-    :root[data-theme="light"] .btn-outline { border-color: rgba(0,100,80,.35); color: #0a1f1a; }
-    :root[data-theme="light"] .btn-outline:hover { background: #007a5e; color: #fff; border-color: #007a5e; }
-    :root[data-theme="light"] .result-card.total { border-color: rgba(0,122,94,.4); background: rgba(0,122,94,.05); }
-    /* ── TEMA OSCURO — override toggle ── */
-    :root[data-theme="dark"] {
-      --bg: #020e0c; --bg2: #041410; --bg3: #071c17;
-      --border: rgba(0,229,180,.13); --text: #e0f7f4; --text-muted: #7ab8af;
-      --accent: #00e5b4; --accent2: rgba(0,229,180,0.82);
-      --shadow: 0 8px 32px rgba(0,0,0,.5);
-    }
-    :root[data-theme="dark"] nav { background: rgba(2,14,12,.93); }
-    :root[data-theme="dark"] .btn-primary { background: #00e5b4; color: #020e0c; }
-
-    /* ── TRANSICIONES SUAVES DE TEMA ── */
-    body { transition: background-color .3s ease, color .3s ease; }
-    nav, section, .card, .service-card, .calc-wrap, .result-card,
-    .segmento-item, .razon-card, .step-item, .contact-card {
-      transition: background-color .3s ease, border-color .3s ease;
-    }
-
-    /* ── BOTONES ANIMADOS ── */
-    .btn-primary {
-      position: relative; overflow: hidden;
-      transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background .2s, color .2s;
-    }
-    .btn-primary::after {
-      content: ''; position: absolute; top: 0; left: -100%;
-      width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
-      transform: skewX(-20deg); transition: left .55s ease; pointer-events: none;
-    }
-    .btn-primary:hover::after { left: 150%; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,.22); }
-    .btn-outline { transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background .2s, color .2s, border-color .2s; }
-    .btn-outline:hover { transform: translateY(-2px); }
-
-    /* ── TOGGLE TEMA ── */
-    .theme-toggle {
-      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 500;
-      width: 46px; height: 46px; border-radius: 50%;
-      background: var(--bg2); border: 1px solid var(--border);
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; line-height: 1; padding: 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,.3);
-      transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .2s,
-                  box-shadow .2s, background-color .3s;
-    }
-    .theme-toggle:hover {
-      transform: scale(1.15) rotate(22deg);
-      border-color: var(--accent); box-shadow: 0 6px 28px rgba(0,0,0,.4);
-    }
-
-    /* ── SECCIÓN BLOG ── */
-    #blog { background: var(--bg); }
-
-    /* ── WORKSHOP ── */
-    .ws-req-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 1rem; margin: 1.5rem 0;
-    }
-    .ws-req-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.1rem 1.25rem;
-      display: flex; gap: .85rem; align-items: flex-start;
-    }
-    .ws-req-num {
-      min-width: 28px; height: 28px; border-radius: 8px;
-      background: rgba(0,229,180,.12); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .72rem; font-weight: 800; color: var(--accent);
-      flex-shrink: 0; font-variant-numeric: tabular-nums;
-    }
-    .ws-req-body strong { display: block; font-size: .88rem; color: var(--text); margin-bottom: .2rem; font-weight: 700; }
-    .ws-req-body span { font-size: .82rem; color: var(--text-muted); line-height: 1.5; }
-    .ws-strategy-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0;
-    }
-    @media (max-width: 640px) { .ws-strategy-grid { grid-template-columns: 1fr; } }
-    .ws-strategy-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.25rem;
-    }
-    .ws-strategy-label {
-      font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
-      font-weight: 700; color: var(--accent); margin-bottom: .5rem; display: block;
-    }
-    .ws-strategy-card h3 { font-size: .9rem; font-weight: 700; margin-bottom: .5rem; color: var(--text); }
-    .ws-strategy-card ul { list-style: none; padding: 0; margin: 0; }
-    .ws-strategy-card ul li {
-      font-size: .82rem; color: var(--text-muted); padding: .25rem 0;
-      border-bottom: 1px solid var(--border); display: flex; gap: .5rem; align-items: baseline;
-    }
-    .ws-strategy-card ul li:last-child { border-bottom: none; }
-    .ws-strategy-card ul li::before { content: '→'; color: var(--accent); font-size: .7rem; flex-shrink: 0; }
-    .ws-diagram-flow {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
-      overflow-x: auto;
-    }
-    .ws-diagram-flow figcaption { font-size: .75rem; color: var(--text-muted); text-align: center; margin-top: .8rem; }
-    .blog-art { max-width: 760px; margin: 0 auto; }
-    .blog-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; font-size: .82rem; color: var(--text-muted); margin-bottom: 1.5rem; align-items: center; }
-    .blog-badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: .2rem .6rem; font-size: .78rem; color: var(--accent2); font-weight: 600; letter-spacing: .04em; }
-    .blog-art h1 { font-size: clamp(1.5rem, 3.5vw, 1.9rem); font-weight: 800; line-height: 1.2; letter-spacing: -.03em; margin-bottom: 1.2rem; }
-    .blog-art h2 { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin: 2rem 0 .6rem; border-bottom: 1px solid var(--border); padding-bottom: .3rem; }
-    .blog-art p { margin-bottom: 1rem; color: var(--text-muted); line-height: 1.75; }
-    .blog-art p strong { color: var(--text); }
-    .blog-art ul, .blog-art ol { margin: .5rem 0 1.1rem 1.3rem; color: var(--text-muted); line-height: 1.7; }
-    .blog-art li { margin-bottom: .35rem; }
-    .blog-art li strong { color: var(--text); }
-    .blog-quote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1.2rem 0; background: var(--bg2); border-radius: 0 8px 8px 0; }
-    .blog-quote p { color: var(--text); font-style: italic; margin: 0; }
-    .blog-diagram { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.2rem .8rem; margin: 1.5rem 0; overflow-x: auto; }
-    .blog-diagram figcaption { font-size: .78rem; color: var(--text-muted); text-align: center; margin-top: .5rem; }
-    .blog-compas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .75rem; margin-top: .8rem; }
-    .blog-compas-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: .8rem 1rem; text-decoration: none; color: var(--text-muted); font-size: .84rem; transition: border-color .2s, color .2s, transform .22s cubic-bezier(.34,1.56,.64,1); display: block; line-height: 1.35; }
-    .blog-compas-card:hover { border-color: var(--accent); color: var(--text); text-decoration: none; transform: translateY(-2px); }
-    .blog-note { font-size: .78rem; color: var(--text-muted); font-style: italic; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 2rem; }
-    .blog-disqus-wrap { margin-top: 2.5rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; min-height: 120px; }
-
-    /* ══════════════════════════════════════════
-       REDESIGN VISUAL — minimalista + comercial
-    ══════════════════════════════════════════ */
-
-    /* Más aire entre secciones */
-    section { padding: 6.5rem 2rem; }
-
-    /* ── HERO MASIVO ── */
-    #hero { min-height: 92vh; display: flex; align-items: center; justify-content: center; }
-    .hero-inner { text-align: center; max-width: 860px; margin: 0 auto; }
-    .hero-badge { display: none; }
-    .hero-inner h1 {
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      font-weight: 900; letter-spacing: -.05em;
-      line-height: 1.02; margin-bottom: 1.8rem;
-      text-wrap: balance;
-    }
-    .hero-inner h1 em { font-style: normal; }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      max-width: 520px; margin: 0 auto 2.8rem;
-      color: var(--text-muted); line-height: 1.65;
-    }
-    .hero-cta { gap: 1rem; }
-    .hero-cta .btn-outline { display: none; }
-    .hero-stats {
-      margin-top: 4.5rem; padding-top: 2.5rem;
-      border-top: 1px solid var(--border);
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem;
-    }
-    .stat-num {
-      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-      font-weight: 800; color: var(--accent);
-      display: block; letter-spacing: -.03em;
-      font-variant-numeric: tabular-nums;
-    }
-    .stat-label { font-size: .78rem; color: var(--text-muted); display: block; margin-top: .25rem; line-height: 1.35; }
-
-    /* ── SVG ICON CARDS ── */
-    .svc-icon {
-      width: 52px; height: 52px;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--border); border-radius: 14px;
-      margin-bottom: 1.4rem; background: var(--bg3);
-      transition: transform .28s cubic-bezier(.34,1.56,.64,1), border-color .2s, background .2s;
-    }
-    .svc-icon svg { width: 26px; height: 26px; stroke: var(--accent2); }
-    .servicio-card:hover .svc-icon { transform: translateY(-4px) scale(1.08); border-color: var(--accent); background: var(--bg); }
-    .servicio-icon { display: none; }
-    .servicio-num { display: none; }
-    .servicio-card { padding: 2rem; }
-    .servicio-card h3 { font-size: 1rem; margin-bottom: .6rem; }
-
-    /* ── PROCESO — números limpios ── */
-    .tl-dot {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: transparent; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: .95rem; color: var(--accent);
-      flex-shrink: 0; font-variant-numeric: tabular-nums;
-      transition: background .2s, border-color .2s;
-    }
-    .tl-step:hover .tl-dot { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-
-    /* ── SECTION TITLE ── */
-    .section-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); letter-spacing: -.03em; }
-
-    /* ── FADE-UP ENTRANCE ── */
-    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
-    .fade-up.visible { opacity: 1; transform: none; }
-    .fade-up:nth-child(2) { transition-delay: .1s; }
-    .fade-up:nth-child(3) { transition-delay: .2s; }
-    .fade-up:nth-child(4) { transition-delay: .3s; }
-
-    /* ── OCULTAR SECCIONES REDUNDANTES ── */
-    #problema, #porque { display: none; }
-
-    /* ── FOOTER MEJORADO ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 4rem 2rem 2rem;
-    }
-    .footer-grid {
-      max-width: 960px; margin: 0 auto 3rem;
-      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
-    }
-    .footer-logo {
-      font-size: 1.4rem; font-weight: 900; letter-spacing: -.04em;
-      color: var(--text); display: block; margin-bottom: .8rem;
-    }
-    .footer-logo em { font-style: normal; color: var(--accent); }
-    .footer-brand p { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
-    .footer-heading {
-      font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--text-muted); display: block; margin-bottom: .9rem; font-weight: 600;
-    }
-    .footer-links { display: flex; flex-direction: column; gap: .5rem; }
-    .footer-links a { font-size: .85rem; color: var(--text-muted); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-bottom {
-      max-width: 960px; margin: 0 auto;
-      padding-top: 1.5rem; border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: .78rem; color: var(--text-muted); flex-wrap: wrap; gap: .5rem;
-    }
-    .footer-bottom a { color: var(--text-muted); }
-    .footer-bottom a:hover { color: var(--text); }
-
-    @media (max-width: 640px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .hero-stats { grid-template-columns: repeat(2,1fr); gap: .8rem; }
-      #hero { min-height: auto; padding-top: 5rem; padding-bottom: 4rem; }
-      section { padding: 4rem 1.2rem; }
-    }
-
-    /* ── BLOG PREVIEW CARD ── */
-    #blog { background: var(--bg); }
-    .blog-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; max-width: 760px; }
-    .blog-preview-card {
-      display: block; text-decoration: none;
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
-    }
-    .blog-preview-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.3); text-decoration: none; }
-    .bpc-inner { padding: 1.75rem 2rem; }
-    .bpc-meta { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .bpc-badge { font-size: .72rem; font-weight: 600; letter-spacing: .04em; padding: .2rem .6rem; border-radius: 4px; background: rgba(0,229,180,.1); border: 1px solid rgba(0,229,180,.25); color: var(--accent); }
-    .bpc-time { font-size: .78rem; color: var(--text-muted); }
-    .bpc-title { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: .75rem; letter-spacing: -.02em; }
-    .bpc-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
-    .bpc-cta { font-size: .85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: .4rem; transition: gap .2s; }
-    .blog-preview-card:hover .bpc-cta { gap: .65rem; }
-
-    /* ── HAMBURGER MENU (mobile) ── */
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px; justify-content: center;
-      cursor: pointer; background: none; border: none; padding: .35rem; flex-shrink: 0;
-    }
-    .hamburger span {
-      display: block; width: 20px; height: 2px;
-      background: var(--text); border-radius: 2px;
-      transition: transform .3s ease, opacity .3s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media (max-width: 640px) { .hamburger { display: flex; } }
-
-    /* ── MOBILE NAV OVERLAY ── */
-    .mobile-nav {
-      display: none; position: fixed; inset: 0; z-index: 99;
-      background: var(--bg); padding: 5rem 2rem 2rem;
-      flex-direction: column; gap: 0; overflow-y: auto;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      color: var(--text); font-size: 1.15rem; font-weight: 600;
-      text-decoration: none; padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: color .2s, padding-left .2s;
-    }
-    .mobile-nav a:last-child { border-bottom: none; }
-    .mobile-nav a:hover { color: var(--accent); padding-left: .5rem; }
-    .mobile-nav-close {
-      position: absolute; top: 1rem; right: 1.2rem;
-      background: none; border: none; cursor: pointer;
-      font-size: 1.5rem; color: var(--text-muted);
-      transition: color .2s, transform .2s; line-height: 1;
-    }
-    .mobile-nav-close:hover { color: var(--accent); transform: rotate(90deg); }
-
-    /* ── TRUST BADGES ── */
-    #confianza { padding: 1.75rem 2rem !important; }
-    .trust-label {
-      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--text-muted);
-      text-align: center; margin-bottom: 1.25rem;
-    }
-    .trust-grid { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
-    .trust-badge {
-      display: inline-flex; align-items: center; gap: .4rem;
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 8px; padding: .4rem .9rem;
-      font-size: .8rem; font-weight: 600; color: var(--text-muted);
-      transition: border-color .2s, color .2s, transform .2s;
-    }
-    .trust-badge:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
-
-    /* ── PRECIOS ── */
-    #precios { background: var(--bg); }
-    .precios-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.5rem; align-items: start;
-    }
-    .precio-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
-      display: flex; flex-direction: column; gap: 1.25rem; position: relative;
-      transition: border-color .25s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
-    }
-    .precio-card:hover { border-color: rgba(0,229,180,.4); transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,.3); }
-    .precio-card.featured { border-color: rgba(0,229,180,.5); background: rgba(0,229,180,.04); }
-    .precio-popular {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: var(--accent); color: var(--bg);
-      font-size: .68rem; font-weight: 800; letter-spacing: .06em;
-      text-transform: uppercase; padding: .22rem 1rem; border-radius: 999px; white-space: nowrap;
-    }
-    .precio-nombre {
-      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--accent);
-    }
-    .precio-valor { font-size: 2.2rem; font-weight: 900; color: var(--text); letter-spacing: -.04em; line-height: 1; }
-    .precio-valor small { font-size: .85rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
-    .precio-desc { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
-    .precio-features { list-style: none; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
-    .precio-features li {
-      display: flex; align-items: flex-start; gap: .6rem;
-      font-size: .83rem; color: var(--text-muted); line-height: 1.4;
-    }
-    .precio-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
-    .precio-cta {
-      display: block; text-align: center; padding: .75rem 1rem;
-      border-radius: 8px; font-weight: 700; font-size: .9rem;
-      text-decoration: none; transition: all .2s; margin-top: .5rem;
-    }
-    .precio-cta-outline { border: 1px solid var(--border); color: var(--text); }
-    .precio-cta-outline:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-    .precio-cta-primary { background: var(--accent); color: var(--bg); }
-    .precio-cta-primary:hover { background: #00cfaa; text-decoration: none; transform: translateY(-1px); }
-    .precios-nota { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 1.5rem; }
-    .precios-nota a { color: var(--accent); }
-
-    /* ── FAQ ── */
-    #faq { background: var(--bg2); }
-    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
-    .faq-item {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
-    }
-    .faq-item.open { border-color: rgba(0,229,180,.35); }
-    .faq-q {
-      width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-      padding: 1.15rem 1.5rem; cursor: pointer; background: none; border: none;
-      color: var(--text); font-size: .93rem; font-weight: 600; text-align: left;
-      font-family: 'Inter', sans-serif; transition: color .2s;
-    }
-    .faq-q:hover { color: var(--accent); }
-    .faq-chevron { flex-shrink: 0; transition: transform .3s ease; color: var(--text-muted); font-style: normal; }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height .4s ease, padding .35s ease;
-      padding: 0 1.5rem; font-size: .87rem; color: var(--text-muted); line-height: 1.75;
-    }
-    .faq-item.open .faq-a { max-height: 400px; padding: 0 1.5rem 1.25rem; }
-
-    /* ── WHATSAPP FLOTANTE ── */
-    .whatsapp-btn {
-      position: fixed; bottom: 5.5rem; left: 1.5rem; z-index: 500;
-      width: 52px; height: 52px; border-radius: 50%;
-      background: #25D366; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 24px rgba(37,211,102,.45);
-      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
-      text-decoration: none;
-    }
-    .whatsapp-btn:hover { transform: scale(1.15); box-shadow: 0 6px 32px rgba(37,211,102,.55); text-decoration: none; }
-    .whatsapp-btn svg { width: 28px; height: 28px; fill: #fff; flex-shrink: 0; }
-
-    /* ── STICKY CTA MOBILE ── */
-    .sticky-cta {
-      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 480;
-      background: rgba(2,14,12,.97); border-top: 1px solid var(--border);
-      padding: .85rem 1.25rem; backdrop-filter: blur(8px);
-    }
-    @media (prefers-color-scheme: light) {
-      :root:not([data-theme="dark"]) .sticky-cta { background: rgba(240,250,248,.97); }
-    }
-    :root[data-theme="light"] .sticky-cta { background: rgba(240,250,248,.97); }
-    .sticky-cta a {
-      display: block; text-align: center; background: var(--accent); color: var(--bg);
-      font-weight: 700; font-size: .95rem; padding: .72rem;
-      border-radius: 8px; text-decoration: none; transition: background .2s;
-    }
-    .sticky-cta a:hover { background: #00cfaa; text-decoration: none; }
-    @media (max-width: 640px) { .sticky-cta { display: block; } }
-    .sticky-cta.oculta { display: none !important; }
-  </style>
-</head>
-<body>
-
-<canvas id="bg-canvas" aria-hidden="true"></canvas>
-
-<!-- ── NAVEGACIÓN ── -->
-<nav>
-  <span class="nav-brand">Nexus<span>Ops</span></span>
-  <ul class="nav-links">
-    <li><a href="#servicios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'servicios'})">Servicios</a></li>
-    <li><a href="#segmento" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'segmento'})">Para quién</a></li>
-    <li><a href="#proceso" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'proceso'})">Cómo funciona</a></li>
-    <li><a href="#precios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'precios'})">Precios</a></li>
-    <li><a href="#calculadora" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'calculadora'})">Calculadora</a></li>
-    <li><a href="#blog" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'blog'})">Blog</a></li>
-    <li><a href="./blog/" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'ver_todos_blog'})">Ver todos</a></li>
-    <li><a href="#contacto" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'contacto'})">Contacto</a></li>
-  </ul>
-  <a href="https://andres-nova.github.io" class="nav-back" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'portafolio'})">← Portafolio</a>
-  <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- ── MENÚ MÓVIL ── -->
-<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
-  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Cerrar menú">✕</button>
-  <a href="#servicios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'servicios'})">Servicios</a>
-  <a href="#segmento" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'segmento'})">Para quién</a>
-  <a href="#proceso" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'proceso'})">Cómo funciona</a>
-  <a href="#precios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'precios'})">Precios</a>
-  <a href="#calculadora" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'calculadora'})">Calculadora</a>
-  <a href="#blog" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'blog'})">Blog</a>
-  <a href="#contacto" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'contacto'})" style="color:var(--accent);border-color:rgba(0,229,180,.3)">Quiero empezar →</a>
-</div>
-
-<!-- ── HERO ── -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">Automatización Comercial con IA · Colombia</div>
-    <h1>Tu operación comercial,<br><em>automatizada desde el día uno</em></h1>
-    <p class="hero-sub">
-      Nexus Ops integra landing page, pasarela de pago, logística y asistente IA para WhatsApp
-      en un solo servicio listo para usar — sin equipo técnico, sin complicaciones.
-    </p>
-    <div class="hero-cta">
-      <a href="#contacto" class="btn btn-primary" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'quiero_empezar'})">Quiero empezar</a>
-      <a href="#servicios" class="btn btn-outline" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'ver_servicios'})">Ver qué incluye</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">2.5M+</span>
-        <span class="stat-label">microempresarios en Colombia</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">80%</span>
-        <span class="stat-label">venden por WhatsApp</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">70%</span>
-        <span class="stat-label">de consultas atendidas por IA</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">60%</span>
-        <span class="stat-label">menos tiempo operativo</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TRUST BADGES ── -->
-<section id="confianza" style="padding: 1.5rem 2rem !important; background: var(--bg2); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <p class="trust-label">Tecnología en la que confías</p>
-    <div class="trust-grid">
-      <span class="trust-badge">🏦 PSE</span>
-      <span class="trust-badge">📱 Nequi</span>
-      <span class="trust-badge">📦 Servientrega</span>
-      <span class="trust-badge">🚚 Coordinadora</span>
-      <span class="trust-badge">✈️ Envia</span>
-      <span class="trust-badge">💬 WhatsApp Business API</span>
-      <span class="trust-badge">🛡️ SSL / HTTPS</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROBLEMA ── -->
-<section id="problema">
-  <div class="container">
-    <div class="tag">El problema</div>
-    <h2 class="section-title">¿Te suena familiar?</h2>
-    <p class="section-sub">
-      Millones de emprendedores colombianos venden bien, pero operan de forma manual, fragmentada y sin escala.
-    </p>
-    <div class="problema-grid">
-      <div class="problema-card">
-        <div class="problema-icon">📱</div>
-        <h3>Ventas por DM</h3>
-        <p>Gestionas pedidos por mensaje directo en Instagram o WhatsApp, sin registro ni orden.</p>
-      </div>
-      <div class="problema-card">
-        <div class="problema-icon">💸</div>
-        <h3>Cobros informales</h3>
-        <p>Recibes pagos por transferencia sin comprobante formal ni conciliación automática.</p>
-      </div>
-      <div class="problema-card">
-        <div class="problema-icon">🔁</div>
-        <h3>Preguntas repetitivas</h3>
-        <p>Respondes las mismas preguntas decenas de veces al día: precio, disponibilidad, envío.</p>
-      </div>
-      <div class="problema-card">
-        <div class="problema-icon">📦</div>
-        <h3>Logística manual</h3>
-        <p>Generas guías a mano con cada operador y haces seguimiento uno por uno.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SERVICIOS ── -->
-<section id="servicios">
-  <div class="container">
-    <div class="tag">Qué ofrecemos</div>
-    <h2 class="section-title">Infraestructura comercial completa</h2>
-    <p class="section-sub">
-      Cuatro componentes integrados que Nexus Ops configura, mantiene y opera por ti.
-    </p>
-    <div class="servicios-grid">
-
-      <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Monitor / landing page -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-          </svg>
-        </div>
-        <h3>Landing Page de Producto</h3>
-        <p>Página optimizada para conversión, hospedada y configurada por Nexus Ops. Diseño profesional, carga rápida, adaptada a tu marca.</p>
-        <div class="servicio-tags">
-          <span class="stag">Hosting incluido</span>
-          <span class="stag">SEO básico</span>
-          <span class="stag">Diseño responsive</span>
-        </div>
-      </div>
-
-      <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Tarjeta de crédito / pago -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>
-          </svg>
-        </div>
-        <h3>Pasarela de Pago Local</h3>
-        <p>Integración con PSE, Nequi y tarjetas de crédito/débito. Conciliación automática y comprobantes digitales listos para el cliente.</p>
-        <div class="servicio-tags">
-          <span class="stag">PSE</span>
-          <span class="stag">Nequi</span>
-          <span class="stag">Tarjetas</span>
-        </div>
-      </div>
-
-      <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Caja / logística -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-2"/>
-            <path d="M3.3 7l8.7 5 8.7-5M12 22V12"/>
-          </svg>
-        </div>
-        <h3>Logística Automatizada</h3>
-        <p>Integración con Servientrega, Coordinadora y Envia. Generación de guías y trazabilidad en tiempo real sin intervención manual.</p>
-        <div class="servicio-tags">
-          <span class="stag">Servientrega</span>
-          <span class="stag">Coordinadora</span>
-          <span class="stag">Envia</span>
-        </div>
-      </div>
-
-      <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Chat bot / IA -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            <path d="M8 10h.01M12 10h.01M16 10h.01"/>
-          </svg>
-        </div>
-        <h3>Asistente IA para WhatsApp</h3>
-        <p>Bot entrenado con la info de tu negocio. Atiende consultas frecuentes, califica clientes, procesa pedidos y hace seguimiento postventa 24/7.</p>
-        <div class="servicio-tags">
-          <span class="stag">24/7</span>
-          <span class="stag">Sin intervención</span>
-          <span class="stag">Personalizable</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── PROCESO ── -->
-<section id="proceso">
-  <div class="container">
-    <div class="tag">Cómo funciona</div>
-    <h2 class="section-title">De cero a operando en pocos días</h2>
-    <p class="section-sub">
-      Sin reuniones interminables. Sin conocimientos técnicos. Tú llevas el negocio, nosotros montamos la infraestructura.
-    </p>
-    <div class="timeline">
-      <div class="tl-step fade-up">
-        <div class="tl-dot">01</div>
-        <div class="tl-content">
-          <h3>Día 1 — Cuéntanos tu negocio</h3>
-          <p>Formulario breve (10 min): productos, precios, operadores de envío que ya usas y las preguntas frecuentes de tus clientes. Sin reuniones, async.</p>
-          <span class="tl-badge">Async · 10 min</span>
-        </div>
-      </div>
-      <div class="tl-step fade-up">
-        <div class="tl-dot">02</div>
-        <div class="tl-content">
-          <h3>Días 2–3 — Configuramos tu stack</h3>
-          <p>Nexus Ops monta tu landing, conecta la pasarela de pago, integra los operadores logísticos y entrena el bot de WhatsApp con la info de tu negocio.</p>
-          <span class="tl-badge">Nosotros operamos</span>
-        </div>
-      </div>
-      <div class="tl-step fade-up">
-        <div class="tl-dot">03</div>
-        <div class="tl-content">
-          <h3>Día 4 — Lo revisamos juntos</h3>
-          <p>Videollamada de 30 minutos para validar todo contigo. Ajustamos precios, textos y flujos según tu feedback. Tú apruebas antes de salir en vivo.</p>
-          <span class="tl-badge">Tu aprobación</span>
-        </div>
-      </div>
-      <div class="tl-step fade-up">
-        <div class="tl-dot">04</div>
-        <div class="tl-content">
-          <h3>Día 5 — Tú vendes, nosotros operamos</h3>
-          <p>Salida en vivo. El bot atiende 24/7, los pagos entran solos y las guías se generan automáticamente. Dashboard con tus métricas en tiempo real.</p>
-          <span class="tl-badge">Operativo</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PRECIOS ── -->
-<section id="precios">
-  <div class="container">
-    <div class="tag">Planes</div>
-    <h2 class="section-title">Precios simples, sin sorpresas</h2>
-    <p class="section-sub">Todo incluido desde el primer día. Sin costos ocultos, sin comisiones adicionales por venta.</p>
-    <div class="precios-grid">
-
-      <!-- PLAN BÁSICO -->
-      <div class="precio-card fade-up">
-        <div>
-          <div class="precio-nombre">Básico</div>
-          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$490.000 <small>/mes</small></div>
-          <div class="precio-desc">Ideal si estás comenzando y quieres tu primera infraestructura comercial funcionando.</div>
-        </div>
-        <ul class="precio-features">
-          <li>Landing page de producto</li>
-          <li>Pasarela de pago (PSE + Nequi)</li>
-          <li>Integración 1 operador logístico</li>
-          <li>Bot WhatsApp básico (FAQ)</li>
-          <li>Soporte vía chat</li>
-        </ul>
-        <a href="#contacto"
-           class="precio-cta precio-cta-outline"
-           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'basico'})">
-          Empezar con Básico
-        </a>
-      </div>
-
-      <!-- PLAN PRO (POPULAR) -->
-      <div class="precio-card featured fade-up">
-        <div class="precio-popular">Más elegido</div>
-        <div>
-          <div class="precio-nombre">Pro</div>
-          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$890.000 <small>/mes</small></div>
-          <div class="precio-desc">Para negocios con volumen creciente que necesitan automatización completa y soporte prioritario.</div>
-        </div>
-        <ul class="precio-features">
-          <li>Todo el plan Básico</li>
-          <li>Tarjetas crédito/débito incluidas</li>
-          <li>Hasta 3 operadores logísticos</li>
-          <li>Bot IA avanzado (pedidos + postventa)</li>
-          <li>Dashboard de métricas en tiempo real</li>
-          <li>Soporte prioritario + videollamada mensual</li>
-        </ul>
-        <a href="#contacto"
-           class="precio-cta precio-cta-primary"
-           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'pro'})">
-          Quiero el plan Pro
-        </a>
-      </div>
-
-      <!-- PLAN EMPRESA -->
-      <div class="precio-card fade-up">
-        <div>
-          <div class="precio-nombre">Empresa</div>
-          <div class="precio-valor" style="margin:.5rem 0 .25rem">A medida</div>
-          <div class="precio-desc">Integraciones personalizadas, múltiples tiendas o líneas de producto, y SLA garantizado.</div>
-        </div>
-        <ul class="precio-features">
-          <li>Todo el plan Pro</li>
-          <li>Integraciones personalizadas</li>
-          <li>Múltiples tiendas / marcas</li>
-          <li>API propia + webhooks</li>
-          <li>SLA 99.9% + soporte 24/7</li>
-          <li>Gerente de cuenta dedicado</li>
-        </ul>
-        <a href="#contacto"
-           class="precio-cta precio-cta-outline"
-           onclick="gtag('event','cta_click',{event_category:'precios',event_label:'empresa'})">
-          Hablemos de tu caso
-        </a>
-      </div>
-
-    </div>
-    <p class="precios-nota">
-      ¿Tienes dudas sobre qué plan te conviene?
-      <a href="#contacto" onclick="gtag('event','cta_click',{event_category:'precios',event_label:'comparar'})">Escríbenos y te asesoramos sin compromiso →</a>
-    </p>
-  </div>
-</section>
-
-<!-- ── FAQ ── -->
-<section id="faq">
-  <div class="container">
-    <div class="tag">Preguntas frecuentes</div>
-    <h2 class="section-title">Todo lo que necesitas saber</h2>
-    <p class="section-sub">Resuelve tus dudas antes de dar el paso. Si no encuentras tu pregunta, <a href="#contacto">escríbenos</a>.</p>
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          ¿Necesito conocimientos técnicos para usar Nexus Ops?
-          <i class="faq-chevron">▾</i>
-        </button>
-        <div class="faq-a">
-          No. Nexus Ops se encarga de toda la configuración técnica: landing page, pasarela de pago, logística y bot de WhatsApp. Tú solo nos cuentas cómo funciona tu negocio (productos, precios, preguntas frecuentes) y nosotros montamos todo. Sin código, sin servidores, sin dolores de cabeza técnicos.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          ¿Cuánto tiempo tarda la puesta en marcha?
-          <i class="faq-chevron">▾</i>
-        </button>
-        <div class="faq-a">
-          El proceso completo toma entre 3 y 5 días hábiles. El día 1 nos envías la información de tu negocio (async, 10 min). Los días 2 y 3 configuramos tu stack. El día 4 revisamos todo contigo en una videollamada de 30 min. El día 5 salimos en vivo.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          ¿Puedo cancelar en cualquier momento?
-          <i class="faq-chevron">▾</i>
-        </button>
-        <div class="faq-a">
-          Sí. No exigimos contratos de largo plazo. Puedes cancelar tu suscripción con 15 días de aviso antes del siguiente ciclo de facturación. No hay penalizaciones. Creemos en ganarnos tu confianza mes a mes con resultados.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          ¿Las comisiones de PSE o Nequi están incluidas en el precio?
-          <i class="faq-chevron">▾</i>
-        </button>
-        <div class="faq-a">
-          El precio del plan cubre la integración y operación de la pasarela. Las comisiones de las redes de pago (PSE, Nequi, redes de tarjetas) son costos directos de esas plataformas — típicamente entre 1.5% y 3.5% por transacción — y corren por cuenta del negocio, igual que ocurriría si los contrataras directamente. Sin embargo, al tenerlos integrados en Nexus Ops ahorras el tiempo y costo de gestión manual.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          ¿El bot de WhatsApp reemplaza a mi equipo de ventas?
-          <i class="faq-chevron">▾</i>
-        </button>
-        <div class="faq-a">
-          No reemplaza — libera. El bot atiende el 70% de las consultas repetitivas (precios, disponibilidad, estado de pedido, instrucciones de pago), para que tú y tu equipo se enfoquen en las conversaciones de alto valor: clientes especiales, quejas complejas, negociaciones. Puedes escalar a un agente humano desde el mismo hilo de WhatsApp.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          ¿Qué pasa si mi negocio crece y necesito más capacidad?
-          <i class="faq-chevron">▾</i>
-        </button>
-        <div class="faq-a">
-          La infraestructura de Nexus Ops escala contigo. Puedes subir de plan en cualquier momento sin perder configuraciones ni historial. Para negocios con necesidades muy específicas (múltiples tiendas, integraciones propietarias) ofrecemos el plan Empresa con condiciones a medida.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── SEGMENTO ── -->
-<section id="segmento">
-  <div class="container">
-    <div class="tag">Para quién es</div>
-    <h2 class="section-title">Diseñado para el emprendedor colombiano</h2>
-    <p class="section-sub">
-      Nexus Ops es para quienes tienen un negocio real y demanda validada, pero sin infraestructura comercial estructurada.
-    </p>
-    <div class="segmento-grid">
-      <ul class="segmento-list">
-        <li>
-          <span class="icon">👗</span>
-          <span class="text"><strong>Moda y accesorios</strong><span>Venta por Instagram, catálogos en WhatsApp</span></span>
-        </li>
-        <li>
-          <span class="icon">🍽️</span>
-          <span class="text"><strong>Alimentos y bebidas artesanales</strong><span>Pedidos domicilio, pagos informales</span></span>
-        </li>
-        <li>
-          <span class="icon">💄</span>
-          <span class="text"><strong>Cosméticos y cuidado personal</strong><span>Productos propios, clientes recurrentes</span></span>
-        </li>
-        <li>
-          <span class="icon">🏠</span>
-          <span class="text"><strong>Artículos para el hogar</strong><span>Alta rotación, múltiples referencias</span></span>
-        </li>
-        <li>
-          <span class="icon">💆</span>
-          <span class="text"><strong>Salud y bienestar</strong><span>Agendamiento, pagos anticipados</span></span>
-        </li>
-      </ul>
-      <div class="segmento-visual">
-        <div class="big-num">2.5M</div>
-        <div class="big-label">microempresarios activos en Colombia<br><small>(DANE, 2023)</small></div>
-        <hr class="divider" />
-        <div class="mini-stat">
-          <div class="val">34%</div>
-          <div class="desc">crecimiento del e-commerce 2021–2023<br><small>(CCCE, 2024)</small></div>
-        </div>
-        <div class="mini-stat">
-          <div class="val">80%</div>
-          <div class="desc">de PYMEs latinoamericanas usan<br>WhatsApp como canal principal<br><small>(Meta, 2023)</small></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── POR QUÉ NEXUS OPS ── -->
-<section id="porque">
-  <div class="container">
-    <div class="tag">Por qué Nexus Ops</div>
-    <h2 class="section-title">Una sola solución, no cuatro proveedores</h2>
-    <p class="section-sub">
-      Cada pieza de tu operación conectada desde el principio, sin necesidad de un equipo técnico.
-    </p>
-    <div class="porque-grid">
-      <div class="porque-item">
-        <h3>Sin conocimientos técnicos</h3>
-        <p>Nexus Ops configura todo. Tú te enfocas en vender y en la calidad de tu producto.</p>
-      </div>
-      <div class="porque-item">
-        <h3>Todo integrado</h3>
-        <p>Landing, pagos, logística y WhatsApp IA hablan entre sí desde el primer día.</p>
-      </div>
-      <div class="porque-item">
-        <h3>Escalable desde el inicio</h3>
-        <p>La misma infraestructura que usas hoy escala cuando tu volumen de ventas crezca.</p>
-      </div>
-      <div class="porque-item">
-        <h3>Contexto colombiano</h3>
-        <p>PSE, Nequi, Servientrega, español colombiano — construido para la realidad local.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CALCULADORA ROI ── -->
-<section id="calculadora">
-  <div class="container">
-    <div class="tag">Demo interactivo</div>
-    <h2 class="section-title">¿Cuánto te cuesta operar sin automatización?</h2>
-    <p class="section-sub">
-      Ajusta los controles según tu negocio y ve en tiempo real el valor que estás dejando sobre la mesa cada mes.
-    </p>
-    <div class="calc-wrapper">
-
-      <!-- Inputs -->
-      <div class="calc-inputs">
-        <div class="calc-field">
-          <label>⏱ Horas/día respondiendo WhatsApp</label>
-          <div class="input-row">
-            <input type="range" id="r-horas" min="1" max="10" value="3" step="1" />
-            <span class="val-badge" id="v-horas">3 h/día</span>
-          </div>
-        </div>
-        <div class="calc-field">
-          <label>📦 Pedidos por mes</label>
-          <div class="input-row">
-            <input type="range" id="r-pedidos" min="10" max="500" value="50" step="10" />
-            <span class="val-badge" id="v-pedidos">50 pedidos</span>
-          </div>
-        </div>
-        <div class="calc-field">
-          <label>💵 Ticket promedio (COP $)</label>
-          <div class="input-row">
-            <input type="range" id="r-ticket" min="10000" max="500000" value="80000" step="5000" />
-            <span class="val-badge" id="v-ticket">$80.000</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Resultados -->
-      <div class="calc-results">
-        <div class="result-card">
-          <span class="r-label">⏳ Horas recuperadas / mes</span>
-          <span class="r-val" id="res-horas">—</span>
-        </div>
-        <div class="result-card">
-          <span class="r-label">💼 Valor del tiempo ahorrado</span>
-          <span class="r-val" id="res-tiempo">—</span>
-        </div>
-        <div class="result-card">
-          <span class="r-label">📈 Ventas recuperables (24/7)</span>
-          <span class="r-val" id="res-ventas">—</span>
-        </div>
-        <div class="result-card total">
-          <span class="r-label"><strong>🚀 Potencial mensual total</strong></span>
-          <span class="r-val" id="res-total">—</span>
-        </div>
-        <div class="calc-cta">
-          <a href="#contacto" class="btn btn-primary"
-             onclick="gtag('event','roi_cta_click',{event_category:'calculator',event_label:'to_waitlist'})">
-            Quiero recuperar ese dinero →
-          </a>
-          <p class="calc-disclaimer">Estimaciones orientativas basadas en promedios de MiPYMEs colombianas.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── BLOG ── -->
-<section id="blog">
-  <div class="container">
-    <div class="tag">Blog</div>
-    <h2 class="section-title">Últimos artículos</h2>
-    <p class="section-sub">Automatización e IA comercial para emprendedores colombianos.</p>
-
-    <div class="blog-card-grid">
-      <a href="./blog/automatizacion-ia-emprendedores-colombia/"
-         class="blog-preview-card fade-up"
-         onclick="gtag('event','blog_click',{event_category:'landing',event_label:'automatizacion-ia'})">
-        <div class="bpc-inner">
-          <div class="bpc-meta">
-            <span class="bpc-badge">Automatización · IA Comercial</span>
-            <span class="bpc-time">4 min de lectura</span>
-          </div>
-          <h3 class="bpc-title">Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</h3>
-          <p class="bpc-desc">El 80 % de las compras en Colombia inicia con un mensaje de WhatsApp. Descubre cómo un bot bien entrenado resuelve el 70 % de esas consultas mientras tú duermes.</p>
-          <span class="bpc-cta">
-            Leer artículo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── OPINIONES ── -->
-<section id="opiniones">
-  <div class="container">
-    <div class="tag">Comunidad</div>
-    <h2 class="section-title">¿Qué piensan los emprendedores?</h2>
-    <p class="section-sub">
-      Déjanos tu opinión, pregunta o experiencia. Construimos Nexus Ops con la voz de quienes lo van a usar.
-    </p>
-    <div class="giscus-wrapper">
-      <div class="opiniones-intro">
-        <span class="intro-icon">💬</span>
-        <div>
-          <strong>Comentarios públicos via GitHub Discussions</strong>
-          Necesitas una cuenta de GitHub gratuita para comentar. Tus mensajes quedan visibles para toda la comunidad.
-        </div>
-      </div>
-      <script src="https://giscus.app/client.js"
-              data-repo="Andres-Nova/Andres-Nova.github.io"
-              data-repo-id="R_kgDOTLKhzA"
-              data-category="General"
-              data-category-id="DIC_kwDOTLKhzM4DE-ZG"
-              data-mapping="pathname"
-              data-strict="0"
-              data-reactions-enabled="1"
-              data-emit-metadata="0"
-              data-input-position="bottom"
-              data-theme="preferred_color_scheme"
-              data-lang="es"
-              crossorigin="anonymous"
-              async>
-      </script>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA / CONTACTO ── -->
-<section id="contacto">
-  <div class="container">
-    <div class="cta-box">
-      <div class="tag">Lista de espera</div>
-      <h2>¿Listo para automatizar tu negocio?</h2>
-      <p>Déjanos tu correo y te contactamos cuando abramos el acceso para los primeros clientes.</p>
-      <form class="cta-form" id="waitlist-form">
-        <input type="email" name="email" placeholder="tu@correo.com" id="email-input" required />
-        <button type="submit" class="btn btn-primary" id="waitlist-btn">Quiero acceso anticipado</button>
-      </form>
-      <p class="cta-note" id="cta-note">Sin spam. Solo te escribimos cuando esté listo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <span class="footer-logo">Nexus<em>Ops</em></span>
-      <p>Automatización comercial con IA<br>para emprendedores en Colombia.</p>
-    </div>
-    <div class="footer-links">
-      <span class="footer-heading">Navegación</span>
-      <a href="#servicios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'servicios'})">Servicios</a>
-      <a href="#proceso" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'proceso'})">Cómo funciona</a>
-      <a href="#precios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'precios'})">Precios</a>
-      <a href="#calculadora" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'calculadora'})">Calculadora ROI</a>
-      <a href="#faq" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'faq'})">FAQ</a>
-      <a href="#blog" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog'})">Blog</a>
-      <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'contacto'})">Contacto</a>
-    </div>
-    <div class="footer-links">
-      <span class="footer-heading">Recursos</span>
-      <a href="/nexus-ops/blog/" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog_academico'})">Blog académico</a>
-      <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'portafolio'})">Portafolio del autor</a>
-      <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'lista_espera'})">Lista de espera</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Nexus Ops · Bogotá, Colombia</span>
-    <span>Construido por <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'andres_nova'})">Andres Nova</a> · AI Solutions Architect</span>
-  </div>
-</footer>
-
-<!-- ── WHATSAPP FLOTANTE ── -->
-<!-- TODO: Reemplaza el número de WhatsApp: wa.me/57XXXXXXXXXX -->
-<a href="https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Nexus%20Ops"
-   class="whatsapp-btn"
-   target="_blank"
-   rel="noopener"
-   aria-label="Chatea con Nexus Ops por WhatsApp"
-   onclick="gtag('event','whatsapp_click',{event_category:'engagement',event_label:'floating_btn'})">
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 3C8.82 3 3 8.82 3 16c0 2.38.65 4.6 1.78 6.52L3 29l6.66-1.74A13 13 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm6.46 18.15c-.27.75-1.56 1.44-2.15 1.53-.55.08-1.24.12-2-.12-.47-.14-1.06-.33-1.82-.65-3.2-1.38-5.29-4.6-5.45-4.81-.16-.21-1.3-1.73-1.3-3.3s.82-2.35 1.12-2.67c.27-.3.59-.37.79-.37l.56.01c.18.01.43-.07.67.51.27.62.91 2.23.99 2.39.08.16.14.36.03.57-.12.21-.18.33-.35.51-.17.18-.36.41-.51.55-.17.16-.35.34-.15.66.21.32.9 1.48 1.93 2.4 1.33 1.18 2.45 1.55 2.8 1.72.34.17.54.14.74-.09.21-.23.88-1.02 1.11-1.38.23-.35.47-.29.79-.18.32.12 2.04.96 2.39 1.13.35.17.58.25.67.4.08.15.08.87-.19 1.63Z"/>
-  </svg>
-</a>
-
-<!-- ── STICKY CTA MÓVIL ── -->
-<div class="sticky-cta" id="sticky-cta">
-  <a href="#contacto"
-     onclick="gtag('event','cta_click',{event_category:'sticky_mobile',event_label:'contacto'})">
-    Quiero automatizar mi negocio →
-  </a>
-</div>
-
-<script>
-  // GA4 — scroll depth tracking
-  let milestones = { 25: false, 50: false, 75: false, 90: false };
-  window.addEventListener('scroll', () => {
-    const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    for (const m in milestones) {
-      if (pct >= m && !milestones[m]) {
-        milestones[m] = true;
-        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: m + '%' });
-      }
-    }
-  });
-
-  // GA4 — sección visible (IntersectionObserver)
-  const sections = document.querySelectorAll('section[id]');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        gtag('event', 'section_view', { event_category: 'navigation', event_label: e.target.id });
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observer.observe(s));
-
-  // Waitlist — envío real a Formspree
-  document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email-input').value;
-    const btn   = document.getElementById('waitlist-btn');
-    const note  = document.getElementById('cta-note');
-    btn.disabled = true;
-    btn.textContent = 'Enviando…';
-    try {
-      const resp = await fetch('https://formspree.io/f/xeaqlaje', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-      if (resp.ok) {
-        gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'waitlist', value: 1 });
-        this.innerHTML = '<p style="color:var(--accent2);font-weight:600;font-size:1.1rem">✓ ¡Registrado! Te avisamos pronto 🚀</p>';
-      } else {
-        throw new Error('Error del servidor');
-      }
-    } catch {
-      btn.disabled = false;
-      btn.textContent = 'Quiero acceso anticipado';
-      note.textContent = '⚠ No se pudo registrar. Intenta de nuevo o escríbenos directamente.';
-      note.style.color = 'var(--accent3)';
-    }
-  });
-
-  // ── CALCULADORA ROI ──
-  const fmtCOP = (n) => '$' + Math.round(n).toLocaleString('es-CO');
-  let roiTouched = false;
-
-  function calcularROI() {
-    const horas   = parseInt(document.getElementById('r-horas').value);
-    const pedidos = parseInt(document.getElementById('r-pedidos').value);
-    const ticket  = parseInt(document.getElementById('r-ticket').value);
-
-    // GA4 — primer uso
-    if (!roiTouched) {
-      roiTouched = true;
-      gtag('event', 'roi_open', { event_category: 'calculator', event_label: 'first_interaction' });
-    }
-
-    // Actualizar badges de los sliders
-    document.getElementById('v-horas').textContent   = horas + ' h/día';
-    document.getElementById('v-pedidos').textContent = pedidos + ' pedidos';
-    document.getElementById('v-ticket').textContent  = fmtCOP(ticket);
-
-    // Cálculos
-    const horasRecuperadas = horas * 22 * 0.70;          // 70% automatizable
-    const costoTiempo      = horasRecuperadas * 8000;    // COP/hora referencia salario mínimo 2026
-    const pedidosPerdidos  = pedidos * 0.25;             // 25% sin atención 24/7
-    const ventasRecup      = pedidosPerdidos * ticket;
-    const total            = costoTiempo + ventasRecup;
-
-    // Mostrar resultados
-    document.getElementById('res-horas').textContent  = Math.round(horasRecuperadas) + ' h/mes';
-    document.getElementById('res-tiempo').textContent = fmtCOP(costoTiempo) + '/mes';
-    document.getElementById('res-ventas').textContent = fmtCOP(ventasRecup) + '/mes';
-    document.getElementById('res-total').textContent  = fmtCOP(total) + '/mes';
-
-    // GA4 — resultado calculado
-    gtag('event', 'roi_calcular', {
-      event_category: 'calculator',
-      horas_dia: horas,
-      pedidos_mes: pedidos,
-      ticket_cop: ticket,
-      total_mensual_cop: Math.round(total)
-    });
-  }
-
-  // Inicializar y escuchar cambios en los sliders
-  ['r-horas', 'r-pedidos', 'r-ticket'].forEach(id => {
-    document.getElementById(id).addEventListener('input', calcularROI);
-  });
-  calcularROI(); // mostrar valores iniciales al cargar
-</script>
-
-<button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
-
-<script>
+    gtag('config', 'G-LZLMDEMC1T', { page_title: gaTitle, page_path: pagePath });
+  })();</script><meta name="description" content="Nexus Ops automatiza tu operación comercial con IA: landing page, pagos PSE/Nequi, logística Servientrega y asistente WhatsApp. Para emprendedores y MiPYMEs colombianas."><meta name="keywords" content="automatización comercial, IA para negocios, WhatsApp bot, pasarela de pago Colombia, emprendedores colombianos, MiPYMEs, Nexus Ops"><meta name="author" content="Andres Nova"><meta property="og:title" content="Nexus Ops — Automatización Comercial con IA"><meta property="og:description" content="Infraestructura comercial completa para emprendedores colombianos: landing, pagos, logística y asistente IA para WhatsApp."><meta property="og:type" content="website"><meta property="og:url" content="https://andres-nova.github.io/nexus-ops/"><meta property="og:image" content="https://andres-nova.github.io/assets/og-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://andres-nova.github.io/assets/og-preview.png"><link rel="canonical" href="https://andres-nova.github.io/nexus-ops/"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/nexus-ops/_astro/_slug_.BvXN7uX-.css">
+<link rel="stylesheet" href="/nexus-ops/_astro/index.CcHlV9fJ.css"></head> <body> <canvas id="bg-canvas" aria-hidden="true"></canvas>  <nav data-astro-cid-dmqpwcec> <span class="nav-brand" data-astro-cid-dmqpwcec>Nexus<span data-astro-cid-dmqpwcec>Ops</span></span> <ul class="nav-links" data-astro-cid-dmqpwcec> <li data-astro-cid-dmqpwcec><a href="#servicios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'servicios'})" data-astro-cid-dmqpwcec>Servicios</a></li> <li data-astro-cid-dmqpwcec><a href="#segmento" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'segmento'})" data-astro-cid-dmqpwcec>Para quién</a></li> <li data-astro-cid-dmqpwcec><a href="#proceso" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'proceso'})" data-astro-cid-dmqpwcec>Cómo funciona</a></li> <li data-astro-cid-dmqpwcec><a href="#precios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'precios'})" data-astro-cid-dmqpwcec>Precios</a></li> <li data-astro-cid-dmqpwcec><a href="#calculadora" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'calculadora'})" data-astro-cid-dmqpwcec>Calculadora</a></li> <li data-astro-cid-dmqpwcec><a href="#blog" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'blog'})" data-astro-cid-dmqpwcec>Blog</a></li> <li data-astro-cid-dmqpwcec><a href="./blog/" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'ver_todos_blog'})" data-astro-cid-dmqpwcec>Ver todos</a></li> <li data-astro-cid-dmqpwcec><a href="#contacto" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'contacto'})" data-astro-cid-dmqpwcec>Contacto</a></li> </ul> <a href="https://andres-nova.github.io" class="nav-back" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'portafolio'})" data-astro-cid-dmqpwcec>← Portafolio</a> <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec></span><span data-astro-cid-dmqpwcec></span><span data-astro-cid-dmqpwcec></span> </button> </nav> <!-- ── MENÚ MÓVIL ── --> <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación" data-astro-cid-dmqpwcec> <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Cerrar menú" data-astro-cid-dmqpwcec>✕</button> <a href="#servicios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'servicios'})" data-astro-cid-dmqpwcec>Servicios</a> <a href="#segmento" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'segmento'})" data-astro-cid-dmqpwcec>Para quién</a> <a href="#proceso" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'proceso'})" data-astro-cid-dmqpwcec>Cómo funciona</a> <a href="#precios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'precios'})" data-astro-cid-dmqpwcec>Precios</a> <a href="#calculadora" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'calculadora'})" data-astro-cid-dmqpwcec>Calculadora</a> <a href="#blog" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'blog'})" data-astro-cid-dmqpwcec>Blog</a> <a href="#contacto" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'contacto'})" style="color:var(--accent);border-color:rgba(109,131,247,.3)" data-astro-cid-dmqpwcec>Quiero empezar →</a> </div>  <script>
 (function () {
-  const root = document.documentElement;
-  const btn = document.getElementById('theme-toggle');
+  /* ── MENÚ HAMBURGUESA ── */
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  const mobileNavClose = document.getElementById('mobile-nav-close');
 
-  function isDark(t) {
-    if (t === 'dark') return true;
-    if (t === 'light') return false;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  function openMobileNav() {
+    mobileNav.classList.add('open');
+    hamburgerBtn.classList.add('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    gtag('event', 'nav_click', { event_category: 'mobile_nav', event_label: 'open' });
   }
-  function applyTheme(t) {
-    root.setAttribute('data-theme', t);
-    btn.textContent = isDark(t) ? '☀️' : '🌙';
-    localStorage.setItem('nops-theme', t);
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   }
-  const saved = localStorage.getItem('nops-theme');
-  applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-  btn.addEventListener('click', () => {
-    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+
+  /* Los onclick="closeMobileNav()" inline de los enlaces del menú móvil
+     necesitan encontrar la función en window (scope global de página),
+     aunque esté declarada dentro de esta IIFE. */
+  window.openMobileNav = openMobileNav;
+  window.closeMobileNav = closeMobileNav;
+
+  hamburgerBtn.addEventListener('click', () => {
+    mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
   });
-
-  const canvas = document.getElementById('bg-canvas');
-  if (!canvas) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
-
-  const ctx = canvas.getContext('2d');
-  const N = 55, MAX_D = 140;
-  let pts = [];
-
-  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-  function mkPt() {
-    return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-             vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
-             r: Math.random() * 1.4 + .5 };
-  }
-  function getColors() {
-    return isDark(root.getAttribute('data-theme'))
-      ? { dot: 'rgba(0,229,180,.2)',  base: 'rgba(0,229,180,' }
-      : { dot: 'rgba(0,100,80,.12)', base: 'rgba(0,100,80,' };
-  }
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const c = getColors();
-    pts.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = c.dot; ctx.fill();
-    });
-    for (let i = 0; i < pts.length; i++) {
-      for (let j = i + 1; j < pts.length; j++) {
-        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < MAX_D) {
-          ctx.beginPath();
-          ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = c.base + ((1 - d / MAX_D) * .08).toFixed(3) + ')';
-          ctx.lineWidth = .8; ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(draw);
-  }
-  resize(); pts = Array.from({ length: N }, mkPt); draw();
-  window.addEventListener('resize', () => { resize(); pts = Array.from({ length: N }, mkPt); });
+  mobileNavClose.addEventListener('click', closeMobileNav);
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeMobileNav();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
 })();
-</script>
-
-<script>
+</script> <section id="hero" data-astro-cid-bbe6dxrz> <div class="hero-inner" data-astro-cid-bbe6dxrz> <div class="hero-badge" data-astro-cid-bbe6dxrz>Automatización Comercial con IA · Colombia</div> <h1 data-astro-cid-bbe6dxrz>Tu operación comercial,<br data-astro-cid-bbe6dxrz><em data-astro-cid-bbe6dxrz>automatizada desde el día uno</em></h1> <p class="hero-sub" data-astro-cid-bbe6dxrz>
+Nexus Ops integra landing page, pasarela de pago, logística y asistente IA para WhatsApp
+      en un solo servicio listo para usar — sin equipo técnico, sin complicaciones.
+</p> <div class="hero-cta" data-astro-cid-bbe6dxrz> <a href="#contacto" class="btn btn-primary" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'quiero_empezar'})" data-astro-cid-bbe6dxrz>Quiero empezar</a> <a href="#servicios" class="btn btn-outline" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'ver_servicios'})" data-astro-cid-bbe6dxrz>Ver qué incluye</a> </div> <div class="hero-stats" data-astro-cid-bbe6dxrz> <div class="stat-item" data-astro-cid-bbe6dxrz> <span class="stat-num" data-astro-cid-bbe6dxrz>2.5M+</span> <span class="stat-label" data-astro-cid-bbe6dxrz>microempresarios en Colombia</span> </div> <div class="stat-item" data-astro-cid-bbe6dxrz> <span class="stat-num" data-astro-cid-bbe6dxrz>80%</span> <span class="stat-label" data-astro-cid-bbe6dxrz>venden por WhatsApp</span> </div> <div class="stat-item" data-astro-cid-bbe6dxrz> <span class="stat-num" data-astro-cid-bbe6dxrz>70%</span> <span class="stat-label" data-astro-cid-bbe6dxrz>de consultas atendidas por IA</span> </div> <div class="stat-item" data-astro-cid-bbe6dxrz> <span class="stat-num" data-astro-cid-bbe6dxrz>60%</span> <span class="stat-label" data-astro-cid-bbe6dxrz>menos tiempo operativo</span> </div> </div> </div> </section>  <script>
 /* ── COUNT-UP STATS ── */
 (function () {
   const stats = [
@@ -1639,50 +83,154 @@
   const statsEl = document.querySelector('.hero-stats');
   if (statsEl) io.observe(statsEl);
 })();
-
-/* ── FADE-UP AL HACER SCROLL ── */
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
-    return;
-  }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+</script> <!-- ── TRUST BADGES ── --><section id="confianza" data-astro-cid-i4oteclt> <div class="container" data-astro-cid-i4oteclt> <p class="trust-label" data-astro-cid-i4oteclt>Tecnología en la que confías</p> <div class="trust-grid" data-astro-cid-i4oteclt> <span class="trust-badge" data-astro-cid-i4oteclt>🏦 PSE</span> <span class="trust-badge" data-astro-cid-i4oteclt>📱 Nequi</span> <span class="trust-badge" data-astro-cid-i4oteclt>📦 Servientrega</span> <span class="trust-badge" data-astro-cid-i4oteclt>🚚 Coordinadora</span> <span class="trust-badge" data-astro-cid-i4oteclt>✈️ Envia</span> <span class="trust-badge" data-astro-cid-i4oteclt>💬 WhatsApp Business API</span> <span class="trust-badge" data-astro-cid-i4oteclt>🛡️ SSL / HTTPS</span> </div> </div> </section> <!-- ── PROBLEMA ── --> <section id="problema" data-astro-cid-i4oteclt> <div class="container" data-astro-cid-i4oteclt> <div class="tag" data-astro-cid-i4oteclt>El problema</div> <h2 class="section-title" data-astro-cid-i4oteclt>¿Te suena familiar?</h2> <p class="section-sub" data-astro-cid-i4oteclt>
+Millones de emprendedores colombianos venden bien, pero operan de forma manual, fragmentada y sin escala.
+</p> <div class="problema-grid" data-astro-cid-i4oteclt> <div class="problema-card" data-astro-cid-i4oteclt> <div class="problema-icon" data-astro-cid-i4oteclt>📱</div> <h3 data-astro-cid-i4oteclt>Ventas por DM</h3> <p data-astro-cid-i4oteclt>Gestionas pedidos por mensaje directo en Instagram o WhatsApp, sin registro ni orden.</p> </div> <div class="problema-card" data-astro-cid-i4oteclt> <div class="problema-icon" data-astro-cid-i4oteclt>💸</div> <h3 data-astro-cid-i4oteclt>Cobros informales</h3> <p data-astro-cid-i4oteclt>Recibes pagos por transferencia sin comprobante formal ni conciliación automática.</p> </div> <div class="problema-card" data-astro-cid-i4oteclt> <div class="problema-icon" data-astro-cid-i4oteclt>🔁</div> <h3 data-astro-cid-i4oteclt>Preguntas repetitivas</h3> <p data-astro-cid-i4oteclt>Respondes las mismas preguntas decenas de veces al día: precio, disponibilidad, envío.</p> </div> <div class="problema-card" data-astro-cid-i4oteclt> <div class="problema-icon" data-astro-cid-i4oteclt>📦</div> <h3 data-astro-cid-i4oteclt>Logística manual</h3> <p data-astro-cid-i4oteclt>Generas guías a mano con cada operador y haces seguimiento uno por uno.</p> </div> </div> </div> </section>  <section id="servicios" data-astro-cid-qwsjowbz> <div class="container" data-astro-cid-qwsjowbz> <div class="tag" data-astro-cid-qwsjowbz>Qué ofrecemos</div> <h2 class="section-title" data-astro-cid-qwsjowbz>Infraestructura comercial completa</h2> <p class="section-sub" data-astro-cid-qwsjowbz>
+Cuatro componentes integrados que Nexus Ops configura, mantiene y opera por ti.
+</p> <div class="servicios-grid" data-astro-cid-qwsjowbz> <div class="servicio-card fade-up" data-astro-cid-qwsjowbz> <div class="svc-icon" data-astro-cid-qwsjowbz> <!-- Monitor / landing page --> <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-qwsjowbz> <rect x="2" y="3" width="20" height="14" rx="2" data-astro-cid-qwsjowbz></rect><path d="M8 21h8M12 17v4" data-astro-cid-qwsjowbz></path> </svg> </div> <h3 data-astro-cid-qwsjowbz>Landing Page de Producto</h3> <p data-astro-cid-qwsjowbz>Página optimizada para conversión, hospedada y configurada por Nexus Ops. Diseño profesional, carga rápida, adaptada a tu marca.</p> <div class="servicio-tags" data-astro-cid-qwsjowbz> <span class="stag" data-astro-cid-qwsjowbz>Hosting incluido</span> <span class="stag" data-astro-cid-qwsjowbz>SEO básico</span> <span class="stag" data-astro-cid-qwsjowbz>Diseño responsive</span> </div> </div> <div class="servicio-card fade-up" data-astro-cid-qwsjowbz> <div class="svc-icon" data-astro-cid-qwsjowbz> <!-- Tarjeta de crédito / pago --> <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-qwsjowbz> <rect x="2" y="5" width="20" height="14" rx="2" data-astro-cid-qwsjowbz></rect><path d="M2 10h20M6 15h4" data-astro-cid-qwsjowbz></path> </svg> </div> <h3 data-astro-cid-qwsjowbz>Pasarela de Pago Local</h3> <p data-astro-cid-qwsjowbz>Integración con PSE, Nequi y tarjetas de crédito/débito. Conciliación automática y comprobantes digitales listos para el cliente.</p> <div class="servicio-tags" data-astro-cid-qwsjowbz> <span class="stag" data-astro-cid-qwsjowbz>PSE</span> <span class="stag" data-astro-cid-qwsjowbz>Nequi</span> <span class="stag" data-astro-cid-qwsjowbz>Tarjetas</span> </div> </div> <div class="servicio-card fade-up" data-astro-cid-qwsjowbz> <div class="svc-icon" data-astro-cid-qwsjowbz> <!-- Caja / logística --> <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-qwsjowbz> <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-2" data-astro-cid-qwsjowbz></path> <path d="M3.3 7l8.7 5 8.7-5M12 22V12" data-astro-cid-qwsjowbz></path> </svg> </div> <h3 data-astro-cid-qwsjowbz>Logística Automatizada</h3> <p data-astro-cid-qwsjowbz>Integración con Servientrega, Coordinadora y Envia. Generación de guías y trazabilidad en tiempo real sin intervención manual.</p> <div class="servicio-tags" data-astro-cid-qwsjowbz> <span class="stag" data-astro-cid-qwsjowbz>Servientrega</span> <span class="stag" data-astro-cid-qwsjowbz>Coordinadora</span> <span class="stag" data-astro-cid-qwsjowbz>Envia</span> </div> </div> <div class="servicio-card fade-up" data-astro-cid-qwsjowbz> <div class="svc-icon" data-astro-cid-qwsjowbz> <!-- Chat bot / IA --> <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-qwsjowbz> <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" data-astro-cid-qwsjowbz></path> <path d="M8 10h.01M12 10h.01M16 10h.01" data-astro-cid-qwsjowbz></path> </svg> </div> <h3 data-astro-cid-qwsjowbz>Asistente IA para WhatsApp</h3> <p data-astro-cid-qwsjowbz>Bot entrenado con la info de tu negocio. Atiende consultas frecuentes, califica clientes, procesa pedidos y hace seguimiento postventa 24/7.</p> <div class="servicio-tags" data-astro-cid-qwsjowbz> <span class="stag" data-astro-cid-qwsjowbz>24/7</span> <span class="stag" data-astro-cid-qwsjowbz>Sin intervención</span> <span class="stag" data-astro-cid-qwsjowbz>Personalizable</span> </div> </div> </div> </div> </section>  <section id="proceso" data-astro-cid-db7yltb5> <div class="container" data-astro-cid-db7yltb5> <div class="tag" data-astro-cid-db7yltb5>Cómo funciona</div> <h2 class="section-title" data-astro-cid-db7yltb5>De cero a operando en pocos días</h2> <p class="section-sub" data-astro-cid-db7yltb5>
+Sin reuniones interminables. Sin conocimientos técnicos. Tú llevas el negocio, nosotros montamos la infraestructura.
+</p> <div class="timeline" data-astro-cid-db7yltb5> <div class="tl-step fade-up" data-astro-cid-db7yltb5> <div class="tl-dot" data-astro-cid-db7yltb5>01</div> <div class="tl-content" data-astro-cid-db7yltb5> <h3 data-astro-cid-db7yltb5>Día 1 — Cuéntanos tu negocio</h3> <p data-astro-cid-db7yltb5>Formulario breve (10 min): productos, precios, operadores de envío que ya usas y las preguntas frecuentes de tus clientes. Sin reuniones, async.</p> <span class="tl-badge" data-astro-cid-db7yltb5>Async · 10 min</span> </div> </div> <div class="tl-step fade-up" data-astro-cid-db7yltb5> <div class="tl-dot" data-astro-cid-db7yltb5>02</div> <div class="tl-content" data-astro-cid-db7yltb5> <h3 data-astro-cid-db7yltb5>Días 2–3 — Configuramos tu stack</h3> <p data-astro-cid-db7yltb5>Nexus Ops monta tu landing, conecta la pasarela de pago, integra los operadores logísticos y entrena el bot de WhatsApp con la info de tu negocio.</p> <span class="tl-badge" data-astro-cid-db7yltb5>Nosotros operamos</span> </div> </div> <div class="tl-step fade-up" data-astro-cid-db7yltb5> <div class="tl-dot" data-astro-cid-db7yltb5>03</div> <div class="tl-content" data-astro-cid-db7yltb5> <h3 data-astro-cid-db7yltb5>Día 4 — Lo revisamos juntos</h3> <p data-astro-cid-db7yltb5>Videollamada de 30 minutos para validar todo contigo. Ajustamos precios, textos y flujos según tu feedback. Tú apruebas antes de salir en vivo.</p> <span class="tl-badge" data-astro-cid-db7yltb5>Tu aprobación</span> </div> </div> <div class="tl-step fade-up" data-astro-cid-db7yltb5> <div class="tl-dot" data-astro-cid-db7yltb5>04</div> <div class="tl-content" data-astro-cid-db7yltb5> <h3 data-astro-cid-db7yltb5>Día 5 — Tú vendes, nosotros operamos</h3> <p data-astro-cid-db7yltb5>Salida en vivo. El bot atiende 24/7, los pagos entran solos y las guías se generan automáticamente. Dashboard con tus métricas en tiempo real.</p> <span class="tl-badge" data-astro-cid-db7yltb5>Operativo</span> </div> </div> </div> </div> </section>  <section id="precios" data-astro-cid-6l3lpwr5> <div class="container" data-astro-cid-6l3lpwr5> <div class="tag" data-astro-cid-6l3lpwr5>Planes</div> <h2 class="section-title" data-astro-cid-6l3lpwr5>Precios simples, sin sorpresas</h2> <p class="section-sub" data-astro-cid-6l3lpwr5>Todo incluido desde el primer día. Sin costos ocultos, sin comisiones adicionales por venta.</p> <div class="precios-grid" data-astro-cid-6l3lpwr5> <!-- PLAN BÁSICO --> <div class="precio-card fade-up" data-astro-cid-6l3lpwr5> <div data-astro-cid-6l3lpwr5> <div class="precio-nombre" data-astro-cid-6l3lpwr5>Básico</div> <div class="precio-valor" style="margin:.5rem 0 .25rem" data-astro-cid-6l3lpwr5>Desde<br data-astro-cid-6l3lpwr5>$490.000 <small data-astro-cid-6l3lpwr5>/mes</small></div> <div class="precio-desc" data-astro-cid-6l3lpwr5>Ideal si estás comenzando y quieres tu primera infraestructura comercial funcionando.</div> </div> <ul class="precio-features" data-astro-cid-6l3lpwr5> <li data-astro-cid-6l3lpwr5>Landing page de producto</li> <li data-astro-cid-6l3lpwr5>Pasarela de pago (PSE + Nequi)</li> <li data-astro-cid-6l3lpwr5>Integración 1 operador logístico</li> <li data-astro-cid-6l3lpwr5>Bot WhatsApp básico (FAQ)</li> <li data-astro-cid-6l3lpwr5>Soporte vía chat</li> </ul> <a href="#contacto" class="precio-cta precio-cta-outline" onclick="gtag('event','cta_click',{event_category:'precios',event_label:'basico'})" data-astro-cid-6l3lpwr5>
+Empezar con Básico
+</a> </div> <!-- PLAN PRO (POPULAR) --> <div class="precio-card featured fade-up" data-astro-cid-6l3lpwr5> <div class="precio-popular" data-astro-cid-6l3lpwr5>Más elegido</div> <div data-astro-cid-6l3lpwr5> <div class="precio-nombre" data-astro-cid-6l3lpwr5>Pro</div> <div class="precio-valor" style="margin:.5rem 0 .25rem" data-astro-cid-6l3lpwr5>Desde<br data-astro-cid-6l3lpwr5>$890.000 <small data-astro-cid-6l3lpwr5>/mes</small></div> <div class="precio-desc" data-astro-cid-6l3lpwr5>Para negocios con volumen creciente que necesitan automatización completa y soporte prioritario.</div> </div> <ul class="precio-features" data-astro-cid-6l3lpwr5> <li data-astro-cid-6l3lpwr5>Todo el plan Básico</li> <li data-astro-cid-6l3lpwr5>Tarjetas crédito/débito incluidas</li> <li data-astro-cid-6l3lpwr5>Hasta 3 operadores logísticos</li> <li data-astro-cid-6l3lpwr5>Bot IA avanzado (pedidos + postventa)</li> <li data-astro-cid-6l3lpwr5>Dashboard de métricas en tiempo real</li> <li data-astro-cid-6l3lpwr5>Soporte prioritario + videollamada mensual</li> </ul> <a href="#contacto" class="precio-cta precio-cta-primary" onclick="gtag('event','cta_click',{event_category:'precios',event_label:'pro'})" data-astro-cid-6l3lpwr5>
+Quiero el plan Pro
+</a> </div> <!-- PLAN EMPRESA --> <div class="precio-card fade-up" data-astro-cid-6l3lpwr5> <div data-astro-cid-6l3lpwr5> <div class="precio-nombre" data-astro-cid-6l3lpwr5>Empresa</div> <div class="precio-valor" style="margin:.5rem 0 .25rem" data-astro-cid-6l3lpwr5>A medida</div> <div class="precio-desc" data-astro-cid-6l3lpwr5>Integraciones personalizadas, múltiples tiendas o líneas de producto, y SLA garantizado.</div> </div> <ul class="precio-features" data-astro-cid-6l3lpwr5> <li data-astro-cid-6l3lpwr5>Todo el plan Pro</li> <li data-astro-cid-6l3lpwr5>Integraciones personalizadas</li> <li data-astro-cid-6l3lpwr5>Múltiples tiendas / marcas</li> <li data-astro-cid-6l3lpwr5>API propia + webhooks</li> <li data-astro-cid-6l3lpwr5>SLA 99.9% + soporte 24/7</li> <li data-astro-cid-6l3lpwr5>Gerente de cuenta dedicado</li> </ul> <a href="#contacto" class="precio-cta precio-cta-outline" onclick="gtag('event','cta_click',{event_category:'precios',event_label:'empresa'})" data-astro-cid-6l3lpwr5>
+Hablemos de tu caso
+</a> </div> </div> <p class="precios-nota" data-astro-cid-6l3lpwr5>
+¿Tienes dudas sobre qué plan te conviene?
+<a href="#contacto" onclick="gtag('event','cta_click',{event_category:'precios',event_label:'comparar'})" data-astro-cid-6l3lpwr5>Escríbenos y te asesoramos sin compromiso →</a> </p> </div> </section>  <section id="faq" data-astro-cid-z6gx6xcw> <div class="container" data-astro-cid-z6gx6xcw> <div class="tag" data-astro-cid-z6gx6xcw>Preguntas frecuentes</div> <h2 class="section-title" data-astro-cid-z6gx6xcw>Todo lo que necesitas saber</h2> <p class="section-sub" data-astro-cid-z6gx6xcw>Resuelve tus dudas antes de dar el paso. Si no encuentras tu pregunta, <a href="#contacto" data-astro-cid-z6gx6xcw>escríbenos</a>.</p> <div class="faq-list" data-astro-cid-z6gx6xcw> <div class="faq-item" data-astro-cid-z6gx6xcw> <button class="faq-q" aria-expanded="false" data-astro-cid-z6gx6xcw>
+¿Necesito conocimientos técnicos para usar Nexus Ops?
+<i class="faq-chevron" data-astro-cid-z6gx6xcw>▾</i> </button> <div class="faq-a" data-astro-cid-z6gx6xcw>
+No. Nexus Ops se encarga de toda la configuración técnica: landing page, pasarela de pago, logística y bot de WhatsApp. Tú solo nos cuentas cómo funciona tu negocio (productos, precios, preguntas frecuentes) y nosotros montamos todo. Sin código, sin servidores, sin dolores de cabeza técnicos.
+</div> </div> <div class="faq-item" data-astro-cid-z6gx6xcw> <button class="faq-q" aria-expanded="false" data-astro-cid-z6gx6xcw>
+¿Cuánto tiempo tarda la puesta en marcha?
+<i class="faq-chevron" data-astro-cid-z6gx6xcw>▾</i> </button> <div class="faq-a" data-astro-cid-z6gx6xcw>
+El proceso completo toma entre 3 y 5 días hábiles. El día 1 nos envías la información de tu negocio (async, 10 min). Los días 2 y 3 configuramos tu stack. El día 4 revisamos todo contigo en una videollamada de 30 min. El día 5 salimos en vivo.
+</div> </div> <div class="faq-item" data-astro-cid-z6gx6xcw> <button class="faq-q" aria-expanded="false" data-astro-cid-z6gx6xcw>
+¿Puedo cancelar en cualquier momento?
+<i class="faq-chevron" data-astro-cid-z6gx6xcw>▾</i> </button> <div class="faq-a" data-astro-cid-z6gx6xcw>
+Sí. No exigimos contratos de largo plazo. Puedes cancelar tu suscripción con 15 días de aviso antes del siguiente ciclo de facturación. No hay penalizaciones. Creemos en ganarnos tu confianza mes a mes con resultados.
+</div> </div> <div class="faq-item" data-astro-cid-z6gx6xcw> <button class="faq-q" aria-expanded="false" data-astro-cid-z6gx6xcw>
+¿Las comisiones de PSE o Nequi están incluidas en el precio?
+<i class="faq-chevron" data-astro-cid-z6gx6xcw>▾</i> </button> <div class="faq-a" data-astro-cid-z6gx6xcw>
+El precio del plan cubre la integración y operación de la pasarela. Las comisiones de las redes de pago (PSE, Nequi, redes de tarjetas) son costos directos de esas plataformas — típicamente entre 1.5% y 3.5% por transacción — y corren por cuenta del negocio, igual que ocurriría si los contrataras directamente. Sin embargo, al tenerlos integrados en Nexus Ops ahorras el tiempo y costo de gestión manual.
+</div> </div> <div class="faq-item" data-astro-cid-z6gx6xcw> <button class="faq-q" aria-expanded="false" data-astro-cid-z6gx6xcw>
+¿El bot de WhatsApp reemplaza a mi equipo de ventas?
+<i class="faq-chevron" data-astro-cid-z6gx6xcw>▾</i> </button> <div class="faq-a" data-astro-cid-z6gx6xcw>
+No reemplaza — libera. El bot atiende el 70% de las consultas repetitivas (precios, disponibilidad, estado de pedido, instrucciones de pago), para que tú y tu equipo se enfoquen en las conversaciones de alto valor: clientes especiales, quejas complejas, negociaciones. Puedes escalar a un agente humano desde el mismo hilo de WhatsApp.
+</div> </div> <div class="faq-item" data-astro-cid-z6gx6xcw> <button class="faq-q" aria-expanded="false" data-astro-cid-z6gx6xcw>
+¿Qué pasa si mi negocio crece y necesito más capacidad?
+<i class="faq-chevron" data-astro-cid-z6gx6xcw>▾</i> </button> <div class="faq-a" data-astro-cid-z6gx6xcw>
+La infraestructura de Nexus Ops escala contigo. Puedes subir de plan en cualquier momento sin perder configuraciones ni historial. Para negocios con necesidades muy específicas (múltiples tiendas, integraciones propietarias) ofrecemos el plan Empresa con condiciones a medida.
+</div> </div> </div> </div> </section>  <script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item     = btn.closest('.faq-item');
+    const isOpen   = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
     });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-})();
-</script>
-
-<script>
-/* ── MENÚ HAMBURGUESA ── */
-const hamburgerBtn   = document.getElementById('hamburger-btn');
-const mobileNav      = document.getElementById('mobile-nav');
-const mobileNavClose = document.getElementById('mobile-nav-close');
-
-function openMobileNav() {
-  mobileNav.classList.add('open');
-  hamburgerBtn.classList.add('open');
-  hamburgerBtn.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-  gtag('event', 'nav_click', { event_category: 'mobile_nav', event_label: 'open' });
-}
-
-function closeMobileNav() {
-  mobileNav.classList.remove('open');
-  hamburgerBtn.classList.remove('open');
-  hamburgerBtn.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-hamburgerBtn.addEventListener('click', () => {
-  mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      gtag('event', 'faq_open', { event_category: 'engagement', event_label: btn.textContent.trim().slice(0, 60) });
+    }
+  });
 });
-mobileNavClose.addEventListener('click', closeMobileNav);
-mobileNav.addEventListener('click', (e) => { if (e.target === mobileNav) closeMobileNav(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileNav(); });
+</script> <!-- ── SEGMENTO ── --><section id="segmento" data-astro-cid-l6ehqrdt> <div class="container" data-astro-cid-l6ehqrdt> <div class="tag" data-astro-cid-l6ehqrdt>Para quién es</div> <h2 class="section-title" data-astro-cid-l6ehqrdt>Diseñado para el emprendedor colombiano</h2> <p class="section-sub" data-astro-cid-l6ehqrdt>
+Nexus Ops es para quienes tienen un negocio real y demanda validada, pero sin infraestructura comercial estructurada.
+</p> <div class="segmento-grid" data-astro-cid-l6ehqrdt> <ul class="segmento-list" data-astro-cid-l6ehqrdt> <li data-astro-cid-l6ehqrdt> <span class="icon" data-astro-cid-l6ehqrdt>👗</span> <span class="text" data-astro-cid-l6ehqrdt><strong data-astro-cid-l6ehqrdt>Moda y accesorios</strong><span data-astro-cid-l6ehqrdt>Venta por Instagram, catálogos en WhatsApp</span></span> </li> <li data-astro-cid-l6ehqrdt> <span class="icon" data-astro-cid-l6ehqrdt>🍽️</span> <span class="text" data-astro-cid-l6ehqrdt><strong data-astro-cid-l6ehqrdt>Alimentos y bebidas artesanales</strong><span data-astro-cid-l6ehqrdt>Pedidos domicilio, pagos informales</span></span> </li> <li data-astro-cid-l6ehqrdt> <span class="icon" data-astro-cid-l6ehqrdt>💄</span> <span class="text" data-astro-cid-l6ehqrdt><strong data-astro-cid-l6ehqrdt>Cosméticos y cuidado personal</strong><span data-astro-cid-l6ehqrdt>Productos propios, clientes recurrentes</span></span> </li> <li data-astro-cid-l6ehqrdt> <span class="icon" data-astro-cid-l6ehqrdt>🏠</span> <span class="text" data-astro-cid-l6ehqrdt><strong data-astro-cid-l6ehqrdt>Artículos para el hogar</strong><span data-astro-cid-l6ehqrdt>Alta rotación, múltiples referencias</span></span> </li> <li data-astro-cid-l6ehqrdt> <span class="icon" data-astro-cid-l6ehqrdt>💆</span> <span class="text" data-astro-cid-l6ehqrdt><strong data-astro-cid-l6ehqrdt>Salud y bienestar</strong><span data-astro-cid-l6ehqrdt>Agendamiento, pagos anticipados</span></span> </li> </ul> <div class="segmento-visual" data-astro-cid-l6ehqrdt> <div class="big-num" data-astro-cid-l6ehqrdt>2.5M</div> <div class="big-label" data-astro-cid-l6ehqrdt>microempresarios activos en Colombia<br data-astro-cid-l6ehqrdt><small data-astro-cid-l6ehqrdt>(DANE, 2023)</small></div> <hr class="divider" data-astro-cid-l6ehqrdt> <div class="mini-stat" data-astro-cid-l6ehqrdt> <div class="val" data-astro-cid-l6ehqrdt>34%</div> <div class="desc" data-astro-cid-l6ehqrdt>crecimiento del e-commerce 2021–2023<br data-astro-cid-l6ehqrdt><small data-astro-cid-l6ehqrdt>(CCCE, 2024)</small></div> </div> <div class="mini-stat" data-astro-cid-l6ehqrdt> <div class="val" data-astro-cid-l6ehqrdt>80%</div> <div class="desc" data-astro-cid-l6ehqrdt>de PYMEs latinoamericanas usan<br data-astro-cid-l6ehqrdt>WhatsApp como canal principal<br data-astro-cid-l6ehqrdt><small data-astro-cid-l6ehqrdt>(Meta, 2023)</small></div> </div> </div> </div> </div> </section> <!-- ── POR QUÉ NEXUS OPS ── --> <section id="porque" data-astro-cid-l6ehqrdt> <div class="container" data-astro-cid-l6ehqrdt> <div class="tag" data-astro-cid-l6ehqrdt>Por qué Nexus Ops</div> <h2 class="section-title" data-astro-cid-l6ehqrdt>Una sola solución, no cuatro proveedores</h2> <p class="section-sub" data-astro-cid-l6ehqrdt>
+Cada pieza de tu operación conectada desde el principio, sin necesidad de un equipo técnico.
+</p> <div class="porque-grid" data-astro-cid-l6ehqrdt> <div class="porque-item" data-astro-cid-l6ehqrdt> <h3 data-astro-cid-l6ehqrdt>Sin conocimientos técnicos</h3> <p data-astro-cid-l6ehqrdt>Nexus Ops configura todo. Tú te enfocas en vender y en la calidad de tu producto.</p> </div> <div class="porque-item" data-astro-cid-l6ehqrdt> <h3 data-astro-cid-l6ehqrdt>Todo integrado</h3> <p data-astro-cid-l6ehqrdt>Landing, pagos, logística y WhatsApp IA hablan entre sí desde el primer día.</p> </div> <div class="porque-item" data-astro-cid-l6ehqrdt> <h3 data-astro-cid-l6ehqrdt>Escalable desde el inicio</h3> <p data-astro-cid-l6ehqrdt>La misma infraestructura que usas hoy escala cuando tu volumen de ventas crezca.</p> </div> <div class="porque-item" data-astro-cid-l6ehqrdt> <h3 data-astro-cid-l6ehqrdt>Contexto colombiano</h3> <p data-astro-cid-l6ehqrdt>PSE, Nequi, Servientrega, español colombiano — construido para la realidad local.</p> </div> </div> </div> </section>  <section id="calculadora" data-astro-cid-ss7zdplt> <div class="container" data-astro-cid-ss7zdplt> <div class="tag" data-astro-cid-ss7zdplt>Demo interactivo</div> <h2 class="section-title" data-astro-cid-ss7zdplt>¿Cuánto te cuesta operar sin automatización?</h2> <p class="section-sub" data-astro-cid-ss7zdplt>
+Ajusta los controles según tu negocio y ve en tiempo real el valor que estás dejando sobre la mesa cada mes.
+</p> <div class="calc-wrapper" data-astro-cid-ss7zdplt> <!-- Inputs --> <div class="calc-inputs" data-astro-cid-ss7zdplt> <div class="calc-field" data-astro-cid-ss7zdplt> <label data-astro-cid-ss7zdplt>⏱ Horas/día respondiendo WhatsApp</label> <div class="input-row" data-astro-cid-ss7zdplt> <input type="range" id="r-horas" min="1" max="10" value="3" step="1" data-astro-cid-ss7zdplt> <span class="val-badge" id="v-horas" data-astro-cid-ss7zdplt>3 h/día</span> </div> </div> <div class="calc-field" data-astro-cid-ss7zdplt> <label data-astro-cid-ss7zdplt>📦 Pedidos por mes</label> <div class="input-row" data-astro-cid-ss7zdplt> <input type="range" id="r-pedidos" min="10" max="500" value="50" step="10" data-astro-cid-ss7zdplt> <span class="val-badge" id="v-pedidos" data-astro-cid-ss7zdplt>50 pedidos</span> </div> </div> <div class="calc-field" data-astro-cid-ss7zdplt> <label data-astro-cid-ss7zdplt>💵 Ticket promedio (COP $)</label> <div class="input-row" data-astro-cid-ss7zdplt> <input type="range" id="r-ticket" min="10000" max="500000" value="80000" step="5000" data-astro-cid-ss7zdplt> <span class="val-badge" id="v-ticket" data-astro-cid-ss7zdplt>$80.000</span> </div> </div> </div> <!-- Resultados --> <div class="calc-results" data-astro-cid-ss7zdplt> <div class="result-card" data-astro-cid-ss7zdplt> <span class="r-label" data-astro-cid-ss7zdplt>⏳ Horas recuperadas / mes</span> <span class="r-val" id="res-horas" data-astro-cid-ss7zdplt>—</span> </div> <div class="result-card" data-astro-cid-ss7zdplt> <span class="r-label" data-astro-cid-ss7zdplt>💼 Valor del tiempo ahorrado</span> <span class="r-val" id="res-tiempo" data-astro-cid-ss7zdplt>—</span> </div> <div class="result-card" data-astro-cid-ss7zdplt> <span class="r-label" data-astro-cid-ss7zdplt>📈 Ventas recuperables (24/7)</span> <span class="r-val" id="res-ventas" data-astro-cid-ss7zdplt>—</span> </div> <div class="result-card total" data-astro-cid-ss7zdplt> <span class="r-label" data-astro-cid-ss7zdplt><strong data-astro-cid-ss7zdplt>🚀 Potencial mensual total</strong></span> <span class="r-val" id="res-total" data-astro-cid-ss7zdplt>—</span> </div> <div class="calc-cta" data-astro-cid-ss7zdplt> <a href="#contacto" class="btn btn-primary" onclick="gtag('event','roi_cta_click',{event_category:'calculator',event_label:'to_waitlist'})" data-astro-cid-ss7zdplt>
+Quiero recuperar ese dinero →
+</a> <p class="calc-disclaimer" data-astro-cid-ss7zdplt>Estimaciones orientativas basadas en promedios de MiPYMEs colombianas.</p> </div> </div> </div> </div> </section>  <script>
+(function () {
+const fmtCOP = (n) => '$' + Math.round(n).toLocaleString('es-CO');
+let roiTouched = false;
 
+function calcularROI() {
+  const horas   = parseInt(document.getElementById('r-horas').value);
+  const pedidos = parseInt(document.getElementById('r-pedidos').value);
+  const ticket  = parseInt(document.getElementById('r-ticket').value);
+
+  if (!roiTouched) {
+    roiTouched = true;
+    gtag('event', 'roi_open', { event_category: 'calculator', event_label: 'first_interaction' });
+  }
+
+  document.getElementById('v-horas').textContent   = horas + ' h/día';
+  document.getElementById('v-pedidos').textContent = pedidos + ' pedidos';
+  document.getElementById('v-ticket').textContent  = fmtCOP(ticket);
+
+  const horasRecuperadas = horas * 22 * 0.70;
+  const costoTiempo      = horasRecuperadas * 8000;
+  const pedidosPerdidos  = pedidos * 0.25;
+  const ventasRecup      = pedidosPerdidos * ticket;
+  const total            = costoTiempo + ventasRecup;
+
+  document.getElementById('res-horas').textContent  = Math.round(horasRecuperadas) + ' h/mes';
+  document.getElementById('res-tiempo').textContent = fmtCOP(costoTiempo) + '/mes';
+  document.getElementById('res-ventas').textContent = fmtCOP(ventasRecup) + '/mes';
+  document.getElementById('res-total').textContent  = fmtCOP(total) + '/mes';
+
+  gtag('event', 'roi_calcular', {
+    event_category: 'calculator',
+    horas_dia: horas,
+    pedidos_mes: pedidos,
+    ticket_cop: ticket,
+    total_mensual_cop: Math.round(total)
+  });
+}
+
+/* No hay onclick="calcularROI()" en el markup, pero se expone en window por
+   consistencia con el resto de funciones invocadas desde fuera de su script. */
+window.calcularROI = calcularROI;
+
+['r-horas', 'r-pedidos', 'r-ticket'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calcularROI);
+});
+calcularROI();
+})();
+</script> <section id="blog" data-astro-cid-wlujrzzs> <div class="container" data-astro-cid-wlujrzzs> <div class="tag" data-astro-cid-wlujrzzs>Blog</div> <h2 class="section-title" data-astro-cid-wlujrzzs>Últimos artículos</h2> <p class="section-sub" data-astro-cid-wlujrzzs>Automatización e IA comercial para emprendedores colombianos.</p> <div class="blog-card-grid" data-astro-cid-wlujrzzs> <a href="./blog/automatizacion-ia-emprendedores-colombia/" class="blog-preview-card fade-up" onclick="gtag('event','blog_click',{event_category:'landing',event_label:'automatizacion-ia'})" data-astro-cid-wlujrzzs> <div class="bpc-inner" data-astro-cid-wlujrzzs> <div class="bpc-meta" data-astro-cid-wlujrzzs> <span class="bpc-badge" data-astro-cid-wlujrzzs>Automatización · IA Comercial</span> <span class="bpc-time" data-astro-cid-wlujrzzs>4 min de lectura</span> </div> <h3 class="bpc-title" data-astro-cid-wlujrzzs>Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</h3> <p class="bpc-desc" data-astro-cid-wlujrzzs>El 80 % de las compras en Colombia inicia con un mensaje de WhatsApp. Descubre cómo un bot bien entrenado resuelve el 70 % de esas consultas mientras tú duermes.</p> <span class="bpc-cta" data-astro-cid-wlujrzzs>
+Leer artículo
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-wlujrzzs> <line x1="5" y1="12" x2="19" y2="12" data-astro-cid-wlujrzzs></line> <polyline points="12 5 19 12 12 19" data-astro-cid-wlujrzzs></polyline> </svg> </span> </div> </a> </div> </div> </section>  <section id="opiniones" data-astro-cid-3e77kqm3> <div class="container" data-astro-cid-3e77kqm3> <div class="tag" data-astro-cid-3e77kqm3>Comunidad</div> <h2 class="section-title" data-astro-cid-3e77kqm3>¿Qué piensan los emprendedores?</h2> <p class="section-sub" data-astro-cid-3e77kqm3>
+Déjanos tu opinión, pregunta o experiencia. Construimos Nexus Ops con la voz de quienes lo van a usar.
+</p> <div class="giscus-wrapper" data-astro-cid-3e77kqm3> <div class="opiniones-intro" data-astro-cid-3e77kqm3> <span class="intro-icon" data-astro-cid-3e77kqm3>💬</span> <div data-astro-cid-3e77kqm3> <strong data-astro-cid-3e77kqm3>Comentarios públicos via GitHub Discussions</strong>
+Necesitas una cuenta de GitHub gratuita para comentar. Tus mensajes quedan visibles para toda la comunidad.
+</div> </div> <script src="https://giscus.app/client.js" data-repo="Andres-Nova/Andres-Nova.github.io" data-repo-id="R_kgDOTLKhzA" data-category="General" data-category-id="DIC_kwDOTLKhzM4DE-ZG" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="es" crossorigin="anonymous" async>
+      </script> </div> </div> </section>  <section id="contacto" data-astro-cid-xjughlio> <div class="container" data-astro-cid-xjughlio> <div class="cta-box" data-astro-cid-xjughlio> <div class="tag" data-astro-cid-xjughlio>Lista de espera</div> <h2 data-astro-cid-xjughlio>¿Listo para automatizar tu negocio?</h2> <p data-astro-cid-xjughlio>Déjanos tu correo y te contactamos cuando abramos el acceso para los primeros clientes.</p> <form class="cta-form" id="waitlist-form" data-astro-cid-xjughlio> <input type="email" name="email" placeholder="tu@correo.com" id="email-input" required data-astro-cid-xjughlio> <button type="submit" class="btn btn-primary" id="waitlist-btn" data-astro-cid-xjughlio>Quiero acceso anticipado</button> </form> <p class="cta-note" id="cta-note" data-astro-cid-xjughlio>Sin spam. Solo te escribimos cuando esté listo.</p> </div> </div> </section>  <script>
+  // Waitlist — envío real a Formspree
+  document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+    const btn   = document.getElementById('waitlist-btn');
+    const note  = document.getElementById('cta-note');
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    try {
+      const resp = await fetch('https://formspree.io/f/xeaqlaje', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (resp.ok) {
+        gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'waitlist', value: 1 });
+        this.innerHTML = '<p style="color:var(--accent2);font-weight:600;font-size:1.1rem">✓ ¡Registrado! Te avisamos pronto 🚀</p>';
+      } else {
+        throw new Error('Error del servidor');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Quiero acceso anticipado';
+      note.textContent = '⚠ No se pudo registrar. Intenta de nuevo o escríbenos directamente.';
+      note.style.color = 'var(--accent3)';
+    }
+  });
+</script> <footer data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-brand" data-astro-cid-sz7xmlte> <span class="footer-logo" data-astro-cid-sz7xmlte>Nexus<em data-astro-cid-sz7xmlte>Ops</em></span> <p data-astro-cid-sz7xmlte>Automatización comercial con IA<br data-astro-cid-sz7xmlte>para emprendedores en Colombia.</p> </div> <div class="footer-links" data-astro-cid-sz7xmlte> <span class="footer-heading" data-astro-cid-sz7xmlte>Navegación</span> <a href="#servicios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'servicios'})" data-astro-cid-sz7xmlte>Servicios</a> <a href="#proceso" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'proceso'})" data-astro-cid-sz7xmlte>Cómo funciona</a> <a href="#precios" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'precios'})" data-astro-cid-sz7xmlte>Precios</a> <a href="#calculadora" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'calculadora'})" data-astro-cid-sz7xmlte>Calculadora ROI</a> <a href="#faq" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'faq'})" data-astro-cid-sz7xmlte>FAQ</a> <a href="#blog" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog'})" data-astro-cid-sz7xmlte>Blog</a> <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'contacto'})" data-astro-cid-sz7xmlte>Contacto</a> </div> <div class="footer-links" data-astro-cid-sz7xmlte> <span class="footer-heading" data-astro-cid-sz7xmlte>Recursos</span> <a href="/nexus-ops/blog/" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'blog_academico'})" data-astro-cid-sz7xmlte>Blog académico</a> <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'portafolio'})" data-astro-cid-sz7xmlte>Portafolio del autor</a> <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'lista_espera'})" data-astro-cid-sz7xmlte>Lista de espera</a> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <span data-astro-cid-sz7xmlte>© 2026 Nexus Ops · Bogotá, Colombia</span> <span data-astro-cid-sz7xmlte>Construido por <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'andres_nova'})" data-astro-cid-sz7xmlte>Andres Nova</a> · AI Solutions Architect</span> </div> </footer>  <!-- TODO: Reemplaza el número de WhatsApp: wa.me/57XXXXXXXXXX --><a href="https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Nexus%20Ops" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chatea con Nexus Ops por WhatsApp" onclick="gtag('event','whatsapp_click',{event_category:'engagement',event_label:'floating_btn'})" data-astro-cid-hrefmprn> <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" data-astro-cid-hrefmprn> <path d="M16 3C8.82 3 3 8.82 3 16c0 2.38.65 4.6 1.78 6.52L3 29l6.66-1.74A13 13 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm6.46 18.15c-.27.75-1.56 1.44-2.15 1.53-.55.08-1.24.12-2-.12-.47-.14-1.06-.33-1.82-.65-3.2-1.38-5.29-4.6-5.45-4.81-.16-.21-1.3-1.73-1.3-3.3s.82-2.35 1.12-2.67c.27-.3.59-.37.79-.37l.56.01c.18.01.43-.07.67.51.27.62.91 2.23.99 2.39.08.16.14.36.03.57-.12.21-.18.33-.35.51-.17.18-.36.41-.51.55-.17.16-.35.34-.15.66.21.32.9 1.48 1.93 2.4 1.33 1.18 2.45 1.55 2.8 1.72.34.17.54.14.74-.09.21-.23.88-1.02 1.11-1.38.23-.35.47-.29.79-.18.32.12 2.04.96 2.39 1.13.35.17.58.25.67.4.08.15.08.87-.19 1.63Z" data-astro-cid-hrefmprn></path> </svg> </a>  <div class="sticky-cta" id="sticky-cta" data-astro-cid-544d75lg> <a href="#contacto" onclick="gtag('event','cta_click',{event_category:'sticky_mobile',event_label:'contacto'})" data-astro-cid-544d75lg>
+Quiero automatizar mi negocio →
+</a> </div> <script>
 /* ── STICKY CTA: ocultar cuando se ve #contacto ── */
 (function () {
   const stickyEl  = document.getElementById('sticky-cta');
@@ -1695,26 +243,103 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobil
   }, { threshold: 0.15 });
   obs.observe(contactEl);
 })();
-
-/* ── FAQ ACCORDION ── */
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item     = btn.closest('.faq-item');
-    const isOpen   = item.classList.contains('open');
-    // cerrar todos
-    document.querySelectorAll('.faq-item.open').forEach(el => {
-      el.classList.remove('open');
-      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-    });
-    // abrir el que se tocó (si estaba cerrado)
-    if (!isOpen) {
-      item.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      gtag('event', 'faq_open', { event_category: 'engagement', event_label: btn.textContent.trim().slice(0, 60) });
+</script>  <script>
+(function () {
+  const milestones = { 25: false, 50: false, 75: false, 90: false };
+  window.addEventListener('scroll', () => {
+    const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    for (const m in milestones) {
+      if (pct >= m && !milestones[m]) {
+        milestones[m] = true;
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: m + '%' });
+      }
     }
   });
-});
-</script>
 
-</body>
-</html>
+  const sections = document.querySelectorAll('section[id]');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        gtag('event', 'section_view', { event_category: 'navigation', event_label: e.target.id });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  } else {
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+  }
+})();
+</script>  <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button> <script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    function isDark(t) {
+      if (t === 'dark') return true;
+      if (t === 'light') return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      btn.textContent = isDark(t) ? '☀️' : '🌙';
+      localStorage.setItem('nops-theme', t);
+    }
+    const saved = localStorage.getItem('nops-theme');
+    applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    btn.addEventListener('click', () => {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* PARTÍCULAS — corre en toda página con BaseLayout (landing y blog) */
+    const canvas = document.getElementById('bg-canvas');
+    if (!canvas) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
+    const ctx = canvas.getContext('2d');
+    const N = 55, MAX_D = 140;
+    let pts = [];
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    function mkPt() {
+      return { x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+               vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+               r: Math.random() * 1.4 + .5 };
+    }
+    function getColors() {
+      return isDark(root.getAttribute('data-theme'))
+        ? { dot: 'rgba(109,131,247,.18)', base: 'rgba(109,131,247,' }
+        : { dot: 'rgba(79,95,214,.12)',  base: 'rgba(79,95,214,' };
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const c = getColors();
+      pts.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = c.dot; ctx.fill();
+      });
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX_D) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = c.base + ((1 - d / MAX_D) * .08).toFixed(3) + ')';
+            ctx.lineWidth = .8; ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    resize(); pts = Array.from({ length: N }, mkPt); draw();
+    window.addEventListener('resize', () => { resize(); pts = Array.from({ length: N }, mkPt); });
+  })();
+  </script> </body> </html>

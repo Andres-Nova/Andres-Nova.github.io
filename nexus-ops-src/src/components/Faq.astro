@@ -1,0 +1,117 @@
+---
+// nexus-ops-src/src/components/Faq.astro
+---
+
+<section id="faq">
+  <div class="container">
+    <div class="tag">Preguntas frecuentes</div>
+    <h2 class="section-title">Todo lo que necesitas saber</h2>
+    <p class="section-sub">Resuelve tus dudas antes de dar el paso. Si no encuentras tu pregunta, <a href="#contacto">escríbenos</a>.</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Necesito conocimientos técnicos para usar Nexus Ops?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          No. Nexus Ops se encarga de toda la configuración técnica: landing page, pasarela de pago, logística y bot de WhatsApp. Tú solo nos cuentas cómo funciona tu negocio (productos, precios, preguntas frecuentes) y nosotros montamos todo. Sin código, sin servidores, sin dolores de cabeza técnicos.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cuánto tiempo tarda la puesta en marcha?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          El proceso completo toma entre 3 y 5 días hábiles. El día 1 nos envías la información de tu negocio (async, 10 min). Los días 2 y 3 configuramos tu stack. El día 4 revisamos todo contigo en una videollamada de 30 min. El día 5 salimos en vivo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Puedo cancelar en cualquier momento?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          Sí. No exigimos contratos de largo plazo. Puedes cancelar tu suscripción con 15 días de aviso antes del siguiente ciclo de facturación. No hay penalizaciones. Creemos en ganarnos tu confianza mes a mes con resultados.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Las comisiones de PSE o Nequi están incluidas en el precio?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          El precio del plan cubre la integración y operación de la pasarela. Las comisiones de las redes de pago (PSE, Nequi, redes de tarjetas) son costos directos de esas plataformas — típicamente entre 1.5% y 3.5% por transacción — y corren por cuenta del negocio, igual que ocurriría si los contrataras directamente. Sin embargo, al tenerlos integrados en Nexus Ops ahorras el tiempo y costo de gestión manual.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿El bot de WhatsApp reemplaza a mi equipo de ventas?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          No reemplaza — libera. El bot atiende el 70% de las consultas repetitivas (precios, disponibilidad, estado de pedido, instrucciones de pago), para que tú y tu equipo se enfoquen en las conversaciones de alto valor: clientes especiales, quejas complejas, negociaciones. Puedes escalar a un agente humano desde el mismo hilo de WhatsApp.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Qué pasa si mi negocio crece y necesito más capacidad?
+          <i class="faq-chevron">▾</i>
+        </button>
+        <div class="faq-a">
+          La infraestructura de Nexus Ops escala contigo. Puedes subir de plan en cualquier momento sin perder configuraciones ni historial. Para negocios con necesidades muy específicas (múltiples tiendas, integraciones propietarias) ofrecemos el plan Empresa con condiciones a medida.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+#faq { background: var(--bg2); }
+.faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+.faq-item {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
+}
+.faq-item.open { border-color: rgba(109,131,247,.35); }
+.faq-q {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1.15rem 1.5rem; cursor: pointer; background: none; border: none;
+  color: var(--text); font-size: .93rem; font-weight: 600; text-align: left;
+  font-family: 'Inter', sans-serif; transition: color .2s;
+}
+.faq-q:hover { color: var(--accent); }
+.faq-chevron { flex-shrink: 0; transition: transform .3s ease; color: var(--text-muted); font-style: normal; }
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s ease, padding .35s ease;
+  padding: 0 1.5rem; font-size: .87rem; color: var(--text-muted); line-height: 1.75;
+}
+.faq-item.open .faq-a { max-height: 400px; padding: 0 1.5rem 1.25rem; }
+</style>
+
+<script is:inline>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item     = btn.closest('.faq-item');
+    const isOpen   = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      gtag('event', 'faq_open', { event_category: 'engagement', event_label: btn.textContent.trim().slice(0, 60) });
+    }
+  });
+});
+</script>

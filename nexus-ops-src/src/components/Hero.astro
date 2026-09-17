@@ -1,0 +1,181 @@
+---
+// nexus-ops-src/src/components/Hero.astro
+// Hero section con badge, h1, subtítulo, CTAs y contadores de stats
+// No incluye canvas de partículas (ya está en BaseLayout)
+// El script de contadores se ejecuta cuando .hero-stats es visible en viewport
+---
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Automatización Comercial con IA · Colombia</div>
+    <h1>Tu operación comercial,<br><em>automatizada desde el día uno</em></h1>
+    <p class="hero-sub">
+      Nexus Ops integra landing page, pasarela de pago, logística y asistente IA para WhatsApp
+      en un solo servicio listo para usar — sin equipo técnico, sin complicaciones.
+    </p>
+    <div class="hero-cta">
+      <a href="#contacto" class="btn btn-primary" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'quiero_empezar'})">Quiero empezar</a>
+      <a href="#servicios" class="btn btn-outline" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'ver_servicios'})">Ver qué incluye</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">2.5M+</span>
+        <span class="stat-label">microempresarios en Colombia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">80%</span>
+        <span class="stat-label">venden por WhatsApp</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">70%</span>
+        <span class="stat-label">de consultas atendidas por IA</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">60%</span>
+        <span class="stat-label">menos tiempo operativo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── HERO ── */
+  #hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse 80% 55% at 50% -5%, rgba(109, 131, 247, 0.09) 0%, transparent 70%);
+    padding-top: 3rem;
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: none;
+  }
+
+  .hero-badge::before {
+    content: '●';
+    font-size: 0.6rem;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+    margin-bottom: 1.8rem;
+    text-wrap: balance;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 2.8rem;
+    line-height: 1.65;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-cta .btn-outline {
+    display: none;
+  }
+
+  .hero-stats {
+    margin-top: 4.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 0.25rem;
+    line-height: 1.35;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    #hero {
+      min-height: auto;
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+  }
+</style>
+
+<script is:inline>
+/* ── COUNT-UP STATS ── */
+(function () {
+  const stats = [
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(1) .stat-num'), end: 2.5, suffix: 'M+', decimals: 1 },
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(2) .stat-num'), end: 80,  suffix: '%',  decimals: 0 },
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(3) .stat-num'), end: 70,  suffix: '%',  decimals: 0 },
+    { el: document.querySelector('.hero-stats .stat-item:nth-child(4) .stat-num'), end: 60,  suffix: '%',  decimals: 0 },
+  ];
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function countUp(s) {
+    const dur = 1400, start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = (ease * s.end).toFixed(s.decimals);
+      s.el.textContent = val + s.suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        stats.forEach(s => { if (s.el) countUp(s); });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) io.observe(statsEl);
+})();
+</script>

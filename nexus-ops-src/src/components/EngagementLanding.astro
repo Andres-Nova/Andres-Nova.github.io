@@ -1,0 +1,42 @@
+---
+// nexus-ops-src/src/components/EngagementLanding.astro
+// Tracking de scroll_depth / section_view + animación fade-up al hacer scroll.
+// Exclusivo de la landing (index.astro) — el blog y el post NO emitían estos
+// eventos GA4 en el sitio original, así que este script no va en BaseLayout.
+---
+
+<script is:inline>
+(function () {
+  const milestones = { 25: false, 50: false, 75: false, 90: false };
+  window.addEventListener('scroll', () => {
+    const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    for (const m in milestones) {
+      if (pct >= m && !milestones[m]) {
+        milestones[m] = true;
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: m + '%' });
+      }
+    }
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        gtag('event', 'section_view', { event_category: 'navigation', event_label: e.target.id });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  } else {
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+  }
+})();
+</script>

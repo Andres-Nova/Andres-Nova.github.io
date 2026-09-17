@@ -1,0 +1,55 @@
+---
+// BlogPreviewLanding.astro - Blog preview section on landing
+---
+
+<section id="blog">
+  <div class="container">
+    <div class="tag">Blog</div>
+    <h2 class="section-title">Últimos artículos</h2>
+    <p class="section-sub">Automatización e IA comercial para emprendedores colombianos.</p>
+
+    <div class="blog-card-grid">
+      <a
+        href="./blog/automatizacion-ia-emprendedores-colombia/"
+        class="blog-preview-card fade-up"
+        onclick="gtag('event','blog_click',{event_category:'landing',event_label:'automatizacion-ia'})"
+      >
+        <div class="bpc-inner">
+          <div class="bpc-meta">
+            <span class="bpc-badge">Automatización · IA Comercial</span>
+            <span class="bpc-time">4 min de lectura</span>
+          </div>
+          <h3 class="bpc-title">Cómo automatizar tu negocio con IA si eres emprendedor en Colombia</h3>
+          <p class="bpc-desc">El 80 % de las compras en Colombia inicia con un mensaje de WhatsApp. Descubre cómo un bot bien entrenado resuelve el 70 % de esas consultas mientras tú duermes.</p>
+          <span class="bpc-cta">
+            Leer artículo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+#blog { background: var(--bg); }
+.blog-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; max-width: 760px; }
+.blog-preview-card {
+  display: block; text-decoration: none;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color .2s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
+}
+.blog-preview-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.3); text-decoration: none; }
+.bpc-inner { padding: 1.75rem 2rem; }
+.bpc-meta { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.bpc-badge { font-size: .72rem; font-weight: 600; letter-spacing: .04em; padding: .2rem .6rem; border-radius: 4px; background: rgba(109,131,247,.1); border: 1px solid rgba(109,131,247,.25); color: var(--accent); }
+.bpc-time { font-size: .78rem; color: var(--text-muted); }
+.bpc-title { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: .75rem; letter-spacing: -.02em; }
+.bpc-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
+.bpc-cta { font-size: .85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: .4rem; transition: gap .2s; }
+.blog-preview-card:hover .bpc-cta { gap: .65rem; }
+</style>

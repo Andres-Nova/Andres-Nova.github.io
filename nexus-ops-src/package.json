@@ -1,0 +1,18 @@
+{
+  "name": "nexus-ops-src",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "postbuild": "rm -rf ../nexus-ops/astro",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.13.0"
+  }
+}

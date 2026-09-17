@@ -1,0 +1,205 @@
+---
+// Nav.astro — Navegación de landing con menú móvil
+// Estilos base (nav, .nav-brand) ya definidos en BaseLayout.astro
+// Este componente agrega: justify-content override, .nav-links, .hamburger, .mobile-nav y script
+---
+
+<nav>
+  <span class="nav-brand">Nexus<span>Ops</span></span>
+  <ul class="nav-links">
+    <li><a href="#servicios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'servicios'})">Servicios</a></li>
+    <li><a href="#segmento" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'segmento'})">Para quién</a></li>
+    <li><a href="#proceso" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'proceso'})">Cómo funciona</a></li>
+    <li><a href="#precios" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'precios'})">Precios</a></li>
+    <li><a href="#calculadora" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'calculadora'})">Calculadora</a></li>
+    <li><a href="#blog" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'blog'})">Blog</a></li>
+    <li><a href="./blog/" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'ver_todos_blog'})">Ver todos</a></li>
+    <li><a href="#contacto" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'contacto'})">Contacto</a></li>
+  </ul>
+  <a href="https://andres-nova.github.io" class="nav-back" onclick="gtag('event','nav_click',{event_category:'nav',event_label:'portafolio'})">← Portafolio</a>
+  <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── MENÚ MÓVIL ── -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Cerrar menú">✕</button>
+  <a href="#servicios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'servicios'})">Servicios</a>
+  <a href="#segmento" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'segmento'})">Para quién</a>
+  <a href="#proceso" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'proceso'})">Cómo funciona</a>
+  <a href="#precios" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'precios'})">Precios</a>
+  <a href="#calculadora" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'calculadora'})">Calculadora</a>
+  <a href="#blog" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'blog'})">Blog</a>
+  <a href="#contacto" onclick="closeMobileNav();gtag('event','nav_click',{event_category:'mobile_nav',event_label:'contacto'})" style="color:var(--accent);border-color:rgba(109,131,247,.3)">Quiero empezar →</a>
+</div>
+
+<style>
+  /* ── NAV: la landing extiende el nav base con su propio padding/blur y
+     justify-content:space-between (en el original la landing no comparte
+     estos valores con blog/post) ── */
+  nav {
+    justify-content: space-between;
+    padding: .9rem 2rem;
+    backdrop-filter: blur(12px);
+  }
+
+  /* El nav base pone margin-left:auto en .nav-back para empujarlo a la
+     derecha cuando el nav solo tiene brand+back (blog/post). En la landing
+     ya usamos justify-content:space-between, así que ese margen extra
+     rompe la distribución (los links se apilan a la izquierda). */
+  .nav-back {
+    margin-left: 0;
+  }
+
+  /* ── NAV LINKS (desktop) ── */
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* ── HAMBURGER MENU (mobile) ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.35rem;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  @media (max-width: 640px) {
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* ── MOBILE NAV OVERLAY ── */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: var(--bg);
+    padding: 5rem 2rem 2rem;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+  }
+  .mobile-nav.open {
+    display: flex;
+  }
+  .mobile-nav a {
+    color: var(--text);
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .mobile-nav a:last-child {
+    border-bottom: none;
+  }
+  .mobile-nav a:hover {
+    color: var(--accent);
+    padding-left: 0.5rem;
+  }
+  .mobile-nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: color 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .mobile-nav-close:hover {
+    color: var(--accent);
+    transform: rotate(90deg);
+  }
+
+  /* ── Ocultar nav-links en mobile ── */
+  @media (max-width: 640px) {
+    .nav-links {
+      display: none;
+    }
+    nav {
+      padding: .8rem 1.2rem;
+    }
+  }
+</style>
+
+<script is:inline>
+(function () {
+  /* ── MENÚ HAMBURGUESA ── */
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  const mobileNavClose = document.getElementById('mobile-nav-close');
+
+  function openMobileNav() {
+    mobileNav.classList.add('open');
+    hamburgerBtn.classList.add('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    gtag('event', 'nav_click', { event_category: 'mobile_nav', event_label: 'open' });
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  /* Los onclick="closeMobileNav()" inline de los enlaces del menú móvil
+     necesitan encontrar la función en window (scope global de página),
+     aunque esté declarada dentro de esta IIFE. */
+  window.openMobileNav = openMobileNav;
+  window.closeMobileNav = closeMobileNav;
+
+  hamburgerBtn.addEventListener('click', () => {
+    mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+  });
+  mobileNavClose.addEventListener('click', closeMobileNav);
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeMobileNav();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+})();
+</script>

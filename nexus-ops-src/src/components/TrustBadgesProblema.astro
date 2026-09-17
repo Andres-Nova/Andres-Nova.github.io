@@ -1,0 +1,152 @@
+---
+// nexus-ops-src/src/components/TrustBadgesProblema.astro
+// Secciones de confianza (trust badges) y problema
+// Estático, sin JS
+// IMPORTANTE: #problema tiene display:none para coincidir con el sitio real
+---
+
+<!-- ── TRUST BADGES ── -->
+<section id="confianza">
+  <div class="container">
+    <p class="trust-label">Tecnología en la que confías</p>
+    <div class="trust-grid">
+      <span class="trust-badge">🏦 PSE</span>
+      <span class="trust-badge">📱 Nequi</span>
+      <span class="trust-badge">📦 Servientrega</span>
+      <span class="trust-badge">🚚 Coordinadora</span>
+      <span class="trust-badge">✈️ Envia</span>
+      <span class="trust-badge">💬 WhatsApp Business API</span>
+      <span class="trust-badge">🛡️ SSL / HTTPS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEMA ── -->
+<section id="problema">
+  <div class="container">
+    <div class="tag">El problema</div>
+    <h2 class="section-title">¿Te suena familiar?</h2>
+    <p class="section-sub">
+      Millones de emprendedores colombianos venden bien, pero operan de forma manual, fragmentada y sin escala.
+    </p>
+    <div class="problema-grid">
+      <div class="problema-card">
+        <div class="problema-icon">📱</div>
+        <h3>Ventas por DM</h3>
+        <p>Gestionas pedidos por mensaje directo en Instagram o WhatsApp, sin registro ni orden.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">💸</div>
+        <h3>Cobros informales</h3>
+        <p>Recibes pagos por transferencia sin comprobante formal ni conciliación automática.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">🔁</div>
+        <h3>Preguntas repetitivas</h3>
+        <p>Respondes las mismas preguntas decenas de veces al día: precio, disponibilidad, envío.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">📦</div>
+        <h3>Logística manual</h3>
+        <p>Generas guías a mano con cada operador y haces seguimiento uno por uno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── TRUST BADGES ── */
+  #confianza {
+    padding: 1.5rem 2rem !important;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trust-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .trust-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .trust-badge:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    transform: translateY(-2px);
+  }
+
+  /* ── PROBLEMA ── */
+  #problema {
+    background: var(--bg2);
+    display: none;
+  }
+
+  .problema-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .problema-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .problema-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .problema-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .problema-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    #confianza {
+      padding: 1.25rem 1.2rem !important;
+    }
+
+    .trust-grid {
+      gap: 0.5rem;
+    }
+
+    .trust-badge {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
+    }
+  }
+</style>
