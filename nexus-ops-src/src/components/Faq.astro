@@ -11,6 +11,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
+          <span class="faq-num">01</span>
           ¿Necesito conocimientos técnicos para usar Nexus Ops?
           <i class="faq-chevron">▾</i>
         </button>
@@ -21,6 +22,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
+          <span class="faq-num">02</span>
           ¿Cuánto tiempo tarda la puesta en marcha?
           <i class="faq-chevron">▾</i>
         </button>
@@ -31,6 +33,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
+          <span class="faq-num">03</span>
           ¿Puedo cancelar en cualquier momento?
           <i class="faq-chevron">▾</i>
         </button>
@@ -41,6 +44,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
+          <span class="faq-num">04</span>
           ¿Las comisiones de PSE o Nequi están incluidas en el precio?
           <i class="faq-chevron">▾</i>
         </button>
@@ -51,6 +55,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
+          <span class="faq-num">05</span>
           ¿El bot de WhatsApp reemplaza a mi equipo de ventas?
           <i class="faq-chevron">▾</i>
         </button>
@@ -61,6 +66,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
+          <span class="faq-num">06</span>
           ¿Qué pasa si mi negocio crece y necesito más capacidad?
           <i class="faq-chevron">▾</i>
         </button>
@@ -78,24 +84,47 @@
 .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
 .faq-item {
   background: var(--bg3); border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
+  border-left: 3px solid transparent;
+  border-radius: var(--radius); overflow: hidden;
+  transition: border-color .25s, border-left-color .25s;
 }
-.faq-item.open { border-color: rgba(109,131,247,.35); }
+.faq-item.open {
+  border-color: rgba(109,131,247,.3);
+  border-left-color: var(--accent);
+}
 .faq-q {
-  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-  padding: 1.15rem 1.5rem; cursor: pointer; background: none; border: none;
+  width: 100%; display: flex; align-items: center; gap: .85rem;
+  padding: 1.1rem 1.5rem; cursor: pointer; background: none; border: none;
   color: var(--text); font-size: .93rem; font-weight: 600; text-align: left;
   font-family: 'Inter', sans-serif; transition: color .2s;
 }
 .faq-q:hover { color: var(--accent); }
+.faq-q:hover .faq-num { border-color: rgba(109,131,247,.5); color: var(--accent); }
+
+/* número de pregunta */
+.faq-num {
+  font-size: .7rem; font-weight: 800; font-variant-numeric: tabular-nums;
+  color: var(--text-muted); border: 1px solid var(--border);
+  border-radius: 6px; padding: .1rem .4rem; flex-shrink: 0;
+  transition: color .2s, border-color .2s; letter-spacing: .02em;
+}
+.faq-item.open .faq-num {
+  color: var(--accent); border-color: rgba(109,131,247,.4);
+  background: rgba(109,131,247,.08);
+}
+
+/* empuja el chevron a la derecha */
+.faq-q-text { flex: 1; }
+
 .faq-chevron { flex-shrink: 0; transition: transform .3s ease; color: var(--text-muted); font-style: normal; }
-.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--accent); }
 .faq-a {
   max-height: 0; overflow: hidden;
   transition: max-height .4s ease, padding .35s ease;
-  padding: 0 1.5rem; font-size: .87rem; color: var(--text-muted); line-height: 1.75;
+  padding: 0 1.5rem 0 calc(1.5rem + .7rem + .85rem); /* alinea con el texto */
+  font-size: .87rem; color: var(--text-muted); line-height: 1.75;
 }
-.faq-item.open .faq-a { max-height: 400px; padding: 0 1.5rem 1.25rem; }
+.faq-item.open .faq-a { max-height: 400px; padding-bottom: 1.25rem; }
 </style>
 
 <script is:inline>

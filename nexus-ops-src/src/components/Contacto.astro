@@ -32,6 +32,17 @@
 
       <!-- Columna derecha: formulario -->
       <div class="cta-form-wrap">
+        <!-- Progreso cupos fundadores -->
+        <div class="cupos-bar-wrap">
+          <div class="cupos-row">
+            <span class="cupos-label">Cupos fundadores</span>
+            <span class="cupos-count"><strong>8</strong> de 10 tomados</span>
+          </div>
+          <div class="cupos-track">
+            <div class="cupos-fill" style="width: 80%"></div>
+          </div>
+          <p class="cupos-note">Solo 2 lugares al precio fundador · Sin tarjeta de crédito</p>
+        </div>
         <form class="cta-form" id="waitlist-form">
           <label class="form-label" for="email-input">Tu correo electrónico</label>
           <input type="email" name="email" placeholder="tu@correo.com" id="email-input" required />
@@ -154,6 +165,31 @@
   text-align: center;
   margin-top: .25rem;
 }
+
+/* ── BARRA CUPOS FUNDADORES ── */
+.cupos-bar-wrap {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.cupos-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: .5rem;
+}
+.cupos-label { font-size: .78rem; font-weight: 600; color: var(--text-muted); letter-spacing: .04em; text-transform: uppercase; }
+.cupos-count { font-size: .85rem; color: var(--text); }
+.cupos-count strong { color: #fcd34d; }
+.cupos-track {
+  height: 6px; background: rgba(255,255,255,.06); border-radius: 999px;
+  overflow: hidden; margin-bottom: .5rem;
+}
+.cupos-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent) 0%, #fcd34d 100%);
+  animation: fill-in .8s ease forwards;
+}
+@keyframes fill-in { from { width: 0 !important; } }
+.cupos-note { font-size: .73rem; color: var(--text-muted); text-align: center; }
 </style>
 
 <script is:inline>

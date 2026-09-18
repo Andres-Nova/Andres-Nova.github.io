@@ -11,10 +11,15 @@
     </p>
     <div class="giscus-wrapper">
       <div class="opiniones-intro">
-        <span class="intro-icon">💬</span>
-        <div>
-          <strong>Comentarios públicos via GitHub Discussions</strong>
-          Necesitas una cuenta de GitHub gratuita para comentar. Tus mensajes quedan visibles para toda la comunidad.
+        <div class="opiniones-avatars">
+          <span class="avatar-placeholder">A</span>
+          <span class="avatar-placeholder">M</span>
+          <span class="avatar-placeholder">C</span>
+          <span class="avatar-more">+47</span>
+        </div>
+        <div class="opiniones-intro-text">
+          <strong>Únete a la conversación</strong>
+          Emprendedores colombianos comparten sus experiencias y preguntas. Necesitas cuenta GitHub gratuita para comentar.
         </div>
       </div>
       <script src="https://giscus.app/client.js"
@@ -44,11 +49,25 @@
     border-radius: var(--radius); padding: 2rem;
   }
   .opiniones-intro {
-    display: flex; gap: 1rem; align-items: flex-start;
-    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.15);
-    border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
-    font-size: .88rem; color: var(--text-muted);
+    display: flex; gap: 1rem; align-items: center;
+    background: linear-gradient(135deg, rgba(109,131,247,.08), rgba(109,131,247,.03));
+    border: 1px solid rgba(109,131,247,.2);
+    border-radius: 10px; padding: 1rem 1.5rem; margin-bottom: 1.5rem;
+    font-size: .87rem; color: var(--text-muted);
   }
-  .opiniones-intro .intro-icon { font-size: 1.4rem; flex-shrink: 0; }
-  .opiniones-intro strong { color: var(--text); display: block; margin-bottom: .25rem; }
+  .opiniones-intro-text strong { color: var(--text); display: block; margin-bottom: .2rem; font-size: .92rem; }
+
+  /* Avatares placeholder */
+  .opiniones-avatars { display: flex; align-items: center; flex-shrink: 0; }
+  .avatar-placeholder, .avatar-more {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; font-weight: 700; border: 2px solid var(--bg3);
+    margin-left: -8px;
+  }
+  .opiniones-avatars :first-child { margin-left: 0; }
+  .avatar-placeholder:nth-child(1) { background: rgba(109,131,247,.4); color: #fff; }
+  .avatar-placeholder:nth-child(2) { background: rgba(52,211,153,.35); color: #fff; }
+  .avatar-placeholder:nth-child(3) { background: rgba(251,191,36,.35); color: #fff; }
+  .avatar-more { background: var(--bg2); color: var(--text-muted); font-size: .68rem; }
 </style>

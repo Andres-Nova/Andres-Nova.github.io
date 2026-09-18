@@ -3,9 +3,10 @@
 ---
 
 <div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-urgency">🔥 Solo quedan <strong>2 cupos fundadores</strong> disponibles</div>
   <a href="#contacto"
      onclick="gtag('event','cta_click',{event_category:'sticky_mobile',event_label:'contacto'})">
-    Quiero automatizar mi negocio →
+    Quiero acceso anticipado →
   </a>
 </div>
 
@@ -28,8 +29,13 @@
 .sticky-cta {
   display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 480;
   background: rgba(10,14,26,.97); border-top: 1px solid var(--border);
-  padding: .85rem 1.25rem; backdrop-filter: blur(8px);
+  padding: .6rem 1.25rem .85rem; backdrop-filter: blur(8px);
 }
+.sticky-urgency {
+  text-align: center; font-size: .72rem; color: var(--text-muted);
+  margin-bottom: .4rem; letter-spacing: .01em;
+}
+.sticky-urgency strong { color: #fcd34d; }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) .sticky-cta { background: rgba(244,246,252,.97); }
 }
