@@ -30,13 +30,25 @@
           </span>
         </div>
       </a>
+      <!-- Card Próximamente -->
+      <div class="blog-preview-card blog-coming-soon fade-up" aria-hidden="true">
+        <div class="bpc-inner">
+          <div class="bpc-meta">
+            <span class="bpc-badge bpc-badge--soon">Próximamente</span>
+          </div>
+          <h3 class="bpc-title coming-title">El error más costoso del emprendedor con WhatsApp</h3>
+          <p class="bpc-desc coming-desc">Cómo responder tarde a un DM le costó a una tienda de ropa bogotana $4M en un mes — y qué hicieron para no repetirlo.</p>
+          <span class="bpc-cta coming-cta">Suscríbete para ser el primero en leerlo</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
 #blog { background: var(--bg); }
-.blog-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; max-width: 760px; }
+.blog-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; max-width: 820px; }
 .blog-preview-card {
   display: block; text-decoration: none;
   background: var(--bg2); border: 1px solid var(--border);
@@ -52,4 +64,31 @@
 .bpc-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
 .bpc-cta { font-size: .85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: .4rem; transition: gap .2s; }
 .blog-preview-card:hover .bpc-cta { gap: .65rem; }
+
+/* ── Card Próximamente ── */
+.blog-coming-soon {
+  cursor: default; position: relative; overflow: hidden;
+  border-style: dashed; border-color: var(--border);
+  opacity: .75;
+}
+.blog-coming-soon::before {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent, transparent 8px,
+    rgba(109,131,247,.03) 8px, rgba(109,131,247,.03) 16px
+  );
+  pointer-events: none;
+}
+.blog-coming-soon:hover {
+  border-color: rgba(109,131,247,.35);
+  transform: none; box-shadow: none;
+}
+.bpc-badge--soon {
+  background: rgba(251,191,36,.1); border-color: rgba(251,191,36,.3);
+  color: #fcd34d;
+}
+.coming-title { color: var(--text-muted); }
+.coming-desc { opacity: .7; }
+.coming-cta { font-size: .8rem; font-weight: 600; color: var(--text-muted); font-style: italic; }
 </style>

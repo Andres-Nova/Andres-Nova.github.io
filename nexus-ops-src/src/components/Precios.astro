@@ -7,13 +7,27 @@
     <div class="tag">Planes</div>
     <h2 class="section-title">Precios simples, sin sorpresas</h2>
     <p class="section-sub">Todo incluido desde el primer día. Sin costos ocultos, sin comisiones adicionales por venta.</p>
+
+    <!-- Toggle facturación -->
+    <div class="billing-toggle-wrap">
+      <span class="billing-label">Mensual</span>
+      <button class="billing-toggle" id="billing-toggle" aria-pressed="false" aria-label="Cambiar a facturación anual">
+        <span class="billing-knob"></span>
+      </button>
+      <span class="billing-label">Anual <span class="billing-save">Ahorra 20%</span></span>
+    </div>
+
     <div class="precios-grid">
 
       <!-- PLAN BÁSICO -->
       <div class="precio-card fade-up">
         <div>
           <div class="precio-nombre">Básico</div>
-          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$490.000 <small>/mes</small></div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">
+            Desde<br>
+            <span class="price-monthly">$490.000 <small>/mes</small></span>
+            <span class="price-annual" hidden>$4.704.000 <small>/año</small><br><small class="price-equiv">equiv. $392.000/mes</small></span>
+          </div>
           <div class="precio-desc">Ideal si estás comenzando y quieres tu primera infraestructura comercial funcionando.</div>
         </div>
         <ul class="precio-features">
@@ -35,7 +49,11 @@
         <div class="precio-popular">Más elegido</div>
         <div>
           <div class="precio-nombre">Pro</div>
-          <div class="precio-valor" style="margin:.5rem 0 .25rem">Desde<br>$890.000 <small>/mes</small></div>
+          <div class="precio-valor" style="margin:.5rem 0 .25rem">
+            Desde<br>
+            <span class="price-monthly">$890.000 <small>/mes</small></span>
+            <span class="price-annual" hidden>$8.544.000 <small>/año</small><br><small class="price-equiv">equiv. $712.000/mes</small></span>
+          </div>
           <div class="precio-desc">Para negocios con volumen creciente que necesitan automatización completa y soporte prioritario.</div>
         </div>
         <ul class="precio-features">
@@ -83,6 +101,22 @@
   </div>
 </section>
 
+<script is:inline>
+(function () {
+  const toggle = document.getElementById('billing-toggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', () => {
+    const anual = toggle.getAttribute('aria-pressed') !== 'true';
+    toggle.setAttribute('aria-pressed', anual ? 'true' : 'false');
+    document.querySelectorAll('.price-monthly').forEach(el => el.hidden = anual);
+    document.querySelectorAll('.price-annual').forEach(el => el.hidden = !anual);
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'cta_click', { event_category: 'precios', event_label: anual ? 'billing_annual' : 'billing_monthly' });
+    }
+  });
+})();
+</script>
+
 <style>
 #precios { background: var(--bg); }
 .precios-grid {
@@ -126,4 +160,33 @@
 .precio-cta-primary { background: var(--accent); color: var(--bg); }
 .precio-cta-primary:hover { background: #4f5fd6; text-decoration: none; transform: translateY(-1px); }
 .precios-nota { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 1.5rem; }
+
+/* ── BILLING TOGGLE ── */
+.billing-toggle-wrap {
+  display: flex; align-items: center; justify-content: center; gap: .75rem;
+  margin-bottom: 2rem;
+}
+.billing-label { font-size: .88rem; font-weight: 600; color: var(--text-muted); }
+.billing-toggle {
+  position: relative; width: 44px; height: 24px; border-radius: 999px;
+  background: var(--bg3); border: 1px solid var(--border);
+  cursor: pointer; padding: 0; transition: background .25s, border-color .25s;
+}
+.billing-toggle[aria-pressed="true"] {
+  background: rgba(109,131,247,.25); border-color: rgba(109,131,247,.5);
+}
+.billing-knob {
+  position: absolute; top: 3px; left: 3px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--text-muted); transition: transform .25s ease, background .25s;
+}
+.billing-toggle[aria-pressed="true"] .billing-knob {
+  transform: translateX(20px); background: var(--accent);
+}
+.billing-save {
+  background: rgba(52,211,153,.15); border: 1px solid rgba(52,211,153,.35);
+  color: #6ee7b7; font-size: .7rem; font-weight: 700; padding: .1rem .5rem;
+  border-radius: 999px; letter-spacing: .03em;
+}
+.price-equiv { font-size: .8rem; font-weight: 400; color: #6ee7b7; letter-spacing: 0; }
 </style>
