@@ -7,7 +7,7 @@
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-badge">Automatización Comercial con IA · Colombia</div>
+    <div class="hero-badge"><span class="badge-dot"></span>En acceso anticipado · Colombia</div>
     <h1>Tu operación comercial,<br><em>automatizada desde el día uno</em></h1>
     <p class="hero-sub">
       Nexus Ops integra landing page, pasarela de pago, logística y asistente IA para WhatsApp
@@ -15,8 +15,9 @@
     </p>
     <div class="hero-cta">
       <a href="#contacto" class="btn btn-primary" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'quiero_empezar'})">Quiero empezar</a>
-      <a href="#servicios" class="btn btn-outline" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'ver_servicios'})">Ver qué incluye</a>
+      <a href="#servicios" class="btn btn-outline" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'ver_servicios'})">Ver qué incluye ↓</a>
     </div>
+    <p class="hero-proof">🔒 Sin tarjeta · Respuesta en 24 h · Precio fundador para los primeros 10</p>
     <div class="hero-stats">
       <div class="stat-item">
         <span class="stat-num">2.5M+</span>
@@ -45,7 +46,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(ellipse 80% 55% at 50% -5%, rgba(109, 131, 247, 0.09) 0%, transparent 70%);
+    background:
+      radial-gradient(ellipse 70% 60% at 50% -10%, rgba(109,131,247,.18) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 40% at 80% 30%, rgba(79,95,214,.10) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 30% at 10% 60%, rgba(109,131,247,.07) 0%, transparent 55%);
     padding-top: 3rem;
   }
 
@@ -56,13 +60,32 @@
   }
 
   .hero-badge {
-    display: none;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: rgba(109,131,247,.1);
+    border: 1px solid rgba(109,131,247,.3);
+    color: var(--text);
+    border-radius: 999px;
+    padding: .35rem 1rem;
+    font-size: .82rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
   }
 
-  .hero-badge::before {
-    content: '●';
-    font-size: 0.6rem;
-    color: var(--accent);
+  .badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(109,131,247,.6);
+    animation: pulse-dot 2s infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(109,131,247,.6); }
+    70%  { box-shadow: 0 0 0 7px rgba(109,131,247,0); }
+    100% { box-shadow: 0 0 0 0 rgba(109,131,247,0); }
   }
 
   h1 {
@@ -94,8 +117,11 @@
     flex-wrap: wrap;
   }
 
-  .hero-cta .btn-outline {
-    display: none;
+  .hero-proof {
+    font-size: .82rem;
+    color: var(--text-muted);
+    margin-top: 1.25rem;
+    letter-spacing: .01em;
   }
 
   .hero-stats {

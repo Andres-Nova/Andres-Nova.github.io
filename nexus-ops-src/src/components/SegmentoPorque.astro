@@ -11,29 +11,43 @@
       Nexus Ops es para quienes tienen un negocio real y demanda validada, pero sin infraestructura comercial estructurada.
     </p>
     <div class="segmento-grid">
-      <ul class="segmento-list">
-        <li>
-          <span class="icon">👗</span>
-          <span class="text"><strong>Moda y accesorios</strong><span>Venta por Instagram, catálogos en WhatsApp</span></span>
-        </li>
-        <li>
-          <span class="icon">🍽️</span>
-          <span class="text"><strong>Alimentos y bebidas artesanales</strong><span>Pedidos domicilio, pagos informales</span></span>
-        </li>
-        <li>
-          <span class="icon">💄</span>
-          <span class="text"><strong>Cosméticos y cuidado personal</strong><span>Productos propios, clientes recurrentes</span></span>
-        </li>
-        <li>
-          <span class="icon">🏠</span>
-          <span class="text"><strong>Artículos para el hogar</strong><span>Alta rotación, múltiples referencias</span></span>
-        </li>
-        <li>
-          <span class="icon">💆</span>
-          <span class="text"><strong>Salud y bienestar</strong><span>Agendamiento, pagos anticipados</span></span>
-        </li>
-      </ul>
-      <div class="segmento-visual">
+      <div class="segmento-left">
+        <div class="sector-chips">
+          <button class="sector-chip active" data-sector="moda">👗 Moda</button>
+          <button class="sector-chip" data-sector="alimentos">🍽️ Alimentos</button>
+          <button class="sector-chip" data-sector="cosmeticos">💄 Cosméticos</button>
+          <button class="sector-chip" data-sector="hogar">🏠 Hogar</button>
+          <button class="sector-chip" data-sector="salud">💆 Salud</button>
+          <button class="sector-chip" data-sector="mascotas">🐾 Mascotas</button>
+        </div>
+        <div class="sector-details">
+          <div class="sector-detail active" data-sector="moda">
+            <strong>Moda y accesorios</strong>
+            <p>Catálogos en WhatsApp, ventas por Instagram, colecciones que cambian cada semana. Nexus Ops centraliza pedidos, cobra por Nequi/PSE y despacha con Coordinadora automáticamente.</p>
+          </div>
+          <div class="sector-detail" data-sector="alimentos">
+            <strong>Alimentos y bebidas artesanales</strong>
+            <p>Pedidos de domicilio a toda hora, pagos informales y confusiones en la entrega. Con Nexus Ops tus clientes pagan online, el bot confirma el pedido y el repartidor recibe la guía.</p>
+          </div>
+          <div class="sector-detail" data-sector="cosmeticos">
+            <strong>Cosméticos y cuidado personal</strong>
+            <p>Clientes recurrentes que preguntan disponibilidad de stock a cualquier hora. El bot responde, reserva y cobra — tú te enfocas en producir y entregar calidad.</p>
+          </div>
+          <div class="sector-detail" data-sector="hogar">
+            <strong>Artículos para el hogar</strong>
+            <p>Alta rotación, múltiples referencias y despachos a todo el país. Nexus Ops genera guías masivas con Servientrega/Envia y actualiza al cliente con el número de rastreo automáticamente.</p>
+          </div>
+          <div class="sector-detail" data-sector="salud">
+            <strong>Salud y bienestar</strong>
+            <p>Agendamiento de citas, pagos anticipados y recordatorios. El asistente IA califica al cliente, agenda el turno disponible y envía recordatorio 24 h antes — sin asistente humano.</p>
+          </div>
+          <div class="sector-detail" data-sector="mascotas">
+            <strong>Productos y servicios para mascotas</strong>
+            <p>Accesorios, alimento premium, peluquería. Clientes que preguntan por tallas y compatibilidad. El bot asesora, el cliente paga y el pedido sale solo con guía de Envia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="segmento-visual" style="align-self: start;">
         <div class="big-num">2.5M</div>
         <div class="big-label">microempresarios activos en Colombia<br><small>(DANE, 2023)</small></div>
         <hr class="divider" />
@@ -49,6 +63,23 @@
     </div>
   </div>
 </section>
+
+<script is:inline>
+(function () {
+  const chips   = document.querySelectorAll('.sector-chip');
+  const details = document.querySelectorAll('.sector-detail');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const s = chip.dataset.sector;
+      chips.forEach(c => c.classList.toggle('active', c === chip));
+      details.forEach(d => d.classList.toggle('active', d.dataset.sector === s));
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'sector_click', { event_category: 'segmento', event_label: s });
+      }
+    });
+  });
+})();
+</script>
 
 <!-- ── POR QUÉ NEXUS OPS ── -->
 <section id="porque">
@@ -81,17 +112,56 @@
 
 <style>
 #segmento { background: var(--bg2); }
-.segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 @media (max-width: 700px) { .segmento-grid { grid-template-columns: 1fr; } }
-.segmento-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-.segmento-list li {
-  display: flex; align-items: flex-start; gap: .75rem;
-  background: var(--bg3); border: 1px solid var(--border);
-  border-radius: 8px; padding: 1rem 1.25rem;
+
+/* ── SECTOR CHIPS ── */
+.segmento-left { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.sector-chips {
+  display: flex; flex-wrap: wrap; gap: .5rem;
 }
-.segmento-list li .icon { font-size: 1.3rem; flex-shrink: 0; }
-.segmento-list li .text strong { display: block; font-weight: 600; font-size: .95rem; }
-.segmento-list li .text span { font-size: .85rem; color: var(--text-muted); }
+
+.sector-chip {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 8px; padding: .45rem 1rem;
+  font-size: .83rem; font-weight: 600; color: var(--text-muted);
+  cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif;
+}
+
+.sector-chip:hover {
+  border-color: var(--accent); color: var(--text);
+}
+
+.sector-chip.active {
+  background: rgba(109,131,247,.12);
+  border-color: rgba(109,131,247,.45);
+  color: var(--accent);
+}
+
+/* ── SECTOR DETAILS ── */
+.sector-details { position: relative; min-height: 140px; }
+
+.sector-detail {
+  display: none;
+  flex-direction: column; gap: .5rem;
+  background: var(--bg3); border: 1px solid rgba(109,131,247,.2);
+  border-radius: 10px; padding: 1.25rem 1.5rem;
+  animation: fadeDetail .25s ease;
+}
+
+.sector-detail.active { display: flex; }
+
+@keyframes fadeDetail {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.sector-detail strong { font-size: .95rem; font-weight: 700; color: var(--text); }
+.sector-detail p { font-size: .87rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+/* ── SEGMENTO VISUAL ── */
 .segmento-visual {
   background: linear-gradient(135deg, rgba(109,131,247,.06), rgba(109,131,247,.02));
   border: 1px solid var(--border); border-radius: var(--radius);
@@ -106,13 +176,14 @@
 
 #porque {
   background: var(--bg);
-  display: none;
 }
 .porque-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
 .porque-item {
-  padding: 1.5rem; border-left: 3px solid rgba(255,255,255,.4);
+  padding: 1.5rem; border-left: 3px solid rgba(109,131,247,.4);
   background: var(--bg2); border-radius: 0 var(--radius) var(--radius) 0;
+  transition: border-color .2s, transform .2s;
 }
+.porque-item:hover { border-color: var(--accent); transform: translateX(4px); }
 .porque-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
 .porque-item p { font-size: .88rem; color: var(--text-muted); }
 </style>

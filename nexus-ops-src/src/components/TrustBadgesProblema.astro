@@ -27,28 +27,44 @@
     <div class="tag">El problema</div>
     <h2 class="section-title">¿Te suena familiar?</h2>
     <p class="section-sub">
-      Millones de emprendedores colombianos venden bien, pero operan de forma manual, fragmentada y sin escala.
+      Vendes bien, pero operas de forma manual, fragmentada y sin escala. Cada venta te cuesta tiempo que no tienes.
     </p>
     <div class="problema-grid">
       <div class="problema-card">
-        <div class="problema-icon">📱</div>
+        <div class="problema-header">
+          <span class="problema-icon">📱</span>
+          <span class="problema-badge">Problema 1</span>
+        </div>
         <h3>Ventas por DM</h3>
-        <p>Gestionas pedidos por mensaje directo en Instagram o WhatsApp, sin registro ni orden.</p>
+        <p>Gestionas pedidos por mensaje en Instagram o WhatsApp, sin registro ni orden. Se te pierden clientes.</p>
+        <div class="problema-arrow">Nexus Ops → landing + bot que captura y registra cada pedido</div>
       </div>
       <div class="problema-card">
-        <div class="problema-icon">💸</div>
+        <div class="problema-header">
+          <span class="problema-icon">💸</span>
+          <span class="problema-badge">Problema 2</span>
+        </div>
         <h3>Cobros informales</h3>
-        <p>Recibes pagos por transferencia sin comprobante formal ni conciliación automática.</p>
+        <p>Recibes transferencias sin comprobante formal ni conciliación automática. Tu contabilidad es un caos.</p>
+        <div class="problema-arrow">Nexus Ops → PSE, Nequi y tarjetas con recibos automáticos</div>
       </div>
       <div class="problema-card">
-        <div class="problema-icon">🔁</div>
+        <div class="problema-header">
+          <span class="problema-icon">🔁</span>
+          <span class="problema-badge">Problema 3</span>
+        </div>
         <h3>Preguntas repetitivas</h3>
-        <p>Respondes las mismas preguntas decenas de veces al día: precio, disponibilidad, envío.</p>
+        <p>Respondes las mismas preguntas decenas de veces al día: precio, disponibilidad, tiempo de envío.</p>
+        <div class="problema-arrow">Nexus Ops → bot IA responde el 70% sin intervención</div>
       </div>
       <div class="problema-card">
-        <div class="problema-icon">📦</div>
+        <div class="problema-header">
+          <span class="problema-icon">📦</span>
+          <span class="problema-badge">Problema 4</span>
+        </div>
         <h3>Logística manual</h3>
-        <p>Generas guías a mano con cada operador y haces seguimiento uno por uno.</p>
+        <p>Generas guías a mano y haces seguimiento uno por uno. Pierdes horas que podrías vender.</p>
+        <div class="problema-arrow">Nexus Ops → guías automáticas + trazabilidad en tiempo real</div>
       </div>
     </div>
   </div>
@@ -102,36 +118,71 @@
   /* ── PROBLEMA ── */
   #problema {
     background: var(--bg2);
-    display: none;
   }
 
   .problema-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
   }
 
   .problema-card {
     background: var(--bg3);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(248,113,113,.18);
     border-radius: 12px;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    transition: border-color .2s, transform .2s;
   }
 
-  .problema-icon {
-    font-size: 1.8rem;
-    margin-bottom: 0.75rem;
+  .problema-card:hover {
+    border-color: rgba(248,113,113,.35);
+    transform: translateY(-3px);
+  }
+
+  .problema-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .25rem;
+  }
+
+  .problema-icon { font-size: 1.6rem; }
+
+  .problema-badge {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(248,113,113,.7);
+    background: rgba(248,113,113,.08);
+    border: 1px solid rgba(248,113,113,.2);
+    border-radius: 4px;
+    padding: .18rem .55rem;
   }
 
   .problema-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: .98rem;
+    font-weight: 700;
+    color: var(--text);
   }
 
   .problema-card p {
-    font-size: 0.9rem;
+    font-size: .87rem;
     color: var(--text-muted);
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  .problema-arrow {
+    font-size: .78rem;
+    color: var(--accent);
+    font-weight: 600;
+    padding-top: .5rem;
+    border-top: 1px solid var(--border);
+    line-height: 1.4;
   }
 
   /* ── RESPONSIVE ── */

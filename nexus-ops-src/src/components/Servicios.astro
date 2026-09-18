@@ -15,11 +15,13 @@
     <div class="servicios-grid">
 
       <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Monitor / landing page -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-          </svg>
+        <div class="svc-header">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <span class="svc-num">01</span>
         </div>
         <h3>Landing Page de Producto</h3>
         <p>Página optimizada para conversión, hospedada y configurada por Nexus Ops. Diseño profesional, carga rápida, adaptada a tu marca.</p>
@@ -31,11 +33,13 @@
       </div>
 
       <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Tarjeta de crédito / pago -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>
-          </svg>
+        <div class="svc-header">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>
+            </svg>
+          </div>
+          <span class="svc-num">02</span>
         </div>
         <h3>Pasarela de Pago Local</h3>
         <p>Integración con PSE, Nequi y tarjetas de crédito/débito. Conciliación automática y comprobantes digitales listos para el cliente.</p>
@@ -47,12 +51,14 @@
       </div>
 
       <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Caja / logística -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-2"/>
-            <path d="M3.3 7l8.7 5 8.7-5M12 22V12"/>
-          </svg>
+        <div class="svc-header">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-2"/>
+              <path d="M3.3 7l8.7 5 8.7-5M12 22V12"/>
+            </svg>
+          </div>
+          <span class="svc-num">03</span>
         </div>
         <h3>Logística Automatizada</h3>
         <p>Integración con Servientrega, Coordinadora y Envia. Generación de guías y trazabilidad en tiempo real sin intervención manual.</p>
@@ -64,12 +70,14 @@
       </div>
 
       <div class="servicio-card fade-up">
-        <div class="svc-icon">
-          <!-- Chat bot / IA -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            <path d="M8 10h.01M12 10h.01M16 10h.01"/>
-          </svg>
+        <div class="svc-header">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <path d="M8 10h.01M12 10h.01M16 10h.01"/>
+            </svg>
+          </div>
+          <span class="svc-num">04</span>
         </div>
         <h3>Asistente IA para WhatsApp</h3>
         <p>Bot entrenado con la info de tu negocio. Atiende consultas frecuentes, califica clientes, procesa pedidos y hace seguimiento postventa 24/7.</p>
@@ -101,12 +109,35 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 2rem;
-    transition: border-color 0.25s, transform 0.25s;
+    transition: border-color .25s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
   }
 
   .servicio-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
+    border-color: rgba(109,131,247,.5);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(109,131,247,.12), 0 0 0 1px rgba(109,131,247,.15);
+  }
+
+  /* ── HEADER con icono + número ── */
+  .svc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.4rem;
+  }
+
+  .svc-num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgba(109,131,247,.15);
+    letter-spacing: -.05em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    transition: color .25s;
+  }
+
+  .servicio-card:hover .svc-num {
+    color: rgba(109,131,247,.35);
   }
 
   .servicio-num {
@@ -178,11 +209,6 @@
   }
 
   /* ── OVERRIDES — ocultar elementos viejos ── */
-  .servicio-icon {
-    display: none;
-  }
-
-  .servicio-num {
-    display: none;
-  }
+  .servicio-icon { display: none; }
+  .servicio-num  { display: none; }
 </style>

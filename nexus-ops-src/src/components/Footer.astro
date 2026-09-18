@@ -25,6 +25,10 @@
       <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'lista_espera'})">Lista de espera</a>
     </div>
   </div>
+  <div class="footer-cta-strip">
+    <span>¿Todavía dudando? Empieza con una conversación sin compromiso.</span>
+    <a href="#contacto" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'footer_cta'})">Únete a la lista de espera →</a>
+  </div>
   <div class="footer-bottom">
     <span>© 2026 Nexus Ops · Bogotá, Colombia</span>
     <span>Construido por <a href="https://andres-nova.github.io" onclick="gtag('event','footer_click',{event_category:'footer',event_label:'andres_nova'})">Andres Nova</a> · AI Solutions Architect</span>
@@ -61,8 +65,26 @@ footer {
 }
 .footer-bottom a { color: var(--text-muted); }
 .footer-bottom a:hover { color: var(--text); }
+
+.footer-cta-strip {
+  max-width: 960px; margin: 0 auto 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; flex-wrap: wrap;
+  background: rgba(109,131,247,.06);
+  border: 1px solid rgba(109,131,247,.2);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+}
+.footer-cta-strip span { font-size: .88rem; color: var(--text-muted); }
+.footer-cta-strip a {
+  font-size: .88rem; font-weight: 700; color: var(--accent);
+  white-space: nowrap; text-decoration: none; transition: opacity .2s;
+}
+.footer-cta-strip a:hover { opacity: .8; }
+
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-cta-strip { flex-direction: column; text-align: center; gap: .5rem; }
 }
 </style>
